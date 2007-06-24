@@ -25,7 +25,7 @@
 \DeclareMathOperator{\VaR}{VaR}
 \DeclareMathOperator{\CVaR}{CVaR}
 
-\title[Electricity Market Regulation] 
+\title[An Investment Model of the Wholesale Electricity Market in Austria] 
 {An Investment Model of the Wholesale \\Electricity Market in Austria}
 
 \author[Anton Burger\and Robert Ferstl]{Anton Burger\inst{1} \and Robert Ferstl\inst{2}}
@@ -70,61 +70,58 @@ Vienna University of Economics and Business Administration}
 
 \section{Motivation}
 
-\begin{frame}
-\frametitle{Motivation}
-%\framesubtitle{}
-\begin{itemize}
-   \item \textcolor{craneblue}{\textbf{How can a company find an optimal cash management strategy including uncertainty?}}
-    \begin{itemize}
-        \item risk aversion of the company
-        \item initial holdings in cash, bonds and stocks
-         \item transaction costs
-         \item \textcolor{alert}{\textbf{uncertainty}} of future short-term interest rate and equity returns
-     \end{itemize}
-\end{itemize}
-\vspace{0.2cm}
-\pause
-\begin{beamerboxesrounded}[shadow=true]{Model features}
-  $\Rightarrow$ \textcolor{craneblue}{\textbf{Multi-stage stochastic linear program}}
-  \begin{itemize}
-    \item based on bond portfolio management model, Dupacova and Bertocchi (2001), Bertocchi et al. (2006)
-    \item possible assets are cash, bonds and stocks
-    \item objective function minimizes a \textcolor{alert}{risk measure} ($\CVaR$)
-    \item scenario generation for interest rates with short rate model, plus \textcolor{alert}{extension for equity returns}
-    \item change of measure to real world with \textcolor{alert}{market price of risk} estimation
-  \end{itemize}
-\end{beamerboxesrounded}
-\end{frame}
-
 
 \section{References}
 \scriptsize
-%\tiny
 
 \begin{frame}[allowframebreaks]
       \frametitle<presentation>{References}
 
       \begin{thebibliography}{8}
 
-%      \beamertemplatebookbibitems
-%        \bibitem{Birge1997}
-%       John R. Birge, Francois Louveaux
-%       \newblock Introduction to Stochastic Programming
-%       \newblock {\em Springer}, 1997
+\beamertemplatebookbibitems
+\bibitem{Haurie2005}
+Alain Haurie and Georges Zaccour
+\newblock Dynamic Games: Theory and Applications
+\newblock {\em Springer}, 2005
 
-    %\framebreak
+%\framebreak
 
-    \beamertemplatearticlebibitems
+\beamertemplatearticlebibitems
 
-    \bibitem{Genc2007}
-    Talat S. Genc and Stanley S. Reynolds and Suvrajeet Sen
-    \newblock Dynamic oligopolistic games under uncertainty: A stochastic programming approach
-    \newblock {\em Journal of Economic Dynamics and Control}, 31(1):55-80, 2007 
+\bibitem{Chaton2003}
+Corinne Chaton and Joseph A. Doucet
+\newblock Uncertainty and Investment in Electricity Generation with an Application to the Case of Hydro-Quebec 
+\newblock{\em Annals of Operations Research}, 120(1):59-80, 2003
+    
+\bibitem{Genc2007}
+Talat S. Genc and Stanley S. Reynolds and Suvrajeet Sen
+\newblock Dynamic oligopolistic games under uncertainty: A stochastic programming approach
+\newblock {\em Journal of Economic Dynamics and Control}, 31(1):55-80, 2007 
 
-    \bibitem{Murphy2005}
-    Frederic H. Murphy and Yves Smeers
-    \newblock Generation Capacity Expansion in Imperfectly Competitive Restructured Electricity Markets
-    \newblock {\em Operations Research}, 53(4):646--661, 2005
+\bibitem{Murphy2005}
+Frederic H. Murphy and Yves Smeers
+\newblock Generation Capacity Expansion in Imperfectly Competitive Restructured Electricity Markets
+\newblock {\em Operations Research}, 53(4):646--661, 2005
+	
+\bibitem{Pineau2003}
+Pierre-Olivier Pineau and Pauli Murto
+\newblock An Oligopolistic Investment Model of the Finnish Electricity Market
+\newblock{\em Annals of Operations Research}, 121(1):123-148, 2003
+
+\bibitem{Pineau2007}
+Pierre-Olivier Pineau and Georges Zaccour
+\newblock An Oligopolistic Electricity Model with Interdependent Market Segments
+\newblock{\em The Energy Journal}, 28(3):, 2007
+
+\bibitem{Salant1982}
+Stephen W. Salant
+\newblock Imperfect Competition in the International Energy Market: A Computerized Nash-Cournot Model \newblock{\em Operations Research}, 30(2): 252-280, 1982
+
+\bibitem{Ventosa2005}
+Mariano Ventosa, Alvaro Baillo, Andres Ramos and Michel Rivier
+\newblock Electricity market modeling trends
+\newblock{\em Energy Policy}, 33(7): 897-913, 2005
 
    \end{thebibliography}
 \end{frame}
