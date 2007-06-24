@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{a4wide}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{natbib}
+%\usepackage{jurabib}
+   %\jurabibsetup{  
+     %authorformat=and  
+    % commabeforerest,  
+    % titleformat=colonsep,  
+    % bibformat=tabular  
+   %}  
+
+\usepackage[bookmarks=true, bookmarksopen=true,
+                bookmarksnumbered=true, colorlinks,citecolor = blue,
+                filecolor=blue, linkcolor=red, urlcolor=red,
+                plainpages=false,hyperindex=true]{hyperref}
+\hypersetup{
+        pdftitle={An Investment Model of the Wholesale Electricity Market in Austria},
+        pdfauthor={Anton Burger and Robert Ferstl},
+        pdfsubject={},
+        pdfkeywords={},
+        pdfcreator={},
+        pdfproducer={}
+     }
+
+%\usepackage{natbib}
+%\usepackage{dingbat}
+\usepackage{amsmath,amstext}
+%\usepackage{manfnt}
+
+\setlength{\parindent}{0.0cm}                      % Absatzeinrückungen
+\setlength{\parskip}{1.5ex plus 0.5ex minus 0.5ex} % Absatzabstände
+%\renewcommand{\arraystretch}{1.5}                 % Zeilenabstand in Tabellen
+
+
+\begin{document}
+\title{An Investment Model of the Wholesale \\Electricity Market in Austria}
+\author{Anton Burger and Robert Ferstl}
+\maketitle
+\abstract{
+The paper discusses a model for capacity investment decisions in a deregulated electricity market. The problem is formulated as dynamic oligopoly game and solved under different information structures, i.e. open-loop, closed-loop, feedback. An example is given for the Austrian wholesale electricity market.
+%We solve an asymmetric n-player oligopoly problem with a simulation approach. Each company can choose between several production technologies, which differ in terms of fixed and variable costs. We use empirical data of the Austrian electricity market for the parameters of the cost functions. The results allow quantifying the impact of regulatory measures, e.g. number of players, strategic 
+%behaviour, market design and technology choice.
+}
+
+\input{introduction/introduction.tex}
+\input{capacity/capacity.tex}
+\input{games/games.tex}
+\input{model/model.tex}
+\input{data/data.tex}
+
+%------------------------------------------------------
+
+\markboth{References}{References} %\frenchspacing
+\bibliographystyle{chicago}
+%\nocite{*}
+\bibliography{microsim}
+\end{document}

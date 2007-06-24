@@ -1,0 +1,132 @@
+
+\documentclass[mathserif,10pt]{beamer}
+\hypersetup{pdfmode=FullScreen}
+%\usepackage{pgfpages}
+%\usepackage{qtree}
+
+\mode<presentation>
+{
+  \usetheme{shadow}
+  \usecolortheme{crane}
+  \setbeamercovered{transparent}
+  \useoutertheme{infolines}
+}
+
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb,amsmath,amsthm, amsbsy, bm}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\dd}{\mathrm{d}}
+\beamertemplatenavigationsymbolsempty
+\DeclareMathOperator{\maximize}{maximize}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\V}{V\mathbb{V}}
+\DeclareMathOperator{\VaR}{VaR}
+\DeclareMathOperator{\CVaR}{CVaR}
+
+\title[Electricity Market Regulation] 
+{An Investment Model of the Wholesale \\Electricity Market in Austria}
+
+\author[Anton Burger\and Robert Ferstl]{Anton Burger\inst{1} \and Robert Ferstl\inst{2}}
+
+
+\institute[]{
+\inst{1}Institute for Operations Research\\
+Vienna University of Economics and Business Administration
+\and
+\inst{2}Institute for Regulatory Economics\\
+Vienna University of Economics and Business Administration}
+
+\date[INFORMS]{\scriptsize\em \textbf{INFORMS International Conference,\\Puerto Rico\\\vspace{0.2cm} July 8-11, 2007}}
+
+\pgfdeclareimage[height=1.0cm]{wu-logo}{wu-logo}
+\logo{\pgfuseimage{wu-logo}}	% show logo
+
+%\setbeameroption{show notes}
+\setbeameroption{hide notes}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section<presentation>*{Outline}
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[current,currentsubsection]
+%  \end{frame}
+%}
+
+
+
+
+\section{Motivation}
+
+\begin{frame}
+\frametitle{Motivation}
+%\framesubtitle{}
+\begin{itemize}
+   \item \textcolor{craneblue}{\textbf{How can a company find an optimal cash management strategy including uncertainty?}}
+    \begin{itemize}
+        \item risk aversion of the company
+        \item initial holdings in cash, bonds and stocks
+         \item transaction costs
+         \item \textcolor{alert}{\textbf{uncertainty}} of future short-term interest rate and equity returns
+     \end{itemize}
+\end{itemize}
+\vspace{0.2cm}
+\pause
+\begin{beamerboxesrounded}[shadow=true]{Model features}
+  $\Rightarrow$ \textcolor{craneblue}{\textbf{Multi-stage stochastic linear program}}
+  \begin{itemize}
+    \item based on bond portfolio management model, Dupacova and Bertocchi (2001), Bertocchi et al. (2006)
+    \item possible assets are cash, bonds and stocks
+    \item objective function minimizes a \textcolor{alert}{risk measure} ($\CVaR$)
+    \item scenario generation for interest rates with short rate model, plus \textcolor{alert}{extension for equity returns}
+    \item change of measure to real world with \textcolor{alert}{market price of risk} estimation
+  \end{itemize}
+\end{beamerboxesrounded}
+\end{frame}
+
+
+\section{References}
+\scriptsize
+%\tiny
+
+\begin{frame}[allowframebreaks]
+      \frametitle<presentation>{References}
+
+      \begin{thebibliography}{8}
+
+%      \beamertemplatebookbibitems
+%        \bibitem{Birge1997}
+%       John R. Birge, Francois Louveaux
+%       \newblock Introduction to Stochastic Programming
+%       \newblock {\em Springer}, 1997
+
+    %\framebreak
+
+    \beamertemplatearticlebibitems
+
+    \bibitem{Genc2007}
+    Talat S. Genc and Stanley S. Reynolds and Suvrajeet Sen
+    \newblock Dynamic oligopolistic games under uncertainty: A stochastic programming approach
+    \newblock {\em Journal of Economic Dynamics and Control}, 31(1):55-80, 2007 
+
+    \bibitem{Murphy2005}
+    Frederic H. Murphy and Yves Smeers
+    \newblock Generation Capacity Expansion in Imperfectly Competitive Restructured Electricity Markets
+    \newblock {\em Operations Research}, 53(4):646--661, 2005
+
+   \end{thebibliography}
+\end{frame}
+
+\end{document}
