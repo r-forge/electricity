@@ -90,6 +90,6 @@ cxMin=10
 
 [Frame2_View0,0]
 Cursor.row=6
-Cursor.column=14
+Cursor.column=23
 TopSubLine=0
 
