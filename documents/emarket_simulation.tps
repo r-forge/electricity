@@ -31,9 +31,9 @@ cxCur=917
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=59
+Cursor.row=60
 Cursor.column=0
-TopSubLine=79
+TopSubLine=80
 
 [Frame1]
 Columns=1
@@ -89,7 +89,7 @@ cxCur=829
 cxMin=10
 
 [Frame2_View0,0]
-Cursor.row=6
-Cursor.column=24
-TopSubLine=0
+Cursor.row=40
+Cursor.column=0
+TopSubLine=57
 
