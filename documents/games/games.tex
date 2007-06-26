@@ -1,6 +1,57 @@
 \section{Strategic capacity investment decisions under imperfect competition}
 
-\subsection{Cournot solution}
+In this section we will first describe a short run Cournot solution of an oligopolistic market. There could be, however also other forms of competition which clear the market in the short run. The Cournot solution can be said to be a reasonable description of reality if firms cannot serve any quantity which might be demanded noch schaun church
+
+This seems to be true for periods in which capacities are constrained for off peak periods however \cite{Bergman1995} argue that Bertrand competition is a more reasonable assumption as there are abundant capacities and so one could assume that enterprises will compete over prices rather than in quantities.
+
+\cite{Klemperer1989} however, describe competition by a so called supply function equilibrium in which firms do not only set fixed prices (Bertrand) or quantities (Cournot) but schedules which say how much they would be willing to sell for which price. As marginal costs in the electricity industry vary considerably between base load and peak load plants, such a strategy seems well suited.
+
+We will, however (for now) stick to the Cournot solution.
+
+\subsection{Cournot solution - short run equilibrium}
+
+In order to demonstrate Cournot competition we shall directly use a simplified version of the model from \cite{Murphy2005} which describes a duopolistic electricity market. Firm $i$ solves the following optimization problem:
+
+\begin{gather}
+	\min_{x_i,y_i} \left[ - \alpha + \beta (y_i+y_-i) \right] y_i + v_i y_i + K_i x_i \\
+\text{s.t.:} \  x_i-y_i \geq 0; \  y_i \geq 0; \ \nonumber
+\end{gather}
+
+Note that this problem is written as a minimization problem which is equivalent to profit maximization. Every firm maximizes it큦 revenues and minimizes it큦 costs. The term in brackets is the inverse demand function. The price a firm can get for electricity is equal to $\alpha$ minus $\beta$ times quantities $y_i+y_-i$ supplied by the two firms. Price times quantity gives the revenues of firm $i$. Costs consist of variable costs $v_i$ plus capacity costs which are given by $K_i$ (cost per unit of capacity) times $x_i$ (capacity installed).
+
+For now, we shall ignore the choice of capacity ($x_i$) and focus on the short run market behavior of firm $i$. Firm $i$ sets it큦 quantity under the assumption that the other firm will not alter it큦 quantity. So $y_{-i}$ is treated as a constant when differentiating:
+
+\begin{equation}
+	\frac{\partial (- \pi)}{\partial y_i} = -\alpha + 2 \beta y_i +  y_{-i} + v_i + \lambda_i = \omega_i
+\end{equation}
+
+As we have the special case of linear cost functions here, there are also some other Karush Kuhn Tucker conditions for optimality which are omitted for the sake of shortness \citep[see][pg. 650]{Murphy2005}. The optimum for player $-i$ has the same first order condition but with the indices $i$ and $-i$ interchanged. Every first order condition can now be used to form a reaction function $y_i(y_{-i};x)$ which gives the optimal quantity player $y_i$ would offer given that the other player offers $y_{-i}$ for a given level of capacity. The point of intersection of the reaction functions then defines a state at which each player gives an optimal response to the other player큦 strategy, so it is a Nash equilibrium.
 
 \subsection{Dynamic games and information structures}
 
+As already mentioned earlier, firms could invest into capacities in a first stage before participating in market competition in the second stage. In Game Theory there are two possible information structures which lead to open or closed loop equilibria. In the open loop information structure every firm is forced to only condition their actions on calendar time which means that it cannot get any new information in later periods. Essentially, an open loop information structure leads to a static game as all decisions have to be taken at the beginning of the game. \cite{Tirole2004}
+If the players can condition their strategies on other variables in addition to calendar time, such as actions of their rivals or actions taken by nature they might prefer closed loop strategies. When open loop strategies are feasible, open loop strategies will typically not be in open loop strategies as subgame perfection requires players to respond optimally to the realizations of random variables and actions of other players \citep[see][pg. 131]{Tirole2004}. Open loop structures are easier to solve and provide two further advantages which will be discussed further below.
+Consider the above example again and assume that firms set capacities and quantities simultaneously so we assume an open loop information structure.
+The first order conditions for player $i$ are:
+\begin{equation}
+	\frac{\partial (- \pi)}{\partial y_i} = -\alpha + 2 \beta y_i +  y_{-i} + v_i + \lambda_i = \omega_i 
+\end{equation}
+\begin{equation}
+	\frac{\partial (- \pi)}{\partial x_i} = K_i = \lambda_i
+\end{equation}
+
+Again, there are other Karush Kuhn Tucker conditions as well which we omit. In the open loop information structure there has to be a Nash equilibrium in quantities \textbf{and} capacities. What we do not consider here, is that in the second period firms might adjust the quantities they decide to offer when they observe the capacity of their counter players. If this is the case, it could well be that a firm which invests a lot into capacity makes a credible commitment to produce a high quantity in period two, thereby inducing the other firm to produce less and gaining market share as in the models of \cite{Spence1977} and \cite{Dixit1980}.
+
+In our case, quantities in the second period are now a function of investments in the first period $y_i(x_i;x_{-i})$ so the optimization problem player $i$ faces under a closed loop information structure is now:
+
+\begin{equation}
+	\min_{x_i} \left[ - \alpha + \beta( y_i(x_i;x_{-i})+ y_{-i}(x_i;x_{-i})) + v_i \right] y_i(x_i;x_{-i}) + K_i x_i
+\end{equation}
+
+A closed loop equilibrium at such a point has to satisfy the condition:
+
+\begin{equation}
+	\frac{\partial (- \pi)}{\partial x_i} = \left[-\alpha + 2 \beta y_i (\cdot) + y_{-i}(\cdot) + v_i \right] \frac{\partial y_i (\cdot)}{\partial x_i} + \beta y_i (\cdot) \frac{\partial y_{-i} (\cdot)}{\partial x_i} + K_i
+\end{equation}
+
+The effect an investment of player $i$ has on the decision of the other player $\partial y_{-i} (\cdot)/\partial x_i$ in the second period is now taken into account. If this effect is negative, player $i$ has an incentive to increase it큦 investment relative to the open loop equilibrium. Apart from the obvious drawback that they do not account for such a strategic effect, open loop strategies can still serve as a benchmark to see the magnitude of strategic incentives. Moreover, if the number of players is high, open loop equilibria provide a good approximation as strategic effects become negligible as the number of players increase.
