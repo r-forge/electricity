@@ -31,9 +31,9 @@ cxCur=510
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=169
-Cursor.column=640
-TopSubLine=365
+Cursor.row=82
+Cursor.column=0
+TopSubLine=154
 
 [Frame1]
 Columns=1
@@ -52,15 +52,15 @@ Class=CLatexEdit
 Document=..\presentations\capacity\capacity.tex
 
 [Frame1_Row0]
-cyCur=374
+cyCur=694
 cyMin=10
 
 [Frame1_Col0]
-cxCur=606
+cxCur=1251
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=0
-Cursor.column=0
-TopSubLine=0
+Cursor.row=133
+Cursor.column=23
+TopSubLine=120
 
