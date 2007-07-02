@@ -2,15 +2,16 @@
 
 \subsection{Peak load Pricing}
 
-\begin{frame}
-\frametitle{How much capacity is optimal?}
+					\begin{frame}
+					
+\frametitle{Optimal Peak Load Pricing and perfect Competition}
 \begin{columns}
 \begin{column} {0.4\textwidth}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=1.\textwidth]{capacity/peak_load_opt}
-    \caption{von der Fehr and Harbord (1997)}
+    \caption{von der Fehr and Harbord (1994)}
     \label{fig:Daten 2004}            
 \end{figure}
 \end{column}
@@ -18,18 +19,145 @@
 \begin{column} {0.6\textwidth}
 \begin{itemize}
 \item Optimal Capacity should be set such as to equate marginal benefits and costs from one unit of capacity
-\end {itemize}
-  
+\end{itemize}
+
 \begin{equation}
-	c=(p^p-v)*v
+	c=(p^p-v)*\pi
 \end{equation}
+
+{\small
+\begin{tabbing}
+whereby: \= $c$ \  \= per unit cost of capacity \\
+\> $p^p$   \    \> peak period price  \\
+\> $v$    \   \> variable costs \\
+\> $\pi$    \    \> chance to pave a peak period
+\end{tabbing}}
 
 \begin{itemize}
 \item Which is exactly what a perfectly competitive firm would do
+\end {itemize}
+
+\begin{itemize}
+\item Note that we assume price rationing and no rationing costs
+\end {itemize}
+
+\end{column}
+\end{columns}
+
+							\end{frame}
+							\begin{frame}
+
+\frametitle{Distorted Incentives under imperfect Competition I}
+\begin{columns}
+\begin{column} {0.4\textwidth}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.\textwidth]{capacity/peak_load_toohigh}
+    \caption{von der Fehr and Harbord (1994)}
+    \label{fig:Daten 2004}            
+\end{figure}
+\end{column}
+
+\begin{column} {0.6\textwidth}
+\begin{itemize}
+\item prices $>$ marginal costs in off peak periods 
+\item additional incentive to invest by a possible gain during off peak periods if capacity allows to steal business
+\end {itemize}
+  
+\begin{equation}
+	1/2 (1-\pi) (p^{op}-v)
+\end{equation} 
+{\small
+\begin{tabbing}
+whereby: \= $p^{op}$ \  \= off peak price
+\end{tabbing}}
+
+\begin{itemize}
+\item the social optimality condition is the same as before
+\item distortion toward too much investment
 \end {itemize}
 
 \end{column}
 \end{columns}
 	
 
-\end{frame}
+							\end{frame}
+							\begin{frame}
+
+\frametitle{Distorted Incentives under imperfect Competition II}
+\begin{columns}
+\begin{column} {0.4\textwidth}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.\textwidth]{capacity/peak_load_insufficient}
+    \caption{von der Fehr and Harbord (1994)}
+    \label{fig:Daten 2004}            
+\end{figure}
+\end{column}
+
+\begin{column} {0.6\textwidth}
+\begin{itemize}
+\item there might be an incentive to cut investments to drive up the price in peak periods
+\end {itemize}
+
+\begin{equation}
+\pi (w^p(K)+\frac{\partial w^p(K)}{\partial q}-v)
+\end{equation}
+
+{\small
+\begin{tabbing}
+\= $w^p$ \  \= peak period demand function \\
+\> $K$   \    \> capacity
+\end{tabbing}}
+
+\begin{itemize}
+\item as we switched to imperfect competition, the change in price induced by more capacity has to be accounted for
+\item as this effect is negative, incentives to invest are distorted downwards
+\end {itemize}
+
+\end{column}
+\end{columns}
+	
+
+			\end{frame}
+			\begin{frame}
+
+\frametitle{The optimal Technology Mix I}
+\begin{columns}
+\begin{column} {0.4\textwidth}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.\textwidth]{capacity/technology_choice_chow}
+    \caption{Chau (1983)}
+    \label{fig:Daten 2004}            
+\end{figure}
+\end{column}
+
+\begin{column} {0.6\textwidth}
+\begin{itemize}
+\item there might be an incentive to cut investments to drive up the price in peak periods
+\end {itemize}
+
+\begin{equation}
+\pi (w^p(K)+\frac{\partial w^p(K)}{\partial q}-v)
+\end{equation}
+
+{\small
+\begin{tabbing}
+\= $w^p$ \  \= peak period demand function \\
+\> $K$   \    \> capacity
+\end{tabbing}}
+
+\begin{itemize}
+\item as we switched to imperfect competition, the change in price induced by more capacity has to be accounted for
+\item as this effect is negative, incentives to invest are distorted downwards
+\end {itemize}
+
+\end{column}
+\end{columns}
+	
+
+			\end{frame}
