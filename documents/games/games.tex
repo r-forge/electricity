@@ -13,16 +13,16 @@ We will, however (for now) stick to the Cournot solution.
 In order to demonstrate Cournot competition we shall directly use a simplified version of the model from \cite{Murphy2005} which describes a duopolistic electricity market. Firm $i$ solves the following optimization problem:
 
 \begin{gather}
-	\min_{x_i,y_i} \left[ - \alpha + \beta (y_i+y_-i) \right] y_i + v_i y_i + K_i x_i \\
-\text{s.t.:} \  x_i-y_i \geq 0; \  y_i \geq 0; \ \nonumber
+	\min_{x_i,y_i^s} \sum_s \left[ - \alpha^s + \beta (y_i^s+y_{-i}^s) \right] y_i^s + v_i \sum_s y_i^s + K_i x_i \\
+\text{s.t.:} \  x_i-y_i^s \geq 0; \  y_i^s \geq 0; \ \nonumber
 \end{gather}
 
-Note that this problem is written as a minimization problem which is equivalent to profit maximization. Every firm maximizes it큦 revenues and minimizes it큦 costs. The term in brackets is the inverse demand function. The price a firm can get for electricity is equal to $\alpha$ minus $\beta$ times quantities $y_i+y_-i$ supplied by the two firms. Price times quantity gives the revenues of firm $i$. Costs consist of variable costs $v_i$ plus capacity costs which are given by $K_i$ (cost per unit of capacity) times $x_i$ (capacity installed).
+Note that this problem is written as a minimization problem which is equivalent to profit maximization. Every firm maximizes it큦 revenues and minimizes it큦 costs. The term in brackets is the inverse demand function. The price a firm can get for electricity is equal to $\alpha^s$ minus $\beta^s$ times quantities $y_i^s+y_{-i}^s$ supplied by the two firms. Price times quantity gives the revenues of firm $i$. Costs consist of variable costs $v_i$ plus capacity costs which are given by $K_i$ (cost per unit of capacity) times $x_i$ (capacity installed).
 
-For now, we shall ignore the choice of capacity ($x_i$) and focus on the short run market behavior of firm $i$. Firm $i$ sets it큦 quantity under the assumption that the other firm will not alter it큦 quantity. So $y_{-i}$ is treated as a constant when differentiating:
+For now, we shall ignore the choice of capacity ($x_i$) and focus on the short run market behavior of firm $i$. Firm $i$ sets it큦 quantity under the assumption that the other firm will not alter it큦 quantity. So $y_{-i}^s$ is treated as a constant when differentiating:
 
 \begin{equation}
-	\frac{\partial (- \pi)}{\partial y_i} = -\alpha + 2 \beta y_i +  y_{-i} + v_i + \lambda_i = \omega_i
+	\frac{\partial (- \pi)}{\partial y_i} = -\alpha^s + 2 \beta y_i^s +  y_{-i}^s + v_i + \lambda_i^s = \omega_i^s
 \end{equation}
 
 As we have the special case of linear cost functions here, there are also some other Karush Kuhn Tucker conditions for optimality which are omitted for the sake of shortness \citep[see][pg. 650]{Murphy2005}. The optimum for player $-i$ has the same first order condition but with the indices $i$ and $-i$ interchanged. Every first order condition can now be used to form a reaction function $y_i(y_{-i};x)$ which gives the optimal quantity player $y_i$ would offer given that the other player offers $y_{-i}$ for a given level of capacity. The point of intersection of the reaction functions then defines a state at which each player gives an optimal response to the other player큦 strategy, so it is a Nash equilibrium.
@@ -34,24 +34,24 @@ If the players can condition their strategies on other variables in addition to 
 Consider the above example again and assume that firms set capacities and quantities simultaneously so we assume an open loop information structure.
 The first order conditions for player $i$ are:
 \begin{equation}
-	\frac{\partial (- \pi)}{\partial y_i} = -\alpha + 2 \beta y_i +  y_{-i} + v_i + \lambda_i = \omega_i 
+	\frac{\partial (- \pi)}{\partial y_i^s} = -\alpha^s + 2 \beta y_i^s +  y_{-i}^s + v_i + \lambda_i^s = \omega_i^s 
 \end{equation}
 \begin{equation}
-	\frac{\partial (- \pi)}{\partial x_i} = K_i = \lambda_i
+	\frac{\partial (- \pi)}{\partial x_i} = K_i = \sum_s \lambda_i^s
 \end{equation}
 
 Again, there are other Karush Kuhn Tucker conditions as well which we omit. In the open loop information structure there has to be a Nash equilibrium in quantities \textbf{and} capacities. What we do not consider here, is that in the second period firms might adjust the quantities they decide to offer when they observe the capacity of their counter players. If this is the case, it could well be that a firm which invests a lot into capacity makes a credible commitment to produce a high quantity in period two, thereby inducing the other firm to produce less and gaining market share as in the models of \cite{Spence1977} and \cite{Dixit1980}.
 
-In our case, quantities in the second period are now a function of investments in the first period $y_i(x_i;x_{-i})$ so the optimization problem player $i$ faces under a closed loop information structure is now:
+In our case, quantities in the second period are now a function of investments in the first period $y_i^s(x_i;x_{-i})$ so the optimization problem player $i$ faces under a closed loop information structure is now:
 
 \begin{equation}
-	\min_{x_i} \left[ - \alpha + \beta( y_i(x_i;x_{-i})+ y_{-i}(x_i;x_{-i})) + v_i \right] y_i(x_i;x_{-i}) + K_i x_i
+	\min_{x_i} \sum_{s=1}^S \left[ - \alpha^s + \beta( y_i^s(x_i;x_{-i})+ y_{-i}^s(x_i;x_{-i})) + v_i \right] y_i^s(x_i;x_{-i}) + K_i x_i
 \end{equation}
 
 A closed loop equilibrium at such a point has to satisfy the condition:
 
 \begin{equation}
-	\frac{\partial (- \pi)}{\partial x_i} = \left[-\alpha + 2 \beta y_i (\cdot) + y_{-i}(\cdot) + v_i \right] \frac{\partial y_i (\cdot)}{\partial x_i} + \beta y_i (\cdot) \frac{\partial y_{-i} (\cdot)}{\partial x_i} + K_i
+	\frac{\partial (- \pi)}{\partial x_i} = \sum_s \left[-\alpha^s + 2 \beta y_i^s (\cdot) + \beta y_{-i}^s(\cdot) + v_i \right] \frac{\partial y_i^s (\cdot)}{\partial x_i} + \sum_s \beta y_i^s (\cdot) \frac{\partial y_{-i}^s (\cdot)}{\partial x_i} + K_i
 \end{equation}
 
 The effect an investment of player $i$ has on the decision of the other player $\partial y_{-i} (\cdot)/\partial x_i$ in the second period is now taken into account. If this effect is negative, player $i$ has an incentive to increase it큦 investment relative to the open loop equilibrium. Apart from the obvious drawback that they do not account for such a strategic effect, open loop strategies can still serve as a benchmark to see the magnitude of strategic incentives. Moreover, if the number of players is high, open loop equilibria provide a good approximation as strategic effects become negligible as the number of players increase.

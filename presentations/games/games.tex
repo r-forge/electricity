@@ -6,12 +6,45 @@
 					
 \frametitle{The short run or open loop Game}
 
-							\end{frame}
+The duopoly Cournot model for an electricity Market from Murphy and Smeers (2005)
+\begin{gather}
+	\min_{x_i,y_i^s} \sum_s \left[ - \alpha^s + \beta (y_i^s+y_{-i}^s) \right] y_i^s + v_i \sum_s y_i^s + K_i x_i \\
+\text{s.t.:} \  x_i-y_i^s \geq 0; \  y_i^s \geq 0; \ \nonumber
+\end{gather}
+{\small
+\begin{tabbing}
+whereby: \= $y_i^s$ \  \= output per player and demand segment \\
+\> $x_i$   \    \> capacity  \\
+\> $\alpha - \beta y$    \   \= inverse demand curve \\
+\> $v_i, K_i$    \    \> variable and capacity costs
+\end{tabbing}}
+The first order conditions are:
+\begin{equation}
+	\frac{\partial (- \pi)}{\partial y_i^s} = -\alpha^s + 2 \beta y_i^s +  y_{-i}^s + v_i + \lambda_i^s = \omega_i^s 
+\end{equation}
+By using the first order condition to obtain reaction functions, the mutual best responses can be found
+					\end{frame}
+
 
 \subsection{Closed loop Equilibrium}
 
 					\begin{frame}
 					
 \frametitle{Closed loop Equilibrium}
+
+We have to solve the problem now, under the assumption that the quantities in the second period are a function of investments in the first period $y_i^s(x_i;x_{-i})$.
+
+\begin{equation}
+	\min_{x_i} \sum_{s=1}^S \left[ - \alpha^s + \beta( y_i^s(x_i;x_{-i})+ y_{-i}^s(x_i;x_{-i})) + v_i \right] y_i^s(x_i;x_{-i}) + K_i x_i
+\end{equation}
+
+and the solution has to satisfy the following condition:
+
+\begin{equation}
+	\frac{\partial (- \pi)}{\partial x_i} = \sum_s \left[-\alpha^s + 2 \beta y_i^s (\cdot) + \beta y_{-i}^s(\cdot) + v_i \right] \frac{\partial y_i^s (\cdot)}{\partial x_i} + \sum_s \beta y_i^s (\cdot) \frac{\partial y_{-i}^s (\cdot)}{\partial x_i} + K_i
+\end{equation}
+
+The effect of an investment of player $i$ on the action of player $-i$ in the second period $\partial y_{-i} (\cdot)/\partial x_i$ is now taken into account.
+
 
 							\end{frame}
