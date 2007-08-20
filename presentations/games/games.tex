@@ -1,12 +1,13 @@
-\section{Strategic Capacity Investments under imperfect Competition}
+\section{Strategic Capacity Investments under Imperfect Competition}
 
-\subsection{The short run or open loop Game}
+\subsection{Open-Loop Cournot Model}
 
-					\begin{frame}
+\begin{frame}
 					
-\frametitle{The short run or open loop Game}
+\frametitle{Open-Loop Cournot Model (Murphy and Smeers, 2005)}
 
-The duopoly Cournot model for an electricity Market from Murphy and Smeers (2005)
+\begin{beamerboxesrounded}
+{Problem of generator $i$ in the \alert{short-run}}
 \begin{gather}
 	\min_{x_i,y_i^s} \sum_s \left[ - \alpha^s + \beta (y_i^s+y_{-i}^s) \right] y_i^s + v_i \sum_s y_i^s + K_i x_i \\
 \text{s.t.:} \  x_i-y_i^s \geq 0; \  y_i^s \geq 0; \ \nonumber
@@ -18,27 +19,32 @@ whereby: \= $y_i^s$ \  \= output per player and demand segment \\
 \> $\alpha - \beta y$    \   \= inverse demand curve \\
 \> $v_i, K_i$    \    \> variable and capacity costs
 \end{tabbing}}
-The first order conditions are:
+\end{beamerboxesrounded}
+\vspace{0.3cm}
+\textbf{First order conditions:}
 \begin{equation}
 	\frac{\partial (- \pi)}{\partial y_i^s} = -\alpha^s + 2 \beta y_i^s +  y_{-i}^s + v_i + \lambda_i^s = \omega_i^s 
 \end{equation}
-By using the first order condition to obtain reaction functions, the mutual best responses can be found
-					\end{frame}
+By using the FOCs to obtain reaction functions, the \emph{mutual best responses} can be found.
+\end{frame}
 
+\subsection{Closed-Loop Cournot Model}
 
-\subsection{Closed loop Equilibrium}
-
-					\begin{frame}
+\begin{frame}
 					
-\frametitle{Closed loop Equilibrium}
+\frametitle{Closed-Loop Cournot Model (Murphy and Smeers, 2005)}
 
-We have to solve the problem now, under the assumption that the quantities in the second period are a function of investments in the first period $y_i^s(x_i;x_{-i})$.
+Quantities in the second period are a function of investments in the first period, i.e. the solution of the short-run equilibrium $y_i^s(x_i;x_{-i})$.
 
+\vspace{0.3cm}
+\begin{beamerboxesrounded}{Problem of generator $i$ in the \alert{long-run}}
 \begin{equation}
 	\min_{x_i} \sum_{s=1}^S \left[ - \alpha^s + \beta( y_i^s(x_i;x_{-i})+ y_{-i}^s(x_i;x_{-i})) + v_i \right] y_i^s(x_i;x_{-i}) + K_i x_i
 \end{equation}
+\end{beamerboxesrounded}
+\vspace{0.3cm}
 
-and the solution has to satisfy the following condition:
+\textbf{First order conditions:}
 
 \begin{equation}
 	\frac{\partial (- \pi)}{\partial x_i} = \sum_s \left[-\alpha^s + 2 \beta y_i^s (\cdot) + \beta y_{-i}^s(\cdot) + v_i \right] \frac{\partial y_i^s (\cdot)}{\partial x_i} + \sum_s \beta y_i^s (\cdot) \frac{\partial y_{-i}^s (\cdot)}{\partial x_i} + K_i
