@@ -1,0 +1,133 @@
+\documentclass[mathserif,9pt]{beamer}
+\hypersetup{pdfmode=FullScreen}
+%\usepackage{pgfpages}
+%\usepackage{qtree}
+
+\mode<presentation>
+{
+  \usetheme{shadow}
+  \usecolortheme{crane}
+  \setbeamercovered{transparent}
+  \useoutertheme{infolines}
+}
+
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb,amsmath,amsthm, amsbsy, bm}
+\usepackage{enumerate}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\dd}{\mathrm{d}}
+\beamertemplatenavigationsymbolsempty
+\DeclareMathOperator{\maximize}{maximize}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\V}{V\mathbb{V}}
+\DeclareMathOperator{\VaR}{VaR}
+\DeclareMathOperator{\CVaR}{CVaR}
+
+\title[An Investment Model of the Wholesale Electricity Market in Austria] 
+{An Investment Model of the Wholesale \\Electricity Market in Austria}
+
+\author[Anton Burger\and Robert Ferstl]{Anton Burger\inst{1} \and Robert Ferstl\inst{2}}
+
+
+\institute[]{
+\inst{1}Institute for Operations Research\\
+Vienna University of Economics and Business Administration
+\and
+\inst{2}Institute for Regulatory Economics\\
+Vienna University of Economics and Business Administration}
+
+\date[INFORMS]{\scriptsize\em \textbf{INFORMS International Conference,\\Puerto Rico\\\vspace{0.2cm} July 8-11, 2007}}
+
+\pgfdeclareimage[height=1.0cm]{wu-logo}{wu-logo}
+\logo{\pgfuseimage{wu-logo}}	% show logo
+
+%\setbeameroption{show notes}
+\setbeameroption{hide notes}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section<presentation>*{Outline}
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+
+
+\input{introduction/introduction.tex}
+\input{capacity/capacity.tex}
+\input{games/games.tex}
+\input{conclusion/conclusion.tex}
+
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[current,currentsubsection]
+%  \end{frame}
+%}
+
+
+
+
+
+\section{References}
+\scriptsize
+
+\begin{frame}[allowframebreaks]
+      \frametitle<presentation>{References}
+
+      \begin{thebibliography}{8}
+
+\beamertemplatebookbibitems
+\bibitem{Haurie2005}
+Alain Haurie and Georges Zaccour
+\newblock Dynamic Games: Theory and Applications
+\newblock {\em Springer}, 2005
+
+%\framebreak
+
+\beamertemplatearticlebibitems
+
+\bibitem{Chaton2003}
+Corinne Chaton and Joseph A. Doucet
+\newblock Uncertainty and Investment in Electricity Generation with an Application to the Case of Hydro-Quebec 
+\newblock{\em Annals of Operations Research}, 120(1):59-80, 2003
+    
+\bibitem{Genc2007}
+Talat S. Genc and Stanley S. Reynolds and Suvrajeet Sen
+\newblock Dynamic oligopolistic games under uncertainty: A stochastic programming approach
+\newblock {\em Journal of Economic Dynamics and Control}, 31(1):55-80, 2007 
+
+\bibitem{Murphy2005}
+Frederic H. Murphy and Yves Smeers
+\newblock Generation Capacity Expansion in Imperfectly Competitive Restructured Electricity Markets
+\newblock {\em Operations Research}, 53(4):646--661, 2005
+	
+\bibitem{Pineau2003}
+Pierre-Olivier Pineau and Pauli Murto
+\newblock An Oligopolistic Investment Model of the Finnish Electricity Market
+\newblock{\em Annals of Operations Research}, 121(1):123-148, 2003
+
+\bibitem{Pineau2007}
+Pierre-Olivier Pineau and Georges Zaccour
+\newblock An Oligopolistic Electricity Model with Interdependent Market Segments
+\newblock{\em The Energy Journal}, 28(3):, 2007
+
+\bibitem{Salant1982}
+Stephen W. Salant
+\newblock Imperfect Competition in the International Energy Market: A Computerized Nash-Cournot Model \newblock{\em Operations Research}, 30(2): 252-280, 1982
+
+\bibitem{Ventosa2005}
+Mariano Ventosa, Alvaro Baillo, Andres Ramos and Michel Rivier
+\newblock Electricity market modeling trends
+\newblock{\em Energy Policy}, 33(7): 897-913, 2005
+
+   \end{thebibliography}
+\end{frame}
+
+\end{document}
