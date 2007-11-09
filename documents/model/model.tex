@@ -6,6 +6,8 @@ Assumptions:
 	\item same discount rate on cashflows
 \end{itemize}
 
+The stochastic programming approach in \cite{Genc2007} makes it possible to compute $S$-adapted equilibra for much larger problems than is possible using dynamic programming.
+
 \subsection{Notation}
 
 \begin{longtable}[c]{l l}
@@ -14,7 +16,9 @@ $s\in S=\left\{ 1,2,\dots,\omega\right\}, \omega<\infty$ & scenarios\\
 $p_s$ & probability of scenario $s$\\
 $k\in K=\left\{ 1,2,\dots,m\right\}$ & available technologies\\
 $K_{i,k}^t$ & available capacity at time $t$ from technology $k$ for firm $i$\\
- 
+$q_{i,s}^t$ & quantitiy\\
+$I_{i,s}^t$ & investment quantities\\
+$\Pi_i=\sum_{s=1}^\omega p_s\Pi_{i,s}$ & total expected profit for player $i$
 \end{longtable}
 
 \subsection{Objective function}
