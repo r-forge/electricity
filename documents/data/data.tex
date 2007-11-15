@@ -1,6 +1,8 @@
 \section{Data}
 
-The middle European electricity Market cannot be restricted to one country only. However, we focus on Germany as the four biggest Players (EoN, RWE, Vattenfal and EnBW) and the most important electricity exchange in the Region, the EEX are situated there. There are, however, significant import capacities from the neighboring countries (see \cite{Ellersdorfer2005}p. 30). Other electricity Exchanges are the EXAA in Austria, the APX in The Netherlands and the Powernext in France. Apart from energy exchanges, there are OTC Markets as well for which data are hard to get. However, prices at the electricity exchange are generally regarded as a reliable price signal for the OTC Market. \cite{Holler2006} compare OTC prices and prices from the exchanges (EEX and EXAA) in Austria and Germany and conclude that both prices seem to reflect one market in the respective countries. Furthermore, they look at correlations between market prices at the different exchanges and come to the conclusion, that prices at the EEX, EXAA and Powernext are highly correlated. However, only about four percent of the French electricity consumption is traded at the spot market and the whole French industry is heavily dominated by EDF which casts some doubt on whether there is a working electricity market in France. This is why we do not model France as a strategic part of the market which does not mean that research on that topic would not be interesting. Furthermore, the only countries where transmission lines are not congested at the moment, are Germany and Austria\footnote{An Overview of Current Cross-boarder Congestion Management Methods in Europe, www.etso-net.org} which is why we restrict our analysis to the two latter countries.
+\subsection{The Market and Demand}
+
+The middle European electricity market cannot be restricted to one country only. However, we focus on Germany as the four biggest Players (EoN, RWE, Vattenfal and EnBW) and the most important electricity exchange in the Region, the EEX are situated there. There are, however, significant import capacities from the neighboring countries (see \cite{Ellersdorfer2005}p. 30). Other electricity Exchanges are the EXAA in Austria, the APX in The Netherlands and the Powernext in France. Apart from energy exchanges, there are OTC Markets as well for which data are hard to get. However, prices at the electricity exchanges are generally regarded as a reliable price signal for the OTC Market. \cite{Holler2006} compare OTC prices and prices from the exchanges (EEX and EXAA) in Austria and Germany and conclude that both prices seem to reflect one market in the respective countries. Furthermore, they look at correlations between market prices at the different exchanges and come to the conclusion, that prices at the EEX, EXAA and Powernext are highly correlated. However, only about four percent of the French electricity consumption is traded at the spot market and the whole French industry is heavily dominated by EDF which casts some doubt on whether there is a working electricity market in France. This is why we do not model France as a strategic part of the market which does not mean that research on that topic would not be interesting. Furthermore, the only countries where transmission lines are not congested at the moment, are Germany and Austria\footnote{An Overview of Current Cross-boarder Congestion Management Methods in Europe, www.etso-net.org} which is why we restrict our analysis to the two latter countries.
 \begin{figure}[h]
 \centering
 \includegraphics[width=.5\textwidth]{data/ldc}
@@ -39,19 +41,27 @@ source: UCTE and EEX \footnote{http://www.ucte.org/; http://www.eex.com/}
 
 \subsection{Supply}
 
+By considering fuel costs and average efficiencies of plants, we calculated variable costs per MWh of the different technologies (see \cite{Leprich2004}). For pump storage plants we used the real option value of peak load electricity which we approximated by the average option price for peak load electricity at the EEX in the year 2006. Fixed costs were obtained from business reports and homepages.
 
+\begin{table}
+\begin{tabular}{llll}
+ & Variable Costs & Fixed Costs &  \\ 
+Hydro & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{} &  \\ 
+Nuclear & \multicolumn{1}{c}{10.3} & \multicolumn{1}{c}{1760} &  \\ 
+Brown Coal & \multicolumn{1}{c}{13.8} & \multicolumn{1}{c}{1196} &  \\ 
+Hard Coal & \multicolumn{1}{c}{14.4} & \multicolumn{1}{c}{1050} &  \\ 
+CCGT & \multicolumn{1}{c}{19.2} & \multicolumn{1}{c}{550} &  \\ 
+Oil & \multicolumn{1}{c}{44} & \multicolumn{1}{c}{} &  \\ 
+Pump Storage & \multicolumn{1}{c}{80} &  &  \\ 
+\end{tabular}\label{tab:costs}
+\caption{Variable and Fixed Costs}
+\begin{center}
+source: \cite{Leprich2004} and different Homepages  \footnote{Homepages of RWE, EnBW, EoN and Vattenfall, www.oeko.de and www.izes.de}
+\end{center}
+\end{table}
 
+Capacities of the dominant players were obtained from the respective Homepages as well and used to create the following step wise supply functions from which smooth functions were obtained by fourth order approximations.
 
-Therefore, we need data for the major players in both countries. There are no serious network congestions on the border between Austria and Germany. (for reference see Todem)
-
-For the supply we need for every player
-
-\begin{itemize}
-\item variable and fixed costs,
-\item structure of the plant park.
-\end{itemize}
-
-Parameters for the demand curve are obtained from
 
 \begin{itemize}
 \item load duration curve
