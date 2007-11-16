@@ -60,13 +60,22 @@ source: \cite{Leprich2004} and different Homepages  \footnote{Homepages of RWE, 
 \end{center}
 \end{table}
 
-Capacities of the dominant players were obtained from the respective Homepages as well and used to create the following step wise supply functions from which smooth functions were obtained by fourth order approximations.
+Capacities of the dominant players were obtained from the respective Homepages as well and used to create the following step wise marginal cost functions from which smooth functions were obtained by fourth order polynomial approximations as shown in (\ref{eq:19})
+
+\begin{equation}
+  \label{eq:19}
+  C^t_{i} = c_1 + c_2 (\sum_{k=1}^m q^{t,s}_{i,m}) + c_3(\sum_{k=1}^m q^{t,s}_{i,m})^2 + c_4(\sum_{k=1}^m q^{t,s}_{i,m})^3 + (\sum_{k=1}^m q^{t,s}_{i,m})^4
+ \end{equation}
+
+However, there is an alternative marginal cost function which is able to capture different technology choices when it comes to investments.
+
+\begin{equation}
+  \label{eq:20}
+ \end{equation}
 
 
-\begin{itemize}
-\item load duration curve
-\item how parameters for demand functions from load duration curve
-\end{itemize}
+
+
 
 Show that Austrian players are fringe? 
 
