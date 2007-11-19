@@ -4,8 +4,8 @@ Version=2
 
 [SessionInfo]
 ActiveTab=0
-FrameCount=5
-ActiveFrame=4
+FrameCount=6
+ActiveFrame=5
 
 [Frame0]
 Columns=1
@@ -61,9 +61,9 @@ cxCur=654
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=65
+Cursor.row=59
 Cursor.column=0
-TopSubLine=140
+TopSubLine=132
 
 [Frame2]
 Columns=1
@@ -126,8 +126,8 @@ TopSubLine=0
 [Frame4]
 Columns=1
 Rows=1
-Flags=2
-ShowCmd=3
+Flags=0
+ShowCmd=1
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
@@ -140,15 +140,44 @@ Class=CLatexEdit
 Document=model\model.tex
 
 [Frame4_Row0]
-cyCur=403
+cyCur=260
 cyMin=10
 
 [Frame4_Col0]
-cxCur=996
+cxCur=856
 cxMin=10
 
 [Frame4_View0,0]
-Cursor.row=9
-Cursor.column=0
+Cursor.row=12
+Cursor.column=11
 TopSubLine=0
+
+[Frame5]
+Columns=1
+Rows=1
+Flags=2
+ShowCmd=3
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-4
+MaxPos.y=-23
+NormalPos.left=110
+NormalPos.top=110
+NormalPos.right=1162
+NormalPos.bottom=599
+Class=CLatexEdit
+Document=data\data.tex
+
+[Frame5_Row0]
+cyCur=689
+cyMin=10
+
+[Frame5_Col0]
+cxCur=1252
+cxMin=10
+
+[Frame5_View0,0]
+Cursor.row=77
+Cursor.column=0
+TopSubLine=69
 
