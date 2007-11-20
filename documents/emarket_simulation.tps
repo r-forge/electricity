@@ -177,7 +177,7 @@ cxCur=1252
 cxMin=10
 
 [Frame5_View0,0]
-Cursor.row=77
+Cursor.row=41
 Cursor.column=0
-TopSubLine=69
+TopSubLine=36
 
