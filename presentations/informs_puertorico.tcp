@@ -6,7 +6,7 @@ Version=4
 MainFile=informs_puertorico.tex
 UseBibTeX=1
 UseMakeIndex=0
-ActiveProfile=LaTeX => PS
+ActiveProfile=LaTeX => PDF
 ProjectLanguage=en
 ProjectDialect=US
 
