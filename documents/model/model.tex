@@ -44,15 +44,19 @@ Profit for each player $i$ in every period consists of the sum of profits made d
 A two stage game:
 
 \begin{gather}
-	\Pi_{i} = \sum_{h=1}^5 u_h \left[ P^1(Q) q^{1,k}_i-c(q^{1,k}_i) \right] - \sum_{k=1}^{m} I_{i}^{1,m}  ic_m +  \\
-	\sum_{s=1}^2 p_s \left[ \sum_{h=1}^5 u_h \left[ P^s(Q) q_i^{2,s,h}- c(q_i^{2,s,h}) \right] \right] \\
+	\Pi_{i} = \sum_{h=1}^5 u_h \left[ P^1(Q) q^{1,k}_i-C^1_i(q^{1,k}_i) \right] - \sum_{k=1}^{m} I_{i}^{1,m}  ic_m +  \\
+	\sum_{s=1}^2 p_s \left[ \sum_{h=1}^5 u_h \left[ P^s(Q) q_i^{2,s,h}- C^2_i(q_i^{2,s,h}) \right] \right] \\
 \text{s.t.:} \  	q^{1,k}_{i,m} \leq K^1_{i,m} \\
 									K^2_{i,m}= K^1_{i,m}+ I^1_{i,m} \\
 									q_i^{2,s,h} \leq K^2_{i,m} \\
              \    q^{1,k}_{i,m} \geq 0;q_i^{2,s,h} \geq 0; K^2_{i,m} \geq 0  \\               
 \end{gather}
 
-An example of a two stage formulation ($t={1,2}$) for five market states ($O=5$) and two possible demand scenarios in period 2.
+An example of a two stage formulation ($t={1,2}$) for five market states ($O=5$) and two possible demand scenarios in period 2. Player $i$ maximizes it´s profit by setting $q$ and $I$. By considering different demand states and the associated probabilities, he takes into account how demand might evolve. So $q^2$ is different, depending on the demand state in which you are in($q^2(\xi)$). $I$ is not allowed to differ in such a way as it has to be set in advance when it is not clear how high demand might be. Please note that $q^2$ does not depend on what other players might invest it does depend however, on how high own investments are as the cost function can be changed between period one and two($C^1_i vs. C^2_i$). (Idee - Wenn man das weggibt, müsste man den Effekt den eigene Investments auf den Marktpreis haben sehen). If, in the solution, $q^2$ would depend on Investments of others as well ($q^2(\xi,I)$), we would enter the realm of feedback or closed loop games (which are the same in the case of a two stage game). \\ 
+
+\subsection{An Example of a Closed Loop Game (just for curiosity)}
+
+In a two stage - closed loop formulation a firm would not only consider how uncertainty might materialize in the future, but it would also consider what the other firms might do.
 
 
 
