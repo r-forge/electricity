@@ -39,9 +39,20 @@ Profit for each player $i$ in every period consists of the sum of profits made d
 	\Pi^t_{i,s} = \sum_{h=1}^O u_h \left[  (\alpha_h - \beta_h \sum_{i=1}^n q_i^{t,s,h}) q_i^{t,s,h} - \sum_{k=1}^{m} (q^{t,s,h}_{i,m} c_m + \frac{1}{(K^{t,s}_{i,m}-q^{t,s,h}_{i,m})}) \right] - \sum_{k=1}^{m} I_{i,s}^{t,m}  ic_m \\
 \text{s.t.:} \  	q^{t,s,h}_{i,m} \leq K^{t,s}_{i,m}, \forall t,s,k,i,m \\
              \    q^{t,s,h}_{i,m} \geq 0; K^{t,s}_{i,m} \geq 0 \\
-                  
 \end{gather}
 
+A two stage game:
+
+\begin{gather}
+	\Pi_{i} = \sum_{h=1}^5 u_h \left[ P^1(Q) q^{1,k}_i-c(q^{1,k}_i) \right] - \sum_{k=1}^{m} I_{i}^{1,m}  ic_m +  \\
+	\sum_{s=1}^2 p_s \left[ \sum_{h=1}^5 u_h \left[ P^s(Q) q_i^{2,s,h}- c(q_i^{2,s,h}) \right] \right] \\
+\text{s.t.:} \  	q^{1,k}_{i,m} \leq K^1_{i,m} \\
+									K^2_{i,m}= K^1_{i,m}+ I^1_{i,m} \\
+									q_i^{2,s,h} \leq K^2_{i,m} \\
+             \    q^{1,k}_{i,m} \geq 0;q_i^{2,s,h} \geq 0; K^2_{i,m} \geq 0  \\               
+\end{gather}
+
+An example of a two stage formulation ($t={1,2}$) for five market states ($O=5$) and two possible demand scenarios in period 2.
 
 
 
