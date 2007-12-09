@@ -16,10 +16,10 @@ MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
 MaxPos.y=-23
-NormalPos.left=66
-NormalPos.top=66
-NormalPos.right=1118
-NormalPos.bottom=555
+NormalPos.left=-3
+NormalPos.top=-3
+NormalPos.right=1049
+NormalPos.bottom=737
 Class=CLatexEdit
 Document=data\data.tex
 
@@ -32,9 +32,9 @@ cxCur=1252
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=22
-Cursor.column=49
-TopSubLine=12
+Cursor.row=97
+Cursor.column=0
+TopSubLine=109
 
 [Frame1]
 Columns=1
@@ -61,9 +61,9 @@ cxCur=1024
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=37
-Cursor.column=0
-TopSubLine=34
+Cursor.row=47
+Cursor.column=2
+TopSubLine=3
 
 [Frame2]
 Columns=1
@@ -148,8 +148,8 @@ cxCur=1024
 cxMin=10
 
 [Frame4_View0,0]
-Cursor.row=6
-Cursor.column=13
+Cursor.row=0
+Cursor.column=0
 TopSubLine=0
 
 [Frame5]
@@ -208,5 +208,5 @@ cxMin=10
 [Frame6_View0,0]
 Cursor.row=59
 Cursor.column=0
-TopSubLine=60
+TopSubLine=80
 
