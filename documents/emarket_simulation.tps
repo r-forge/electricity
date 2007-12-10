@@ -5,13 +5,13 @@ Version=2
 [SessionInfo]
 ActiveTab=0
 FrameCount=7
-ActiveFrame=0
+ActiveFrame=1
 
 [Frame0]
 Columns=1
 Rows=1
-Flags=2
-ShowCmd=3
+Flags=0
+ShowCmd=1
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
@@ -24,23 +24,23 @@ Class=CLatexEdit
 Document=data\data.tex
 
 [Frame0_Row0]
-cyCur=721
+cyCur=693
 cyMin=10
 
 [Frame0_Col0]
-cxCur=1252
+cxCur=1024
 cxMin=10
 
 [Frame0_View0,0]
 Cursor.row=97
 Cursor.column=0
-TopSubLine=109
+TopSubLine=118
 
 [Frame1]
 Columns=1
 Rows=1
-Flags=0
-ShowCmd=1
+Flags=2
+ShowCmd=3
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
@@ -53,17 +53,17 @@ Class=CLatexEdit
 Document=emarket_simulation.tex
 
 [Frame1_Row0]
-cyCur=442
+cyCur=721
 cyMin=10
 
 [Frame1_Col0]
-cxCur=1024
+cxCur=1252
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=47
-Cursor.column=2
-TopSubLine=3
+Cursor.row=55
+Cursor.column=1
+TopSubLine=44
 
 [Frame2]
 Columns=1
@@ -90,9 +90,9 @@ cxCur=1024
 cxMin=10
 
 [Frame2_View0,0]
-Cursor.row=0
+Cursor.row=56
 Cursor.column=0
-TopSubLine=0
+TopSubLine=77
 
 [Frame3]
 Columns=1
@@ -208,5 +208,5 @@ cxMin=10
 [Frame6_View0,0]
 Cursor.row=59
 Cursor.column=0
-TopSubLine=80
+TopSubLine=86
 

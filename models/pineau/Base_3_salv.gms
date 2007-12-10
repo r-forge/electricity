@@ -196,7 +196,7 @@ TABLE Dem_A(S,J)
 
 SCALARS
 
-B       discount factor        	        / 0.95 /
+B       discount factor                / 0.95 /
 Dep     depreciation factor             / 1 /
 cvg     Convergence tolerance           / 0.0001 /
 stop    Stop (=1) for iterations        / 0 /
@@ -207,7 +207,7 @@ PARAMETERS
 Q_temp(P,L,J,N) Production of P with L at N
 Ex(T)           Exponent associated to each time period  /1 2, 2 4, 3 6, 4 8, 5 10/
 Inicap(P,L)     Initial capacity
-Prob(N)        	Probability of occurence of each node
+Prob(N)                Probability of occurence of each node
                 /1 1,
                 2 0.5, 3 0.5,
                 4 0.25, 5 0.25, 6 0.25, 7 0.25,
@@ -234,9 +234,9 @@ K(P,L,N)        Available capacity of type L for player P at node N (MW)
 
 FREE VARIABLE
 
-profit1        	Profit for player 1
-profit2        	Profit for player 2
-profit3        	Profit for player 3
+profit1                Profit for player 1
+profit2                Profit for player 2
+profit3                Profit for player 3
 ;
 
 EQUATIONS
@@ -248,6 +248,7 @@ I_cap(P,L,N)    Lag in capacity investment for player P type L and at node N
 P_rod(P,L,J,N)  Production higher limit for player P type L and at node N
 ;
 
+* ** means expotentiation
 Obj1.. profit1 =E= Sum(T, B**Ex(T) * Sum(N$(T_nod(N,T) eQ 1),
                                            Prob(N) * Sum(L,
 
