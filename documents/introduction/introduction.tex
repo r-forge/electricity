@@ -16,9 +16,7 @@ There is a wide diversity of papers that deals with Cournot equilibria in the sp
 
 \cite{Pineau2003} formulate a model with sample path optimization for the Finnish electricity market.The information structure is open-loop and the strategies of the players adapt to the sample path of the stochastic variable, i.e. demand. They consider an open-loop information structure appropiate because electricity generators stick to their investment decisions for some time while only adjusting for shocks in exogenous variables. In their results the presence of uncertain demand growth and strategic behaviour can reduce investment incentives.
 
-\cite{Murphy2005}
-
-Electricity demand is uncertain and varies over time. The usual way to represent this fact is with a load duration curve. \cite{Murphy2005} convert the inverse to a probability density function and interpret it as a way to cope with the overall uncertainty about the future demand for electricity.
+\cite{Murphy2005} compare an open-loop and a closed-loop model to the perfect competition case. They provide proofs for the existence and the uniqueness of the solutions. They convert the inverse of the load duration curve to a probability density function and interpret it as a way to cope with the overall uncertainty about the future demand for electricity. The closed-loop formulation leads to a two-stage equilibrium problem which is difficult to handle numerically. The search through second-stage equilibria needs to be done by enumerating all complementarity sets of the second-stage problem.
 
 \cite{Neuhoff2005} analyze electricty markets with transmission constraints but their models are not multi-stage.
 
@@ -32,50 +30,9 @@ Electricity demand is uncertain and varies over time. The usual way to represent
 
 \cite{Kiesling2007}
 
- 
 
 
 
-
-
-
-\subsection{Test}
-\label{sec:test}
-
-Instead of using the optimization criterion as in stochastic programming the Nash equilibrium computation is performed over the whole sample space so that players maximize their expected profit.
-
-In this paper we will build a model for generation capacity investment under uncertainty. We consider a deregulated electricity market, where typically several large players act on market leading to an oligopoly situation. There is not much literature which directly deals with the question of  generation capacity investments. Recent works are \cite{Chuang2001}, \cite{Ventosa2002}, \cite{Chaton2003}, \cite{Hogendorn2003}, \cite{Pineau2003}, \cite{Ehrenmann2004}. \cite{Murphy2005}, \cite{Kiesling2007}, \cite{Pineau2007}.
-
-
-Cournot is more flexible and better computational tractability.
-
-
-\subsection{Stochastic oligopoly models}
-
-\textbf{References:} \cite{Salant1982, Wolf1997, Haurie2002, Pineau2003, Murto2004}\\
-
-
-The $S$-adapted information structure was introduced by \cite{Haurie1990}.
-$S$-adapted structure is similar to the open-loop case, except that the strategies of the players adapt to the sample path of the stochastic variable \citep[see][pg. 128]{Pineau2003}.
-
-\cite{Haurie2002} developed an approximation method with variational inequalities for $S$-adapted oligopoly equilibria. It can be used with any discrete state process that can be represented as an event tree can be used as description of the random disturbances.
-
-\cite{Murto2004} solves the game with feedback information structure.
-
-\cite{Haurie2001}, \cite{Genc2007}
-
-\subsection{Short-term assumption for decision variables}
-
-Cournot, Bertrand, SFE
-
-
-In theory, the output of a competitive generation market is equal to the output of a regulated system with a central planner that minimizes investment plus operating costs to meet demand (Green, 2000), see \citep[see][pg. 111]{Rothwell2003}.
-
-Papers with focus investment problem: \cite{Pineau2003}, \cite{Murphy2005}, \cite{Genc2007}, \cite{Kiesling2007}, \cite{Barmack2007}, \cite{Sauma2006}
-
-Market simulation: \cite{Torre2003}, \cite{Valenzuela2007}, \cite{Hobbs2001},\cite{Otero-Novas2000}
-
-General review paper: \cite{Neuhoff2005}, \cite{Ventosa2005}, \cite{Kahn1998}
 
 %%% Local Variables: 
 %%% mode: latex
