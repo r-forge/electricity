@@ -2,28 +2,45 @@
 
 With the ongoing deregulation of electricity markets firms behave different in this new market setting. When investing in new generation capacity firms are faced with uncertainties related to the future demand of electricity and to the investment and production decisions of their competitors. \cite{Ventosa2005} gives an overview about decision support models used in electricity market modeling. There exist two types of equilibrium models. First, Cournout competition where the players compete in quantity and second, supply function equilibria (SFE) where the firms compete over their offer curves. What both approaches have in common is that they are based on the concept of \cite{Nash1951} equilibra, i.e. when each players strategy is the best response to its opponents actions the market has found an equilibrium. In the following, we will focus on the Cournot approach which is easier applicable to real world problems, because SFE can only be found under strong assumptions and convergence problems arise quite often.
 
-The following papers explicitly model the investment problem in electricty markets \cite{Ventosa2002, Pineau2003, Murphy2005, Sauma2006, Barmack2007, Genc2007, Kiesling2007}. \cite{Sauma2006} evaluate social welfare implications of investments in transmission capacity. Market deregulation has lead to independent companies that operate the transmission network but may not necessarily generate the electricity.
+An important aspect of a dynamic oligopoly model is the assumption about the information structure. The literature disinguishes between the following three cases \citep[see, e.g.,][]{Cellini2004}. \emph{Open-loop} equilibria only take into account the inital state variables and the time, but they do not include any strategic interaction based on the evolution of the state variables over time. They are not subgame perfect, meaning that not in all stages the strategies have to be Nash equilibria, and players must commit to their decision forever. The initial and current levels of all state variables are taken into account in a \emph{closed-loop} equilibrium. They can only be found for special cases. \cite{Murphy2005} consider a two-stage game where they interpret the close-loop game as electricity industry with a spot market, where players make an investment decision in the first stage and know how they will play against each other when producing the electricity. In a \emph{feedback} equilibrium information about the accumulated stock of each state variable at the current date is included.
 
-\cite{Sauma2006} model the interrelationship between generation and transmission investment decisions. For the generators action they use a simplified version of the \cite{Murphy2005} generation capacity investment model.
+There is a wide diversity of papers that deals with Cournot equilibria in the spot market for electricity \citep[see, e.g.][]{Borenstein1999, Otero-Novas2000}. Here, the strategic decision making is performed under a short time horizon. The following recent papers specifically model the investment problem in electricty markets, which clearly has a medium to long-term focus.
 
+\cite{Chuang2001}
 
+\cite{Ventosa2002}
 
-operating and investment decisions are market driven.
+\cite{Hogendorn2003}
+
+\cite{Chaton2003}
+
+\cite{Pineau2003} argue that electricity generators stick to their investment decisions for some time while only adjusting for shocks in exogenous variables. Therefore, they think it is possible to gain some insight in the strategic behaviour with a model based on $S$-adapted open-loop equilibria.
 
 Electricity demand is uncertain and varies over time. The usual way to represent this fact is with a load duration curve. \cite{Murphy2005} convert the inverse to a probability density function and interpret it as a way to cope with the overall uncertainty about the future demand for electricity.
 
-An important aspect of a dynamic oligopoly model is the assumption about the information structure. The literature disinguishes between the following three cases \citep[see, e.g.,][]{Cellini2004}. \emph{Open-loop} equilibria only take into account the inital state variables and the time, but they do not include any strategic interaction based on the evolution of the state variables over time. They are not subgame perfect, meaning that not in all stages the strategies have to be Nash equilibria, and players must commit to their decision forever.  \emph{Closed-loop} equilibra can only be found for special cases. \cite{Murphy2005} consider a two-stage game where they interpret the close-loop game as electricity industry with a spot market, where players make an investment decision in the first stage and know how they will play against each other when producing the electricity.
-
-
-\cite{Pineau2003} argue that electricity generators stick to their investment decisions for some time while only adjusting for shocks in exogenous variables. Therefore, they think it is possible to gain some insight in the strategic behaviour with a model based on $S$-adapted open-loop equilibria. 
-
-Instead of using the optimization criterion as in stochastic programming the Nash equilibrium computation is performed over the whole sample space so that players maximize their expected profit.
-
 \cite{Neuhoff2005} analyze electricty markets with transmission constraints but their models are not multi-stage.
+
+\cite{Sauma2006} evaluate social welfare implications of investments in transmission capacity. Market deregulation has lead to independent companies that operate the transmission network but may not necessarily generate the electricity. For the generators action they use a simplified version of the \cite{Murphy2005} generation capacity investment model.
+
+\cite{Barmack2007}
+
+\cite{Centeno2007} model medium-term strategic generation decisions based on a conjectured price-response market equilibrium.
+
+\cite{Genc2007}
+
+\cite{Kiesling2007}
+
+ 
+
+
+
+
 
 
 \subsection{Test}
 \label{sec:test}
+
+Instead of using the optimization criterion as in stochastic programming the Nash equilibrium computation is performed over the whole sample space so that players maximize their expected profit.
 
 In this paper we will build a model for generation capacity investment under uncertainty. We consider a deregulated electricity market, where typically several large players act on market leading to an oligopoly situation. There is not much literature which directly deals with the question of  generation capacity investments. Recent works are \cite{Chuang2001}, \cite{Ventosa2002}, \cite{Chaton2003}, \cite{Hogendorn2003}, \cite{Pineau2003}, \cite{Ehrenmann2004}. \cite{Murphy2005}, \cite{Kiesling2007}, \cite{Pineau2007}.
 
