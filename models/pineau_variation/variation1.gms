@@ -1,5 +1,5 @@
-* GAMS version of the model discussed in "A Stochastic Dynamic Game Model
-* of the Finnish Electricity Market" Pineau P.-O. and Murto P. 1999
+*GAMS version of the model discussed in "A Stochastic Dynamic Game Model
+*of the Finnish Electricity Market" Pineau P.-O. and Murto P. 1999
 
 *BASE CASE: "real" IVO + PVO and strategic third player
 *3 players and 1 investment option, elasticity: -0.6 in base load, -0.9 in peak load
@@ -219,8 +219,8 @@ TABLE Dem_A(S,J)
 SCALARS
 
 B       discount factor                / 0.95 /
-Dep     depreciation factor             / 1 /
-cvg     Convergence tolerance           / 0.0001 /
+Dep     depreciation factor            / 1 /
+cvg     Convergence tolerance          / 0.0001 /
 stop    Stop (=1) for iterations        / 0 /
 ;
 
@@ -238,7 +238,7 @@ Prob(N)                Probability of occurence of each node
                 22 0.0625, 23 0.0625, 24 0.0625, 25 0.0625, 26 0.0625, 27 0.0625,
                 28 0.0625, 29 0.0625, 30 0.0625, 31 0.0625/
 Dem_B(J)        Slope of demand curve
-                /1 0.007651133, 2 0.005269006, 3 0.004349105, 4 0.003379586, 5  0.002530629, 6 0.001672949 /
+                /1 -0.007651133, 2 -0.005269006, 3 -0.004349105, 4 -0.003379586, 5  -0.002530629, 6 -0.001672949 /
 Q_type(L,N)     Quantity produce by each type L at each node (MWh)
 Q_load(J,N)     Quantity produce for base or peak load J at each node (MWh)
 P_mkt(J,N)      Price at each node (FIM per MWh) for each load period
