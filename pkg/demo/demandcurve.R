@@ -41,7 +41,15 @@ plot(c(t(eex$prices)),type="l",col = "red",
 	xlab = "Hours",
 	ylab = "Price per MWh")
 
+abline(h=100)
 
+plot(c(t(eex$prices))[which(c(t(eex$prices))<100)],type="l",col = "red",
+	main = "Spot market prices (<100) at EEX for 2006 (per MWh)",
+	xlab = "Hours",
+	ylab = "Price per MWh")
+
+
+# electricity demand curve
 plot(c(t(totload)),c(t(eex$prices)),col = "blue",
 main = "Electricity demand curve for 2006",
 xlab = "Hourly load values (in MWh)",
@@ -52,5 +60,22 @@ plot(c(t(eex$volumes)),c(t(eex$prices)),col = "blue",
 main = "Electricity demand curve for 2006",
 xlab = "EEX spot market trading volumes (in MWh)",
 ylab = "Spot market prices at EEX(per MWh)")
+
+
+
+# plot electricity loads against filtered prices
+# prices > 100 are removed
+
+pv <- cbind(c(t(totload)),c(t(eex$prices)))
+pvf <- pv[which(pv[,2]<100),]
+
+
+plot(pvf,cex=0.5,col="blue",
+     main = "Electricity demand curve",
+     xlab = "Hourly load values (in MWh)",
+     ylab = "Spot market prices at EEX")
+
+lm_pvf <- lm(pvf[,2]~pvf[,1])
+abline(lm_pvf,col="red",lwd=2)
 
 dev.off()
