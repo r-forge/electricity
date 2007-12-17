@@ -1,12 +1,18 @@
 
-load("load.Rdata")
-load("eex.Rdata")
+#load("load.Rdata")
+#load("eex.Rdata")
+
+data(load)
+data(eex)
 
 # total electricty demand
 totload <- load$Austria + load$Germany
 
 
 #par(mfrow=c(2,1))
+
+
+pdf(file="plots.pdf")
 
 # plot total load values
 plot(c(t(totload)),type="l", col = "blue",
@@ -15,14 +21,13 @@ plot(c(t(totload)),type="l", col = "blue",
 	ylab = "Load in MW")
 	
 
-pdf(file="loaddurationcurve.pdf")
 # plot total load values
 plot(sort(c(t(totload)),decreasing=T,na.last=T), type="l",lwd=3,col = "green",
 	main = "Load duration curve for 2006 (in MWh)",
 	xlab = "Hours per year",
 	ylab = "Load in MW")
 
-dev.off()
+
 
 # plot EEX trading volumes
 plot(c(t(eex$volumes)),type="l",col = "red",
