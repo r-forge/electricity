@@ -1,6 +1,6 @@
 
-load("load.Rdata")
-load("eex.Rdata")
+load("load.RData")
+load("eex.RData")
 
 
 # total electricty demand
