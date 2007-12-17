@@ -78,4 +78,13 @@ plot(pvf,cex=0.5,col="blue",
 lm_pvf <- lm(pvf[,2]~pvf[,1])
 abline(lm_pvf,col="red",lwd=2)
 
+pv <- cbind(c(t(eex$volumes)),c(t(eex$prices)))
+pvf <- pv[which(pv[,2]<100),]
+pvf <- pvf[which(pvf[,1]<15000),]
+
+plot(pvf,cex=0.5,col="blue",
+     main = "Electricity demand curve",
+     xlab = "Spot market trading volumes (in MWh)",
+     ylab = "Spot market prices at EEX")
+
 dev.off()
