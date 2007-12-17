@@ -1,0 +1,10 @@
+Package: electricity
+Type: Package
+Title: Electricity market models
+Version: 0.1
+Date: 2007-12-15
+Author: Robert Ferstl, Josef Hayden
+Maintainer: Robert Ferstl <robert.ferstl@wiwi.uni-regensburg.de> 
+Depends: R (>= 2.5.0)
+Description: The package offers models for electricity markets.
+License: GPL
