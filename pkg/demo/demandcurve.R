@@ -92,3 +92,19 @@ plot(pvf,cex=0.5,col="blue",
 #abline(lm_pvf,col="red",lwd=2)
 
 dev.off()
+
+
+# partition price quantity bundles
+
+
+# EEX blocks
+# Night 01 - 06
+# Morning 07 - 10
+# Business 09 - 16
+# High Noon 11 - 14
+# Afternoon 15 - 18
+# Rush Hour 17 - 20
+# Evening 19 - 24
+
+blocks <- matrix(c(1,6,7,10,9,16,11,14,15,18,17,20,19,24),ncol=2)
+rownames(blocks) <- c("Night", "Morning", "Business", "High Noon", "Afternoon", "Rush Hour", "Evening")
