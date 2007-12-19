@@ -111,6 +111,15 @@ rownames(blocks) <- c("Night", "Morning", "Business", "High Noon", "Afternoon", 
 
 i = 1
 
-eex$prices[,blocks[i,1]:blocks[i,2]]
+prices_b <- eex$prices[,blocks[i,1]:blocks[i,2]]
+volumes_b <- totload[,blocks[i,1]:blocks[i,2]]
 
+plot(c(t(volumes_b)),c(t(prices_b)),cex=0.5,
+     xlim=c(0,90000),
+     ylim=c(0,100))
+
+for (i in 2:nrow(blocks)){
+prices_b <- eex$prices[,blocks[i,1]:blocks[i,2]]
+volumes_b <- totload[,blocks[i,1]:blocks[i,2]]
+points(c(t(volumes_b)),c(t(prices_b)),col=i,cex=0.5,pch=i)}
 
