@@ -106,5 +106,11 @@ dev.off()
 # Rush Hour 17 - 20
 # Evening 19 - 24
 
-blocks <- matrix(c(1,6,7,10,9,16,11,14,15,18,17,20,19,24),ncol=2)
+blocks <- matrix(c(1,6,7,10,9,16,11,14,15,18,17,20,19,24),ncol=2, byrow=T)
 rownames(blocks) <- c("Night", "Morning", "Business", "High Noon", "Afternoon", "Rush Hour", "Evening")
+
+i = 1
+
+eex$prices[,blocks[i,1]:blocks[i,2]]
+
+
