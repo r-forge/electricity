@@ -114,12 +114,43 @@ i = 1
 prices_b <- eex$prices[,blocks[i,1]:blocks[i,2]]
 volumes_b <- totload[,blocks[i,1]:blocks[i,2]]
 
+pdf(file="blockstot.pdf",width=10,height=10)
+# par(mfrow=c(3,1))
+
 plot(c(t(volumes_b)),c(t(prices_b)),cex=0.5,
-     xlim=c(0,90000),
-     ylim=c(0,100))
+     xlim=c(30000,90000),
+     ylim=c(0,300),
+     xlab="Load in MW",
+     ylab="Price per MWh")
 
 for (i in 2:nrow(blocks)){
 prices_b <- eex$prices[,blocks[i,1]:blocks[i,2]]
 volumes_b <- totload[,blocks[i,1]:blocks[i,2]]
 points(c(t(volumes_b)),c(t(prices_b)),col=i,cex=0.5,pch=i)}
+legend("topleft",rownames(blocks),col=1:7,pch=1:7)
 
+dev.off()
+
+# single plots of blocks
+i = 1
+prices_b <- eex$prices[,blocks[i,1]:blocks[i,2]]
+volumes_b <- totload[,blocks[i,1]:blocks[i,2]]
+
+pdf(file="blockssingle.pdf",width=10,height=16)
+par(mfrow=c(4,2))
+
+plot(c(t(volumes_b)),c(t(prices_b)),cex=0.5,
+     #xlim=c(30000,90000),
+     #ylim=c(0,300),
+     main = rownames(blocks)[i],
+     xlab="Load in MW",
+     ylab="Price per MWh")
+
+for (i in 2:nrow(blocks)){
+prices_b <- eex$prices[,blocks[i,1]:blocks[i,2]]
+volumes_b <- totload[,blocks[i,1]:blocks[i,2]]
+plot(c(t(volumes_b)),c(t(prices_b)),col=i,cex=0.5,pch=i, main = rownames(blocks)[i], xlab="Load in MW",
+     ylab="Price per MWh")}
+#legend("topleft",rownames(blocks),col=1:7,pch=1:7)
+
+dev.off()
