@@ -49,11 +49,9 @@ source: UCTE and EEX \footnote{http://www.ucte.org/; http://www.eex.com/}
 
 \subsection{Supply}
 
-By considering fuel costs and average efficiencies of plants, we calculated variable costs per MWh of the different technologies (see \cite{Leprich2004}). For pump storage plants we used the real option value of peak load electricity which we approximated by the average option price for peak load electricity at the EEX in the year 2006. Fixed costs were obtained from business reports and homepages of the firms hereto. We do not provide fixed costs for the two classes of hydropower as costs there depend heavily on the respective sites. Furthermore, all available sites for significant hydropower plants in central europe seem to be occupied already. The reason why we do not provide prices for oil plants is that this technology is unattractive because of sustained high oil prices. The fixed investment costs we use could also be interpreted as a discounted present value of future yearly costs of capital so our analysis is general concerning this point.
+Data concerning the short run marginal costs and investment costs per MWh were obtained from \cite[p.46]{Auer2006} and are shown in table \ref{tab:costs}. Short run marginal costs were obtained by considering fuel costs and average efficiencies of plants. For pump storage plants we used the real option value of peak load electricity which we approximated by the average option price for peak load electricity at the EEX in the year 2006. We do not provide fixed costs for pump hydropower and oil plants. In the case of hydropower plants construction costs depend heavily on the respective sites and so such costs are hard to estimate. Furthermore, all available sites for significant hydropower capacities in central europe seem to be occupied already. Oil fired plants are not considered a relevent investment option because oil prices are just too high. The fixed investment costs we use could also be interpreted as a discounted present value of future yearly costs of capital so our analysis is general concerning this point.
 
 Apart from the dominant players, there is a competitive fringe as well which is a price taker as he cannot influence market prices due to it´s small size. \cite{Neuhoff2005} notes that fringe players could also be modeled to respond to output choices of the strategic players, however we do not account for that.
-
-
 
 \begin{table}
 \begin{center}
@@ -74,7 +72,8 @@ Apart from the dominant players, there is a competitive fringe as well which is 
 
 CCGT &       33.5 &     460000 \\
 
-Gas Turbines &       53.8 &     332000 \\
+Oil & 44            &   n.a \\
+%Gas Turbines &       53.8 &     332000 \\
 
 Pump Hydro &         80 &       n.a. \\
 \hline
@@ -88,46 +87,48 @@ source: \cite{Auer2006}
 \end{center}
 \end{table}
 
-For cost data see also \cite{Kuester2007}.
+%For cost data see also \cite{Kuester2007}.
 
-Installed Capacities of all dominant players and the competitive fringe are given in table \ref{tab:capacities}. It is striking, that most of the renewable capacities are controlled by fringe players. We constructed a supply curve for the competitive fringe by using the following fourth order polynomial approximation (\ref{eq:19}) of the step wise marginal cost function. The approximation, which weights were obtainded by an OLS Method is illustrated in figure \ref{fig:fringe}.
+Installed Capacities of all dominant players and the competitive fringe were taken from \cite{Ellersdorfer2005} and are given in table \ref{tab:capacities}. Please note that the capacities of the Austrian players are considered to be non-strategic as well.t
 
-\begin{equation}
-  \label{eq:19}
-  C^t_{i} = c_1 + c_2 (\sum_{k=1}^m q^{t,s}_{i,m}) + c_3(\sum_{k=1}^m q^{t,s}_{i,m})^2 + c_4(\sum_{k=1}^m q^{t,s}_{i,m})^3 + (\sum_{k=1}^m q^{t,s}_{i,m})^4
- \end{equation}
+%It is striking, that most of the renewable capacities are controlled by fringe players. We constructed a supply curve for the competitive fringe by using the following fourth order polynomial approximation (\ref{eq:19}) of the step wise marginal cost function. The approximation, which weights were obtainded by an OLS Method is illustrated in figure \ref{fig:fringe}.
+
+%\begin{equation}
+%  \label{eq:19}
+%  C^t_{i} = c_1 + c_2 (\sum_{k=1}^m q^{t,s}_{i,m}) + c_3(\sum_{k=1}^m q^{t,s}_{i,m})^2 + c_4(\sum_{k=1}^m q^{t,s}_{i,m})^3 + (\sum_{k=1}^m q^{t,s}_{i,m})^4
+% \end{equation}
  
-\begin{figure}[h]
-\centering
-\includegraphics[width=.3\textwidth, angle=-90 ]{data/fringe_costs}
-      \label{fig:fringe}
-      \caption{polynomial approximation of fringe marginal costs (in EUR and MW)}
-      source: own calculations
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=.3\textwidth, angle=-90 ]{data/fringe_costs}
+%      \label{fig:fringe}
+%      \caption{polynomial approximation of fringe marginal costs (in EUR and MW)}
+%      source: own calculations
+%\end{figure}
 
-For the strategic players however, we cannot use such a simple method because we want to account for the effect of investments in different technologies. The following formulations provide cost functions which are continuous, differentiable and provide a reasonable approximation of step wise cost functions.
+%For the strategic players however, we cannot use such a simple method because we want to account for the effect of investments in different technologies. The following formulations provide cost functions which are continuous, differentiable and provide a reasonable approximation of step wise cost functions.
 
-\begin{equation}
-  \label{eq:20}
-		C^{}_{h,k} =  c_k * q_{k,h} + b (\frac{K_k}{(\phi+1)}\frac{q_{k,h}}{K_k})^\phi
- \end{equation}
+%\begin{equation}
+%  \label{eq:20}
+%		C^{}_{h,k} =  c_k * q_{k,h} + b (\frac{K_k}{(\phi+1)}\frac{q_{k,h}}{K_k})^\phi
+% \end{equation}
 
-\begin{equation}
-  \label{eq:20}
-		MC^{t}_{i} =  c_m + b \frac{q^{t,s}_{i,m}}{K^{t,s}_{i,m}}^\phi
- \end{equation}
+%\begin{equation}
+%  \label{eq:20}
+%		MC^{t}_{i} =  c_m + b \frac{q^{t,s}_{i,m}}{K^{t,s}_{i,m}}^\phi
+% \end{equation}
 
-\begin{equation}
-  \label{eq:20}
-		C^{t}_{i} = \sum_{k=1}^{m} q^{t,s}_{i,m} c_m + \frac{1}{(K^{t,s}_{i,m}-q^{t,s}_{i,m})}
- \end{equation}
+%\begin{equation}
+%  \label{eq:20}
+%		C^{t}_{i} = \sum_{k=1}^{m} q^{t,s}_{i,m} c_m + \frac{1}{(K^{t,s}_{i,m}-q^{t,s}_{i,m})}
+% \end{equation}
 
-With marginal costs
+%With marginal costs
 
-\begin{equation}
-  \label{eq:20}
-		C^{t}_{i} = \sum_{k=1}^{m} c_m + \frac{1}{(K^{t,s}_{i,m}-q^{t,s}_{i,m})^2}
- \end{equation}
+%\begin{equation}
+%  \label{eq:20}
+%		C^{t}_{i} = \sum_{k=1}^{m} c_m + \frac{1}{(K^{t,s}_{i,m}-q^{t,s}_{i,m})^2}
+% \end{equation}
 
 
 

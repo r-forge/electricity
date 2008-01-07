@@ -1,21 +1,17 @@
 Set
 
-i  players  /1*2/
+*i  players  /1*2/
 
 Scalars
 
 c        variable kosten                 /10.3/
 k1        kapazität                       /  25000   /
-k2                                        /  25000   /
-alpha    demand function intercept       /767.1  /
-beta     demand function slope           /0.007651133 /
-b        cost function parameter         /30/
-phi      cost function parameter         /50/
+*k2                                        /  25000   /
+alpha    demand function intercept       /100270 /
+beta     demand function slope           /130 /
 ;
 Variable
 
-l1     shadow prices
-l2
 
 positive variables
 
