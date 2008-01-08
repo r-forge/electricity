@@ -8,17 +8,17 @@ Alias (k,h);
 Parameters
 
 c(k) variable kosten     /
-                         Hydro    10
-                         Nuclear  10.3
-                         BCoal    13.8
-                         HCoal    14.4
-                         Gas      19.2
+                         Hydro    7.6
+                         Nuclear  9.5
+                         BCoal    10.6
+                         HCoal    16.1
+                         Gas      33.5
                          Oil      44
                          Pump     80
                          /
 
-kap(k) variable kosten   /
-                         Hydro    1000
+cap(k) kapazitäten       /
+                         Hydro    30000
                          Nuclear  5000
                          BCoal    3000
                          HCoal    6000
@@ -44,7 +44,9 @@ beta     demand function slope       /0.00765113 /
 
 ;
 
+
 positive Variable
+
 q(k)
 y(k);
 
@@ -55,9 +57,9 @@ restr(k)    the quantity restriction
 
 ;
 
-profit(k).. alpha - 2*beta*sum(h,q(h)) - c(k) - y(k) =g= 0;
+profit(k).. -alpha + 2*beta*sum(h,q(h)) + c(k) + y(k) =g= 0;
 
-restr(k)..   -q(k) + kap(k)                   =g= 0;
+restr(k)..   -q(k) + cap(k)                   =g= 0;
 
 model monop  /profit.q, restr.y/
 

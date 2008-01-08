@@ -1,7 +1,3 @@
-
-
-
-
 Set
 
 i  players  /RWE,EON,Vatten, EnBW /
@@ -38,9 +34,9 @@ alpha    demand function intercept    /  767.1 /
 beta     demand function slope       /0.00765113 /
 
 ;
-Variable
-q(i,k)
+
 positive Variable
+q(i,k)
 y(i,k);
 
 Equations
@@ -50,7 +46,7 @@ restr(i,k)    the quantity restriction
 
 ;
 
-profit(i,k).. alpha - beta*sum(h,q(i,k))- beta*sum((j,h), q(i,k)) - c(i,k) - y(i,k) =e= 0;
+profit(i,k).. -alpha + beta*sum(h,q(i,h))+ beta*sum((j,h),q(j,h)) + c(i,k) + y(i,k) =g= 0;
 
 restr(i,k)..   -q(i,k) + cap(i,k)                   =g= 0;
 
