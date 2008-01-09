@@ -1,6 +1,6 @@
 Set
 
-i  players  /RWE,EON,Vatten, EnBW /
+i  players  /RWE,EON,Vatten, EnBW  /
 k  technologies /Hydro, Nuclear, BCoal, HCoal, Gas, Oil, Pump /
 
 ;
@@ -10,13 +10,24 @@ Alias (k,h);
 
 Parameters
 
-Table
-c(i,k)   variable Costs
-          Hydro    Nuclear     BCoal      HCoal       Gas         Oil       Pump
-RWE         7.6        9.5      10.6       16.1      33.5          44         80
-EON         7.6        9.5      10.6       16.1      33.5          44         80
-Vatten      7.6        9.5      10.6       16.1      33.5          44         80
-EnBW        7.6        9.5      10.6       16.1      33.5          44         80
+c(k) variable kosten     /
+                         Hydro    7.6
+                         Nuclear  9.5
+                         BCoal    10.6
+                         HCoal    16.1
+                         Gas      33.5
+                         Oil      44
+                         Pump     80
+                         /
+
+
+*Table
+*c(i,k)   variable Costs
+*          Hydro    Nuclear     BCoal      HCoal       Gas         Oil       Pump
+*RWE         7.6        9.5      10.6       16.1      33.5          44         80
+*EON         7.6        9.5      10.6       16.1      33.5          44         80
+*Vatten      7.6        9.5      10.6       16.1      33.5          44         80
+*EnBW        7.6        9.5      10.6       16.1      33.5          44         80
 
 
 Table
@@ -34,6 +45,8 @@ alpha    demand function intercept    /  767.1 /
 beta     demand function slope       /0.00765113 /
 
 ;
+Variable
+p
 
 positive Variable
 q(i,k)
@@ -43,15 +56,17 @@ Equations
 
 profit(i,k)   the profit function
 restr(i,k)    the quantity restriction
-
+price         gives back the price
 ;
 
-profit(i,k).. -alpha + beta*sum(h,q(i,h))+ beta*sum((j,h),q(j,h)) + c(i,k) + y(i,k) =g= 0;
+profit(i,k).. -alpha + beta*sum(h,q(i,h))+ beta*sum((j,h),q(j,h)) + c(k) + y(i,k) =g= 0;
 
 restr(i,k)..   -q(i,k) + cap(i,k)                   =g= 0;
 
-model monop  /profit.q, restr.y/
+price..        p =e= alpha-  beta*sum((j,h),q(j,h)) ;
+
+model monop  /profit.q, restr.y, price/
 
 solve monop using mcp;
 
-display q.l, y.l
+display q.l, y.l, p.l
