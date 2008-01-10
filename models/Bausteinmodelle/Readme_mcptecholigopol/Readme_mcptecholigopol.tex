@@ -1,0 +1,103 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[]{german}
+\usepackage{setspace}
+\usepackage[latin1]{inputenc}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage[ps2pdf,%
+ linktocpage,%
+ colorlinks,%
+ bookmarks,%
+ bookmarksopen,%
+ bookmarksnumbered]{hyperref}
+\usepackage{amssymb,amsthm,amsmath,exscale}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{ccaption}
+
+%\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Theorem}
+\allowdisplaybreaks
+
+\newtheorem*{lem}{Lemma} 
+\newenvironment{pro}{\begin{proof}[Proof]}{\end{proof}}
+\newtheorem{con}{Conjecture}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark} 
+
+%The Role of Incentives and Strategic Behavior in Electricity and Quality Regulation
+
+\newcommand{\Titel}{Research Proposal: \\ Die Rolle von Anreizen und strategischem Verhalten in der Strom- und Qualitätsregulierung } 
+\newcommand{\Datum}{\today}
+\newcommand{\AutorEins}{ Mag. Anton Burger 0051357 \\  }
+\newcommand{\AutorZwei}{}
+\newcommand{\AutorEinsEmail}{anton.burger@wu-wien.ac.at}
+\newcommand{\AutorZweiEmail}{}
+\newcommand{\AutorEinsTel}{+43 1 31336 5898}
+\newcommand{\AutorZweiTel}{+43 1 31336 5899}
+\newcommand{\WPNO}{4}
+
+\pagestyle{headings}
+\pagenumbering{roman}
+
+\onehalfspacing
+%\setlength{\parindent}{10pt}
+%\parindent=\parindent 
+
+% %---------------------DECKBLÃ„TTER ANFANG----------------------%
+ \begin{document}
+
+
+  \section{Intro}
+
+There are four players, indexed by $i$ (RWE, EON, Vattenfal and EnBW) and seven technologies indexed by $k$. Each of the players maximizes the following profit function:
+
+\begin{gather}
+	\max_{q_i} \pi(q_i,K_i,)= (\alpha-\beta\sum_i \sum_k q_i^k ) \sum_k q_i^k - \sum_k c^k q_i^k  \\
+			\text{s.t.:} \  q_i^k-K_i^k \leq 0; \\  \nonumber
+ 										  q_i^k	\geq 0  \nonumber
+\end{gather}
+
+$\alpha$ and $\beta$ are the intercept and the slope of the inverse demand function, $q_i^k$ is the quantity produced with each technology by each player and $K_i^k$ is the corresponding capacity. $K_i^t$ is given for each player as this is the short run equilibrium and $c^k$ are the short run variable costs of producers.
+
+The Lagrangian of this problem looks as follows:
+
+\begin{gather}
+	L_i^k(q,\lambda,\mu)= (\alpha-\beta\sum_i \sum_k q_i^k ) \sum_k q_i^k - \sum_k c^k q_i^k - \lambda_i^k (q_i^k-K_i^k)-\mu_i^k(-q_i^k)
+\end{gather}
+
+Which has the following KKT Conditions. 
+
+\begin{gather}
+\frac{\partial L_i^k(q,\lambda,\mu)}{\partial q_i^k}	= \alpha - \beta \sum_k q_i^k - \beta\sum_i \sum_k q_i^k - c_i^k - \lambda_i^k + \mu_i^k = 0 \ \forall i,k
+\end{gather}
+
+This means that we use the derivation of $L_i^k(\cdot)$ with respect to the quantities of each player and each technology. In our case, that´s 4*7=28 KKT conditions. This can, by combining it with the conditions that arise from the nonnegativity constraint, be simplified to:
+
+\begin{gather}
+\frac{\partial L_i^k(q,\lambda,\mu)}{\partial \lambda_i^k}	= \alpha - \beta \sum_k q_i^k - \beta\sum_i \sum_k q_i^k - c_i^k - \lambda_i^k \leq 0 \ \forall i,k
+\end{gather}
+
+With
+
+\begin{gather}
+q_i^k \geq 0 \ \forall i,k
+\end{gather}
+
+as it´s complement.
+The other KKT conditions are:
+
+\begin{gather}
+\frac{\partial L_i^k(q,\lambda,\mu)}{\partial \lambda_i^k}	= q_i^k-K_i^k \leq 0 \ \forall i,k
+\end{gather}
+
+With 
+
+\begin{gather}
+\lambda_i^k \geq 0 \  \forall i,k
+\end{gather}
+
+as it´s complement.
+\end{document}

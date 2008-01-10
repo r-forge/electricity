@@ -1,6 +1,6 @@
 Set
 
-i  players  /RWE,EON,Vatten, EnBW  /
+i  players  / RWE, EON, Vatten, EnBW /
 k  technologies /Hydro, Nuclear, BCoal, HCoal, Gas, Oil, Pump /
 
 ;
