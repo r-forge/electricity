@@ -7,15 +7,13 @@ k technologies /Hydro, Nuclear, BCoal, HCoal, Gas, Oil, Pump /
 Alias (k,h);
 Parameters
 
-c(k) variable kosten     /
-                         Hydro    7.6
+c(k) variable kosten   / Hydro    7.6
                          Nuclear  9.5
                          BCoal    10.6
                          HCoal    16.1
                          Gas      33.5
                          Oil      44
-                         Pump     80
-                         /
+                         Pump     80    /
 
 cap(k) kapazitäten       /
                          Hydro    30000
