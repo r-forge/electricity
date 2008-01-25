@@ -48,7 +48,7 @@ F(k)   scrap values      /
 *alpha(s)                 /l  767.1
 *                         h  805.4 /
 alpha(s)                 /l  1000
-                         h   1200 /
+                          h   1200 /
 
 Table
 cap0(i,k)   capacities
