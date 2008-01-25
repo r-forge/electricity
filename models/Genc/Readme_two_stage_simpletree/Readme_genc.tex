@@ -5,6 +5,7 @@
 \usepackage{mathptmx}
 \usepackage{graphicx}
 \usepackage{natbib}
+\usepackage{longtable}
 \usepackage[ps2pdf,%
  linktocpage,%
  colorlinks,%
@@ -52,52 +53,35 @@
 
   \section{Intro}
 
-There are four players, indexed by $i$ (RWE, EON, Vattenfal and EnBW) and seven technologies indexed by $k$. Each of the players maximizes the following profit function:
+In order to investigate investment decisions, we set up a realistic model which combines an oligopolistic market, different market states, different technologies to invest in, and a two stage investment game. The uncertainty about future demand is accounted for by different demand scenarios. 
 
 \begin{gather}
-	\max_{q_i} \pi(q_i,K_i,)= (\alpha-\beta\sum_i \sum_k q_i^k ) \sum_k q_i^k - \sum_k c^k q_i^k  \\
-			\text{s.t.:} \  q_i^k-K_i^k \leq 0; \\  \nonumber
- 										  q_i^k	\geq 0  \nonumber
-\end{gather}
+	\max_{q_{i,k}^{s,m,t}} \pi_i=  \sum_s p_s \sum_t \epsilon \sum_m \nu_m \\ \nonumber 
+	(\alpha-\beta (\sum_i \sum_k q_{i,k}^{s,m,t}+\sum_k q_{i,k}^{s,m,t} ) \sum_k q_{i,k}^{s,m,t} - \sum_k c^k q_{i,k}^{s,m,t} \\ \nonumber 
+	- \sum_k\Gamma_k * I_{i,k} \\ \nonumber
+	\text{s.t.:} \  q_{i,k}^{s,m,t}-K_{i,k}^t \leq 0; \\  \nonumber
+											K^{t+1}_{i,k} - \rho K_{i,k}^t - I_{i,k} = 0 \\ \nonumber
+ 										  q_i^k, I_{i,k}, K_{i,k}^t	\geq 0  \nonumber
+	\end{gather}
+	
+\begin{longtable}[c]{l l}
+$i\in N$                           	& players, firms\\
+$s\in S$       											& scenarios\\
+$m\in M$													 	& states of the market \\
+$k\in K$													 	& technologies \\
+$t\in T$													 	& time \\
+$K_{i,k}^t$                         & available capacity at time $t$ from technology $k$ for firm $i$ \\
+$q_{i,k}^{s,m,t}$										& quantity at time $t$, technology $k$, firm $i$, in market state $m$ and scenario $s$ \\			
+$I_{i,k}^t$                         & Investment in technology $k$, at time $t$ from for firm $i$\\
+$p_s$                             	& probability of scenario $s$\\
+$\nu_m $												  	& says how often (how many hours) market state $m$ occurs \\
+$\epsilon $													& discount factor \\
+$\alpha(m)$													& demand function intercept in market state $m$ \\
+$\beta(m)$													& demand function slope in market state $m$ \\
+$c_k$																														& variable costs of technology $k$	\\
+$\Gamma_k$																													& investment costs in technology $k$  \\
+\end{longtable}
 
-$\alpha$ and $\beta$ are the intercept and the slope of the inverse demand function, $q_i^k$ is the quantity produced with each technology by each player and $K_i^k$ is the corresponding capacity. $K_i^t$ is given for each player as this is the short run equilibrium and $c^k$ are the short run variable costs of producers.
 
-The Lagrangian of this problem looks as follows:
 
-\begin{gather}
-	L_i^k(q,\lambda,\mu)= (\alpha-\beta\sum_i \sum_k q_i^k ) \sum_k q_i^k - \sum_k c^k q_i^k - \lambda_i^k (q_i^k-K_i^k)-\mu_i^k(-q_i^k)
-\end{gather}
-
-Which has the following KKT Conditions. 
-
-\begin{gather}
-\frac{\partial L_i^k(q,\lambda,\mu)}{\partial q_i^k}	= \alpha - \beta \sum_k q_i^k - \beta\sum_i \sum_k q_i^k - c_i^k - \lambda_i^k + \mu_i^k = 0 \ \forall i,k
-\end{gather}
-
-This means that we use the derivation of $L_i^k(\cdot)$ with respect to the quantities of each player and each technology. In our case, that´s 4*7=28 KKT conditions. This can, by combining it with the conditions that arise from the nonnegativity constraint, be simplified to:
-
-\begin{gather}
-\frac{\partial L_i^k(q,\lambda,\mu)}{\partial \lambda_i^k}	= \alpha - \beta \sum_k q_i^k - \beta\sum_i \sum_k q_i^k - c_i^k - \lambda_i^k \leq 0 \ \forall i,k
-\end{gather}
-
-With
-
-\begin{gather}
-q_i^k \geq 0 \ \forall i,k
-\end{gather}
-
-as it´s complement.
-The other KKT conditions are:
-
-\begin{gather}
-\frac{\partial L_i^k(q,\lambda,\mu)}{\partial \lambda_i^k}	= q_i^k-K_i^k \leq 0 \ \forall i,k
-\end{gather}
-
-With 
-
-\begin{gather}
-\lambda_i^k \geq 0 \  \forall i,k
-\end{gather}
-
-as it´s complement.
 \end{document}
