@@ -1,7 +1,7 @@
 \section{The model}
 
 
-In order to investigate investment decisions, we set up a realistic model which combines an oligopolistic market, different market states, different technologies to invest in, and a two stage investment game. The uncertainty about future demand is accounted for by different demand scenarios. The stochastic programming, game with probabilistic scenarios (GPS) approach in \cite{Genc2007} makes it possible to compute $S$-adapted equilibra for much larger problems than is possible using dynamic programming.
+In order to investigate investment decisions, we set up a realistic model which combines an oligopolistic market, different market states, different technologies to invest in, and a two stage investment game. The uncertainty about future demand is accounted for by different demand scenarios. The stochastic programming, game with probabilistic scenarios (GPS) approach in \cite{Genc2007} makes it possible to compute $S$-adapted equilibria for much larger problems than is possible using dynamic programming.
 
 \begin{gather}
 	\max_{q_{i,k}^{s,m,t}} \pi_i=  \sum_{s\in S} p_s \sum_{t\in T} \epsilon \sum_{m\in M} \nu_{m\in M} \times \\ \nonumber 
@@ -31,17 +31,17 @@ $\Gamma_k$													& investment costs in technology $k$  \\
 $F_k$																& scrap values  \\
 \end{longtable}
 
-Each player ($i$) maximizes it´s profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$ . By considering different demand developments and the associated probabilities ($p_s$), the players take into account how demand might evolve in the future. Quantities are allowed to be different in different scenarios that evolve, thereby stating that firms can always react to demand by adjusting the short run production. On the contrary, Investments ($I$) are not allowed to differ in such a way as they have to be set in advance when it is not clear jet how high demand might be. Please note that quantities do not depend on what other players might invest they do depend however, on how high own investments are.
+Each player ($i$) maximizes its profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$ . By considering different demand developments and the associated probabilities ($p_s$), the players take into account how demand might evolve in the future. Quantities are allowed to change in different scenarios that evolve, thereby stating that firms can always react to demand by adjusting the short run production. On the contrary, investments ($I$) are not allowed to differ in such a way as they have to be set in advance when it is not clear jet how high demand might be. Please note, that quantities do not depend on what other players might invest. They do depend however, on how high own investments are.
 % as the cost function can be changed between period one and two($C^1_i vs. C^2_i$). (Idee - Wenn man das weggibt, müsste man den Effekt den eigene Investments auf den Marktpreis haben sehen). 
-If, in the solution, quantities would depend on Investments of other players as well, we would enter the realm of feedback or closed loop games (which are the same in the case of a two stage game). It has to be noted here that the solution of a closed loop game can, and will, in general, be different from the solotion of an open loop game.
+If, in the solution, quantities would depend on Investments of other players as well, we would enter the realm of feedback or closed loop games (which are the same in the case of a two stage game). It has to be noted here that the solution of a closed loop game can, and will, in general, be different from the solution of an open loop game.
 
-To solve the model, we derive tha Karush Kuhn Tucker Conditions (KKT) to obtaion a mixed complementarity Problem which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions. For the competitive benchmark we skipped the index $i$ and solved the problem under the assumption that just one player disposes of all the initial capacities of the four players. When deriving the KKT conditions, this player is assumed to set prices equal to marginal costs.
+To solve the model, we derive the Karush Kuhn Tucker Conditions (KKT) to obtain a mixed complementarity problem (MCP) which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions. For the competitive benchmark we skipped the index $i$ and solved the problem under the assumption that just one player disposes of all the initial capacities of the four players. When deriving the KKT conditions, this player is assumed to set prices equal to marginal costs.
 
 %\clearpage
 
 \section{Results} 
 
-First, we consider a version of the model with two stages and two possible future demand states which are accounted for by a binomial tree structure. For the discount factor, we assume an interest rate of 5 \% and thereby assume that this figure is the same for all players. Equivalently, we set the depreciation rate to 2,5 \% a year. As we have two periods, and each is assumed to last for two years, this version of the model represents a medium term perspective. \\
+First, we consider a version of the model with two stages and two possible future demand states which are accounted for by a binomial tree structure. For the discount factor, we assume an interest rate of $5\%$ and thereby assume that this figure is the same for all players. Equivalently, we set the depreciation rate to $2.5\%$ a year. As we have two periods, and each is assumed to last for two years, this version of the model represents a medium term perspective. \\
 In Table \ref{tab:quant}, quantities and market prices for time period one and the high demand state are shown. It can be seen that during the high demand state, all capacities are fully utilized.
 
 \begin{table}[htb]
@@ -75,7 +75,7 @@ In Table \ref{tab:quant}, quantities and market prices for time period one and t
 \scriptsize Source: own calculations
 \end{table}
 
-Table \ref{tab:lambda} shows the shadow price of capacity for each of the firms. It can be seen here, that the value of an additional unit of capacity is very different for different oligopolistic players. Actually it only takes on positive values for Vattenfall and EnBW during high and extremly high market states. For most of the players, additional capacity is of no value, even in high demand states. This is intuitive however, as an additional unit of capacity might be not worth it for a big player because it lowers the price he gets for all the other units sold. For small players like Vattenfall and EnbW an additional unit of capacity is valuable, at least in high market states.
+Table \ref{tab:lambda} shows the shadow price of capacity for each of the firms. It can be seen here, that the value of an additional unit of capacity is very different for different oligopolistic players. Actually it only takes on positive values for Vattenfall and EnBW during high and extremely high market states. For most of the players, additional capacity is of no value, even in high demand states. This is intuitive however, as an additional unit of capacity might be not worth it for a big player because it lowers the price he gets for all the other units sold. For small players like Vattenfall and EnbW an additional unit of capacity is valuable, at least in high market states.
 
 \begin{table}[htb]
 \centering
@@ -110,7 +110,7 @@ Table \ref{tab:lambda} shows the shadow price of capacity for each of the firms.
 \scriptsize Source: own calculations
 \end{table}
 
-Having looked at the shadow prices it is now not surprising that EnBW and Vattanfall are the only two players which will invest. In Table \ref{tab:invest} the investment levels are given and are contrasted with the amounts of investments, a perfectly competitive market would yield. Apparently, there seems to be a distortion towards too low investments in the oligopoly case. It is also of interest, that a social planner would not invest in gas fired plants, suggesting that not only the level of investments, but also the technology mix used to satisfy the varying demands might be different in an oligopolistic market, than under perfect competition.
+Having looked at the shadow prices it is now not surprising that EnBW and Vattenfall are the only two players which will invest. In Table \ref{tab:invest} the investment levels are given and are contrasted with the amounts of investments, a perfectly competitive market would yield. Apparently, there seems to be a distortion towards too low investments in the oligopoly case. It is also of interest, that a social planner would not invest in gas fired plants, suggesting that not only the level of investments, but also the technology mix used to satisfy the varying demands might be different in an oligopolistic market, than under perfect competition.
 
 \begin{table}[htb]
 \centering
@@ -122,15 +122,15 @@ Having looked at the shadow prices it is now not surprising that EnBW and Vattan
            &            &    Nuclear &      BCoal &      HCoal &        Gas \\
 
 \hline
- oligopoly &     Vatten &         13 &         91 &         48 &          2 \\
+ Oligopoly &     Vatten &         13 &         91 &         48 &          2 \\
 
            &       EnBW &        329 &        399 &        319 &        150 \\
 
 \hline
- perfect comp. benchmark &            &        744 &       1387 &        910 &            \\
+ Perfect comp. benchmark &            &        744 &       1387 &        910 &            \\
 \hline
 \end{tabular}  
-\label{tab:lambda}
+\label{tab:invest}
 \\
 \vspace{0.3cm}
 \scriptsize Source: own calculations
