@@ -61,7 +61,7 @@ The major stake of electricity trading is done in OTC markets for which it is ha
 
 To account for different states of the market we separated the price-quantity combinations which occurred within a year by prices. As can be seen in Table \ref{tab:demand}, markets with extremely high prices occur only seldom and prices between 20 and 40 are most common. For each of the six states in which the market might be we created linear demand functions based on average prices and quantities in these states. Note that in order to account for price spikes we model the high-price end of the market quite accurately. To construct demand curves, \cite{Neuhoff2005} use a demand elasticity of 0.1, whereby \cite{Genc2007} argue that 0.2 is more commonly used to simulate the electricity market. As we have a more long run focus we decided to use 0.2 as in the long run, elasticity is higher. It might be argued, that in an electricity market, there is no elasticity anyway as maybe only a very few industrial clients reduce their demand as prices rise. Responding to this, \cite{Bushnell2003} notes that imports and exports provide some elasticity.
 
-\begin{table}
+\begin{table}[htb]
 \centering
 \caption{Market segments}
 \vspace{0.3cm}
@@ -83,14 +83,14 @@ below 20 & \multicolumn{1}{c}{1417} & \multicolumn{1}{c}{14} & \multicolumn{1}{c
 \label{tab:demand}
 \\
 \vspace{0.3cm}
-\scriptsize Source: UCTE and EEX \footnote{http://www.ucte.org/; http://www.eex.com/} 
+\scriptsize Source: UCTE and EEX 
 \end{table}
 
 %\subsection{Supply}
 
 Data concerning the short run marginal costs and investment costs per MWh were obtained from \cite[p.46]{Auer2006} and are shown in table \ref{tab:costs}. For pump storage plants we used the real option value of peak load electricity which we approximated by the average option price for peak load electricity at the EEX in the year 2006. We do not provide fixed costs for pump hydropower and oil plants. In the case of hydropower plants construction costs depend heavily on the respective sites and so such costs are hard to estimate. Furthermore, all available sites for significant hydropower capacities in Central Europe seem to be occupied already. Oil fired plants are not considered a relevant investment option because oil prices are just too high. The fixed investment costs we use could also be interpreted as a discounted present value of future yearly costs of capital so our analysis is general concerning this point.
 
-\begin{table}
+\begin{table}[htb]
 \centering
 \caption{Variable and fixed costs}
 \vspace{0.3cm}
