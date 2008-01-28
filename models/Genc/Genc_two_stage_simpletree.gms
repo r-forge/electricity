@@ -13,6 +13,8 @@ Alias (n,m);
 Scalar
 d        decreciation factor     /0.95/
 e        discount factor         /0.9 /
+
+
 Parameter
 c(k) variable kosten     /
                          Hydro    7.6
@@ -22,22 +24,42 @@ c(k) variable kosten     /
                          Gas      33.5
                          Oil      44
                          Pump     80 /
+
+*capc(k) capacity costs   /
+*                         Hydro    3500
+*                         Nuclear  1841
+*                         BCoal    1074
+*                         HCoal    971
+*                         Gas      460
+*                         Oil      332
+*                         Pump     100000    /
+*F(k)   scrap values      /
+*                         Hydro    3400
+*                         Nuclear  1741
+*                         BCoal    974
+*                         HCoal    871
+*                         Gas      360
+*                         Oil      232
+*                         Pump     10
+*                         /
 capc(k) capacity costs   /
-                         Hydro    3500
-                         Nuclear  1841
-                         BCoal    1074
-                         HCoal    971
-                         Gas      460
-                         Oil      332
-                         Pump     100000    /
+                         Hydro    35000000
+                         Nuclear  1841000
+                         BCoal    1074000
+                         HCoal    971000
+                         Gas      460000
+                         Oil      1000000000
+                         Pump     1000000000    /
+
+
 F(k)   scrap values      /
-                         Hydro    3400
-                         Nuclear  1741
-                         BCoal    974
-                         HCoal    871
-                         Gas      360
-                         Oil      232
-                         Pump     10
+                         Hydro     3395000
+                         Nuclear   1785770
+                         BCoal     1041780
+                         HCoal     941870
+                         Gas       446200
+                         Oil       10
+                         Pump      10
                          /
 alphaz(m) demand function intercepts in different market states at time zero /
                          exthigh   767.1
@@ -55,13 +77,22 @@ beta(m) demand function slopes in different market states /
                          low       0.002530629
                          vlow      0.001672949
                          /
-nmark(m) how often (within a year) occurs each market state  /
-                         exthigh     46
-                         vhigh      134
-                         high       788
-                         inter     2174
-                         low       4201
-                         vlow      1417
+*nmark(m) how often (within a year) occurs each market state  /
+*                         exthigh     46
+*                         vhigh      134
+*                         high       788
+*                         inter     2174
+*                         low       4201
+*                         vlow      1417
+*                         /
+
+nmark(m) how often (within five year) occurs each market state  /
+                         exthigh        230
+                         vhigh          670
+                         high          3940
+                         inter        10870
+                         low          21005
+                         vlow          7085
                          /
 
 Table
