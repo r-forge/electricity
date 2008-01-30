@@ -52,51 +52,51 @@
 
   \section{Intro}
 
-There are four players, indexed by $i$ (RWE, EON, Vattenfal and EnBW) and seven technologies indexed by $k$. Each of the players maximizes the following profit function:
+There are four players, indexed by $i$ (RWE, EON, Vattenfal and EnBW) seven technologies indexed by $k$ and six different states $m$ in which the market might be. Each of the players maximizes the following profit function:
 
 \begin{gather}
-	\max_{q_i} \pi(q_i,K_i,)= (\alpha-\beta\sum_i \sum_k q_i^k ) \sum_k q_i^k - \sum_k c^k q_i^k  \\
-			\text{s.t.:} \  q_i^k-K_i^k \leq 0; \\  \nonumber
- 										  q_i^k	\geq 0  \nonumber
+	\max_{q_{i,k}^m} \pi_i(q_{i,k}^m,K_{i,k},)= \sum_m v_m * \left[(\alpha_m-\beta_m\sum_i \sum_k q_{i,k}^m ) \sum_k q_{i,k}^m - \sum_k c^k q_{i,k}^m \right] \\
+			\text{s.t.:} \  q_{i,k}^m-K_{i,k} \leq 0;\  \forall i,k,m \\  \nonumber
+ 										  q_{i,k}^m	\geq 0; \ \forall i,k,m   \nonumber
 \end{gather}
 
-$\alpha$ and $\beta$ are the intercept and the slope of the inverse demand function, $q_i^k$ is the quantity produced with each technology by each player and $K_i^k$ is the corresponding capacity. $K_i^t$ is given for each player as this is the short run equilibrium and $c^k$ are the short run variable costs of producers.
+$\alpha$ and $\beta$ are the intercept and the slope of the inverse demand function, $q_{i,k}^m$ is the quantity produced with each technology by each player in each market state and $K_i^k$ is the corresponding capacity. $K_i^t$ is given for each player as this is the short run equilibrium. $c^k$ are the short run variable costs of producers.
 
 The Lagrangian of this problem looks as follows:
 
 \begin{gather}
-	L_i^k(q,\lambda,\mu)= (\alpha-\beta\sum_i \sum_k q_i^k ) \sum_k q_i^k - \sum_k c^k q_i^k - \lambda_i^k (q_i^k-K_i^k)-\mu_i^k(-q_i^k)
+	L_i(q,\lambda,\mu)= \sum_m v_m * \left[ (\alpha(m)-\beta(m)\sum_i \sum_k q_{i,k}^m ) \sum_k q_{i,k}^m - \sum_k c^k q_{i,k}^m \right] - \lambda_i^k (q_{i,k}^m - K_i^k)-\mu_i^k(-q_{i,k}^m)
 \end{gather}
 
 Which has the following KKT Conditions. 
 
 \begin{gather}
-\frac{\partial L_i^k(q,\lambda,\mu)}{\partial q_i^k}	= \alpha - \beta \sum_k q_i^k - \beta\sum_i \sum_k q_i^k - c_i^k - \lambda_i^k + \mu_i^k = 0 \ \forall i,k
+\frac{\partial L_i(q,\lambda,\mu)}{\partial q_{i,k}^m}	= v_m\left[ \alpha(m) - \beta(m) \sum_k q_{i,k}^m - \beta(m)\sum_i \sum_k q_{i,k}^m - c_i^k \right] - \lambda_{i,k}^m + \mu_i^k = 0 \ \forall i,k,m
 \end{gather}
 
-This means that we use the derivation of $L_i^k(\cdot)$ with respect to the quantities of each player and each technology. In our case, that´s 4*7=28 KKT conditions. This can, by combining it with the conditions that arise from the nonnegativity constraint, be simplified to:
+This means that we use the derivation of $L_i^k(\cdot)$ with respect to the quantities of each player and each technology in each market state. In our case, that´s 4*7*6=168 KKT conditions. This can, by combining it with the conditions that arise from the nonnegativity constraint, be simplified to:
 
 \begin{gather}
-\frac{\partial L_i^k(q,\lambda,\mu)}{\partial \lambda_i^k}	= \alpha - \beta \sum_k q_i^k - \beta\sum_i \sum_k q_i^k - c_i^k - \lambda_i^k \leq 0 \ \forall i,k
+\frac{\partial L_i(q,\lambda,\mu)}{\partial \lambda_{i,k}^m}	= v_m \left[ \alpha(m) - \beta(m) \sum_k q_{i,k}^m - \beta\sum_i \sum_k q_{i,k}^m - c^k \right] - \lambda_{i,k}^m \leq 0 \ \forall i,k,m
 \end{gather}
 
 With
 
 \begin{gather}
-q_i^k \geq 0 \ \forall i,k
+q_{i,k}^m \geq 0 \ \forall i,k,m
 \end{gather}
 
 as it´s complement.
 The other KKT conditions are:
 
 \begin{gather}
-\frac{\partial L_i^k(q,\lambda,\mu)}{\partial \lambda_i^k}	= q_i^k-K_i^k \leq 0 \ \forall i,k
+\frac{\partial L_i^k(q,\lambda,\mu)}{\partial \lambda_i^k}	= q_{i,k}^m-K_i^k \leq 0 \ \forall i,k,m
 \end{gather}
 
 With 
 
 \begin{gather}
-\lambda_i^k \geq 0 \  \forall i,k
+\lambda_i^k \geq 0 \  \forall i,k,m
 \end{gather}
 
 as it´s complement.
