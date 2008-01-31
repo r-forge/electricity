@@ -60,7 +60,6 @@ EnBW     447      4272        453        3288        1083        617        368
 ;
 
 Variable
-
 u(i,k)
 
 positive Variable
