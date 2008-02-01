@@ -9,10 +9,11 @@ m        market states /exthigh, vhigh, high, inter, low, vlow /
 Alias (i,j);
 Alias (k,h);
 Alias (n,m);
+Alias (s,w);
 
 Scalar
-d        decreciation factor     /0.95/
-e        discount factor         /0.9 /
+ro        decreciation factor     /0.95/
+e         discount factor         /0.9 /
 
 
 Parameter
@@ -42,7 +43,7 @@ c(k) variable kosten     /
 *                         Oil      232
 *                         Pump     10
 *                         /
-capc(k) capacity costs   /
+gamma(k) capacity costs   /
                          Hydro    35000000
                          Nuclear  1841000
                          BCoal    1074000
@@ -86,7 +87,7 @@ beta(m) demand function slopes in different market states /
 *                         vlow      1417
 *                         /
 
-nmark(m) how often (within five year) occurs each market state  /
+v(m) how often (within five year) occurs each market state  /
                          exthigh        230
                          vhigh          670
                          high          3940
@@ -132,17 +133,17 @@ invest(i,k)
 state(i,k)
 kapa(i,k)  ;
 
-profit0(i,k,m)..       nmark(m)* (- alphaz(m) + beta(m)*sum(h,q0(i,h,m)) + beta(m)*sum((j,h),q0(j,h,m)) + c(k) + y0(i,k,m))              =g= 0;
-profit1(s,i,k,m).. nmark(m)*0.5*e* (- alpha(s,m) + beta(m)*sum(h,q1(s,i,h,m)) + beta(m)*sum((j,h),q1(s,j,h,m)) + c(k) + y1(s,i,k,m) )      =g= 0;
+profit0(i,k,m)..   v(m)* (- alphaz(m) + beta(m)*sum(h,q0(i,h,m)) + beta(m)*sum((j,h),q0(j,h,m)) + c(k) ) + y0(i,k,m)              =g= 0;
+profit1(s,i,k,m).. v(m)*0.5*e*(- alpha(s,m) + beta(m)*sum(h,q1(s,i,h,m)) + beta(m)*sum((j,h),q1(s,j,h,m)) + c(k) ) + y1(s,i,k,m)  =g= 0;
 
 restr0(i,k,m)..      q0(i,k,m)  -       cap0(i,k)        =g= 0;
 restr1(s,i,k,m)..   q1(s,i,k,m) -       cap1(i,k)        =g= 0;
 
-invest(i,k)..      capc(k) - F(k) - u(i,k)               =g= 0;
+invest(i,k)..      gamma(k) - e*F(k) - u(i,k)            =g= 0;
 
-state(i,k)..      -cap1(i,k)  + d*cap0(i,k)  + inv(i,k)    =e= 0;
+state(i,k)..      -cap1(i,k)  + ro*cap0(i,k)  + inv(i,k)    =e= 0;
 
-kapa(i,k)..      e*0.5*(-sum(n, nmark(n)*y1('l',i,k,n)) - sum(n,nmark(n)* y1('h',i,k,n) ) )  + u(i,k)  =g= 0;
+kapa(i,k)..      sum((w,n), y1(w,i,k,n))  + u(i,k)  =g= 0;
 
 model monop  /profit0.q0,  restr0.y0, profit1.q1 , restr1.y1, invest.inv, state.u, kapa.cap1 /
 

@@ -1,0 +1,130 @@
+ \documentclass[a4paper,12pt]{article}
+\usepackage[]{german}
+\usepackage{setspace}
+\usepackage[latin1]{inputenc}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage[ps2pdf,%
+ linktocpage,%
+ colorlinks,%
+ bookmarks,%
+ bookmarksopen,%
+ bookmarksnumbered]{hyperref}
+\usepackage{amssymb,amsthm,amsmath,exscale}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{ccaption}
+
+%\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Theorem}
+\allowdisplaybreaks
+
+\newtheorem*{lem}{Lemma} 
+\newenvironment{pro}{\begin{proof}[Proof]}{\end{proof}}
+\newtheorem{con}{Conjecture}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark} 
+
+%The Role of Incentives and Strategic Behavior in Electricity and Quality Regulation
+
+\newcommand{\Titel}{Research Proposal: \\ Die Rolle von Anreizen und strategischem Verhalten in der Strom- und QualitÃ¤tsregulierung } 
+\newcommand{\Datum}{\today}
+\newcommand{\AutorEins}{ Mag. Anton Burger 0051357 \\  }
+\newcommand{\AutorZwei}{}
+\newcommand{\AutorEinsEmail}{anton.burger@wu-wien.ac.at}
+\newcommand{\AutorZweiEmail}{}
+\newcommand{\AutorEinsTel}{+43 1 31336 5898}
+\newcommand{\AutorZweiTel}{+43 1 31336 5899}
+\newcommand{\WPNO}{4}
+
+\pagestyle{headings}
+\pagenumbering{roman}
+
+\onehalfspacing
+%\setlength{\parindent}{10pt}
+%\parindent=\parindent 
+
+% %---------------------DECKBLÃƒÂ„TTER ANFANG----------------------%
+ \begin{document}
+
+
+  \section{Intro}
+
+This part introduces two deciding factors. First, dynamics and thereby investments which links the different time periods. Second, uncertainty which is accounted for by different scenarios that lead to a recourse problem. To make things clearer, we first start with the problem of a monopolist with one technology and one market state. In period one, the monopolist has to decide how much to invest to relieve scarity of capacity in the second period. The problem of the monopolist looks as follows.
+
+\begin{gather} 
+	\max \pi(q_{t}^s,K_{t},I)= (\alpha^l - \beta^l q_{1}^l ) q_{1}^l  - c q_{1}^l + \epsilon \sum_s p_s \left[ \alpha^s - \beta^s q_{2}^s ) q_{2}^s  - c q_{2}^s \right] \\ \label{eq:monopmax1}  \nonumber 
+									- \Gamma I + \epsilon F I  \\        
+			\text{s.t.:} \  q_{1}^l - K_{1} \leq 0;\  \label{eq:monopmax2}\\ 
+											q_{2}^l - K_{2} \leq 0;\  \label{eq:monopmax3}\\  
+											q_{2}^h - K_{2} \leq 0;\  \label{eq:monopmax4}\\  
+											K_2 - \rho K_1 - I = 0    \label{eq:monopmax5} \\  
+ 										  q_{t}^s, I ,K_t	\geq 0; \ \forall t,s   \nonumber
+\end{gather}
+
+Conditions \ref{eq:monopmax2} to \ref{eq:monopmax4} are the capacity constraints and \ref{eq:monopmax5} is the state equation. Next, we set up the Lagrangian. 
+
+\begin{gather}
+	\max L_i(q_{t}^s,K_{t},I,\lambda_t^s,u)= (\alpha^l - \beta^l q_{1}^l ) q_{1}^l  - c q_{1}^l + \epsilon \sum_s p_s \left[ \alpha^s - \beta^s q_{2}^s ) q_{2}^s  - c q_{2}^s \right] \\ \nonumber
+					- \Gamma I + \epsilon F I - \lambda_1 (q_1-K_1) - \lambda_2^s (q_2^s - K_2) \\   \nonumber
+					- u (K_2- \rho K_1 - I )\\  \nonumber    
+\end{gather}
+
+This optimization Problem translates into the following F.O.C´s which are written alongside with their respective complementarity conditions.
+\begin{gather}
+\frac{\partial L(\cdot)}{\partial q_{1}^l} = \alpha^l - 2 \beta^l q_{1}^l - c - \lambda_1	\leq 0 \ \bot \ q_{1}^l \geq 0; \\
+\frac{\partial L(\cdot)}{\partial q_2^s} = \epsilon p_s \left[ \alpha^s - 2 \beta^s q_{2}^s - c \right]- \lambda_2^s \leq 0 \ \bot \ q_{2}^s \geq 0;\ \forall s \\
+\frac{\partial L(\cdot)}{\partial \lambda_{1}^l} = - q_{1}^l + K_1 \leq 0 \ \bot \ \lambda_1 \geq 0 ; \\
+\frac{\partial L(\cdot)}{\partial \lambda_{2}^s} = - q_{1}^s + K_2 \leq 0 \ \bot \ \lambda_2^s \geq 0 ;\ \forall s \\
+\frac{\partial L(\cdot)}{\partial I} = -cap+\epsilon F + u \leq 0 \ \bot \ I \geq 0 ; \\
+\frac{\partial L(\cdot)}{\partial u} = -K_2 + \rho K_1 - I  = 0 \ \bot \ u \geq 0 ; \\
+\frac{\partial L(\cdot)}{\partial K_2} = \lambda_2^H + \lambda_2^L - u \leq 0  \ \bot \ K_2 \geq 0 ; 
+\end{gather}
+
+This system of equalities and inequalities can again be solved by the PATH Solver. \\
+Now we introduce players, technologies and market states to the investment problem under uncertainty to arrive at our final (for now) Model.
+\begin{gather}
+	\max \pi_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k})= \sum_m v_m \left[ (\alpha_m^l-\beta_m^l \sum_i\sum_k q_{i,k}^{l,m,1}) \sum_k q_{i,k}^{l,m,1} - \sum_k c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
+	+ \epsilon \sum_s p_s \sum_m v_m \left[ (\alpha_m^s-\beta_m^s \sum_i\sum_k q_{i,k}^{s,m,2}) \sum_k q_{i,k}^{s,m,2} - \sum_k c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber 
+									- \sum_k \Gamma_k I_{i,k} + \epsilon \sum_k F_k I_{i,k}  \\       
+			\text{s.t.:} \  q_{i,k}^{l,m,1} - K^{1}_{i,k} \leq 0; \ \forall i,k,m    \label{eq:monopmax2}\\ 
+											q_{i,k}^{s,m,2} - K^{2}_{i,k} \leq 0; \ \forall i,k,m,s  \label{eq:monopmax3}\\
+										  K^{2}_{i,k}  - \rho K^{1}_{i,k}  - I_{i,k} = 0 ; \ \forall i,k  \label{eq:monopmax5} \\  
+ 										  q_{i,k}^{s,m,t};K^t_{i,k};I_{i,k}	\geq 0; \ \forall i,k,s   \nonumber
+\end{gather}
+
+The Lagrangian of our Problem looks as follows:
+
+\begin{gather}
+	\max L_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k},\lambda_{i,k}^{s,m,t},u_{i,k})= \sum_m v_m \left[ (\alpha_m^l-\beta_m^l \sum_i\sum_k q_{i,k}^{l,m,1}) \sum_k q_{i,k}^{l,m,1} - \sum_k c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
+	+ \epsilon \sum_s p_s \sum_m v_m \left[ (\alpha_m^s-\beta_m^s \sum_i\sum_k q_{i,k}^{s,m,2}) \sum_k q_{i,k}^{s,m,2} - \sum_k c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber
+									- \sum_k \Gamma_k I_{i,k} + \epsilon \sum_k F_k I_{i,k}  \\   \nonumber    
+		- \lambda_{i,k}^{l,m,1}(q_{i,k}^{l,m,1} - K^{1}_{i,k})-\lambda_{i,k}^{s,m,2}(q_{i,k}^{s,m,2} - K^{2}_{i,k}) \\ \nonumber
+							u_{i,k}(K^{2}_{i,k}  - \rho K^{1}_{i,k}  - I_{i,k})		\\   \nonumber
+\end{gather}
+
+with the following FOC´s combined with the complementary slack conditions.
+
+This optimization Problem translates into the following F.O.C´s which are written alongside with their respective complementarity conditions.
+\begin{gather}
+\frac{\partial L(\cdot)}{\partial q_{i,k}^{l,m,1}} = v_m\left[  \alpha^l_m - \beta^l_m \sum_k q_{i,k}^{l,m,1} - \beta^l_m \sum_k \sum_i q_{i,k}^{l,m,1} - c_k \right]  - \lambda_{i,k}^{l,m,1}	\leq 0 \\ \nonumber \ \bot \ q_{i,k}^{l,m,1} \geq 0;\ \forall i,k,m \\
+\frac{\partial L(\cdot)}{\partial q_{i,k}^{s,m,2}} = \epsilon p_s v_m \left[ \alpha^s_m - \beta^s_m \sum_k q_{i,k}^{s,m,2} - \beta^s_m \sum_k \sum_i q_{i,k}^{s,m,2} - c_k \right] - \lambda_{i,k}^{s,m,2} \leq 0 \\ \nonumber \ \bot \ q_{i,k}^{s,m,2} \geq 0;\ \forall i,k,m,s \\
+\frac{\partial L(\cdot)}{\partial \lambda_{i,k}^{s,m,t}} = -q_{i,k}^{s,m,t} + K^t_{i,k} \leq 0 \ \bot \ \lambda_{i,k}^{s,m,t} \geq 0 ; \\
+\frac{\partial L(\cdot)}{\partial I_{i,k}} = - \Gamma_k + \epsilon F_k + u_{i,k} \leq 0 \ \bot \ I_{i,k} \geq 0 ;\forall i,k \\
+\frac{\partial L(\cdot)}{\partial u} = -K^2_{i,k} + \rho K^1_{i,k} - I_{i,k}  = 0 \ \bot \ u_{i,k} free \ \forall i,k  \\
+\frac{\partial L(\cdot)}{\partial K^2_{i,k}} = \sum_m \sum_s  \lambda_{i,k}^{s,m,2} - u_{i,k} \leq 0  \ \bot \ K^2_{i,k} \geq 0 ; \forall i,k
+\end{gather}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
