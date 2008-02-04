@@ -13,7 +13,7 @@ Alias (s,w);
 
 Scalar
 ro        decreciation factor     /0.95/
-e         discount factor         /0.9 /
+e         discount factor         /0.97 /
 
 
 Parameter
@@ -87,13 +87,13 @@ beta(m) demand function slopes in different market states /
 *                         vlow      1417
 *                         /
 
-v(m) how often (within five year) occurs each market state  /
-                         exthigh        230
-                         vhigh          670
-                         high          3940
-                         inter        10870
-                         low          21005
-                         vlow          7085
+v(m) how often (within a year) occurs each market state  /
+                         exthigh     46
+                         vhigh      134
+                         high       788
+                         inter     2174
+                         low       4201
+                         vlow      1417
                          /
 
 Table
@@ -133,17 +133,18 @@ invest(i,k)
 state(i,k)
 kapa(i,k)  ;
 
-profit0(i,k,m)..   v(m)* (- alphaz(m) + beta(m)*sum(h,q0(i,h,m)) + beta(m)*sum((j,h),q0(j,h,m)) + c(k) ) + y0(i,k,m)              =g= 0;
+profit0(i,k,m)..   v(m)* [- alphaz(m) + beta(m)*sum(h,q0(i,h,m)) + beta(m)*sum((j,h),q0(j,h,m)) + c(k) ] + y0(i,k,m) =g= 0;
+
 profit1(s,i,k,m).. v(m)*0.5*e*(- alpha(s,m) + beta(m)*sum(h,q1(s,i,h,m)) + beta(m)*sum((j,h),q1(s,j,h,m)) + c(k) ) + y1(s,i,k,m)  =g= 0;
 
-restr0(i,k,m)..      q0(i,k,m)  -       cap0(i,k)        =g= 0;
-restr1(s,i,k,m)..   q1(s,i,k,m) -       cap1(i,k)        =g= 0;
+restr0(i,k,m)..      -q0(i,k,m)  +       cap0(i,k)        =g= 0;
+restr1(s,i,k,m)..   -q1(s,i,k,m) +       cap1(i,k)        =g= 0;
 
 invest(i,k)..      gamma(k) - e*F(k) - u(i,k)            =g= 0;
 
 state(i,k)..      -cap1(i,k)  + ro*cap0(i,k)  + inv(i,k)    =e= 0;
 
-kapa(i,k)..      sum((w,n), y1(w,i,k,n))  + u(i,k)  =g= 0;
+kapa(i,k)..      +sum((w,n), y1(w,i,k,n))  - u(i,k)  =g= 0;
 
 model monop  /profit0.q0,  restr0.y0, profit1.q1 , restr1.y1, invest.inv, state.u, kapa.cap1 /
 
