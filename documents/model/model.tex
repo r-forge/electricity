@@ -12,24 +12,27 @@ In order to investigate investment decisions, we set up a realistic model which 
  										  q_i^k, I_{i,k}, K_{i,k}^t	\geq 0  \nonumber
 	\end{gather}
 	
-\begin{longtable}[c]{l l}
-$i\in N$                           	& players, firms\\
-$s\in S$       											& scenarios\\
-$m\in M$													 	& states of the market \\
-$k\in K$													 	& technologies \\
-$t\in T$													 	& time \\
-$K_{i,k}^t$                         & available capacity at time $t$ from technology $k$ for firm $i$ \\
-$q_{i,k}^{s,m,t}$										& quantity at time $t$, technology $k$, firm $i$, in market state $m$ and scenario $s$ \\			
-$I_{i,k}^t$                         & investment in technology $k$, at time $t$ from for firm $i$\\
-$p_s$                             	& probability of scenario $s$\\
-$\nu_m $												  	& says how often (how many hours) market state $m$ occurs \\
-$\epsilon $													& discount factor \\
-$\alpha(m)$													& demand function intercept in market state $m$ \\
-$\beta(m)$													& demand function slope in market state $m$ \\
-$c_k$																& variable costs of technology $k$	\\
-$\Gamma_k$													& investment costs in technology $k$  \\
-$F_k$																& scrap values  \\
-\end{longtable}
+\begin{tabular}[c]{l l}
+$i\in N$        & players, firms\\
+$s\in S$       	& scenarios\\
+$m\in M$	& states of the market \\
+$k\in K$	& technologies \\
+$t\in T$	& time \\
+$K_{i,k}^t$      & available capacity at time $t$ from technology $k$ \\
+                & for firm $i$ \\
+$q_{i,k}^{s,m,t}$ & quantity at time $t$, technology $k$, firm $i$, \\
+                & in market state $m$ and scenario $s$ \\			
+$I_{i,k}^t$   & investment in technology $k$, at time $t$ from for firm $i$\\
+$p_s$        & probability of scenario $s$\\
+$\nu_m$      & says how often (how many hours) market \\
+             & state $m$ occurs \\
+$\epsilon$   & discount factor \\
+$\alpha(m)$  & demand function intercept in market state $m$ \\
+$\beta(m)$   & demand function slope in market state $m$ \\
+$c_k$	     & variable costs of technology $k$	\\
+$\Gamma_k$   & investment costs in technology $k$  \\
+$F_k$        & scrap values  \\
+\end{tabular}
 
 Each player ($i$) maximizes its profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$ . By considering different demand developments and the associated probabilities ($p_s$), the players take into account how demand might evolve in the future. Quantities are allowed to change in different scenarios that evolve, thereby stating that firms can always react to demand by adjusting the short run production. On the contrary, investments ($I$) are not allowed to differ in such a way as they have to be set in advance when it is not clear jet how high demand might be. Please note, that quantities do not depend on what other players might invest. They do depend however, on how high own investments are.
 % as the cost function can be changed between period one and two($C^1_i vs. C^2_i$). (Idee - Wenn man das weggibt, müsste man den Effekt den eigene Investments auf den Marktpreis haben sehen). 
