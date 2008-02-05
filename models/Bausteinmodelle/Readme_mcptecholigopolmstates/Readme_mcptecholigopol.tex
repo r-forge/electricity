@@ -4,6 +4,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage{mathptmx}
 \usepackage{graphicx}
+\usepackage{longtable}
 \usepackage{natbib}
 \usepackage[ps2pdf,%
  linktocpage,%
@@ -52,15 +53,28 @@
 
   \section{Intro}
 
-There are four players, indexed by $i$ (RWE, EON, Vattenfal and EnBW) seven technologies indexed by $k$ and six different states $m$ in which the market might be. Each of the players maximizes the following profit function:
+There are four players, indexed by $i\in N$ (RWE, EON, Vattenfall and EnBW) seven technologies $k\in K$  and six different states $m\in M$ in which the market might be. Each of the players maximizes the following profit function:
 
 \begin{gather}
-	\max_{q_{i,k}^m} \pi_i(q_{i,k}^m,K_{i,k},)= \sum_m v_m * \left[(\alpha_m-\beta_m\sum_i \sum_k q_{i,k}^m ) \sum_k q_{i,k}^m - \sum_k c^k q_{i,k}^m \right] \\
+	\max \pi_i(q_{i,k}^m,K_{i,k},)= \sum_{m\in M} v_m * \left[(\alpha_m-\beta_m\sum_{i\in N} \sum_{k\in K} q_{i,k}^m ) \sum_{k\in K} q_{i,k}^m - \sum_{k\in K} c^k q_{i,k}^m \right] \\
 			\text{s.t.:} \  q_{i,k}^m-K_{i,k} \leq 0;\  \forall i,k,m \\  \nonumber
  										  q_{i,k}^m	\geq 0; \ \forall i,k,m   \nonumber
 \end{gather}
 
-$\alpha$ and $\beta$ are the intercept and the slope of the inverse demand function, $q_{i,k}^m$ is the quantity produced with each technology by each player in each market state and $K_i^k$ is the corresponding capacity. $K_i^t$ is given for each player as this is the short run equilibrium. $c^k$ are the short run variable costs of producers.
+\begin{longtable}[c]{l l}
+$i\in N$                           	& players, firms\\
+$m\in M$													 	& states of the market \\
+$k\in K$													 	& technologies \\
+$K_{i,k}$                           & available capacity, technology $k$ for firm $i$ (fixed in the static version) \\
+$q_{i,k}^{m}$										    & quantity for technology $k$, firm $i$ and market state $m$ \\			
+$\nu_m $												  	& says how often (how many hours) market state $m$ occurs \\
+$\alpha(m)$													& demand function intercept in market state $m$ \\
+$\beta(m)$													& demand function slope in market state $m$ \\
+$c_k$																& variable costs of technology $k$	\\
+\end{longtable}
+
+
+$\alpha(m)$ and $\beta(m)$ are the intercept and the slope of the inverse demand function in different market states which could be very high, high, intermediate etc.. $q_{i,k}^m$ is the quantity produced with each technology by each player in each market state and $K_i^k$ is the corresponding capacity. $K_i^t$ is given for each player as this is the short run equilibrium. $c^k$ are the short run variable costs of producers. The parameter $\nu_m $ says how often a certain demand state occurs. This parameter is used as a weight for the shadow price of capacity which we obtain. We derived the Karush Kuhn Tucker Conditions to obtain a Mixed Complementarity Problem and solved it by using the PATH Solver in GAMS.
 
 The Lagrangian of this problem looks as follows:
 

@@ -2,17 +2,17 @@
 
 \subsection{Supply Function Equilibria vs. Market States}
 
-\cite{Klemperer1989} show that when a firm faces a range of possible residual demand curves, which is actually the case in electricity markets, the expected profit can be increased by not just offering one quantity or price, but a schedule which sets a price for each possible demand that might materialize. On an electricity wholesale market such behavior is clearly possible. By considering enough possible future market states, one can overcome much of this disadvantage a traditional Cournot model has. For example, a firm could set quantities offered to be optimal for a typical eight o clock winter morning market or a typical summer nighttime market. Given bounded rationality such behavior might even be more realistic than the rather complex SFE Approach.
+\cite{Klemperer1989} show that when a firm faces a range of possible residual demand curves, which is actually the case in electricity markets, the expected profit can be increased by not just offering one quantity or price, but a schedule which sets a price for each possible demand that might materialize. The equilibrium arising from such behavior is called a supply function equilibrium (SFE) On an electricity wholesale market such behavior is clearly possible. \cite{Green1992} apply this model to the British electricity spot market at which bids had to be submitted for a whole day. At the EEX however, bids can be submitted one day ahead for every hour of the day allowing generators to forecast demand with a high degree of accuracy. By considering enough possible future market states, one can thereby overcome much of this disadvantage a traditional Cournot model has compared to the SFE approach. For example, a firm could set quantities offered to be optimal for a typical eight o clock winter morning market or a typical summer nighttime market. Given bounded rationality such behavior might even be more realistic than the rather complex SFE Approach.
 
 \subsection{Peak-load pricing under perfect competition}
 
-In electricity markets, demand varies from hour to hour and as it is not storable, it has to be met at any time of the day. If capacities are a binding constraint, there has to be rationing by rising prices. Of course, such rationing causes Welfare to decrease. On the other hand however, there are capacity costs. The literature on peak load pricing provides results on how to balance these two effects optimally. Under perfect competition, Prices will equal marginal costs in low demand periods $v=p$ (variable costs = price) and marginal costs plus a scarity rent in high demand periods. Under the assumption that there are fixed capacity costs $(c)$ how much capacity $(K)$ should be built taking into account that demand is not always high and there is a chance of $\pi$ to have high demand. The premium of the market price over marginal costs in peak periods multiplied with the chance of actually having a period of high demand reflects the value of increasing capacity by one unit $((p^p-v)\pi)$. (In off peak periods, the corresponding premium equals zero, reflecting the fact that in such states capacity is of no value.) This value of increasing capacity by one unit must equal capacity costs per unit $((p^p-v)\times\pi)=(c)$ if this condition is met, social surplus is maximised and costs are minimised. A profit maximising firm under perfect competition would invest until exactly this condition is satisfied. So under perfect competition, one could rely on the market to provide optimal incentives for capacity investments \citep[see][]{Fehr1995}.
+In electricity markets, demand varies from hour to hour and as it is not storable, it has to be met at any time of the day. If capacities are a binding constraint, there has to be rationing by rising prices. Of course, such rationing causes Welfare to decrease. On the other hand however, there are capacity costs. The literature on peak load pricing provides results on how to balance these two effects optimally \cite{Crew1986}. Under perfect competition, Prices will equal marginal costs in low demand periods $v=p$ (variable costs = price) and marginal costs plus a scarity rent in high demand periods. Under the assumption that there are fixed capacity costs $(c)$ how much capacity $(K)$ should be built taking into account that demand is not always high and there is a chance of $\pi$ to have high demand. The premium of the market price over marginal costs in peak periods multiplied with the chance of actually having a period of high demand reflects the value of increasing capacity by one unit $((p^p-v)\pi)$. (In off peak periods, the corresponding premium equals zero, reflecting the fact that in such states capacity is of no value.) This value of increasing capacity by one unit must equal capacity costs per unit $((p^p-v)\times\pi)=(c)$ if this condition is met, social surplus is maximised and costs are minimised. A profit maximising firm under perfect competition would invest until exactly this condition is satisfied. So under perfect competition, one could rely on the market to provide optimal incentives for capacity investments. However, this does not mean that prices should always be equal to marginal cost as during peak periods firms must be allowed to cover their investment costs by scarcity rents.
 
 If capacity is binding, the price of electricity is equal to the willingness to pay of the marginal consumer. So please note, that we do not account for possible outages or rationing costs although this is discussed in the literature.
 
 \subsection{Peak-load pricing under imperfect competition}
 
-If there is market power e.g. in the situation of an oligopoly the above mentioned optimality result does not necessarily hold as prices which are distorted upwards may induce overinvestments. The situation of too high prices is depicted in Figure \ref{peak_load_toohigh}. 
+How optimal incentives to invest are distorted by an oligopolistic situation is shown by \cite{Fehr1995}. If there is market power, the above mentioned optimality result does not necessarily hold as prices above marginal costs may induce overinvestments. The situation of too high prices is depicted in Figure \ref{peak_load_toohigh}.
 
 \begin{figure}[h]
 \centering
@@ -23,7 +23,7 @@ If there is market power e.g. in the situation of an oligopoly the above mention
 \scriptsize Source: \cite{Fehr1995}
 \end{figure}
 
-On the other side however, firms might have an incentive to cut on investments, thereby driving up the price in peak periods and increasing their profits. This, of course would only work if there are barriers to entry beyond the unit costs of investment which are $(c)$. This can be seen in Figure \ref{peak_load_insufficient}.
+On the other side however, firms might have an incentive to cut on investments, thereby driving up the price in peak periods and increasing their profits. This, of course would only work if there are barriers to entry beyond the unit costs of investment which are $(c)$. The effect of lower than optimal investments is depicted in figure \ref{peak_load_insufficient}.
 
 \begin{figure}[h]
 \centering
@@ -34,7 +34,8 @@ On the other side however, firms might have an incentive to cut on investments, 
 \scriptsize Source: \cite{Fehr1995}
 \end{figure}
 
-While the socially optimal incentive to invest is still the same as above, a firm gets the following expected revenue per unit of investment:
+We will now use the little example from \cite{Fehr1995} to illustrate the two competing effects.
+While the socially optimal incentive to invest is still the same as above, a firm in an oligopolistic situation gets the following expected revenue per unit of investment:
 
 \begin{equation}
 	1/2 (1-\pi) (p^{op}-v) + \pi (w^p(K)+\frac{\partial w^p(K^*)}{\partial q}-v) - c
@@ -42,9 +43,35 @@ While the socially optimal incentive to invest is still the same as above, a fir
 
 The first part of the equation stands for possible gains of the investment that might occur during low peak periods. For simplicity we assume that there is a duopoly and a probability of $1/2$ for a new unit of capacity to be utilised. This is then multiplied by the probability to not have a peak period and the oligopoly price minus variable costs. In such periods it is possible to steal business, you would normally not have, from another firm. Such an effect can create an additional incentive to invest in capacity. %As we shall see later on, this effect can be called a strategic effect of investments as well.
 
-The second part of the equation stands for what the investing firm gains during peak periods. This equation is essentially the same as before, apart from the term ($w^{\acute{c}}$) which measures the reduction in the peak price which is due to the decreased scarity of capacity. This effect has to be taken into account now, as we switched from perfect competition to oligopoly.
+The second part of the equation stands for what the investing firm looses in peak periods due to the investment. This equation is essentially the same as before, apart from the term ($w^{\acute{c}}$) which measures the reduction in the peak price which is due to the decreased scarcity of capacity. This effect has to be taken into account now, as we switched from perfect competition to oligopoly.
 
-So if the loss firms expect due to losses in the peak load market price are bigger than the gains due to more market share in off peak periods firms will underinvest as their incentive to invest is smaller than the optimal level under perfect competition. Of course, if the effect doe to business stealing is higher, firms will overinvest. So in an oligopolistic setting, firms will in general not choose an optimal level of investments and it cannot be said whether they will over- or underinvest \citep[see][]{Fehr1995}.%To be able to assess the strength of the different effects, we set up a realistic numerical model in the next section. %As we shall see later on, in a two stage game, strategic effects can be accounted for in different ways which has an effect on the predictions made.
+So if the loss firms expect due to losses in the peak load market price are bigger than the gains due to more market share in off peak periods firms will underinvest as their incentive to invest is smaller than the optimal level under perfect competition. Of course, if the effect doe to business stealing is higher, firms will overinvest. So in an oligopolistic setting, firms will in general not choose an optimal level of investments and it cannot be said ex ante whether they will over- or underinvest.
+
+\subsection{An application of peak load pricing under imperfect competition}
+
+We will now use a static Version of our Model to link it to the economic intuition just outlined and to show how decisive the impact of such a game theoretic situation on investment incentives actually is.
+
+There are four players, indexed by $i\in N$ (RWE, EON, Vattenfall and EnBW) seven technologies $k\in K$  and six different states $m\in M$ in which the market might be. Each of the players maximizes the following profit function:
+
+\begin{gather}
+	\max \pi_i(q_{i,k}^m,K_{i,k},)= \sum_{m\in M} v_m * \left[(\alpha_m-\beta_m\sum_{i\in N} \sum_{k\in K} q_{i,k}^m ) \sum_{k\in K} q_{i,k}^m - \sum_{k\in K} c^k q_{i,k}^m \right] \\
+			\text{s.t.:} \  q_{i,k}^m-K_{i,k} \leq 0;\  \forall i,k,m \\  \nonumber
+ 										  q_{i,k}^m	\geq 0; \ \forall i,k,m   \nonumber
+\end{gather}
+
+$\alpha(m)$ and $\beta(m)$ are the intercept and the slope of the inverse demand function in different market states which could be very high, high, intermediate etc.. $q_{i,k}^m$ is the quantity produced with each technology by each player in each market state and $K_i^k$ is the corresponding capacity. $K_i^t$ is given for each player as this is the short run equilibrium. $c^k$ are the short run variable costs of producers. The parameter $\nu_m $ says how often a certain demand state occurs. This parameter is used as a weight for the shadow price of capacity which we obtain. We derived the Karush Kuhn Tucker Conditions to obtain a Mixed Complementarity Problem and solved it by using the PATH Solver in GAMS.
+
+Table \ref{tab:statquant} in the appendix shows the quantities predicted by our oligopoly model. While during a high demand state almost all capacities are used, during low demand states hard coal plants are the marginal technology. Prices differ significantly but are above marginal costs even if demand is very low. Please note that there is strategic capacity withholding as not all capacities are brought to the market even if more than the variable costs were covered.
+
+As we used a Lagrangian method to calculate this short run equilibrium, we can have a look at the shadow prices of capacity to see how much an additional unit of capacity would be worth for every player. Please note that this values cannot be smaller than zero as, in our setup, there always exists the option of not using existing capacities. So, as in our example above, there are only positive scarcity rents if the capacity of the technology is binding. Table \ref{tab:statlambda} shows the shadow prices of capacity. The values can be read in such a way that an additional MW of hydro power capacity would increase profits RWE makes in all the exremely high market states by 831 EUROS and the overall yearly profit of RWE by 44832 EUROS. On the contrary, the same capacity is worth 269972 EUROS for EnBW. How can such different results be explained? First, it seems that firms gain less from investing during high demand states which is straightforward as demand is more inelastic during high demand states and so one looses more by adding more capacity which depresses the gain from capacity. On the other hand, there are positive values for almost all technologies during extremely high demand states as most of the capacities become binding then.
+Most importantly, for smaller players like Vattenfall and EnBW shadow prices are far higher as the effect of less scarcity, and thereby lower prices has a smaller effect on their lower quantities sold. This means that it is impossible to assess the investment incentives a firm on a market like the electricity market (oligopoly and L-shaped cost functions) has without considering the strategic implications such investments have.
+
+
+
+
+
+
+%To be able to assess the strength of the different effects, we set up a realistic numerical model in the next section. %As we shall see later on, in a two stage game, strategic effects can be accounted for in different ways which has an effect on the predictions made.
 
 %\subsection{Optimal Technology Mix}
 
