@@ -9,9 +9,10 @@ m        market states /exthigh, vhigh, high, inter, low, vlow /
 *Alias (i,j);
 Alias (k,h);
 Alias (n,m);
+Alias (s,w);
 
 Scalar
-d        decreciation factor     /0.95/
+ro        decreciation factor     /0.95/
 e        discount factor         /0.9 /
 
 Parameter
@@ -23,7 +24,7 @@ c(k) variable kosten     /
                          Gas      33.5
                          Oil      44
                          Pump     80 /
-capc(k) capacity costs   /
+gamma(k) capacity costs   /
                          Hydro    35000000000
                          Nuclear  1841000
                          BCoal    1074000
@@ -58,7 +59,7 @@ beta(m) demand function slopes in different market states /
                          low       0.002530629
                          vlow      0.001672949
                          /
-nmark(m) how often (within a year) occurs each market state  /
+v(m) how often (within a year) occurs each market state  /
                          exthigh     46
                          vhigh      134
                          high       788
@@ -92,6 +93,8 @@ h       805.455       541.38  428.66   306.39  186.37  89.775
 
 Variable
 u(k)
+p0(m)
+p1(m,s)
 
 positive Variable
 inv(k)
@@ -109,22 +112,28 @@ restr1(s,k,m)
 
 invest(k)
 state(k)
-kapa(k)  ;
+kapa(k)
 
-profit0(k,m)..       nmark(m)* (- alphaz(m) + beta(m)*sum(h,q0(h,m)) + c(k) + y0(k,m))             =g= 0;
-profit1(s,k,m).. nmark(m)*0.5*e* (- alpha(s,m) + beta(m)*sum(h,q1(s,h,m)) + c(k) + y1(s,k,m) )      =g= 0;
+price0(m)        gives back the price (not relevant for result)
+price1(m,s)      gives back the price (not relevant for result) ;
 
-restr0(k,m)..      q0(k,m)  -       cap0(k)        =g= 0;
-restr1(s,k,m)..   q1(s,k,m) -       cap1(k)        =g= 0;
+profit0(k,m)..       v(m)* (- alphaz(m) + beta(m)*sum(h,q0(h,m)) + c(k)  )+ y0(k,m)            =g= 0;
+profit1(s,k,m)..  v(m)*0.5*e* (- alpha(s,m) + beta(m)*sum(h,q1(s,h,m)) + c(k) ) + y1(s,k,m)     =g= 0;
 
-invest(k)..      capc(k) - F(k) - u(k)             =g= 0;
+restr0(k,m)..     - q0(k,m)  +       cap0(k)        =g= 0;
+restr1(s,k,m)..   -q1(s,k,m) +       cap1(k)        =g= 0;
 
-state(k)..      -cap1(k)  + d*cap0(k)  + inv(k)    =e= 0;
+invest(k)..      gamma(k) - e*F(k) - u(k)           =g= 0;
 
-kapa(k)..      e*0.5*(-sum(n, nmark(n)*y1('l',k,n)) - sum(n,nmark(n)* y1('h',k,n) ) )  + u(k)  =g= 0;
+state(k)..      -cap1(k)  + ro*cap0(k)  + inv(k)    =e= 0;
 
-model monop  /profit0.q0,  restr0.y0, profit1.q1 , restr1.y1, invest.inv, state.u, kapa.cap1 /
+kapa(k)..      +sum((w,n), y1(w,k,n))  - u(k)  =g= 0;
+
+price0(m)..        p0(m) =e= alphaz(m)-  beta(m)*sum((h),q0(h,m)) ;
+price1(m,s)..      p1(m,s) =e= alpha(s,m)-  beta(m)*sum((h),q1(s,h,m)) ;
+
+model monop  /profit0.q0,  restr0.y0, profit1.q1 , restr1.y1, invest.inv, state.u, kapa.cap1, price0, price1 /
 
 solve monop using mcp;
 
-display q0.l, y0.l, q1.l, y1.l , inv.l, cap1.l
+display q0.l, y0.l, q1.l, y1.l , inv.l, cap1.l, p0.l, p1.l

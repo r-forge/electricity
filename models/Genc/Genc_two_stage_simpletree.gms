@@ -114,6 +114,8 @@ h       805.455       541.38  428.66   306.39  186.37  89.775
 
 Variable
 u(i,k)
+p0(m)
+p1(m,s)
 
 positive Variable
 inv(i,k)
@@ -131,7 +133,10 @@ restr1(s,i,k,m)
 
 invest(i,k)
 state(i,k)
-kapa(i,k)  ;
+kapa(i,k)
+
+price0(m)        gives back the price (not relevant for result)
+price1(m,s)      gives back the price (not relevant for result) ;
 
 profit0(i,k,m)..   v(m)* [- alphaz(m) + beta(m)*sum(h,q0(i,h,m)) + beta(m)*sum((j,h),q0(j,h,m)) + c(k) ] + y0(i,k,m) =g= 0;
 
@@ -146,8 +151,12 @@ state(i,k)..      -cap1(i,k)  + ro*cap0(i,k)  + inv(i,k)    =e= 0;
 
 kapa(i,k)..      +sum((w,n), y1(w,i,k,n))  - u(i,k)  =g= 0;
 
-model monop  /profit0.q0,  restr0.y0, profit1.q1 , restr1.y1, invest.inv, state.u, kapa.cap1 /
+price0(m)..        p0(m) =e= alphaz(m)-  beta(m)*sum((j,h),q0(j,h,m)) ;
+
+price1(m,s)..        p1(m,s) =e= alpha(s,m)-  beta(m)*sum((j,h),q1(s,j,h,m)) ;
+
+model monop  /profit0.q0,  restr0.y0, profit1.q1 , restr1.y1, invest.inv, state.u, kapa.cap1, price0, price1 /
 
 solve monop using mcp;
 
-display q0.l, y0.l, q1.l, y1.l , inv.l, cap1.l
+display q0.l, y0.l, q1.l, y1.l , inv.l, cap1.l, p0.l, p1.l
