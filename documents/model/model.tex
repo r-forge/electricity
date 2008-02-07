@@ -2,7 +2,7 @@
 
 \subsection{An application of peak load pricing under imperfect competition}
 
-We will now use a static Version of our Model to link it to the economic intuition just outlined and to show how decisive the impact of such a game theoretic situation on investment incentives actually is.
+We will now use a static version of our model to link it to the economic intuition just outlined and to show how decisive the impact of such a game theoretic situation on investment incentives actually is.
 
 There are four players, indexed by $i\in N$ (RWE, EON, Vattenfall and EnBW) seven technologies $k\in K$  and six different states $m\in M$ in which the market might be. Each of the players maximizes the following profit function:
 
@@ -35,8 +35,6 @@ $F_k$        & scrap values  \\
 \\
 \end{tabular}
 
-
-
 $\alpha(m)$ and $\beta(m)$ are the intercept and the slope of the inverse demand function in different market states which could be very high, high, intermediate etc.. $q_{i,k}^m$ is the quantity produced with each technology by each player in each market state and $K_i^k$ is the corresponding capacity. $K_i^t$ is now given for each player as this is the short run equilibrium. $c^k$ are the short run variable costs which are the same for every producer. The parameter $\nu_m $ says how often a certain demand state occurs. This parameter is used as a weight for the shadow price of capacity which we obtain. We derived the Karush Kuhn Tucker Conditions to obtain a Mixed Complementarity Problem and solved it by using the PATH Solver in GAMS.
 
 Table \ref{tab:statquant} in the appendix shows the quantities predicted by our oligopoly model. While during a high demand state almost all capacities are used, during low demand states hard coal plants are the marginal technology. Prices differ significantly but are above marginal costs even if demand is very low. Please note that there is strategic capacity withholding as not all capacities are brought to the market even if more than the variable costs were covered.
@@ -58,7 +56,7 @@ In this part, we introduce two deciding factors. First, dynamics and thereby inv
  										  q_{i,k}^{s,m,t};K^t_{i,k};I_{i,k}	\geq 0; \ \forall i,k,s   \nonumber
 \end{gather}
 
-Each player ($i$) maximizes its profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$ . By considering different demand developments and the associated probabilities ($p_s$) of the different scenarios ($s\in S$), the players take into account how demand might evolve in the future. Capacities now evolve over time $t\in T$, according to the state equation (\ref{eq:ologopmax5}). \ref{eq:ologopmax2} and \ref{eq:ologopmax3} are the capacity constraints. Quantities are allowed to be adapted to different scenarios that evolve, thereby stating that firms can always react to demand by adjusting the short run production. On the contrary, investments ($I$) are not allowed to differ in such a way as they have to be set in advance when it is not clear jet how high demand might be. Please note, that quantities do not depend on what other players might invest. They do depend however, on how high own investments are. 
+Each player ($i$) maximizes its profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$ . By considering different demand developments and the associated probabilities ($p_s$) of the different scenarios ($s\in S$), the players take into account how demand might evolve in the future. Capacities now evolve over time $t\in T$, according to the state equation (\ref{eq:ologopmax5}). \ref{eq:oligopmax2} and \ref{eq:oligopmax3} are the capacity constraints. Quantities are allowed to be adapted to different scenarios that evolve, thereby stating that firms can always react to demand by adjusting the short run production. On the contrary, investments ($I$) are not allowed to differ in such a way as they have to be set in advance when it is not clear jet how high demand might be. Please note, that quantities do not depend on what other players might invest. They do depend however, on how high own investments are. 
 % as the cost function can be changed between period one and two($C^1_i vs. C^2_i$). (Idee - Wenn man das weggibt, müsste man den Effekt den eigene Investments auf den Marktpreis haben sehen). 
 If quantities would depend on Investments of other players as well, we would enter the realm of feedback or closed loop games (which are the same in the case of a two stage game). It has to be noted here that the solution of a closed loop game can, and will, in general, be different from the solution of an open loop game.
 
