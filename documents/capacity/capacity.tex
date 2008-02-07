@@ -47,26 +47,6 @@ The second part of the equation stands for what the investing firm looses in pea
 
 So if the loss firms expect due to losses in the peak load market price are bigger than the gains due to more market share in off peak periods firms will underinvest as their incentive to invest is smaller than the optimal level under perfect competition. Of course, if the effect doe to business stealing is higher, firms will overinvest. So in an oligopolistic setting, firms will in general not choose an optimal level of investments and it cannot be said ex ante whether they will over- or underinvest.
 
-\subsection{An application of peak load pricing under imperfect competition}
-
-We will now use a static Version of our Model to link it to the economic intuition just outlined and to show how decisive the impact of such a game theoretic situation on investment incentives actually is.
-
-There are four players, indexed by $i\in N$ (RWE, EON, Vattenfall and EnBW) seven technologies $k\in K$  and six different states $m\in M$ in which the market might be. Each of the players maximizes the following profit function:
-
-\begin{gather}
-	\max \pi_i(q_{i,k}^m,K_{i,k},)= \sum_{m\in M} v_m * \left[(\alpha_m-\beta_m\sum_{i\in N} \sum_{k\in K} q_{i,k}^m ) \sum_{k\in K} q_{i,k}^m - \sum_{k\in K} c^k q_{i,k}^m \right] \\
-			\text{s.t.:} \  q_{i,k}^m-K_{i,k} \leq 0;\  \forall i,k,m \\  \nonumber
- 										  q_{i,k}^m	\geq 0; \ \forall i,k,m   \nonumber
-\end{gather}
-
-$\alpha(m)$ and $\beta(m)$ are the intercept and the slope of the inverse demand function in different market states which could be very high, high, intermediate etc.. $q_{i,k}^m$ is the quantity produced with each technology by each player in each market state and $K_i^k$ is the corresponding capacity. $K_i^t$ is given for each player as this is the short run equilibrium. $c^k$ are the short run variable costs of producers. The parameter $\nu_m $ says how often a certain demand state occurs. This parameter is used as a weight for the shadow price of capacity which we obtain. We derived the Karush Kuhn Tucker Conditions to obtain a Mixed Complementarity Problem and solved it by using the PATH Solver in GAMS.
-
-Table \ref{tab:statquant} in the appendix shows the quantities predicted by our oligopoly model. While during a high demand state almost all capacities are used, during low demand states hard coal plants are the marginal technology. Prices differ significantly but are above marginal costs even if demand is very low. Please note that there is strategic capacity withholding as not all capacities are brought to the market even if more than the variable costs were covered.
-
-As we used a Lagrangian method to calculate this short run equilibrium, we can have a look at the shadow prices of capacity to see how much an additional unit of capacity would be worth for every player. Please note that this values cannot be smaller than zero as, in our setup, there always exists the option of not using existing capacities. So, as in our example above, there are only positive scarcity rents if the capacity of the technology is binding. Table \ref{tab:statlambda} shows the shadow prices of capacity. The values can be read in such a way that an additional MW of hydro power capacity would increase profits RWE makes in all the exremely high market states by 831 EUROS and the overall yearly profit of RWE by 44832 EUROS. On the contrary, the same capacity is worth 269972 EUROS for EnBW. How can such different results be explained? First, it seems that firms gain less from investing during high demand states which is straightforward as demand is more inelastic during high demand states and so one looses more by adding more capacity which depresses the gain from capacity. On the other hand, there are positive values for almost all technologies during extremely high demand states as most of the capacities become binding then.
-Most importantly, for smaller players like Vattenfall and EnBW shadow prices are far higher as the effect of less scarcity, and thereby lower prices has a smaller effect on their lower quantities sold. This means that it is impossible to assess the investment incentives a firm on a market like the electricity market (oligopoly and L-shaped cost functions) has without considering the strategic implications such investments have.
-
-
 
 
 
