@@ -12,8 +12,8 @@ Alias (n,m);
 Alias (s,w);
 
 Scalar
-ro        decreciation factor     /0.95/
-e         discount factor         /0.97 /
+ro        depreciation factor     /0.96/
+e         discount factor         /0.97/
 
 
 Parameter
@@ -26,23 +26,6 @@ c(k) variable kosten     /
                          Oil      44
                          Pump     80 /
 
-*capc(k) capacity costs   /
-*                         Hydro    3500
-*                         Nuclear  1841
-*                         BCoal    1074
-*                         HCoal    971
-*                         Gas      460
-*                         Oil      332
-*                         Pump     100000    /
-*F(k)   scrap values      /
-*                         Hydro    3400
-*                         Nuclear  1741
-*                         BCoal    974
-*                         HCoal    871
-*                         Gas      360
-*                         Oil      232
-*                         Pump     10
-*                         /
 gamma(k) capacity costs   /
                          Hydro    35000000
                          Nuclear  1841000
@@ -54,13 +37,14 @@ gamma(k) capacity costs   /
 
 
 F(k)   scrap values      /
-                         Hydro     3395000
-                         Nuclear   1785770
-                         BCoal     1041780
-                         HCoal     941870
-                         Gas       446200
-                         Oil       10
-                         Pump      10
+Hydro        33950000
+Nuclear        1785770
+BCoal        1041780
+HCoal        941870
+Gas        446200
+Oil        970000000
+Pump        970000000
+
                          /
 alphaz(m) demand function intercepts in different market states at time zero /
                          exthigh   767.1

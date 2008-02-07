@@ -52,7 +52,7 @@
 
   \section{Intro}
 
-In this part we introduce two deciding factors. First, dynamics and thereby investments which links the different time periods. Second, uncertainty which is accounted for by different scenarios that lead to a recourse problem. To make things clearer, we first start with the problem of a monopolist with one technology and one market state. In period one, the monopolist has to decide how much to invest to relieve scarity of capacity in the second period. The problem of the monopolist looks as follows.
+In this part we introduce two deciding factors. First, dynamics and thereby investments which links the different time periods. Second, uncertainty which is accounted for by different scenarios that lead to a recourse problem. To make things clearer, we first start with the problem of a monopolist with one technology and one market state. In period one, the monopolist has to decide how much to invest to relieve scarcity of capacity in the second period. The problem of the monopolist looks as follows.
 
 \begin{gather} 
 	\max \pi(q_{t}^s,K_{t},I)= (\alpha^l - \beta^l q_{1}^l ) q_{1}^l  - c q_{1}^l + \epsilon \sum_s p_s \left[ \alpha^s - \beta^s q_{2}^s ) q_{2}^s  - c q_{2}^s \right] \\ \label{eq:monopmax1}  \nonumber 
@@ -86,7 +86,7 @@ This optimization Problem translates into the following F.O.C´s which are writte
 This system of equalities and inequalities can again be solved by the PATH Solver. \\
 Now we introduce players, technologies and market states to the investment problem under uncertainty to arrive at our final (for now) Model.
 
-In this part we introduce two deciding factors. First, dynamics and thereby investments which links the different time periods. Second, uncertainty which is accounted for by different scenarios that lead to a recourse problem. The uncertainty about future demand is accounted for by different demand scenarios.
+In this part we introduce two deciding factors. First, dynamics and thereby investments which links the different time periods. Second, uncertainty which is accounted for by different scenarios that lead to a recourse problem. The uncertainty about future demand is accounted for by different demand scenarios. Our approach follows the game with expected scenarios (GPS) approach by \cite{Genc2007} which allows to address problems which are out of reach for dynamic programming.
 
 \begin{gather}
 	\max \pi_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k})= \sum_m v_m \left[ (\alpha_m^l-\beta_m^l \sum_i\sum_k q_{i,k}^{l,m,1}) \sum_k q_{i,k}^{l,m,1} - \sum_k c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
@@ -98,7 +98,38 @@ In this part we introduce two deciding factors. First, dynamics and thereby inve
  										  q_{i,k}^{s,m,t};K^t_{i,k};I_{i,k}	\geq 0; \ \forall i,k,s   \nonumber
 \end{gather}
 
-longtable hier einbauen
+\begin{tabular}[c]{l l}
+$i\in N$        & players, firms\\
+$s\in S$       	& scenarios\\
+$m\in M$	& states of the market \\
+$k\in K$	& technologies \\
+$t\in T$	& time \\
+$K_{i,k}^t$      & available capacity at time $t$ from technology $k$ \\
+                & for firm $i$ \\
+$q_{i,k}^{s,m,t}$ & quantity at time $t$, technology $k$, firm $i$, \\
+                & in market state $m$ and scenario $s$ \\			
+$I_{i,k}^t$   & investment in technology $k$, at time $t$ from for firm $i$\\
+$p_s$        & probability of scenario $s$\\
+$\nu_m$      & says how often (how many hours) market \\
+             & state $m$ occurs \\
+$\epsilon$   & discount factor \\
+$\alpha(m)$  & demand function intercept in market state $m$ \\
+$\beta(m)$   & demand function slope in market state $m$ \\
+$c_k$	     & variable costs of technology $k$	\\
+$\Gamma_k$   & investment costs in technology $k$  \\
+$F_k$        & scrap values  \\
+\end{tabular}
+
+Each player ($i$) maximizes its profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$ . By considering different demand developments and the associated probabilities ($p_s$), the players take into account how demand might evolve in the future. Quantities are allowed to change in different scenarios that evolve, thereby stating that firms can always react to demand by adjusting the short run production. On the contrary, investments ($I$) are not allowed to differ in such a way as they have to be set in advance when it is not clear jet how high demand might be. Please note, that quantities do not depend on what other players might invest. They do depend however, on how high own investments are.
+% as the cost function can be changed between period one and two($C^1_i vs. C^2_i$). (Idee - Wenn man das weggibt, müsste man den Effekt den eigene Investments auf den Marktpreis haben sehen). 
+If, in the solution, quantities would depend on Investments of other players as well, we would enter the realm of feedback or closed loop games (which are the same in the case of a two stage game). It has to be noted here that the solution of a closed loop game can, and will, in general, be different from the solution of an open loop game.
+
+To solve the model, we derive the Karush Kuhn Tucker Conditions (KKT) to obtain a mixed complementarity problem (MCP) which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions. For the competitive benchmark we skipped the index $i$ and solved the problem under the assumption that just one player disposes of all the initial capacities of the four players. When deriving the KKT conditions, this player is assumed to set prices equal to marginal costs.
+
+In this first version of the model with only two stages we considered a framework in which firms decide upon investments now, and the second stage of the game lasts for five years. Se we can answer to what extent, in the medium run, investment paths that arise from our oligopolistic market deviate from the optimum. In stage zero, the results are the same as in the static version of our model (Table \ref{tab:statquant}). For the investment incentive however, now expected () shadow prices
+
+
+
 
 The Lagrangian of our Problem looks as follows:
 

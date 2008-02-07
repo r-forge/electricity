@@ -12,8 +12,8 @@ Alias (n,m);
 Alias (s,w);
 
 Scalar
-ro        decreciation factor     /0.95/
-e        discount factor         /0.9 /
+ro        decreciation factor     /0.96/
+e         discount factor         /0.97 /
 
 Parameter
 c(k) variable kosten     /
@@ -35,13 +35,13 @@ gamma(k) capacity costs   /
 
 
 F(k)   scrap values      /
-                         Hydro     3395000
-                         Nuclear   1785770
-                         BCoal     1041780
-                         HCoal     941870
-                         Gas       446200
-                         Oil       10
-                         Pump      10
+Hydro        33950000
+Nuclear        1785770
+BCoal        1041780
+HCoal        941870
+Gas        446200
+Oil        970000000
+Pump        970000000
                          /
 alphaz(m) demand function intercepts in different market states at time zero /
                          exthigh   767.1
@@ -75,14 +75,7 @@ cap0(k) starting cacities of welfare maximizer (sum of cap of all players)   /
                          Gas             10058
                          Oil              4013
                          Pump             5154    /
-*Table
-*cap0(i,k)   capacities
-*       Hydro   Nuclear      BCoal       HCoal        Gas         Oil       Pump
-*RWE      741      5499      10554        7249        4297        188        793
-*EON     1320      8473       1425        9461        3808       1779       1110
-*Vatten     9      1421       6932        1729         870       1429       2883
-*EnBW     447      4272        453        3288        1083        617        368
-*;
+
 
 Table
 alpha(s,m)
