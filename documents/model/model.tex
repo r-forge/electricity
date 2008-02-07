@@ -1,10 +1,9 @@
+\newpage
 \section{The model}
 
-\subsection{An application of peak load pricing under imperfect competition}
+\subsection{Static model - peak load pricing}
 
-We will now use a static version of our model to link it to the economic intuition just outlined and to show how decisive the impact of such a game theoretic situation on investment incentives actually is.
-
-There are four players, indexed by $i\in N$ (RWE, EON, Vattenfall and EnBW), seven technologies $k\in K$  and six different states $m\in M$ in which the market might be. Each of the players maximizes the following profit function:
+We begin with a static version of our model to establish the link to the economic intuition outlined in the previous section. There are four players, indexed by $i\in N$ (RWE, EON, Vattenfall and EnBW), seven technologies $k\in K$  and six different market states $m\in M$. Each of the players maximizes the following profit function:
 
 \begin{gather}
 	\max \pi_i(q_{i,k}^m,K_{i,k},)= \sum_{m\in M} v_m\times\\ \nonumber  \left[(\alpha_m-\beta_m\sum_{i\in N} \sum_{k\in K} q_{i,k}^m ) \sum_{k\in K} q_{i,k}^m - \sum_{k\in K} c^k q_{i,k}^m \right] \\ \nonumber
@@ -20,30 +19,30 @@ $k\in K$	& technologies \\
 $t\in T$	& time \\
 $K_{i,k}^t$      & available capacity at time $t$ from technology $k$ \\
                 & for firm $i$ \\
-$q_{i,k}^{s,m,t}$ & quantity at time $t$, technology $k$, firm $i$, \\
-                & in market state $m$ and scenario $s$ \\			
-$I_{i,k}^t$   & investment in technology $k$, at time $t$ from for firm $i$\\
-                & for firm $i$ \\
+$q_{i,k}^{s,m,t}$ & quantity produced at time $t$ with technology $k$\\
+                 &by firm $i$ in market state $m$ and scenario $s$ \\			
+$I_{i,k}^t$   & investment in technology $k$ at time $t$  \\
+              & by firm $i$\\
 $p_s$        & probability of scenario $s$\\
 $\nu_m$      & says how often (how many hours) market \\
              & state $m$ occurs \\
 $\epsilon$   & discount factor \\
-$\alpha(m)$  & demand function intercept in market state $m$ \\
-$\beta(m)$   & demand function slope in market state $m$ \\
+$\alpha_m$  & demand function intercept in market state $m$ \\
+$\beta_m$   & demand function slope in market state $m$ \\
 $c_k$	     & variable costs of technology $k$	\\
 $\Gamma_k$   & investment costs in technology $k$  \\
 $F_k$        & scrap values  \\
 \\
 \end{tabular}
 
-$\alpha(m)$ and $\beta(m)$ are the intercept and the slope of the inverse demand function in different market states which could be very high, high, intermediate etc.. $q_{i,k}^m$ is the quantity produced with each technology by each player in each market state and $K_i^k$ is the corresponding capacity. $K_i^t$ is now given for each player as we are solving for the short run equilibrium. $c^k$ are the short run variable costs which are the same for every producer. The parameter $\nu_m $ says how often a certain demand state occurs. This parameter is used as a weight for the shadow price of capacity which we obtain. We derived the Karush Kuhn Tucker (KKT) conditions to obtain a Mixed Complementarity Problem (MCP) and solved it by using the PATH Solver in GAMS.
+$\alpha_m$ and $\beta_m$ are the intercept and the slope of the inverse demand function in the different market states derived from Table \ref{tab:demand}. $q_{i,k}^m$ is the quantity produced with each technology by each player in each market state and $K_{i,k}$ is the corresponding capacity which is now given for each player as we are solving for the short run equilibrium. $c_k$ are the short run variable costs which are the same for each producer. The parameter $\nu_m $ says how often a certain demand state occurs. This parameter is used as a weight for the shadow price of capacity. We derived the Karush Kuhn Tucker (KKT) conditions to obtain a mixed complementarity problem (MCP) and solved it by using the PATH Solver in GAMS.
 
-Table \ref{tab:statquant} in the appendix shows the quantities predicted by our oligopoly model. While during a high demand state almost all capacities are used, during low demand states hard coal plants are the marginal technology. Prices differ significantly but are above marginal costs even if demand is very low. Please note that there is strategic capacity withholding as not all capacities are brought to the market even if more than the variable costs were covered.
+Table \ref{tab:statquant} in the appendix shows the quantities predicted by our oligopoly model. While during a high demand state almost all capacities are used, during low demand states hard coal plants are the most expensive technology in the merit order curve. Prices differ significantly but are above marginal costs even if demand is very low. Please note. that there is strategic capacity withholding as not all capacities are brought to the market even if more than the variable costs were covered.
 
-As we used a Lagrangian method to calculate this short run equilibrium, we can have a look at the shadow prices of capacity to see how much an additional unit of capacity would be worth for every player. Please note that this values cannot be smaller than zero as, in our setup, there always exists the option of not using existing capacities. So there are only positive scarcity rents if the capacity of the technology is binding. Table \ref{tab:statlambda} shows the shadow prices of capacity. The values can be read in such a way that an additional MW of hydro power capacity would increase profits RWE makes in all the exremely high market states by 831 EUROS and the overall yearly profit of RWE by 44832 EUROS. On the contrary, the same capacity is worth 269972 EUROS for EnBW. How can such different results be explained? First, it seems that firms gain less from investing during high demand states which is straightforward as demand is more inelastic during high demand states and so one looses more by adding more capacity which depresses the gain from capacity. On the other hand, there are positive values for almost all technologies during extremely high demand states as most of the capacities become binding then. \\
-Most importantly, for smaller players like Vattenfall and EnBW shadow prices are far higher as the effect of less scarcity, and thereby lower prices has a smaller effect on their lower quantities sold. This means that it is impossible to assess the investment incentives a firm on a market like the electricity market (oligopoly and L-shaped cost functions) has without considering the strategic implications such investments have.
+As we used a Lagrangian method to calculate this short run equilibrium, we can have a look at the shadow prices of capacity to see how much an additional unit of capacity would be worth for each player. Please note that this values cannot be smaller than zero as, in our setup, there always exists the option of not using existing capacities. So there are only positive scarcity rents if the capacity of the technology is binding. Table \ref{tab:statlambda} shows the shadow prices of capacity. The values can be read in such a way that an additional MW of hydro power capacity would increase profits RWE makes in all the extremely high market states by 831 Euros and the overall yearly profit of RWE by 44,832 EUROS. On the contrary, the same capacity is worth 269,972 Euros for EnBW. How can such different results be explained? One the one hand, it seems that firms gain less from investing during high demand states which is straightforward as demand is more inelastic during high demand states and so one looses more by adding more capacity which depresses the gain from capacity. On the other hand, there are positive values for almost all technologies during extremely high demand states as most of the capacities become binding then. \\
+Most importantly, for smaller players like Vattenfall and EnBW shadow prices are far higher as the effect of less scarcity, and thereby lower prices have a smaller effect on their lower quantities sold. This means that it is impossible to assess the investment incentives for firm on an electricity market (oligopoly with $L$-shaped cost functions) without considering the strategic implications such investments have.
 
-\subsection{Investments under uncertainty}
+\subsection{Dynamic model}
 
 In this part, we introduce two deciding factors. First, dynamics and thereby investments which link the different time periods. Second, uncertainty which is accounted for by a binomial scenario tree and leads to a recourse problem. The uncertainty about future demand is accounted for by different demand scenarios. Our approach follows the game with expected scenarios (GPS) approach by \cite{Genc2007}. Our two stage Model looks as follows.
 
@@ -64,3 +63,10 @@ If quantities would depend on Investments of other players as well, we would ent
 To solve the model, we derive the KKT conditions to obtain an MCP problem which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions. For the competitive benchmark we solved the problem under the assumption that just one, welfare maximizing player disposes of all the initial capacities of the four players. When deriving the KKT conditions, for the optimal results this player is assumed to set prices equal to marginal costs.
 %\clearpage
 
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../eem08"
+%%% End: 
