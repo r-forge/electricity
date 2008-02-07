@@ -6,29 +6,33 @@
 
 \subsection{Peak-load pricing under perfect competition}
 
-In electricity markets, demand varies from hour to hour and as electricity is not storable, it has to be met at any time of the day. If capacities are a binding constraint, there has to be rationing by rising prices. Of course, such rationing causes welfare to decrease. On the other hand however, there are capacity costs. The literature on peak load pricing provides results on how to balance these two effects optimally \citep[see][]{Crew1986}. Under perfect competition, prices will be set to marginal costs in low demand periods, such that variable costs ($v$) are equal to the price ($p$), and marginal costs plus a scarity rent in high demand periods. Under the assumption that there are fixed capacity costs $(c)$ how much capacity $(K)$ should be built taking into account that demand is not always high and there is a chance of $\pi$ to have high demand. The premium of the market price over marginal costs in peak periods multiplied with the chance of actually having a period of high demand reflects the value of increasing capacity by one unit $((p^p-v)\pi)$. (In off peak periods, the corresponding premium equals zero, reflecting the fact that in such states capacity is of no value.) This value of increasing capacity by one unit must equal capacity costs per unit $((p^p-v)\times\pi)=(c)$ if this condition is met, social surplus is maximised and costs are minimised. A profit maximising firm under perfect competition would invest until exactly this condition is satisfied. So under perfect competition, one could rely on the market to provide optimal incentives for capacity investments. However, this does not mean that prices should always be equal to marginal cost as during peak periods firms must be allowed to cover their investment costs by scarcity rents.
+In electricity markets, demand varies from hour to hour and as electricity is not storable, it has to be met at any time of the day. If capacities are a binding constraint, there has to be rationing by rising prices. Of course, such rationing causes welfare to decrease. On the other hand however, there are capacity costs. The literature on peak load pricing provides results on how to balance these two effects optimally \citep[see][]{Crew1986}. Under perfect competition, prices will be set to marginal costs in low demand periods, such that variable costs ($v$) are equal to the price ($p$), and marginal costs plus a scarcity rent in high demand periods. Under the assumption that there are fixed capacity costs $(c)$ how much capacity $(K)$ should be built, taking into account that demand is not always high and there is a chance of $\pi$ to have high demand. The premium of the market price over marginal costs in peak periods, multiplied with the chance of actually having a period of high demand, reflects the value of increasing capacity by one unit. In off-peak periods, the corresponding premium equals zero, reflecting the fact that in such states capacity is of no value. The value of increasing capacity by one unit must equal capacity costs per unit. If the condition
+
+$$(p-v)\times\pi=c$$
+
+is met, social surplus is maximized and costs are minimized. A profit maximizing firm under perfect competition would invest until exactly this condition is satisfied. So under perfect competition, one could rely on the market to provide optimal incentives for capacity investments. However, this does not mean that prices should always be equal to marginal costs, as during peak periods firms must be allowed to cover their investment costs by scarcity rents.
 
 If capacity is binding, the price of electricity is equal to the willingness to pay of the marginal consumer. So please note, that we do not account for possible outages or rationing costs although this is discussed in the literature.
 
 \subsection{Peak-load pricing under imperfect competition}
 
-How optimal incentives to invest are distorted by an oligopolistic situation is shown by \cite{Fehr1995}. If there is market power, the above mentioned optimality result does not necessarily hold as prices above marginal costs may induce overinvestments. The situation of too high prices is depicted in Figure \ref{peak_load_toohigh}.
+How optimal incentives to invest are distorted by an oligopolistic situation is shown in \cite{Fehr1995}. If there is market power, the above mentioned optimality result does not necessarily hold as prices above marginal costs may induce overinvestments. The situation of too high prices is depicted in Figure \ref{peak_load_toohigh}.
 
 \begin{figure}[h]
 \centering
 \caption{Imperfectly competitive spot pricing}
-\includegraphics[width=2.5in]{capacity/imperfect_spot_pricing}
+\includegraphics[width=3.2in]{capacity/imperfect_spot_pricing}
       \label{peak_load_toohigh}  
 \\          
 \scriptsize Source: \cite{Fehr1995}
 \end{figure}
 
-On the other side however, firms might have an incentive to cut on investments, thereby driving up the price in peak periods and increasing their profits. This, of course would only work if there are barriers to entry beyond the unit costs of investment which are $(c)$. The effect of lower than optimal investments is depicted in figure \ref{peak_load_insufficient}.
+On the other hand, firms might have an incentive to reduce investments, thereby driving up the price in peak periods and increasing their profits. Of course this only works if there are barriers to entry beyond the unit costs of investment. The effect of lower than optimal investments is depicted in Figure \ref{peak_load_insufficient}.
 
 \begin{figure}[h]
 \centering
 \caption{Insufficient supply}
-\includegraphics[width=2.5in]{capacity/imperfect_spot_pricing2}
+\includegraphics[width=3.0in]{capacity/imperfect_spot_pricing2}
       \label{peak_load_insufficient}  
 \\          
 \scriptsize Source: \cite{Fehr1995}
@@ -41,7 +45,7 @@ While the socially optimal incentive to invest is still the same as above, a fir
 	1/2 (1-\pi) (p^{op}-v) + \pi (w^p(K)+\frac{\partial w^p(K^*)}{\partial q}-v) - c
 \end{equation}
 
-The first part of the equation stands for possible gains of the investment that might occur during low peak periods. For simplicity we assume that there is a duopoly and a probability of $1/2$ for a new unit of capacity to be utilised. This is then multiplied by the probability to not have a peak period and the oligopoly price minus variable costs. In such periods it is possible to steal business, you would normally not have, from another firm. Such an effect can create an additional incentive to invest in capacity. %As we shall see later on, this effect can be called a strategic effect of investments as well.
+The first part of the equation stands for possible gains of the investment that might occur during low peak periods. For simplicity we assume that there is a duopoly and a probability of $1/2$ for a new unit of capacity to be utilized. This is then multiplied by the probability to not have a peak period and the oligopoly price minus variable costs. In such periods it is possible to steal business, you would normally not have, from another firm. Such an effect can create an additional incentive to invest in capacity. %As we shall see later on, this effect can be called a strategic effect of investments as well.
 
 The second part of the equation stands for what the investing firm looses in peak periods due to the investment. This equation is essentially the same as before, apart from the term ($w^{\acute{c}}$) which measures the reduction in the peak price which is due to the decreased scarcity of capacity. This effect has to be taken into account now, as we switched from perfect competition to oligopoly.
 
