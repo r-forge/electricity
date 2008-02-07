@@ -60,23 +60,23 @@ The major stake of electricity trading is done in OTC markets for which it is ha
  \scriptsize Source: EEX, UCTE
 \end{figure}
 
-To account for different states of the market we separated the price-quantity combinations which occurred within a year by prices. As can be seen in Table \ref{tab:demand}, markets with extremely high prices occur only seldom and prices between 20 and 40 are most common. For each of the six states in which the market might be we created linear demand functions based on average prices and quantities in these states. Note that in order to account for price spikes we model the high-price end of the market quite accurately. To construct demand curves, \cite{Neuhoff2005} use a demand elasticity of 0.1, whereby \cite{Genc2007} argue that 0.2 is more commonly used to simulate the electricity market. As we have a more long run focus we decided to use 0.2 as in the long run, elasticity is higher. It might be argued, that in an electricity market, there is no elasticity anyway as maybe only a very few industrial clients reduce their demand as prices rise. Responding to this, \cite{Bushnell2003} notes that imports and exports provide some elasticity.
+To account for different states of the market we separated the price-quantity combinations which occurred within a year by prices. As can be seen in Table \ref{tab:demand}, markets with extremely high prices occur only seldom and prices between 20 and 40 are most common. For each of the six states in which the market might be we created linear demand functions based on average prices and quantities in these states. Note, that we also model the high-price market segment, to include price spikes which are a stylized fact of electricity prices.  To construct demand curves, \cite{Neuhoff2005} use a demand elasticity of 0.1, whereby \cite{Genc2007} argue that 0.2 is more commonly used to simulate the electricity market. As we have a more long run focus, we decided to use the latter value. It might be argued, that electricity demand is completely inelastic, as maybe only a very few industrial clients reduce their demand when prices rise. In response to that, \cite{Bushnell2003} notes that imports and exports provide some elasticity.
 
 \begin{table}[htb]
 \centering
 \caption{Market segments}
 \vspace{0.3cm}
-\begin{tabular}{lllll}
+\begin{tabular}{lrrrr}
 \hline
- & \multicolumn{1}{c}{Occupancy} & \multicolumn{1}{c}{average price} & \multicolumn{1}{c}{average quantity} &  \\ 
+ & \multicolumn{1}{c}{Occupancy} & \multicolumn{1}{c}{Average price} & \multicolumn{1}{c}{Average quantity} &  \\ 
  & \multicolumn{1}{c}{per year} & \multicolumn{1}{c}{(EUR)} & \multicolumn{1}{c}{(MWh)} &  \\ 
  \hline
-$>$ 100 & \multicolumn{1}{c}{46} & \multicolumn{1}{c}{128} & \multicolumn{1}{c}{83558} &  \\ 
-between 80 and 100 & \multicolumn{1}{c}{134} & \multicolumn{1}{c}{86} & \multicolumn{1}{c}{81493} &  \\ 
-between 60 and 80 & \multicolumn{1}{c}{788} & \multicolumn{1}{c}{68} & \multicolumn{1}{c}{78256} &  \\ 
-between 40 and 60 & \multicolumn{1}{c}{2174} & \multicolumn{1}{c}{49} & \multicolumn{1}{c}{71956} &  \\ 
-between 20 and 40 & \multicolumn{1}{c}{4201} & \multicolumn{1}{c}{30} & \multicolumn{1}{c}{58578} &  \\ 
-below 20 & \multicolumn{1}{c}{1417} & \multicolumn{1}{c}{14} & \multicolumn{1}{c}{42627} &  \\
+$>$ 100 & \multicolumn{1}{c}{46} & \multicolumn{1}{c}{128} & \multicolumn{1}{c}{83,558} &  \\ 
+between 80 and 100 & \multicolumn{1}{c}{134} & \multicolumn{1}{c}{86} & \multicolumn{1}{c}{81,493} &  \\ 
+between 60 and 80 & \multicolumn{1}{c}{788} & \multicolumn{1}{c}{68} & \multicolumn{1}{c}{78,256} &  \\ 
+between 40 and 60 & \multicolumn{1}{c}{2,174} & \multicolumn{1}{c}{49} & \multicolumn{1}{c}{71,956} &  \\ 
+between 20 and 40 & \multicolumn{1}{c}{4,201} & \multicolumn{1}{c}{30} & \multicolumn{1}{c}{58,578} &  \\ 
+below 20 & \multicolumn{1}{c}{1,417} & \multicolumn{1}{c}{14} & \multicolumn{1}{c}{42,627} &  \\
 \hline
  & \multicolumn{1}{c}{8760} &  &  &  \\ 
  \hline
@@ -89,7 +89,7 @@ below 20 & \multicolumn{1}{c}{1417} & \multicolumn{1}{c}{14} & \multicolumn{1}{c
 
 %\subsection{Supply}
 
-Data concerning the short run marginal costs and investment costs per MWh were obtained from \cite[p.46]{Auer2006} and are shown in Table \ref{tab:costs}. For pump storage plants we used the real option value of peak load electricity which we approximated by the average option price for peak load electricity at the EEX in the year 2006. We do not provide fixed costs for pump hydropower and oil plants. In the case of hydropower plants construction costs depend heavily on the respective sites and so such costs are hard to estimate. Furthermore, all available sites for significant hydropower capacities in Central Europe seem to be occupied already. Oil fired plants are not considered a relevant investment option because oil prices are just too high. The fixed investment costs we use could also be interpreted as a discounted present value of future yearly costs of capital so our analysis is general concerning this point.
+Data concerning the short run marginal costs and investment costs per MWh were obtained from \cite{Auer2006} and are shown in Table \ref{tab:costs}. For pump storage plants we used the real option value of peak load electricity, which we approximated by the average option price for peak load electricity at the EEX in the year 2006. We do not provide fixed costs for pump hydropower and oil plants. In the case of hydropower plants construction costs depend heavily on the respective sites and therefore such costs are hard to estimate. Furthermore, all available sites for significant hydropower capacities in Central Europe seem to be occupied already. Oil fired plants are not considered a relevant investment option because oil prices are just too high. The fixed investment costs can also be interpreted as present value of future yearly costs of capital.
 
 \begin{table}[htb]
 \centering
@@ -101,20 +101,20 @@ Data concerning the short run marginal costs and investment costs per MWh were o
 
            & (EURO/MWh) & EUROs per MWh \\
 \hline
-     Hydro &        7.6 &    3500000 \\
+     Hydro &        7.6 &    3,500,000 \\
 
-   Nuclear &        9.5 &    1841000 \\
+   Nuclear &        9.5 &    1,841,000 \\
 
-   Lignite &       10.6 &    1074000 \\
+   Lignite &       10.6 &    1,074,000 \\
 
- Hard Coal &       16.1 &     971000 \\
+ Hard Coal &       16.1 &     971,000 \\
 
-CCGT &       33.5 &     460000 \\
+CCGT &       33.5 &     460,000 \\
 
-Oil & 44            &   n.a \\
+Oil & 44            &   n.a.\\
 %Gas Turbines &       53.8 &     332000 \\
 
-Pump Hydro &         80 &       n.a. \\
+Pump Hydro &         80 &       n.a.\\
 \hline
 \end{tabular}
 \label{tab:costs}
