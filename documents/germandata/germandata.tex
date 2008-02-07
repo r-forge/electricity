@@ -1,18 +1,18 @@
 \section{Data}
 
-The German electricity market was liberalized in 1998 and is the largest in Europe with a gross production of of 633.2 TWh in 2006 \citep{IEA2007}. More than half of the power is generated with coal, other major sources are nuclear and gas. The German power market is dominated by a few large players (E.ON, RWE, EnBW, Vattenfall). These firms are both transmission system operators and own 90\% of total generation capacity. \cite{Brunekreeft2006} report values for Herfindahl Hirschman Index (HHI)\footnote{This is a common measure of market power and is calculated as sum of the squared market shares in an industry.} of over 2000. Electricity distribution is organized by approximately 900 communal distributors. The German energy market regulator  \emph{Bundesnetzagentur} was installed in 2005. Germany decided on a phase-out of nuclear power generation by 2020. The \emph{German Energy Agency} estimates that investments in generation capacity of up to 40,000 MW will be necessary, see Fig. \ref{fig:nuclear}.
+The German electricity market was liberalized in 1998 and is the largest in Europe with a gross production of of 633.2 TWh in 2006 \citep{IEA2007}. More than half of the power is generated with coal, other major sources are nuclear and gas. The German power market is dominated by a few large players (E.ON, RWE, EnBW, Vattenfall). These firms are both transmission system operators and own 90\% of total generation capacity. \cite{Brunekreeft2006} report values for Herfindahl Hirschman Index (HHI)\footnote{This is a common measure of market power and is calculated as sum of the squared market shares in an industry.} of over 2000. Electricity distribution is organized by approximately 900 communal distributors. The German energy market regulator  \emph{Bundesnetzagentur} was installed in 2005. Germany decided on a phase-out of nuclear power generation by 2020. The \emph{German Energy Agency} estimates that investments in generation capacity of up to 40,000 MW will be necessary, see Fig. \ref{fig:nuclear}. Furthermore, a large stake of the existing generation capacities are close to the end of its service life. This together with a tendency towards more environmental-friendly technologies supports the importance of strategic investments by the major players in the market. 
 
 \begin{figure}[htb]
   \centering
 \caption{Estimated nuclear power capacity, 2007 to 2023}
  % \includegraphics[width=.7\textwidth]{germandata/nuclear.pdf}
-\includegraphics[width=2.5in]{germandata/nuclear.pdf}
+\includegraphics[width=3.5in]{germandata/nuclear.pdf}
   \label{fig:nuclear}
 \\
  \scriptsize Source: \cite{IEA2007a}
 \end{figure}
 
-The capacities of the four major electricity generators can be found in Tab. \ref{tab:majorcapacities}.
+Tab. \ref{tab:majorcapacities} gives an overview about the existing installed capacity in different technologies.
 
 \begin{table}[htb]
 \centering
@@ -49,13 +49,13 @@ Vattenfall &          9 &       1421 &       6932 &       1729 &        870 &   
 % \scriptsize Source: \cite{IEA2007c}
 %\end{figure}
 
-The major stake of electricity trading is done in OTC markets for which it is hard to obtain data. Exchange prices from the EEX can be used as a good approximation. We see the expected positive relationship when comparing the exchange prices to the actual electricity demand per hour.
+The major stake of electricity trading is done in OTC markets for which it is hard to obtain data. Prices from the European Energy Exchange (EEX) can be used as a good approximation. Plotting the prices against the trading volumes does not show a strong correlation. We see the expected positive relationship when comparing the exchange prices to the actual electricity demand per hour, see Fig. \ref{fig:pricequant}
 
 \begin{figure}[htb]
   \centering
 \caption{Price-quantity relationship}
-  \includegraphics[width=2.5in]{germandata/pricequant.pdf}
-  \label{fig:investcosts}
+  \includegraphics[width=3.5in]{germandata/pricequant.pdf}
+  \label{fig:pricequant}
 \\
  \scriptsize Source: EEX, UCTE
 \end{figure}
@@ -124,9 +124,8 @@ Pump Hydro &         80 &       n.a. \\
 \end{table}
 
 
-%\clearpage
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "../emarket_simulation"
+%%% TeX-master: "../eem08"
 %%% End: 
