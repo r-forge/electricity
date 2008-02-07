@@ -26,7 +26,8 @@ $I_{i,k}^t$   & investment in technology $k$ at time $t$  \\
 $p_s$        & probability of scenario $s$\\
 $\nu_m$      & says how often (how many hours) market \\
              & state $m$ occurs \\
-$\epsilon$   & discount factor \\
+$\delta$   & discount factor \\
+$\rho$   & depreciation factor \\
 $\alpha_m$  & demand function intercept in market state $m$ \\
 $\beta_m$   & demand function slope in market state $m$ \\
 $c_k$	     & variable costs of technology $k$	\\
@@ -44,23 +45,23 @@ Most importantly, for smaller players like Vattenfall and EnBW shadow prices are
 
 \subsection{Dynamic model}
 
-In this part, we introduce two deciding factors. First, dynamics and thereby investments which link the different time periods. Second, uncertainty which is accounted for by a binomial scenario tree and leads to a recourse problem. The uncertainty about future demand is accounted for by different demand scenarios. Our approach follows the game with expected scenarios (GPS) approach by \cite{Genc2007}. Our two stage Model looks as follows.
+In this part, we introduce two deciding factors. First, dynamics and thereby investments which link the different time periods. Second, uncertainty which is accounted for by a binomial scenario tree and leads to a recourse problem. The uncertainty about future demand is accounted for by different demand scenarios. Our approach follows the game with probabilistic scenarios (GPS) approach by \cite{Genc2007}. Our two stage Model looks as follows.
 
 \begin{gather}
 	\max \pi_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k})= \\ \nonumber \sum_m v_m \left[ (\alpha_m^l-\beta_m^l \sum_i\sum_k q_{i,k}^{l,m,1}) \sum_k q_{i,k}^{l,m,1} - \sum_k c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
-	+ \epsilon \sum_s p_s \sum_m v_m \times \\ \nonumber \left[ (\alpha_m^s-\beta_m^s \sum_i\sum_k q_{i,k}^{s,m,2}) \sum_k q_{i,k}^{s,m,2} - \sum_k c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber 
-									- \sum_k \Gamma_k I_{i,k} + \epsilon \sum_k F_k I_{i,k}  \\       
+	+ \delta \sum_s p_s \sum_m v_m \times \\ \nonumber \left[ (\alpha_m^s-\beta_m^s \sum_i\sum_k q_{i,k}^{s,m,2}) \sum_k q_{i,k}^{s,m,2} - \sum_k c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber 
+									- \sum_k \Gamma_k I_{i,k} + \delta \sum_k F_k I_{i,k}  \\       
 			\text{s.t.:} \  q_{i,k}^{l,m,1} - K^{1}_{i,k} \leq 0; \ \forall i,k,m    \label{eq:oligopmax2}\\ 
 											q_{i,k}^{s,m,2} - K^{2}_{i,k} \leq 0; \ \forall i,k,m,s  \label{eq:oligopmax3}\\
 										  K^{2}_{i,k}  - \rho K^{1}_{i,k}  - I_{i,k} = 0 ; \ \forall i,k  \label{eq:ologopmax5} \\  
  										  q_{i,k}^{s,m,t};K^t_{i,k};I_{i,k}	\geq 0; \ \forall i,k,s   \nonumber
 \end{gather}
 
-Each player maximizes its profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$. By considering different demand developments and the associated probabilities ($p_s$) of the different scenarios ($s\in S$), the players take into account how demand might evolve in the future. Capacities now evolve over time $t\in T$, according to the state equation (\eqref{eq:ologopmax5}). \eqref{eq:oligopmax2} and \eqref{eq:oligopmax3} are the capacity constraints. Quantities are allowed to be adapted to different scenarios that evolve, thereby accounting for that firms can always react to demand by adjusting the short run production. On the contrary, investments ($I$) are not allowed to differ in such a way as they have to be set in advance when it is not clear jet how high demand might be. Please note, that quantities do not depend on what other players might invest. They do depend however, on how high own investments are. 
+Each player maximizes its profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$. By considering different demand scenarios ($s\in S$) and the associated probabilities ($p_s$), the players take into account how demand might evolve in the future. Capacities now evolve over time $t\in T$ according to the state equation \eqref{eq:ologopmax5}. The capacity constraints are given in \eqref{eq:oligopmax2} and \eqref{eq:oligopmax3}. Quantities are allowed to adapt to the scenarios, thereby accounting for the fact that firms can always react to demand by adjusting their short run production. On the contrary, investments are not allowed to differ in such a way as they have to be set in advance when it is not clear yet how high demand might be. Please note, that quantities do not depend on what other players might invest. They do depend however, on how high own investments are. 
 % as the cost function can be changed between period one and two($C^1_i vs. C^2_i$). (Idee - Wenn man das weggibt, müsste man den Effekt den eigene Investments auf den Marktpreis haben sehen). 
-If quantities would depend on Investments of other players as well, we would enter the realm of feedback or closed loop games (which are the same in the case of a two stage game). It has to be noted here that the solution of a closed loop game can, and will, in general, be different from the solution of an open loop game.
+If quantities would depend on investments of other players as well, we would enter the realm of feedback or closed loop games (which are the same in the case of a two-stage game). It has to be noted here that the solution of a closed loop game can, and will, in general, be different from the solution of an open loop game.
 
-To solve the model, we derive the KKT conditions to obtain an MCP problem which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions. For the competitive benchmark we solved the problem under the assumption that just one, welfare maximizing player disposes of all the initial capacities of the four players. When deriving the KKT conditions, for the optimal results this player is assumed to set prices equal to marginal costs.
+To solve the model, we derive the KKT conditions to obtain an MCP problem which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions. For the competitive benchmark we solved the problem under the assumption that just one welfare maximizing player disposes of all the initial capacities of the four players. When deriving the KKT conditions, for the optimal results this player is assumed to set prices equal to marginal costs.
 %\clearpage
 
 
