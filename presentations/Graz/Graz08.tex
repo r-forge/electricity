@@ -1,7 +1,7 @@
-\documentclass[mathserif,9pt]{beamer}
+\documentclass[mathserif,9pt, handout]{beamer}
 \hypersetup{pdfmode=FullScreen}
 \usepackage{pst-plot, pstricks,pstricks-add,pst-node, pst-tree}
-\usepackage[]{german}
+\usepackage[]{ngerman}
 %\usepackage{pgfpages}
 %\usepackage{qtree}
 
@@ -27,13 +27,13 @@
 \DeclareMathOperator{\VaR}{VaR}
 \DeclareMathOperator{\CVaR}{CVaR}
 
-\title[Werden die grossen Spieler genug Kapazitäten bauen?] 
+\title[Investitionsanreize in Oligopol-Spielen] 
 {Generation Capacity Investment in Electricity Markets in an Oligopolistic, Dynamic and Stochastic Framework}
 
 \author[Anton Burger\and Robert Ferstl]{Anton Burger\inst{1} \and Robert Ferstl\inst{2}}
 
 
-\institute[]{
+\institute[WU Wien]{
 \inst{1}Institute for Regulatory Economics\\
 Vienna University of Economics and Business Administration
 \and
@@ -77,28 +77,26 @@ University of Regensburg}
 	\item liberalisierte Strommärkte
 	\item keine zentrale Planung mehr sondern dezentrale Marktentscheidungen
 \end{itemize}
-
-Besonderheiten in Bezug auf Investitionen:
+\vspace{0.5cm}
+\textbf{Besonderheiten in Bezug auf Investitionen:}
 
 \begin{itemize}  
 	\item sehr grosse Spieler $\rightarrow$ Oligopolsituation
 \begin{itemize}
-	\item Herfindahl Hirschman Index $> 2000$ (Brunekreeft (2006))
+	\item Herfindahl Hirschman Index $> 2000$ (Brunekreeft, 2006)
 	\item RWE, E.ON, Vattenfall und EnBW  
 \end{itemize}
 	\item hohe Preisvolatilität $\rightarrow$ Unsicherheit
-
 	\item L - förmiger Kostenverlauf
-	\item hohe Investitionskosten mit langer Bauzeit - 2 Stufiges Insvestitionsspiel
+	\item hohe Investitionskosten mit langer Bauzeit - zweistufiges Insvestitionsspiel
 \end{itemize}
-		\end{frame}		
+\end{frame}		
 				
-		
-	  \begin{frame}{Fakten II}
+\begin{frame}{Fakten II}
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=2 in]{pricequant.pdf}
+  \includegraphics[width=3.2 in]{pricequant.pdf}
   \label{fig:pricequant}
 \\
  \scriptsize Source: EEX, UCTE
@@ -122,51 +120,49 @@ below 20 & \multicolumn{1}{c}{1,417} & \multicolumn{1}{c}{14} & \multicolumn{1}{
  \hline
 \end{tabular}
 \label{tab:demand}
-
-\scriptsize Source: EEX, UCTE
 \end{table}	
 \normalsize
 		\end{frame}
 		
-\section{Motication und Literatur}		
+\section{Motivation und Literatur}		
 		\begin{frame}{Motivation und Literatur}
 		
 		 \begin{itemize}
 		 \item Kann man auf den momentanen Elektizitätsmärkten effiziente Investitionen erwarten?
 		 
 		 \begin{itemize}
-		 \item Was bedeutet ausreichend? $\rightarrow$ Peak Load Pricing (Crew and Kleindorfer (1986))
-		 \item Wie wirkt ein Oligopol auf Investitionsentscheidungen? (von der Fehr and Harbord (1995))
+		 \item Was bedeutet ausreichend? $\rightarrow$ Peak Load Pricing (Crew and Kleindorfer, 1986)
+		 \item Wie wirkt ein Oligopol auf Investitionsentscheidungen? (von der Fehr and Harbord, 1995)
 		 \item Wird möglicherweise auch die Technologiewahl verzerrt?
 		 \end{itemize}
 
 		 \item Abbildung der tatsächlichen Investitionsentscheidung in einem mehrstufigen Spiel
 		 
 \begin{itemize}
-\item Annahmen über Informationen die die Spieler berücksichtigen (Cellini und Lambertini (2004))
-	\begin{itemize}
+\item Annahmen über Informationen die die Spieler berücksichtigen (Cellini und Lambertini, 2004)
+\begin{itemize}
 	\item Open loop $\rightarrow$ Anfangszustand des Spiels und Zeit
 	\item S-adapted Open loop $\rightarrow$ zusätzlich Realisation der Zufallsvariablen
 	\item Closed loop $\rightarrow$ zusätzlich Veränderungen der Statusvariablen
-	\end{itemize}
-\item Game with Probabilistic Scenarios (GPS) following (Genc (2007))
+\end{itemize}
+\item \emph{Game with Probabilistic Scenarios (GPS)} nach Genc (2007)
 \end{itemize}
 \item Wie weit weicht die tatsächliche von der optimalen Investitionsentscheidung ab?
 
-		\end{itemize}
-		\end{frame}
+\end{itemize}
+\end{frame}
 
 
 \section{Ökonomie auf Strommärkten}
 
 \begin{frame}
 					
-\frametitle{optimales Peak Load Pricing unter perfekter Konkurrenz}
+\frametitle{Optimales Peak-Load Pricing unter vollkommener Konkurrenz}
 \begin{columns}
 \begin{column} {0.5\textwidth}
 \begin{figure}[h]
 \centering
-\includegraphics[width=1.\textwidth]{peak_load_opt}
+\includegraphics[width=1.0\textwidth]{peak_load_opt}
     \caption{von der Fehr and Harbord (1995)}
     \label{fig:Daten 2004}            
 \end{figure}
@@ -174,23 +170,23 @@ below 20 & \multicolumn{1}{c}{1,417} & \multicolumn{1}{c}{14} & \multicolumn{1}{
 
 \begin{column} {0.5\textwidth}
 \begin{itemize}
-\item An der optimalen Kapazität ist der marginale Nutzen gleich den marginalen Kosten der Kapazität
+\item An der optimalen Kapazität ist der marginale Nutzen gleich den marginalen Kosten der Kapazität.
 \end{itemize}
 
 \begin{equation}
-	c=(p^p-v)*\pi
+	c=(p^p-v)\times\pi
 \end{equation}
 
 {\small
 \begin{tabbing}
-whereby: \= $c$ \  \= Kosten einer Einheit Kapazität \\
+mit: \= $c$ \  \= Kosten einer Einheit Kapazität \\
 \> $p^p$   \    \> Engpasspreis  \\
 \> $v$    \   \> variable Kosten \\
-\> $\pi$    \    \> Wahrscheinlichkeit für Peak Periode
+\> $\pi$    \    \> Wahrscheinlichkeit für Peak-Periode
 \end{tabbing}}
 
 \begin{itemize}
-\item Genau das würde auch eine Firma unter perfekter Konkurrenz tun
+\item Genau das würde auch eine Firma unter vollkommener Konkurrenz tun.
 \end {itemize}
 
 \end{column}
@@ -213,7 +209,7 @@ whereby: \= $c$ \  \= Kosten einer Einheit Kapazität \\
 
 \begin{column} {0.4\textwidth}
 \begin{itemize}
-\item preise $>$ als die marginalen kosten
+\item Preise $>$ als die marginalen Kosten
 \item zusätzlicher Investitionsanreiz durch Gewinne in Off-Peak Perioden
 \end {itemize}
   
@@ -222,12 +218,12 @@ whereby: \= $c$ \  \= Kosten einer Einheit Kapazität \\
 \end{equation} 
 {\small
 \begin{tabbing}
-whereby: \= $p^{op}$ \  \= Off-Peak Preis
+mit: \= $p^{op}$ \  \= Off-Peak Preis
 \end{tabbing}}
 
 \begin{itemize}
-\item optimum gleich wie vorher
-\item Verzerrung in Richtung zu viel Investments
+\item Optimum gleich wie vorher
+\item Verzerrung in Richtung zu viel Investitionen
 \end {itemize}
 
 \end{column}
@@ -251,7 +247,7 @@ whereby: \= $p^{op}$ \  \= Off-Peak Preis
 
 \begin{column} {0.4\textwidth}
 \begin{itemize}
-\item wenn man weniger investiert, erhöht sich der Preis in Peak-Periods
+\item wenn man weniger investiert, erhöht sich der Preis in Peak-Perioden
 \end {itemize}
 
 \begin{equation}
@@ -266,7 +262,7 @@ whereby: \= $p^{op}$ \  \= Off-Peak Preis
 
 \begin{itemize}
 \item die Veränderung des Preises durch mehr Kapazität wird nun im Oligopol berücksichtigt
-\item dieser Effekt ist negativ für das Unternehmen also Verzerrung Richtung zu wenig Investments
+\item dieser Effekt ist negativ für das Unternehmen, also Verzerrung Richtung zu wenig Investitionen
 \end {itemize}
 
 \end{column}
@@ -286,21 +282,21 @@ whereby: \= $p^{op}$ \  \= Off-Peak Preis
 \end{gather}
 \small
 \begin{tabular}[c]{l l l l}
-$i\in N$        & players, firms &$K_{i,k}^t$& available capacity\\
-$s\in S$       	& scenarios &$q_{i,k}^{s,m,t}$&quantity\\
-$m\in M$	& states of the market &$I_{i,k}^t$& investment\\
-$k\in K$	& technologies &$p_s$ & probability of scenario $s$\\
-$t\in T$	& time &$\delta$& discount factor\\
+$i\in N$        & Spieler, Firmen &$K_{i,k}^t$& verfügbare Kapazität\\
+$s\in S$       	& Szenarien &$q_{i,k}^{s,m,t}$&Mengen\\
+$m\in M$	& Marktszenarien &$I_{i,k}^t$& Investitionen\\
+$k\in K$	& Technologien &$p_s$ & Wahrscheinlichkeit für Szenario $s$\\
+$t\in T$	& Zeit &$\delta$& Diskontfaktor\\
  
-$\rho$   & depreciation factor &$c_k$& variable costs\\
-$\alpha_m$  & demand function intercept in market state $m$ &$\Gamma_k$&investment costs \\
-$\beta_m$   & demand function slope in market state $m$ &$F_k$&scrap values \\
+$\rho$   & Abschreibungsfaktor &$c_k$& variable Kosten\\
+$\alpha_m$  & Interzept der Nachfragefunktion &$\Gamma_k$&Investitionskosten \\
+$\beta_m$   & Anstieg der Nachfragefunktion  &$F_k$ & Restwert \\
 \end{tabular}
 \normalsize
 		\end{frame}
 \section{Resultate}
 
-\begin{frame}{kurzfristiges Gleichgewicht}
+\begin{frame}{Kurzfristiges Gleichgewicht}
 \begin{center}
 \small
 \begin{tabular}{llrrrrrr}
@@ -347,37 +343,39 @@ $\beta_m$   & demand function slope in market state $m$ &$F_k$&scrap values \\
 
 \begin{frame}{Investitionsanreize - Schattenpreise der Kapazität}
 
-\small
-
+\scriptsize
+\begin{center}
 \begin{tabular}{llrrrrrrr}
+
 \hline
 \hline
            &            & extr. high &    v. high &       high &    interm. &        low &     v. low &  {\bf Sum} \\
 \hline
-       RWE & Hydro Power &        831 &       1970 &       6698 &      18479 &      12603 &       4251 & {\bf 44832} \\
+       RWE & Hydro Power &        831 &       1,970 &       6,698 &      18,479 &      12,603 &       4,251 & {\bf 44,832} \\
 
-           &    Nuclear &        743 &       1715 &       5201 &      14348 &       4621 &       1559 & {\bf 28188} \\
+           &    Nuclear &        743 &       1,715 &       5,201 &      14,348 &       4,621 &       1,559 & {\bf 28,188} \\
 
-           &    Lignite &        693 &       1568 &       4334 &      11957 &            &            & {\bf 18552} \\
+           &    Lignite &        693 &       1,568 &       4,334 &      11,957 &            &            & {\bf 18,552} \\
 
-           &  Hard Coal &        440 &        831 &            &            &            &            & {\bf 1271} \\
+           &  Hard Coal &        440 &        831 &            &            &            &            & {\bf 1,271} \\
 \hline
-      EnBW & Hydro Power &       5587 &      11512 &      52311 &      90176 &      98341 &      12045 & {\bf 269972} \\
+      EnBW & Hydro Power &       5,587 &      11,512 &      52,311 &      90,176 &      98,341 &      12,045 & {\bf 269,972} \\
 
-           &    Nuclear &       5500 &      11257 &      50814 &      86045 &      90359 &       9352 & {\bf 253328} \\
+           &    Nuclear &       5,500 &      11,257 &      50,814 &      86,045 &      90,359 &       9,352 & {\bf 253,328} \\
 
-           &    Lignite &       5449 &      11110 &      49947 &      83654 &      85738 &       7794 & {\bf 243692} \\
+           &    Lignite &       5,449 &      11,110 &      49,947 &      83,654 &      85,738 &       7,794 & {\bf 243,692} \\
 
-           &  Hard Coal &       5196 &      10373 &      45613 &      71697 &      62633 &            & {\bf 195512} \\
+           &  Hard Coal &       5,196 &      10,373 &      45,613 &      71,697 &      62,633 &            & {\bf 195,512} \\
 
-           &        Gas &       4396 &       8041 &      31902 &      33869 &            &            & {\bf 78208} \\
+           &        Gas &       4,396 &       8,041 &      31,902 &      33,869 &            &            & {\bf 78,208} \\
 
-           &        Oil &       3913 &       6634 &      23628 &      11042 &            &            & {\bf 45217} \\
+           &        Oil &       3,913 &       6,634 &      23,628 &      11,042 &            &            & {\bf 45,217} \\
 
-           &   Pump St. &       2257 &       1810 &            &            &            &            & {\bf 4067} \\
+           &   Pump St. &       2,257 &       1,810 &            &            &            &            & {\bf 4,067} \\
 \hline
 \hline
 \end{tabular}
+\end{center}
 \small
 \normalsize
 \end{frame}
@@ -410,8 +408,7 @@ investments &            &            &            & \multicolumn{ 2}{r}{Scen. w
 \section{Conclusio}
 
 %		\subsection{}
-		\begin{frame}{Conclusio}
-
+\begin{frame}{Conclusio}
 \begin{box}
 \begin{itemize}
 	\item Untersuchung von Investitionsanreizen auf E-Märkten ohne Berücksichtigung der strategischen Investitionen unmöglich
@@ -421,15 +418,14 @@ investments &            &            &            & \multicolumn{ 2}{r}{Scen. w
 	\item durch Kernkraftausstieg und alternde Kapazitäten noch verschlimmert
 \end{itemize}
 \end{box}
-
-		\end{frame}	
+\end{frame}	
 	
 
-\section{Referenzen}
+\section{Literatur}
 \scriptsize
 
 \begin{frame}[allowframebreaks]
-      \frametitle<presentation>{References}
+      \frametitle<presentation>{Literatur}
 
       \begin{thebibliography}{8}
 \beamertemplatearticlebibitems
