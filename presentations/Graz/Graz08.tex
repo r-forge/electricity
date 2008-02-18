@@ -88,7 +88,7 @@ University of Regensburg}
 \end{itemize}
 	\item hohe Preisvolatilität $\rightarrow$ Unsicherheit
 	\item L - förmiger Kostenverlauf
-	\item hohe Investitionskosten mit langer Bauzeit - zweistufiges Insvestitionsspiel
+	\item hohe Investitionskosten mit langer Bauzeit - zweistufiges Investitionsspiel
 \end{itemize}
 \end{frame}		
 				
@@ -124,8 +124,8 @@ below 20 & \multicolumn{1}{c}{1,417} & \multicolumn{1}{c}{14} & \multicolumn{1}{
 \normalsize
 		\end{frame}
 		
-\section{Motivation und Literatur}		
-		\begin{frame}{Motivation und Literatur}
+\section{Fragestellung und Literatur}		
+		\begin{frame}{Fragestellung und Literatur}
 		
 		 \begin{itemize}
 		 \item Kann man auf den momentanen Elektizitätsmärkten effiziente Investitionen erwarten?
@@ -145,7 +145,7 @@ below 20 & \multicolumn{1}{c}{1,417} & \multicolumn{1}{c}{14} & \multicolumn{1}{
 	\item S-adapted Open loop $\rightarrow$ zusätzlich Realisation der Zufallsvariablen
 	\item Closed loop $\rightarrow$ zusätzlich Veränderungen der Statusvariablen
 \end{itemize}
-\item \emph{Game with Probabilistic Scenarios (GPS)} nach Genc (2007)
+\item S-adapted Open loop mit Hilfe \emph{Game with Probabilistic Scenarios (GPS)} nach Genc (2007) umgesetzt
 \end{itemize}
 \item Wie weit weicht die tatsächliche von der optimalen Investitionsentscheidung ab?
 
@@ -274,23 +274,23 @@ mit: \= $p^{op}$ \  \= Off-Peak Preis
 		\begin{frame}{Modell}
 \begin{gather}
 	\max \pi_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k})=
-	\sum_{m\in M} v_m \left[ (\alpha_m^l-\beta_m^l \sum_{i\in N}\sum_{k\in K} q_{i,k}^{l,m,1}) \sum_{k\in K} q_{i,k}^{l,m,1} - \sum_{k\in K} c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
-	+ \delta \sum_{s\in S} p_s \sum_{m\in M} v_m \times  \left[ (\alpha_m^s-\beta_m^s \sum_{i\in N}\sum_{k\in K} q_{i,k}^{s,m,2}) \sum_{k\in K} q_{i,k}^{s,m,2} - \sum_{k\in K} c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber 
-									- \sum_{k\in K} \Gamma_{k\in K} I_{i,k} + \delta \sum_{k\in K} F_k I_{i,k}  \\       
-			\text{s.t.:} \  q_{i,k}^{l,m,t} - K^{t}_{i,k} \leq 0; \ \forall i,k,m,t    \label{eq:oligopmax2}\\ 
-										  K^{2}_{i,k}  - \rho K^{1}_{i,k}  - I_{i,k} = 0 ; \ \forall i,k  \label{eq:ologopmax5} \\  
+	\sum_{m\in M} v_m \left[ P(q_{i}^{l,m,1},Q_{l,m,1}) \sum_{k\in K} q_{i,k}^{l,m,1} - \sum_{k\in K} c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
+	+ \delta \sum_{s\in S} p_s \sum_{m\in M} v_m \times  \left[ P(q_{i}^{l,m,2},Q_{l,m,2})  \sum_{k\in K} q_{i,k}^{s,m,2} - \sum_{k\in K} c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber 
+									- \sum_{k\in K} \Gamma_{k\in K} I_{i,k} + \delta \sum_{k\in K} F_k I_{i,k}  \\       \nonumber
+			\text{s.t.:} \  q_{i,k}^{l,m,t} - K^{t}_{i,k} \leq 0; \ \forall i,k,m,t,s    \label{eq:oligopmax2}\\ \nonumber
+										  K^{2}_{i,k}  - \rho K^{1}_{i,k}  - I_{i,k} = 0 ; \ \forall i,k  \label{eq:ologopmax5} \\  \nonumber
 \end{gather}
 \small
 \begin{tabular}[c]{l l l l}
 $i\in N$        & Spieler, Firmen &$K_{i,k}^t$& verfügbare Kapazität\\
 $s\in S$       	& Szenarien &$q_{i,k}^{s,m,t}$&Mengen\\
-$m\in M$	& Marktszenarien &$I_{i,k}^t$& Investitionen\\
+$m\in M$	& Market States &$I_{i,k}^t$& Investitionen\\
 $k\in K$	& Technologien &$p_s$ & Wahrscheinlichkeit für Szenario $s$\\
 $t\in T$	& Zeit &$\delta$& Diskontfaktor\\
  
 $\rho$   & Abschreibungsfaktor &$c_k$& variable Kosten\\
-$\alpha_m$  & Interzept der Nachfragefunktion &$\Gamma_k$&Investitionskosten \\
-$\beta_m$   & Anstieg der Nachfragefunktion  &$F_k$ & Restwert \\
+$P(q)$  & Inverse Nachfragefunktion &$\Gamma_k$&Investitionskosten \\
+ $F_k$  & Restwert  & &  \\
 \end{tabular}
 \normalsize
 		\end{frame}
@@ -343,35 +343,39 @@ $\beta_m$   & Anstieg der Nachfragefunktion  &$F_k$ & Restwert \\
 
 \begin{frame}{Investitionsanreize - Schattenpreise der Kapazität}
 
-\scriptsize
+\small
 \begin{center}
-\begin{tabular}{llrrrrrrr}
+\begin{tabular}{lrrrrrrr}
 
 \hline
 \hline
-           &            & extr. high &    v. high &       high &    interm. &        low &     v. low &  {\bf Sum} \\
+                   & extr. high &    v. high &       high &    interm. &        low &     v. low &  {\bf Sum} \\
 \hline
-       RWE & Hydro Power &        831 &       1,970 &       6,698 &      18,479 &      12,603 &       4,251 & {\bf 44,832} \\
-
-           &    Nuclear &        743 &       1,715 &       5,201 &      14,348 &       4,621 &       1,559 & {\bf 28,188} \\
-
-           &    Lignite &        693 &       1,568 &       4,334 &      11,957 &            &            & {\bf 18,552} \\
-
-           &  Hard Coal &        440 &        831 &            &            &            &            & {\bf 1,271} \\
+RWE: &&&&&&& \\
 \hline
-      EnBW & Hydro Power &       5,587 &      11,512 &      52,311 &      90,176 &      98,341 &      12,045 & {\bf 269,972} \\
+       Hydro Power &        831 &       1,970 &       6,698 &      18,479 &      12,603 &       4,251 & {\bf 44,832} \\
 
-           &    Nuclear &       5,500 &      11,257 &      50,814 &      86,045 &      90,359 &       9,352 & {\bf 253,328} \\
+              Nuclear &        743 &       1,715 &       5,201 &      14,348 &       4,621 &       1,559 & {\bf 28,188} \\
 
-           &    Lignite &       5,449 &      11,110 &      49,947 &      83,654 &      85,738 &       7,794 & {\bf 243,692} \\
+              Lignite &        693 &       1,568 &       4,334 &      11,957 &            &            & {\bf 18,552} \\
 
-           &  Hard Coal &       5,196 &      10,373 &      45,613 &      71,697 &      62,633 &            & {\bf 195,512} \\
+             Hard Coal &        440 &        831 &            &            &            &            & {\bf 1,271} \\
+\hline
+EnBW: &&&&&&& \\ 
+\hline
+       Hydro Power &       5,587 &      11,512 &      52,311 &      90,176 &      98,341 &      12,045 & {\bf 269,972} \\
 
-           &        Gas &       4,396 &       8,041 &      31,902 &      33,869 &            &            & {\bf 78,208} \\
+               Nuclear &       5,500 &      11,257 &      50,814 &      86,045 &      90,359 &       9,352 & {\bf 253,328} \\
 
-           &        Oil &       3,913 &       6,634 &      23,628 &      11,042 &            &            & {\bf 45,217} \\
+               Lignite &       5,449 &      11,110 &      49,947 &      83,654 &      85,738 &       7,794 & {\bf 243,692} \\
 
-           &   Pump St. &       2,257 &       1,810 &            &            &            &            & {\bf 4,067} \\
+             Hard Coal &       5,196 &      10,373 &      45,613 &      71,697 &      62,633 &            & {\bf 195,512} \\
+
+                   Gas &       4,396 &       8,041 &      31,902 &      33,869 &            &            & {\bf 78,208} \\
+
+                   Oil &       3,913 &       6,634 &      23,628 &      11,042 &            &            & {\bf 45,217} \\
+
+              Pump St. &       2,257 &       1,810 &            &            &            &            & {\bf 4,067} \\
 \hline
 \hline
 \end{tabular}
@@ -395,6 +399,7 @@ investments &            &            &            & \multicolumn{ 2}{r}{Scen. w
            &        EON &       1,063 &            &            &            \\
            &     Vatten &       7,256 &            &       6,249 &        283 \\
            &       EnBW &       9,102 &            &       8,248 &            \\
+           \hline
            &        Sum &      17,422 &            & \multicolumn{ 2}{c}{14,780} \\
 \hline
    optimum &            &      31,096 &            &      27,658 &            \\
@@ -408,19 +413,28 @@ investments &            &            &            & \multicolumn{ 2}{r}{Scen. w
 \section{Conclusio}
 
 %		\subsection{}
+	
 \begin{frame}{Conclusio}
-\begin{box}
+
+\begin{block}{Was kann man daraus lernen?}
 \begin{itemize}
-	\item Untersuchung von Investitionsanreizen auf E-Märkten ohne Berücksichtigung der strategischen Investitionen unmöglich
+	\item Untersuchung von Investitionsanreizen auf E-Märkten ohne die Berücksichtigung der strategischen Implikationen unmöglich
+	\end{itemize}	
+ \end{block}
+ 
+\begin{itemize}
 	\item rein analytisches Modell - zuwenig oder auch zuviel Investitionen
 	\item realistisches Beispiel gerechnet
-	\item Vergleich zwischen Wohlfahrtsoptimum und Oligopollösung zeigt ein Investitionsproblem
-	\item durch Kernkraftausstieg und alternde Kapazitäten noch verschlimmert
 \end{itemize}
-\end{box}
-\end{frame}	
-	
 
+	\begin{alertblock}{Was kann man daraus für die Praxis lernen?}
+	\begin{itemize}
+	\item Vergleich zwischen Wohlfahrtsoptimum und Oligopollösung zeigt ein Investitionsproblem
+	\item durch Kernkraftausstieg und alternde Kapazitäten wird das Problem wahrscheinlich noch verschlimmert
+	\end{itemize}	
+  \end{alertblock}
+
+\end{frame}	
 \section{Literatur}
 \scriptsize
 
