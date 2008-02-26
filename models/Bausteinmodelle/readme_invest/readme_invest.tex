@@ -122,7 +122,6 @@ $F_k$        & scrap values  \\
 
 Each player ($i$) maximizes its profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$ . By considering different demand developments and the associated probabilities ($p_s$) of the different scenarios ($s\in S$), the players take into account how demand might evolve in the future. Capacities now evolve over time $t\in T$, according to the state equation \ref{eq:ologopmax5} 
 
-
 Quantities are allowed to be adapted to different scenarios that evolve, thereby stating that firms can always react to demand by adjusting the short run production. On the contrary, investments ($I$) are not allowed to differ in such a way as they have to be set in advance when it is not clear jet how high demand might be. Please note, that quantities do not depend on what other players might invest. They do depend however, on how high own investments are. 
 % as the cost function can be changed between period one and two($C^1_i vs. C^2_i$). (Idee - Wenn man das weggibt, müsste man den Effekt den eigene Investments auf den Marktpreis haben sehen). 
 If, in the solution, quantities would depend on Investments of other players as well, we would enter the realm of feedback or closed loop games (which are the same in the case of a two stage game). It has to be noted here that the solution of a closed loop game can, and will, in general, be different from the solution of an open loop game.
@@ -130,25 +129,25 @@ If, in the solution, quantities would depend on Investments of other players as 
 To solve the model, we derive the Karush Kuhn Tucker Conditions (KKT) to obtain a mixed complementarity problem (MCP) which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions. For the competitive benchmark we skipped the index $i$ and solved the problem under the assumption that just one player disposes of all the initial capacities of the four players. When deriving the KKT conditions, this player is assumed to set prices equal to marginal costs.
 
 
-%\begin{gather}
-%	\max L_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k},\lambda_{i,k}^{s,m,t},u_{i,k})= \sum_m v_m \left[ (\alpha_m^l-\beta_m^l \sum_i\sum_k q_{i,k}^{l,m,1}) \sum_k q_{i,k}^{l,m,1} - \sum_k c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
-%	+ \epsilon \sum_s p_s \sum_m v_m \left[ (\alpha_m^s-\beta_m^s \sum_i\sum_k q_{i,k}^{s,m,2}) \sum_k q_{i,k}^{s,m,2} - \sum_k c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber
-%									- \sum_k \Gamma_k I_{i,k} + \epsilon \sum_k F_k I_{i,k}  \\   \nonumber    
-%		+ \lambda_{i,k}^{l,m,1}(q_{i,k}^{l,m,1} - K^{1}_{i,k})+\lambda_{i,k}^{s,m,2}(q_{i,k}^{s,m,2} - K^{2}_{i,k}) \\ \nonumber
-%							u_{i,k}(K^{2}_{i,k}  - \rho K^{1}_{i,k}  - I_{i,k})		\\   \nonumber
-%\end{gather}
+\begin{gather}
+	\max L_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k},\lambda_{i,k}^{s,m,t},u_{i,k})= \sum_m v_m \left[ (\alpha_m^l-\beta_m^l \sum_i\sum_k q_{i,k}^{l,m,1}) \sum_k q_{i,k}^{l,m,1} - \sum_k c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
+	+ \epsilon \sum_s p_s \sum_m v_m \left[ (\alpha_m^s-\beta_m^s \sum_i\sum_k q_{i,k}^{s,m,2}) \sum_k q_{i,k}^{s,m,2} - \sum_k c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber
+									- \sum_k \Gamma_k I_{i,k} + \epsilon \sum_k F_k I_{i,k}  \\   \nonumber    
+		+ \lambda_{i,k}^{l,m,1}(q_{i,k}^{l,m,1} - K^{1}_{i,k})+\lambda_{i,k}^{s,m,2}(q_{i,k}^{s,m,2} - K^{2}_{i,k}) \\ \nonumber
+							u_{i,k}(K^{2}_{i,k}  - \rho K^{1}_{i,k}  - I_{i,k})		\\   \nonumber
+\end{gather}
 
-%with the following FOC´s combined with the complementary slack conditions.
+with the following FOC´s combined with the complementary slack conditions.
 
-%This optimization Problem translates into the following F.O.C´s which are written alongside with their respective complementarity conditions.
-%\begin{gather}
-%\frac{\partial L(\cdot)}{\partial q_{i,k}^{l,m,1}} = v_m\left[  \alpha^l_m - \beta^l_m \sum_k q_{i,k}^{l,m,1} - \beta^l_m \sum_k \sum_i q_{i,k}^{l,m,1} - c_k \right]  - \lambda_{i,k}^{l,m,1}	\leq 0 \\ \nonumber \ \bot \ q_{i,k}^{l,m,1} \geq 0;\ \forall i,k,m \\
-%\frac{\partial L(\cdot)}{\partial q_{i,k}^{s,m,2}} = \epsilon p_s v_m \left[ \alpha^s_m - \beta^s_m \sum_k q_{i,k}^{s,m,2} - \beta^s_m \sum_k \sum_i q_{i,k}^{s,m,2} - c_k \right] - \lambda_{i,k}^{s,m,2} \leq 0 \\ \nonumber \ \bot \ q_{i,k}^{s,m,2} \geq 0;\ \forall i,k,m,s \\
-%\frac{\partial L(\cdot)}{\partial \lambda_{i,k}^{s,m,t}} = q_{i,k}^{s,m,t} - K^t_{i,k} \leq 0 \ \bot \ \lambda_{i,k}^{s,m,t} \geq 0 ; \\
-%\frac{\partial L(\cdot)}{\partial I_{i,k}} = - \Gamma_k + \epsilon F_k + u_{i,k} \leq 0 \ \bot \ I_{i,k} \geq 0 ;\forall i,k \\
-%\frac{\partial L(\cdot)}{\partial u} = -K^2_{i,k} + \rho K^1_{i,k} - I_{i,k}  = 0 \ \bot \ u_{i,k} \ \mbox{\textit{free}}; \  \forall i,k  \\
-%\frac{\partial L(\cdot)}{\partial K^2_{i,k}} = \sum_m \sum_s  \lambda_{i,k}^{s,m,2} - u_{i,k} \leq 0  \ \bot \ K^2_{i,k} \geq 0 ; \forall i,k
-%\end{gather}
+This optimization Problem translates into the following F.O.C´s which are written alongside with their respective complementarity conditions.
+\begin{gather}
+\frac{\partial L(\cdot)}{\partial q_{i,k}^{l,m,1}} = v_m\left[  \alpha^l_m - \beta^l_m \sum_k q_{i,k}^{l,m,1} - \beta^l_m \sum_k \sum_i q_{i,k}^{l,m,1} - c_k \right]  - \lambda_{i,k}^{l,m,1}	\leq 0 \\ \nonumber \ \bot \ q_{i,k}^{l,m,1} \geq 0;\ \forall i,k,m \\
+\frac{\partial L(\cdot)}{\partial q_{i,k}^{s,m,2}} = \epsilon p_s v_m \left[ \alpha^s_m - \beta^s_m \sum_k q_{i,k}^{s,m,2} - \beta^s_m \sum_k \sum_i q_{i,k}^{s,m,2} - c_k \right] - \lambda_{i,k}^{s,m,2} \leq 0 \\ \nonumber \ \bot \ q_{i,k}^{s,m,2} \geq 0;\ \forall i,k,m,s \\
+\frac{\partial L(\cdot)}{\partial \lambda_{i,k}^{s,m,t}} = q_{i,k}^{s,m,t} - K^t_{i,k} \leq 0 \ \bot \ \lambda_{i,k}^{s,m,t} \geq 0 ; \\
+\frac{\partial L(\cdot)}{\partial I_{i,k}} = - \Gamma_k + \epsilon F_k + u_{i,k} \leq 0 \ \bot \ I_{i,k} \geq 0 ;\forall i,k \\
+\frac{\partial L(\cdot)}{\partial u} = -K^2_{i,k} + \rho K^1_{i,k} - I_{i,k}  = 0 \ \bot \ u_{i,k} \ \mbox{\textit{free}}; \  \forall i,k  \\
+\frac{\partial L(\cdot)}{\partial K^2_{i,k}} = \sum_m \sum_s  \lambda_{i,k}^{s,m,2} - u_{i,k} \leq 0  \ \bot \ K^2_{i,k} \geq 0 ; \forall i,k
+\end{gather}
 
 
 
