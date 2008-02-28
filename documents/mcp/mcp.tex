@@ -1,0 +1,173 @@
+\section{Model}
+
+\subsection{Overview}
+
+In this section, we develop a stochastic dynamic equilibrium model for a deregulated electricity market. Our focus lies on studying the long-run economic effects of strategic investment decisions in different generation technologies. In each time step, the market-clearing conditions lead to the solution of a Nash-Cournot equilibrium between the oligopolistic market players. The uncertainty is modeled with a scenario tree for the stochastic inverse demand function with a random intercept. Further, we include probabilities for different market states. By deriving the Karush-Kuhn-Tucker (KKT) conditions for each subproblem, we can solve the model as mixed complementarity problem (MCP) and calibrate it to data from the German electricity market.
+
+
+\subsection{Sample-path adapted open-loop}
+\label{sec:sample-path-adapted}
+
+\textbf{References}: \cite{Pineau2003}
+
+Their solutions approach uses variational inequalities (VI). The model is similar to Games with Expected Scenarios (GES) in \cite{Genc2007}. The players assume that the future will evolve according to some expected values
+
+\subsection{Notation}
+
+\textbf{References:} \cite{Genc2007}, \cite{Genc2008}
+
+\cite{Genc2007} concluded that the GPS formulation is the most appropriate one, and continue to use it in \cite{Genc2008}.
+The players are aware of the uncertainty and account for it during the decision making process.
+
+\cite{Genc2008} solve a stochastic programming model with six stages. They argue that more stages would have been appropriate, but the PATH solver was not able to handle more. They used hourly data for the demand and transformed it to daily values by simple averaging.
+
+\begin{longtable}[l]{l l}
+$i \in N$ & players, firms \\
+$j \in M$ & technologies \\
+$t \in T$ & time \\
+$s \in S$ & scenarios \\
+$p_s$ & probability of scenario $s$\\
+$ q_{i,s}^{j,t}$ & production quantities \\
+$I_{i,s}^{j,t},$ & investment quantities \\
+$K_{i,s}^{j,t}$ & available capacity\\
+$Q_s^t$ & market demand \\
+$\Pi_{i,s}^t$ & expected profit of player $i$ in scenario $s$ in time $t$\\
+$\Pi_i^t = \sum_{s\in S}p_s\Pi_{i,s}^t$ & total expected profit of player $i$ in time $t$\\
+$\delta_t$ & discount factor \\
+$\nu$ & salvage value
+
+\end{longtable}
+
+Each player $i$ maximizes the discounted expected profit:
+
+\begin{eqnarray}
+  \label{eq:objfct}
+  \max_{q_{i,s}^{j,t}, I_{i,s}^{j,t}} \sum_{s\in S}p_s \sum_{t\in T}\delta_t \sum_{j\in J}\left[\Pi_{i,s}^t\left(q_{i,s}^{j,t}, I_{i,s}^{j,t}, K_{i,s}^{j,t}, Q_s^t\right) + K_{i,s}^{j,t}F_{i,s}^{j,t}\nu\right ]\\
+q_{i,s}^{j,t} - K_{i,s}^{j,t} &\leq& 0 \label{eq:prodconstr} \\
+Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t} &=& 0 \label{eq:marketclearing}\\
+K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} &=& 0 \label{eq:state} \\
+I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t} &=& 0 \label{eq:nonant}\\
+q_{i,s}^{j,t}, K_{i,s}^{j,t}, I_{i,s}^{j,t}  &\geq& 0 \label{eq:nonneg} \\
+\end{eqnarray}
+
+\eqref{eq:prodconstr} is the production constraint, \eqref{eq:marketclearing} the market clearing condition, \eqref{eq:state} is the state equation, \eqref{eq:nonant} is the non-anticipativity constraint, \eqref{eq:nonneg} are non-negativity constraints
+
+The cost functions are convex and twice-contiuous differentiable.
+
+Market demand is characterized by the following price-quantity relationship:
+
+\begin{equation}
+  \label{eq:marketdemandpq}
+  aP_t+bQ_t=D_t+\tilde{\gamma}_t, \quad \mbox{where}\, \tilde{\gamma}_t\sim\mathbb{N}(\mu,h)
+\end{equation}
+
+such that
+
+\begin{eqnarray*}
+  \label{eq:3}
+  \tilde{\gamma}_0=0\qquad\mbox{for}\, t=0\\
+   \tilde{\gamma}_t=\left\{\mp(2w-1)\gamma_t\right\}_{w=1}^{2^{t-1}}\\
+   \gamma_t=\frac{h}{\sqrt{2^{1-t}\sum_{w=1}^{2^{t-1}}(2w-1)^2}}
+\end{eqnarray*}
+
+The demand is given by:
+
+\begin{equation}
+  \label{eq:demandgrowth}
+  D_t = D(1+\rho_e)^t
+\end{equation}
+
+where $D>0$ and $\rho_e$ is the demand growth rate for the state $e$ ("high" growth, "low" growth, etc.). The demand follows a normal distribution in each time period. Therefore, \cite{Genc2008} assume that load is normally distributed with $\mathbb{N}(\mu, h^2)$.
+
+Where $\mu=18,055$ MW and $p=48.2$. With a reduced-form electricity demand of
+
+\begin{equation}
+  \label{eq:5}
+  Q_t(p) = \alpha_t-\beta p, 
+\end{equation}
+
+they calculate $\beta=75$ as follows:
+
+\begin{eqnarray*}
+  \frac{\partial Q_t(p)}{\partial p} &=& -\beta \\
+  \frac{\partial Q_t(p)}{\partial p}\times\frac{Q}{p} &=& -\beta\times\frac{Q}{p} \\
+  0.2 &=& -\beta\times\frac{18,055}{48.2}\\
+\beta &=& 74.91701
+\end{eqnarray*}
+
+
+Let
+
+\begin{equation*}
+  \alpha_t=D(1+\rho_e)^t+\gamma_t,
+\end{equation*}
+
+with $\rho_e = \left\{0.006, 0.009, 0.013\right\}$ as yearly growth rates of demand for the future. For $\tilde{\gamma}_0=0$ we get
+
+\begin{eqnarray*}
+  18,055 &=& \alpha_0-75\times 48.2\\
+  \alpha_0 &=&D=21,670.
+\end{eqnarray*}
+
+So, the demand curve in the initial node is $Q_o(p) = 21,670-75p$.
+
+The intercept for 
+
+
+\subsection{Solution}
+\label{sec:solution}
+
+In general, the Karush-Kuhn-Tucker (KKT) conditions for mixed equality and inequality constraints are as follows:
+
+To maximize $f(\bm{x})$ with $\bm{x}=(x_1,\dots, x_n)$ subject to
+
+\begin{equation*}
+  g_1(\bm{x})\leq b_1, \quad\cdots\quad, g_k(\bm{x})\leq b_k,\qquad i=,1\dots, k
+\end{equation*}
+and
+
+\begin{equation*}
+  h_1(\bm{x})= c_1, \quad\cdots\quad, h_m(\bm{x})= c_m,\qquad j=,1\dots, m
+\end{equation*}
+
+we define the Lagrangian
+
+\begin{equation*}
+    \mathcal{L}(\bm{x,\lambda,\mu})=f(\bm{x})-\sum_{i=1}^k\lambda_i(g_i-b_i)-\sum_{j=1}^m\mu_i(h_i-c_i)\,.
+\end{equation*}
+
+Then, we solve the $n$ first-order equality conditions
+
+\begin{equation*}
+  \frac{\partial\mathcal{L}}{\partial x_1}=0, \quad\cdots\quad,  \frac{\partial\mathcal{L}}{\partial x_n}=0
+\end{equation*}
+
+together with the $k$ complementary slackness conditions
+
+\begin{equation*}
+  \lambda_1(g_1(\bm{x})-b_1)=0,\quad\cdots\quad\lambda_k(g_k(\bm{x})-b_k)=0
+\end{equation*}
+
+and the $m$ equality constraints
+
+\begin{equation*}
+  \phi_1(h_1(\bm{x})-c_1)=0,\quad\cdots\quad\phi_k(h_k(\bm{x})-c_m)=0\,.
+\end{equation*}
+
+We derive for the objective function \eqref{eq:objfct} subject to the constraints \eqref{eq:prodconstr}-\eqref{eq:nonneg} the following Lagrangian and the both necessary and sufficient KKT conditions for optimality.
+
+\begin{equation}
+  \label{eq:kkt1}
+  \mathcal{L}(q_{i,s}^{j,t}, I_{i,s}^{j,t},\lambda_{i,s}^{j,t},\phi_{i,s}^{j,t})
+\end{equation}
+
+where the perpendicular symbol "$\bot$" means that at least one of the adjacent inequalities must be satisfied as an equality.
+
+
+
+By grouping together the KKT conditions for the $n$ firms we get a mixed complementarity problem (MCP). These types of optimization problems can conveniently be implemented in GAMS (General Algebraic Modelling System) and solved with with the PATH solver \citep[see][]{Ferris2000}.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../electricity"
+%%% End: 
