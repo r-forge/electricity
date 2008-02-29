@@ -133,7 +133,7 @@ invest(i,k)..      gamma(k) - e*F(k) - u(i,k)            =g= 0;
 
 state(i,k)..      -cap1(i,k)  + ro*cap0(i,k)  + inv(i,k)    =e= 0;
 
-kapa(i,k)..      +sum((w,n), y1(w,i,k,n))  - u(i,k)  =g= 0;
+kapa(i,k)..      +sum((w,n), y1(w,i,k,n)) - u(i,k)  =g= 0;
 
 price0(m)..        p0(m) =e= alphaz(m)-  beta(m)*sum((j,h),q0(j,h,m)) ;
 
@@ -143,4 +143,4 @@ model monop  /profit0.q0,  restr0.y0, profit1.q1 , restr1.y1, invest.inv, state.
 
 solve monop using mcp;
 
-display q0.l, y0.l, q1.l, y1.l , inv.l, cap1.l, p0.l, p1.l
+display q0.l, y0.l, q1.l, y1.l , inv.l, cap1.l, p0.l, p1.l, u.l

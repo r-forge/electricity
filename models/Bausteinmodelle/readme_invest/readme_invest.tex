@@ -128,7 +128,6 @@ If, in the solution, quantities would depend on Investments of other players as 
 
 To solve the model, we derive the Karush Kuhn Tucker Conditions (KKT) to obtain a mixed complementarity problem (MCP) which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions. For the competitive benchmark we skipped the index $i$ and solved the problem under the assumption that just one player disposes of all the initial capacities of the four players. When deriving the KKT conditions, this player is assumed to set prices equal to marginal costs.
 
-
 \begin{gather}
 	\max L_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k},\lambda_{i,k}^{s,m,t},u_{i,k})= \sum_m v_m \left[ (\alpha_m^l-\beta_m^l \sum_i\sum_k q_{i,k}^{l,m,1}) \sum_k q_{i,k}^{l,m,1} - \sum_k c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
 	+ \epsilon \sum_s p_s \sum_m v_m \left[ (\alpha_m^s-\beta_m^s \sum_i\sum_k q_{i,k}^{s,m,2}) \sum_k q_{i,k}^{s,m,2} - \sum_k c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber
