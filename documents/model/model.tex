@@ -3,7 +3,7 @@
 
 \subsection{Static model - peak load pricing}
 
-We begin with a static version of our model to establish the link to the economic intuition outlined in the previous section. There are four players, indexed by $i\in N$ (RWE, EON, Vattenfall and EnBW), seven technologies $k\in K$  and six different market states $m\in M$. Each of the players maximizes the following profit function:
+We begin with a static version of our model to establish the link to the economic intuition outlined in the previous section. There are four players and a strategic fringe, indexed by $i\in N$ (RWE, EON, Vattenfall, EnBW), seven technologies $k\in K$  and six different market states $m\in M$. Each of the players maximizes the following profit function:
 
 \begin{gather}
 	\max \pi_i(q_{i,k}^m,K_{i,k},)= \sum_{m\in M} v_m\times\\ \nonumber  \left[(\alpha_m-\beta_m\sum_{i\in N} \sum_{k\in K} q_{i,k}^m ) \sum_{k\in K} q_{i,k}^m - \sum_{k\in K} c^k q_{i,k}^m \right] \\ \nonumber
@@ -40,15 +40,18 @@ $\alpha_m$ and $\beta_m$ are the intercept and the slope of the inverse demand f
 
 Table \ref{tab:statquant} in the appendix shows the quantities predicted by our oligopoly model. While during a high demand state almost all capacities are used, during low demand states hard coal plants are the most expensive technology in the merit order curve. Prices differ significantly but are above marginal costs even if demand is very low. Please note, that there is strategic capacity withholding as not all capacities are brought to the market even if more than the variable costs were covered.
 
-As we used a Lagrangian method to calculate this short run equilibrium, we can have a look at the shadow prices of capacity to see how much an additional unit of capacity would be worth for each player. Please note that this values cannot be smaller than zero as, in our setup, there always exists the option of not using existing capacities. There are only positive scarcity rents if the capacity of the technology is binding. Table \ref{tab:statlambda} shows the shadow prices of capacity. The values can be read in such a way that an additional MW of hydro power capacity would increase profits RWE makes in all the extremely high market states by 831 Euros and the overall yearly profit of RWE by 44,832 EUROS. On the contrary, the same capacity is worth 269,972 Euros for EnBW. How can such different results be explained? One the one hand, it seems that firms gain less from investing during high demand states which is straightforward as demand is more inelastic during high demand states and so one looses more by adding more capacity which depresses the gain from capacity. On the other hand, there are positive values for almost all technologies during extremely high demand states as most of the capacities become binding then. \\
-Most importantly, for smaller players like Vattenfall and EnBW shadow prices are far higher as the effect of less scarcity, and thereby lower prices is less important if firms sell less. This means that it is impossible to assess the investment incentives for firm on a market like the electricity market (oligopoly with $L$-shaped cost functions) without considering the strategic implications such investments have.
+As we used a Lagrangian method to calculate this short run equilibrium, we can have a look at the shadow prices of capacity to see how much an additional unit of capacity would be worth for each player. Please note that this values cannot be smaller than zero as, in our setup, there always exists the option of not using existing capacities. There are only positive scarcity rents if the capacity of the technology is binding. So please note that there are positive values for almost all technologies during extremely high demand states as most of the capacities become binding then. \\
+
+Table \ref{tab:statlambda} shows the shadow prices of capacity. The values can be read in such a way that an additional MW of hydro power capacity would increase profits RWE makes in all the extremely high market states by 831 Euros and the overall yearly profit of RWE by 44,832 EUROS. On the contrary, the same capacity is worth 269,972 Euros for EnBW. How can such different results be explained? 
+
+For smaller players like Vattenfall and EnBW shadow prices are far higher as the effect of less scarcity, and thereby lower prices is less important if firms sell less. This means that it is impossible to assess the investment incentives for firms on a market like the electricity market (oligopoly with $L$-shaped cost functions) without considering the strategic implications such investments have.
 
 \subsection{Dynamic model}
 
 In this part, we introduce two deciding factors. First, dynamics and thereby investments which link the different time periods. Second, uncertainty which is accounted for by a binomial scenario tree and leads to a recourse problem. The uncertainty about future demand is accounted for by different demand scenarios. Our approach follows the game with probabilistic scenarios (GPS) method by \cite{Genc2007}. Our two stage Model looks as follows.
 
 \begin{gather}
-	\max \pi_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k})=	\\ \nonumber 
+	\max \pi_i(q_{i,k}^{s,m,t},K^t_{i,k},I_{i,k})=	\\ \nonumber
 	\sum_{m\in M} v_m \left[ (\alpha_m^l-\beta_m^l \sum_{i\in N}\sum_{k\in K} q_{i,k}^{l,m,1}) \sum_{k\in K} q_{i,k}^{l,m,1} - \sum_{k\in K} c_k q_{i,k}^{l,m,1} \right]  \\  \nonumber 
 	+ \delta \sum_{s\in S} p_s \sum_{m\in M} v_m \times \\ \nonumber \left[ (\alpha_m^s-\beta_m^s \sum_{i\in N}\sum_{k\in K} q_{i,k}^{s,m,2}) \sum_{k\in K} q_{i,k}^{s,m,2} - \sum_{k\in K} c_k q_{i,k}^{s,m,2}  \right]   \\  \nonumber 
 									- \sum_{k\in K} \Gamma_{k\in K} I_{i,k} + \delta \sum_{k\in K} F_k I_{i,k}  \\       
@@ -62,7 +65,18 @@ Each player maximizes its profit by setting $q_{i,k}^{s,m,t}$ and $I_{i,k}^t$. B
 % as the cost function can be changed between period one and two($C^1_i vs. C^2_i$). (Idee - Wenn man das weggibt, müsste man den Effekt den eigene Investments auf den Marktpreis haben sehen). 
 If quantities would depend on investments of other players as well, we would enter the realm of feedback or closed loop games (which are the same in the case of a two-stage game). It has to be noted here that the solution of a closed loop game can, and will, in general, be different from the solution of an open loop game.
 
-To solve the model, we derive the KKT conditions to obtain an MCP problem which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions. For the competitive benchmark we solved the problem under the assumption that just one welfare maximizing player disposes of all the initial capacities of the four players. When deriving the KKT conditions, for the optimal results this player is assumed to set prices equal to marginal costs.
+In an alternative version of our model, we implemented a Price Cap ($PC$), so the following additional constraint was added:
+
+\begin{gather}
+(\alpha_m^s-\beta_m^s \sum_{i\in N}\sum_{k\in K} q_{i,k}^{s,m,t}) - PC \leq 0; \ \forall s,m
+\end{gather}
+
+Adding price caps showed interesting results as investments indeed seemed to increase when price caps were lowered. As this is work in progress however, the results are not given jet. \\
+
+To solve the model, we derive the KKT conditions to obtain an MCP problem which we solve by using GAMS and the PATH solver. For the model above, we used the Cournot approach to derive the first order conditions\footnote{Apart from the strategic fringe, which is assumed to be a price taker.}. For the competitive benchmark, we solved the problem under the assumption that just one welfare maximizing player disposes of all the initial capacities of the five players. The welfare maximizing player is assumed to set prices equal to marginal costs.
+
+
+
 %\clearpage
 
 
