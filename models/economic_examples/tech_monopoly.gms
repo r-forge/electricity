@@ -71,9 +71,9 @@ price1(s)      gives back the price (not relevant for result)
 quantity0(i)   gives back the quantities (not relevant for result)
 quantity1(s,i) gives back the quantities (not relevant for result);
 *  +  +
-profit0(i,k)..    - alphaz + 2*beta*sum(h,q0(i,h))      + c(k) + y0(i,k)- beta*psi0 =g= 0;
+profit0(i,k)..    - alphaz + beta*sum(h,q0(i,h))      + c(k) + y0(i,k)- beta*psi0 =g= 0;
 
-profit1(s,i,k).. 0.5*(- alpha(s) + 2*beta*sum(h,q1(s,i,h))   + c(k) ) + y1(s,i,k)- beta*psi1(s) =g= 0;
+profit1(s,i,k).. 0.5*(- alpha(s) + beta*sum(h,q1(s,i,h))   + c(k) ) + y1(s,i,k)- beta*psi1(s) =g= 0;
 
 restr0(i,k)..      -q0(i,k)  +       cap0(i,k)        =g= 0;
 restr1(s,i,k)..   -q1(s,i,k) +       cap1(i,k)        =g= 0;
