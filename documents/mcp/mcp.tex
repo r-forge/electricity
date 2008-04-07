@@ -30,11 +30,15 @@ $p_s$ & probability of scenario $s$\\
 $ q_{i,s}^{j,t}$ & production quantities \\
 $I_{i,s}^{j,t},$ & investment quantities \\
 $K_{i,s}^{j,t}$ & available capacity\\
+$F_{i,s}^{j,t}$ & installment cost\\
 $Q_s^t$ & market demand \\
-$\Pi_{i,s}^t$ & expected profit of player $i$ in scenario $s$ in time $t$\\
+$\alpha_s^t$ & intercept of demand function \\
+$\beta$ & slope of demand function \\
+$c_j$ & variable costs \\
+$\Pi_{i,s}^t = \left(\alpha_s^t-\beta q_{i,s}^{j,t}\right)q_{i,s}^{j,t}-c_jq_{i,s}^{j,t}$ & expected profit of player $i$ in scenario $s$ in time $t$\\
 $\Pi_i^t = \sum_{s\in S}p_s\Pi_{i,s}^t$ & total expected profit of player $i$ in time $t$\\
 $\delta_t$ & discount factor \\
-$\nu$ & salvage value
+$\nu$ & salvage value parameter
 
 \end{longtable}
 
@@ -47,10 +51,10 @@ q_{i,s}^{j,t} - K_{i,s}^{j,t} &\leq& 0 \label{eq:prodconstr} \\
 Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t} &=& 0 \label{eq:marketclearing}\\
 K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} &=& 0 \label{eq:state} \\
 I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t} &=& 0 \label{eq:nonant}\\
-q_{i,s}^{j,t}, K_{i,s}^{j,t}, I_{i,s}^{j,t}  &\geq& 0 \label{eq:nonneg} \\
+q_{i,s}^{j,t}, K_{i,s}^{j,t}, I_{i,s}^{j,t}  &\geq& 0 \label{eq:nonneg}
 \end{eqnarray}
 
-\eqref{eq:prodconstr} is the production constraint, \eqref{eq:marketclearing} the market clearing condition, \eqref{eq:state} is the state equation, \eqref{eq:nonant} is the non-anticipativity constraint, \eqref{eq:nonneg} are non-negativity constraints
+\eqref{eq:prodconstr} is the production constraint, \eqref{eq:marketclearing} the market clearing condition, \eqref{eq:state} is the state equation, \eqref{eq:nonant} is the non-anticipativity constraint, \eqref{eq:nonneg} are non-negativity constraints. The objective function \eqref{eq:objfct} consists of the expected discounted profits and the salvage values at the final stage of the planning horizon.
 
 The cost functions are convex and twice-contiuous differentiable.
 
