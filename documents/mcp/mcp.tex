@@ -32,7 +32,7 @@ $I_{i,s}^{j,t}$ & investment quantities \\
 $K_{i,s}^{j,t}$ & available capacity\\
 $F^{j,t}$ & installment cost\\
 $Q_s^t = \sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}$ & market demand \\
-$P_s^t$ & market equilibrium price \\
+$P_s^t = \alpha_s^t-\beta\sum_{i\in N}\sum_{j\in M}q_{i,s}^{j,t}$ & market equilibrium price \\
 $\alpha_s^t$ & intercept of demand function \\
 $\beta$ & slope of demand function \\
 $c_j$ & variable costs \\
@@ -46,7 +46,7 @@ $\overline{P}_t$ & price cap\\
 \end{longtable}
 
 \begin{equation}
-\Pi_{i,s}^t = \left(\alpha_s^t-\beta Q_s^t \right)\sum_{j\in M}q_{i,s}^{j,t}-\sum_{j\in M}c_jq_{i,s}^{j,t}
+\Pi_{i,s}^t = \left(\alpha_s^t-\beta Q_s^t \right)\sum_{j\in M}q_{i,s}^{j,t}-\sum_{j\in M}c_jq_{i,s}^{j,t}-\sum_{j\in M}F^{j,t}I_{i,s}^{j,t}
 \end{equation}
 
 Each player $i$ maximizes the discounted expected profit:
@@ -62,9 +62,9 @@ subject to
 q_{i,s}^{j,t} - K_{i,s}^{j,t} &\leq& 0 \quad \forall i,s,j,t \label{eq:prodconstr} \\
 Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t} &=& 0 \quad \forall s,t \label{eq:marketclearing}\\
 K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} &=& 0 \quad \forall i,s,j,t \label{eq:state} \\
-I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t} &=& 0 \quad \forall i,s,j,t \label{eq:nonant}\\
+I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t} &=& 0 \quad \forall i,j,t \label{eq:nonant}\\
 P_t^s - \overline{P}_t &\leq& 0 \quad \forall s,t \label{eq:pricecap}\\
--\sum_{s\in S}p_s \sum_{t\in T}\delta_t\left[\min\left(\overline{P}_t,P_t^s\right) -\sum_{j\in M}\left(c_jq_{i,s}^{j,t}\right)+\sum_{j\in M}\left(F^{j,t}I_{i,s}^{j,t}\right)\right]\nonumber\\
+-\sum_{s\in S}p_s \sum_{t\in T}\delta_t\left[\min\left(\overline{P}_t,P_t^s\right)q_{i,s}^{j,t} -\sum_{j\in M}\left(c_jq_{i,s}^{j,t}\right)-\sum_{j\in M}\left(F^{j,t}I_{i,s}^{j,t}\right)\right]\nonumber\\
   -\sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right] &\leq& 0 \quad \forall i\\
 q_{i,s}^{j,t}, K_{i,s}^{j,t}, I_{i,s}^{j,t}  &\geq& 0 \quad \forall i,s,j,t\label{eq:nonneg}
 \end{eqnarray}
@@ -179,12 +179,12 @@ The intercept for
   \label{eq:kkt1}
   && \mathcal{L}(q_{i,s}^{j,t}, I_{i,s}^{j,t},\lambda_{i,s}^{l,t},\phi_{i,s}^{k,j,t}) &=& \\
   && \sum_{s\in S}p_s \sum_{t\in T}\delta_t \sum_{j\in J}\left[\Pi_{i,s}^t\left(q_{i,s}^{j,t}, I_{i,s}^{j,t}, K_{i,s}^{j,t}, Q_s^t\right) \right ]+ \sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right]\nonumber\\
- && + \lambda_{i,s}^{1,t}\left[ q_{i,s}^{j,t} - K_{i,s}^{j,t}\right]\nonumber\\
- && + \lambda_{s}^{2,t}\left[P_t^s - \overline{P}_t \right]\nonumber\\
-  && + \lambda_{i}^{3}\left[-\sum_{s\in S}p_s \sum_{t\in T}\delta_t\left[\min\left(\overline{P}_t,P_t^s\right) -\sum_{j\in M}\left(c_jq_{i,s}^{j,t}\right)+\sum_{j\in M}\left(F^{j,t}I_{i,s}^{j,t}\right)\right]-\sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right] \right]\nonumber\\
- &&  \phi_{s}^{1,t}\left[Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}\right]\nonumber\\
- &&  \phi_{i,s}^{2,j,t}\left[K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} \right]\nonumber\\
- &&  \phi_{i,s}^{3,j,t}\left[I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t}\right]\nonumber
+ && - \lambda_{i,s}^{1,t}\left[ q_{i,s}^{j,t} - K_{i,s}^{j,t}\right]\nonumber\\
+ && - \lambda_{s}^{2,t}\left[P_t^s - \overline{P}_t \right]\nonumber\\
+  && - \lambda_{i}^{3}\left[-\sum_{s\in S}p_s \sum_{t\in T}\delta_t\left[\min\left(\overline{P}_t,P_t^s\right)q_{i,s}^{j,t} -\sum_{j\in M}\left(c_jq_{i,s}^{j,t}\right)-\sum_{j\in M}\left(F^{j,t}I_{i,s}^{j,t}\right)\right]-\sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right] \right]\nonumber\\
+ &&  - \phi_{s}^{1,t}\left[Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}\right]\nonumber\\
+ &&  - \phi_{i,s}^{2,j,t}\left[K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} \right]\nonumber\\
+ &&  - \phi_{i,s}^{3,j,t}\left[I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t}\right]\nonumber
 \end{align}
 
 where the perpendicular symbol "$\bot$" means that at least one of the adjacent inequalities must be satisfied as an equality.
@@ -192,7 +192,8 @@ where the perpendicular symbol "$\bot$" means that at least one of the adjacent 
 The KKTs are
 
 \begin{align}
-0\leq -  \bot q_{i,s}^{j,t}\geq 0  \quad \forall i,s,j,t\\
+0\leq - p_s\delta_t\left(\alpha_s^t-\beta \sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}-\beta\sum_{j\in M}q_{i,s}^{j,t}-c_j\right)+\lambda_{i,s}^{1,t} - \lambda_{s}^{2,t}\beta\nonumber\\ -\lambda_i^3p_s\delta_t\left(\min\left(\overline{P}_t,P_t^s\right)-c_j\right) \,\bot\, q_{i,s}^{j,t}\geq 0  \quad \forall i,s,j,t\\
+0\leq - p_s\delta_t\left(F^{j,t}\right)+\lambda_i^3p_s\delta_tF^{j,t}- \phi_{i,s}^{2,j,t}+\phi_{i,s}^{3,j,t}\left(1-p_s\right)\,\bot\, I_{i,s}^{j,t}\geq 0  \quad \forall i,s,j,t\\
 \end{align}
 
 
