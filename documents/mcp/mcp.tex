@@ -121,49 +121,53 @@ The intercept for
 \subsection{Solution}
 \label{sec:solution}
 
-In general, the Karush-Kuhn-Tucker (KKT) conditions for mixed equality and inequality constraints are as follows:
+% In general, the Karush-Kuhn-Tucker (KKT) conditions for mixed equality and inequality constraints are as follows:
 
-To maximize $f(\bm{x})$ with $\bm{x}=(x_1,\dots, x_n)$ subject to
+% To maximize $f(\bm{x})$ with $\bm{x}=(x_1,\dots, x_n)$ subject to
 
-\begin{equation*}
-  g_1(\bm{x})\leq b_1, \quad\cdots\quad, g_k(\bm{x})\leq b_k,\qquad i=,1\dots, k
-\end{equation*}
-and
+% \begin{equation*}
+%   g_1(\bm{x})\leq b_1, \quad\cdots\quad, g_k(\bm{x})\leq b_k,\qquad i=,1\dots, k
+% \end{equation*}
+% and
 
-\begin{equation*}
-  h_1(\bm{x})= c_1, \quad\cdots\quad, h_m(\bm{x})= c_m,\qquad j=,1\dots, m
-\end{equation*}
+% \begin{equation*}
+%   h_1(\bm{x})= c_1, \quad\cdots\quad, h_m(\bm{x})= c_m,\qquad j=,1\dots, m
+% \end{equation*}
 
-we define the Lagrangian
+% we define the Lagrangian
 
-\begin{equation*}
-    \mathcal{L}(\bm{x,\lambda,\mu})=f(\bm{x})-\sum_{i=1}^k\lambda_i(g_i-b_i)-\sum_{j=1}^m\mu_i(h_i-c_i)\,.
-\end{equation*}
+% \begin{equation*}
+%     \mathcal{L}(\bm{x,\lambda,\mu})=f(\bm{x})-\sum_{i=1}^k\lambda_i(g_i-b_i)-\sum_{j=1}^m\mu_i(h_i-c_i)\,.
+% \end{equation*}
 
-Then, we solve the $n$ first-order equality conditions
+% Then, we solve the $n$ first-order equality conditions
 
-\begin{equation*}
-  \frac{\partial\mathcal{L}}{\partial x_1}=0, \quad\cdots\quad,  \frac{\partial\mathcal{L}}{\partial x_n}=0
-\end{equation*}
+% \begin{equation*}
+%   \frac{\partial\mathcal{L}}{\partial x_1}=0, \quad\cdots\quad,  \frac{\partial\mathcal{L}}{\partial x_n}=0
+% \end{equation*}
 
-together with the $k$ complementary slackness conditions
+% together with the $k$ complementary slackness conditions
 
-\begin{equation*}
-  \lambda_1(g_1(\bm{x})-b_1)=0,\quad\cdots\quad\lambda_k(g_k(\bm{x})-b_k)=0
-\end{equation*}
+% \begin{equation*}
+%   \lambda_1(g_1(\bm{x})-b_1)=0,\quad\cdots\quad\lambda_k(g_k(\bm{x})-b_k)=0
+% \end{equation*}
 
-and the $m$ equality constraints
+% and the $m$ equality constraints
 
-\begin{equation*}
-  \phi_1(h_1(\bm{x})-c_1)=0,\quad\cdots\quad\phi_k(h_k(\bm{x})-c_m)=0\,.
-\end{equation*}
+% \begin{equation*}
+%   \phi_1(h_1(\bm{x})-c_1)=0,\quad\cdots\quad\phi_k(h_k(\bm{x})-c_m)=0\,.
+% \end{equation*}
 
-We derive for the objective function \eqref{eq:objfct} subject to the constraints \eqref{eq:prodconstr}-\eqref{eq:nonneg} the following Lagrangian and the both necessary and sufficient KKT conditions for optimality.
+% We derive for the objective function \eqref{eq:objfct} subject to the constraints \eqref{eq:prodconstr}-\eqref{eq:nonneg} the following Lagrangian and the both necessary and sufficient KKT conditions for optimality.
 
-\begin{equation}
+\begin{align}
   \label{eq:kkt1}
-  \mathcal{L}(q_{i,s}^{j,t}, I_{i,s}^{j,t},\lambda_{i,s}^{j,t},\phi_{i,s}^{j,t})
-\end{equation}
+  \mathcal{L}(q_{i,s}^{j,t}, I_{i,s}^{j,t},\lambda_{i,s}^{j,t},\phi_{i,s}^{j,t}) &=& \sum_{s\in S}p_s \sum_{t\in T}\delta_t \sum_{j\in J}\left[\left(\alpha_s^t-\beta q_{i,s}^{j,t}\right)q_{i,s}^{j,t}-c_jq_{i,s}^{j,t} + K_{i,s}^{j,t}F_{i,s}^{j,t}\nu\right]\\
+ && + \lambda_{i,s}^t\left[ q_{i,s}^{j,t} - K_{i,s}^{j,t}\right]\nonumber\\
+ &&  \phi_{i,s}^{1,t}\left[Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}\right]\nonumber\\
+ &&  \phi_{i,s}^{2,t}\left[K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} \right]\nonumber\\
+ &&  \phi_{i,s}^{3,t}\left[I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t}\right]\nonumber
+\end{align}
 
 where the perpendicular symbol "$\bot$" means that at least one of the adjacent inequalities must be satisfied as an equality.
 
