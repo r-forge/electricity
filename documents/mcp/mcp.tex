@@ -28,33 +28,48 @@ $t \in T$ & time \\
 $s \in S$ & scenarios \\
 $p_s$ & probability of scenario $s$\\
 $ q_{i,s}^{j,t}$ & production quantities \\
-$I_{i,s}^{j,t},$ & investment quantities \\
+$I_{i,s}^{j,t}$ & investment quantities \\
 $K_{i,s}^{j,t}$ & available capacity\\
-$F_{i,s}^{j,t}$ & installment cost\\
-$Q_s^t$ & market demand \\
+$F^{j,t}$ & installment cost\\
+$Q_s^t = \sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}$ & market demand \\
+$P_s^t$ & market equilibrium price \\
 $\alpha_s^t$ & intercept of demand function \\
 $\beta$ & slope of demand function \\
 $c_j$ & variable costs \\
-$\Pi_{i,s}^t = \left(\alpha_s^t-\beta q_{i,s}^{j,t}\right)q_{i,s}^{j,t}-c_jq_{i,s}^{j,t}$ & expected profit of player $i$ in scenario $s$ in time $t$\\
-$\Pi_i^t = \sum_{s\in S}p_s\Pi_{i,s}^t$ & total expected profit of player $i$ in time $t$\\
+$\Pi_{i,s}^t$ & profit of player $i$ in scenario $s$ in time $t$\\
+$\Pi_i^t = \sum_{s\in S}p_s\Pi_{i,s}^t$ & total profit of player $i$ in time $t$\\
 $\delta_t$ & discount factor \\
-$\nu$ & salvage value parameter
+$\nu$ & salvage value parameter\\
+$r$ & depreciation rate\\
+$\overline{P}_t$ & price cap\\ 
 
 \end{longtable}
 
+\begin{equation}
+\Pi_{i,s}^t = \left(\alpha_s^t-\beta Q_s^t \right)\sum_{j\in M}q_{i,s}^{j,t}-\sum_{j\in M}c_jq_{i,s}^{j,t}
+\end{equation}
+
 Each player $i$ maximizes the discounted expected profit:
 
-\begin{eqnarray}
+\begin{equation}
   \label{eq:objfct}
-  \max_{q_{i,s}^{j,t}, I_{i,s}^{j,t}} \sum_{s\in S}p_s \sum_{t\in T}\delta_t \sum_{j\in J}\left[\Pi_{i,s}^t\left(q_{i,s}^{j,t}, I_{i,s}^{j,t}, K_{i,s}^{j,t}, Q_s^t\right) + K_{i,s}^{j,t}F_{i,s}^{j,t}\nu\right ]\\
-q_{i,s}^{j,t} - K_{i,s}^{j,t} &\leq& 0 \label{eq:prodconstr} \\
-Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t} &=& 0 \label{eq:marketclearing}\\
-K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} &=& 0 \label{eq:state} \\
-I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t} &=& 0 \label{eq:nonant}\\
-q_{i,s}^{j,t}, K_{i,s}^{j,t}, I_{i,s}^{j,t}  &\geq& 0 \label{eq:nonneg}
+  \max_{q_{i,s}^{j,t}, I_{i,s}^{j,t}} \sum_{s\in S}p_s \sum_{t\in T}\delta_t \sum_{j\in J}\left[\Pi_{i,s}^t\left(q_{i,s}^{j,t}, I_{i,s}^{j,t}, K_{i,s}^{j,t}, Q_s^t\right) \right ]+ \sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right]
+\end{equation}
+
+subject to
+  
+\begin{eqnarray}  
+q_{i,s}^{j,t} - K_{i,s}^{j,t} &\leq& 0 \quad \forall i,s,j,t \label{eq:prodconstr} \\
+Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t} &=& 0 \quad \forall s,t \label{eq:marketclearing}\\
+K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} &=& 0 \quad \forall i,s,j,t \label{eq:state} \\
+I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t} &=& 0 \quad \forall i,s,j,t \label{eq:nonant}\\
+P_t^s - \overline{P}_t &\leq& 0 \quad \forall s,t \label{eq:pricecap}\\
+-\sum_{s\in S}p_s \sum_{t\in T}\delta_t\left[\min\left(\overline{P}_t,P_t^s\right) -\sum_{j\in M}\left(c_jq_{i,s}^{j,t}\right)+\sum_{j\in M}\left(F^{j,t}I_{i,s}^{j,t}\right)\right]\\
+  -\sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right] &\leq& 0 \quad \forall i\\
+q_{i,s}^{j,t}, K_{i,s}^{j,t}, I_{i,s}^{j,t}  &\geq& 0 \quad \forall i,s,j,t\label{eq:nonneg}
 \end{eqnarray}
 
-\eqref{eq:prodconstr} is the production constraint, \eqref{eq:marketclearing} the market clearing condition, \eqref{eq:state} is the state equation, \eqref{eq:nonant} is the non-anticipativity constraint, \eqref{eq:nonneg} are non-negativity constraints. The objective function \eqref{eq:objfct} consists of the expected discounted profits and the salvage values at the final stage of the planning horizon.
+\eqref{eq:prodconstr} is the production constraint, \eqref{eq:marketclearing} the market clearing condition, \eqref{eq:state} is the state equation, \eqref{eq:nonant} is the non-anticipativity constraint, \eqref{eq:pricecap} price cap, \eqref{eq:nonneg} are non-negativity constraints. The objective function \eqref{eq:objfct} consists of the expected discounted profits and the salvage values at the final stage of the planning horizon.
 
 The cost functions are convex and twice-contiuous differentiable.
 
@@ -162,7 +177,7 @@ The intercept for
 
 \begin{align}
   \label{eq:kkt1}
-  \mathcal{L}(q_{i,s}^{j,t}, I_{i,s}^{j,t},\lambda_{i,s}^{j,t},\phi_{i,s}^{j,t}) &=& \sum_{s\in S}p_s \sum_{t\in T}\delta_t \sum_{j\in J}\left[\left(\alpha_s^t-\beta q_{i,s}^{j,t}\right)q_{i,s}^{j,t}-c_jq_{i,s}^{j,t} + K_{i,s}^{j,t}F_{i,s}^{j,t}\nu\right]\\
+  \mathcal{L}(q_{i,s}^{j,t}, I_{i,s}^{j,t},\lambda_{i,s}^{t},\phi_{i,s}^{k,t}) &=& \sum_{s\in S}p_s \sum_{t\in T}\delta_t \sum_{j\in J}\left[\left(\alpha_s^t-\beta q_{i,s}^{j,t}\right)q_{i,s}^{j,t}-c_jq_{i,s}^{j,t} + K_{i,s}^{j,t}F_{i,s}^{j,t}\nu\right]\\
  && + \lambda_{i,s}^t\left[ q_{i,s}^{j,t} - K_{i,s}^{j,t}\right]\nonumber\\
  &&  \phi_{i,s}^{1,t}\left[Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}\right]\nonumber\\
  &&  \phi_{i,s}^{2,t}\left[K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} \right]\nonumber\\
