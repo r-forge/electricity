@@ -64,7 +64,7 @@ Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t} &=& 0 \quad \forall s,t \label{eq
 K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} &=& 0 \quad \forall i,s,j,t \label{eq:state} \\
 I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t} &=& 0 \quad \forall i,s,j,t \label{eq:nonant}\\
 P_t^s - \overline{P}_t &\leq& 0 \quad \forall s,t \label{eq:pricecap}\\
--\sum_{s\in S}p_s \sum_{t\in T}\delta_t\left[\min\left(\overline{P}_t,P_t^s\right) -\sum_{j\in M}\left(c_jq_{i,s}^{j,t}\right)+\sum_{j\in M}\left(F^{j,t}I_{i,s}^{j,t}\right)\right]\\
+-\sum_{s\in S}p_s \sum_{t\in T}\delta_t\left[\min\left(\overline{P}_t,P_t^s\right) -\sum_{j\in M}\left(c_jq_{i,s}^{j,t}\right)+\sum_{j\in M}\left(F^{j,t}I_{i,s}^{j,t}\right)\right]\nonumber\\
   -\sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right] &\leq& 0 \quad \forall i\\
 q_{i,s}^{j,t}, K_{i,s}^{j,t}, I_{i,s}^{j,t}  &\geq& 0 \quad \forall i,s,j,t\label{eq:nonneg}
 \end{eqnarray}
@@ -177,15 +177,23 @@ The intercept for
 
 \begin{align}
   \label{eq:kkt1}
-  \mathcal{L}(q_{i,s}^{j,t}, I_{i,s}^{j,t},\lambda_{i,s}^{t},\phi_{i,s}^{k,t}) &=& \sum_{s\in S}p_s \sum_{t\in T}\delta_t \sum_{j\in J}\left[\left(\alpha_s^t-\beta q_{i,s}^{j,t}\right)q_{i,s}^{j,t}-c_jq_{i,s}^{j,t} + K_{i,s}^{j,t}F_{i,s}^{j,t}\nu\right]\\
- && + \lambda_{i,s}^t\left[ q_{i,s}^{j,t} - K_{i,s}^{j,t}\right]\nonumber\\
- &&  \phi_{i,s}^{1,t}\left[Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}\right]\nonumber\\
- &&  \phi_{i,s}^{2,t}\left[K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} \right]\nonumber\\
- &&  \phi_{i,s}^{3,t}\left[I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t}\right]\nonumber
+  && \mathcal{L}(q_{i,s}^{j,t}, I_{i,s}^{j,t},\lambda_{i,s}^{l,t},\phi_{i,s}^{k,j,t}) &=& \\
+  && \sum_{s\in S}p_s \sum_{t\in T}\delta_t \sum_{j\in J}\left[\Pi_{i,s}^t\left(q_{i,s}^{j,t}, I_{i,s}^{j,t}, K_{i,s}^{j,t}, Q_s^t\right) \right ]+ \sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right]\nonumber\\
+ && + \lambda_{i,s}^{1,t}\left[ q_{i,s}^{j,t} - K_{i,s}^{j,t}\right]\nonumber\\
+ && + \lambda_{s}^{2,t}\left[P_t^s - \overline{P}_t \right]\nonumber\\
+  && + \lambda_{i}^{3}\left[-\sum_{s\in S}p_s \sum_{t\in T}\delta_t\left[\min\left(\overline{P}_t,P_t^s\right) -\sum_{j\in M}\left(c_jq_{i,s}^{j,t}\right)+\sum_{j\in M}\left(F^{j,t}I_{i,s}^{j,t}\right)\right]-\sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right] \right]\nonumber\\
+ &&  \phi_{s}^{1,t}\left[Q_s^t-\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}\right]\nonumber\\
+ &&  \phi_{i,s}^{2,j,t}\left[K_{i,s}^{j,t+1} - (1-r)K_{i,s}^{j,t}-I_{i,s}^{j,t} \right]\nonumber\\
+ &&  \phi_{i,s}^{3,j,t}\left[I_{i}^{j,t}-\sum_{s\in S}p_sI_{i,s}^{j,t}\right]\nonumber
 \end{align}
 
 where the perpendicular symbol "$\bot$" means that at least one of the adjacent inequalities must be satisfied as an equality.
 
+The KKTs are
+
+\begin{align}
+0\leq -  \bot q_{i,s}^{j,t}\geq 0  \quad \forall i,s,j,t\\
+\end{align}
 
 
 By grouping together the KKT conditions for the $n$ firms we get a mixed complementarity problem (MCP). These types of optimization problems can conveniently be implemented in GAMS (General Algebraic Modelling System) and solved with with the PATH solver \citep[see][]{Ferris2000}.
