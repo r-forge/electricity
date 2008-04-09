@@ -1,9 +1,9 @@
 Set
 
-i  players  / RWE, EON, Vatten, EnBW /
-k  technologies /Hydro, Nuclear, BCoal, HCoal, Gas, Oil, Pump /
-m  market states /exthigh, vhigh, high, inter, low, vlow /
-
+i  players               / RWE, EON, Vatten, EnBW /
+k  technologies          / Hydro, Nuclear, BCoal, HCoal, Gas, Oil, Pump /
+m  market states / exthigh, vhigh, high, inter, low, vlow /
+s scemarios / 1*10 /
 ;
 
 Alias (i,j);
@@ -56,7 +56,7 @@ v(m) how often (within a year) occurs each market state  /
 
 
 Table
-cap(i,k)   capacities
+K(i,k)   capacities
        Hydro   Nuclear      BCoal       HCoal        Gas         Oil       Pump
 RWE      741      5499      10554        7249        4297        188        793
 EON     1320      8473       1425        9461        3808       1779       1110
