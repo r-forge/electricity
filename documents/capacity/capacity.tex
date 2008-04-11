@@ -1,14 +1,23 @@
 \section{The economics of wholesale electricity markets} \label{sect:3}
 
-
-
 \subsection{Supply function equilibria vs. market states}
 
-\cite{Klemperer1989} show that when a firm faces a range of possible residual demand curves, which is actually the case in electricity markets, the expected profit can be increased by not just offering one quantity or price, but a schedule which sets a price for each possible demand that might materialize. The equilibrium arising from such behavior is called a supply function equilibrium (SFE). On an electricity wholesale market, such a strategy is clearly possible. \cite{Green1992} apply this model to the British electricity spot market at which bids have to be submitted for a whole day. At the EEX however, bids can be submitted one day ahead for every hour of the day allowing generators to forecast demand with a high degree of accuracy. By considering enough possible future market states, one can thereby overcome much of this disadvantage a traditional Cournot model has compared to the SFE approach. For example, a firm could set quantities offered to be optimal for a typical eight o'clock winter morning market or a typical summer nighttime market. Given bounded rationality, such behavior might even be more realistic than the rather complex SFE Approach.
+\cite{Klemperer1989} show that when a firm faces a range of possible residual demand curves, which is actually the case in electricity markets, the expected profit can be increased by not just offering one quantity or price, but a schedule which sets a price for each possible demand that might materialize. The equilibrium arising from such behavior is called a supply function equilibrium (SFE). On an electricity wholesale market, such a strategy is clearly possible. \cite{Green1992} apply this model to the British electricity spot market at which bids have to be submitted for a whole day. At the EEX however, bids can be submitted one day ahead for every hour of the day allowing generators to forecast demand with a high degree of accuracy. By considering enough possible future market states, one can thereby overcome much of this disadvantage a traditional Cournot model has compared to the SFE approach. For example, a firm could set quantities offered to be optimal for a typical eight o'clock winter morning market or a typical summer nighttime market. As shown in part \ref{????}, we will approximate the different market states by assuming that demand is normally distributed. Another reason why we apply on the Cournot approach is because it is easier applicable to real world problems whereby SFE can only be found under strong assumptions and convergence problems arise quite often.
 
 \subsection{Optimal Investments and Peak-load pricing}
 
 In electricity markets, demand varies from hour to hour and as electricity is not storable, it has to be met at any time of the day. If capacities are a binding constraint, there has to be rationing by rising prices. Of course, such rationing causes welfare to decrease. On the other hand however, there are capacity costs. The literature on peak load pricing provides results on how to balance these two effects optimally \citep[see][]{Crew1986}. A related aspect is that this setting leads to a two stage game. It might take years to build new capacities, but short run production quantities can be changed every hour or even every minute. This has two implications for a suitable modeling of the investment decision: First, uncertainty has to be taken into account, so even without the strategic interaction of players a two stage model seems appropriate. The second implication is the strategic interaction of players which must take into account which impact their decision on investment will have on the market.
+
+How should capacities be set optimally?
+
+\begin{figure}[h]
+\centering
+\caption{Insufficient supply}
+\includegraphics[width=4.2in]{capacity/insufficient_supply.pdf}
+      \label{peak_load_insufficient}  
+\\          
+\scriptsize Source: own calculations
+\end{figure}
 
 Under perfect competition, prices will be set to marginal costs ($c$) in periods in which capacities are not binding, and marginal to costs plus a scarcity rent in high demand periods. Under the assumption that there are fixed capacity costs $(\Gamma)$ how much capacity $(K)$ should be built, taking into account that demand is fluctuating? As capacities are binding in high demand periods, a premium over marginal costs occurs which reflects the value of one additional unit of capacity in terms of consumers willingness to pay. As this value also reflects the value of additional capacity to society, we know that a social planner and perfect competition yield the same results. In periods in which capacity is not binding, the corresponding premium equals zero reflecting the fact that in such states capacity is of no value. Consider the example in Figure \ref{eigenes_modell}. There is an equal chance to have a period of high ($D^H$) or low demand ($D^L$). Optimal capacity is where the price premium over short run marginal costs ($MC^{SR}$) is equal to capacity costs ($\Gamma$).
 
@@ -40,14 +49,6 @@ The seminal article when it comes to capacity choice under imperfect competition
 How optimal incentives to invest in electricity generation equipment are distorted by an oligopolistic situation is discussed from a very practical point of view in \cite{Brunekreeft2005} for example. The discussion in \cite{Murphy2005} has been mentioned beforehand already. \cite{Genc2007}, \cite{Genc2007a} and \cite{Lise2008} discuss numerical models of electricity markets based on open loop games but do not focus on economic explanations of the effects found. As we use an open loop information structure, in our model, there is always the same mode of competition in the first and the second stage of the game which might be intuitive, as - at least in the electricity market - there is no obvious reason why firms should first interact on the basis of Cournot and then follow a Bertrand logic or vice versa.
 Under imperfect competition, firms might have an incentive to reduce investments, thereby driving up the price in peak periods and increasing their profits. Of course, this only works if there are barriers to entry beyond the unit costs of investment. The effect of lower than optimal investments is depicted in Figure \ref{peak_load_insufficient}.
 
-\begin{figure}[h]
-\centering
-\caption{Insufficient supply}
-\includegraphics[width=4.2in]{capacity/insufficient_supply.pdf}
-      \label{peak_load_insufficient}  
-\\          
-\scriptsize Source: own calculations
-\end{figure}
 
 
  

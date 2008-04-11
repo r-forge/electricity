@@ -15,11 +15,11 @@ alphaz   alpha zero                      / 767.1 /
 beta     demand function slope           /0.00765113 /
 
 Parameter
-c(k) variable kosten  / flexible   10.6
-                        inflexible 20.6  /
+c(k) variable kosten  / flexible   10
+                        inflexible 25  /
 
-capc(k) capacity costs   / flexible      40
-                           inflexible    30.0001 /
+capc(k) capacity costs   / flexible      30
+                           inflexible    15 /
 
 
 

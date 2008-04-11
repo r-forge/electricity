@@ -23,17 +23,17 @@ F   scrap values      /    90 /
 
 pc0  /     1000     /
 
-pc1  / 20  /
+pc1  / 60  /
 
 alpha(s)                 /l  100
                           h  150 /
 *alpha(s)                 /l  1000
 *                          h   1200 /
 
-cap0(i) /RWE     2000
-         EON     1500
-         EnBW     500
-         Vatten   500 /
+cap0(i) /RWE     0
+         EON     0
+         EnBW    0
+         Vatten  0 /
 
 *Table
 *cap0(i,k)   capacities
@@ -51,6 +51,7 @@ p0
 p1(s)
 
 winl(i)
+capaci
 
 positive Variable
 
@@ -84,10 +85,11 @@ kapa(i)
 price0        gives back the price (not relevant for result)
 price1(s)     gives back the price (not relevant for result)
 winloss(i)    Profit
+capacities    gives totel capacities
 ;
-*
-profit0(i)..         - alphaz + beta*q0(i)  + beta*sum((j),q0(j)) + c + y0(i)- beta*psi0 =g= 0;
-profit1(s,i)..  0.5*(- alpha(s) + beta*q1(s,i) + beta*sum((j),q1(s,j)) + c  )+ y1(s,i)- beta*psi1(s) - jota(i)*0.5*(pc1 -c)  =g= 0;
+*  + beta*q0(i)
+profit0(i)..         - alphaz   + beta*sum((j),q0(j)) + c + y0(i)- beta*psi0 =g= 0;
+profit1(s,i)..  0.5*(- alpha(s) + beta*q1(s,i)  + beta*sum((j),q1(s,j)) + c  )+ y1(s,i)- beta*psi1(s) - jota(i)*0.5*(pc1 -c)  =g= 0;
 
 restr0(i)..    -  q0(i)  +      cap0(i)    =g= 0;
 restr1(s,i)..  - q1(s,i) +       cap1(i)    =g= 0;
@@ -102,14 +104,16 @@ state(i)..      cap1(i)  - cap0(i)  - inv(i)  =e= 0;
 kapa(i)..       - sum(w, y1(w,i)) + u(i)  =g= 0;
 
 price0..        p0 =e= alphaz-  beta*sum(j,q0(j)) ;
-price1(s)..        p1(s) =e= alpha(s)-  beta*sum(j,q1(s,j)) ;
+price1(s)..     p1(s) =e= alpha(s)-  beta*sum(j,q1(s,j)) ;
 
-nonneg(i)..     sum(w, 0.5*(pc1-c)*q1(w,i)) + inv(i)*(-capc+F) =g= 0;
+nonneg(i)..     sum(w, 0.5*(min(pc1,(alpha(w) -  beta*sum(j,q1(w,j))))-c)*q1(w,i)) + inv(i)*(-capc+F) =g= 0;
 
-winloss(i)..     winl(i) =e= + 0.5*[ (alpha('l') - beta*sum((j),q1('l',j)) )* q1('l',i) - c*q1('l',i) ]+ 0.5*[ (alpha('h') - beta*sum((j),q1('h',j)) )* q1('h',i) - c*q1('h',i) ]  - capc*inv(i) + F*inv(i)
+winloss(i)..     winl(i) =e= + 0.5*[ (alpha('l') - beta*sum((j),q1('l',j)) )* q1('l',i) - c*q1('l',i) ]+ 0.5*[ (alpha('h') - beta*sum((j),q1('h',j)) )* q1('h',i) - c*q1('h',i) ]  - capc*inv(i) + F*inv(i) ;
 
-model monop  /profit0.q0, profit1.q1, restr0.y0, restr1.y1, invest.inv, state.u, kapa.cap1, pricecap0.psi0, pricecap1.psi1, price0, price1, nonneg.jota, winloss /
+capacities..    capaci =e= sum(j, cap1(j))
+
+model monop  /profit0.q0, profit1.q1, restr0.y0, restr1.y1, invest.inv, state.u, kapa.cap1, pricecap0.psi0, pricecap1.psi1, price0, price1, nonneg.jota, winloss, capacities /
 
 solve monop using mcp;
 
-display q0.l, q1.l, y0.l, y1.l, inv.l, cap1.l , p0.l, p1.l, winl.l
+display q0.l, q1.l, y0.l, y1.l, inv.l, cap1.l, capaci.l , p0.l, p1.l, winl.l

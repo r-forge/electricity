@@ -31,7 +31,7 @@ alpha(s)                 /l  100
 *alpha(s)                 /l  1000
 *                          h   1200 /
 
-cap0(i) /RWE     4500 /
+cap0(i) /RWE     0 /
 
 *Table
 *cap0(i,k)   capacities
