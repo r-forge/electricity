@@ -8,93 +8,66 @@
 
 In electricity markets, demand varies from hour to hour and as electricity is not storable, it has to be met at any time of the day. If capacities are a binding constraint, there has to be rationing by rising prices. Of course, such rationing causes welfare to decrease. On the other hand however, there are capacity costs. The literature on peak load pricing provides results on how to balance these two effects optimally \citep[see][]{Crew1986}. A related aspect is that this setting leads to a two stage game. It might take years to build new capacities, but short run production quantities can be changed every hour or even every minute. This has two implications for a suitable modeling of the investment decision: First, uncertainty has to be taken into account, so even without the strategic interaction of players a two stage model seems appropriate. The second implication is the strategic interaction of players which must take into account which impact their decision on investment will have on the market.
 
-How should capacities be set optimally?
-
 \begin{figure}[h]
 \centering
-\caption{Insufficient supply}
-\includegraphics[width=4.2in]{capacity/insufficient_supply.pdf}
-      \label{peak_load_insufficient}  
+\caption{Simple illustrative model}
+\includegraphics[width=4.2in]{capacity/eigenes_modell.pdf}
+      \label{eigenes_modell}
 \\          
 \scriptsize Source: own calculations
 \end{figure}
 
-Under perfect competition, prices will be set to marginal costs ($c$) in periods in which capacities are not binding, and marginal to costs plus a scarcity rent in high demand periods. Under the assumption that there are fixed capacity costs $(\Gamma)$ how much capacity $(K)$ should be built, taking into account that demand is fluctuating? As capacities are binding in high demand periods, a premium over marginal costs occurs which reflects the value of one additional unit of capacity in terms of consumers willingness to pay. As this value also reflects the value of additional capacity to society, we know that a social planner and perfect competition yield the same results. In periods in which capacity is not binding, the corresponding premium equals zero reflecting the fact that in such states capacity is of no value. Consider the example in Figure \ref{eigenes_modell}. There is an equal chance to have a period of high ($D^H$) or low demand ($D^L$). Optimal capacity is where the price premium over short run marginal costs ($MC^{SR}$) is equal to capacity costs ($\Gamma$).
+How should capacities be set optimally? Under perfect competition, prices will be set to marginal costs in periods in which capacities are not binding, and to marginal costs plus a scarcity rent in high demand periods. Under the assumption that there are fixed capacity costs, how much capacity should be built, taking into account that demand is fluctuating? As capacities are binding in high demand periods, a premium over marginal costs occurs which reflects the value of one additional unit of capacity in terms of consumers willingness to pay. As this value also reflects the value of additional capacity to society, we know that a social planner and perfect competition yield the same results. In periods in which capacity is not binding, the corresponding premium equals zero reflecting the fact that in such states capacity is of no value. Consider the example in Figure \ref{eigenes_modell}. There is an equal chance to have a period of high ($D^H$) or low demand ($D^L$). Optimal capacity is where the price premium over short run marginal costs ($MC^{SR}$) is equal to capacity costs ($MC^{LR}$).
 
 According to \cite{Murphy2005} this can also be seen from a real option perspective. A firm only invests if the expected earnings it can generate from it´s capacity e.g. the expected scarcity rents are bigger than the costs.
 
-Would there be other demand states in which capacities are not binding, these demand states would not add an additional incentive to invest. Actually, this is not only true for perfect competition but also for forms of imperfect competition where prices are above marginal costs.
+Would there be other demand states in which capacities are not binding, these demand states would not add an additional incentive to invest. Actually, this is not only true for perfect competition, but also for forms of imperfect competition where prices are above marginal costs.
 
-\begin{figure}[h]
-\centering
-\caption{optimal capacity investments}
-\includegraphics[width=3.0in]{capacity/eigenes_modell}
-      \label{eigenes_modell}  
-\\          
-\scriptsize Source: own calculations
-\end{figure}
 
-So under perfect competition, one could rely on the market to provide optimal incentives for capacity investments. However, this does not mean that prices should always be equal to marginal costs, as during peak periods firms must be allowed to cover their investment costs by scarcity rents.
+Summarizing, we can say that under perfect competition, one could rely on the market to provide optimal incentives for capacity investments. However, this does not mean that prices should always be equal to marginal costs, as during peak periods firms must be allowed to cover their investment costs by scarcity rents.
 
-\subsection{Welfare, Options and Capacity Markets}
+\subsection{Capacity Markets}
 
-Following the intuition that scarcity rents are needed to cover investment costs, it is often argued that price caps to mitigate market power destroy investment incentives. The scarcity rents capped by the price cap are generally called the "`missing money"' in the respective stream of Literature over which \cite{Cramton2006} gives an excellent overview.
-The same stream of literature argues in favor of capacity markets which should create additional investment incentives. These additional incentives should overcome the missing money problem and seem to be aimed to account for welfare considerations which are not contained into the welfare losses due to rationing which we described above. If capacity is binding, the price of electricity is equal to the willingness to pay of the marginal consumer. The consumers on the electricity wholesale market however, are not the end users but usually retailers and it might well be that they care less than their end users about electricity deliveries which had to be price rationed. A possible solution for this problem might be to make electricity retailers pay penalties for the value of lost load (VOLL). \cite{Burger2007} present a case study case study how this might be done.
-An alternative setup is presented in \cite{Boom2007} where a blackout can occur in the case of which all players loose all their rents. \cite{Chao2004} show how market power is mitigated and how new investments are facilitated if option contracts are introduced. We do not account for such market features, although it might be an interesting alternative for further research.
-Capacity investments have also been studied from a real option perspective which incorporates the value to delay investments by \cite{Roques2006}.
+Following the intuition that scarcity rents are needed to cover investment costs, it is often argued that price caps, which should mitigate market power, destroy investment incentives. The scarcity rents capped by the price cap are generally called the "`missing money"' in the respective stream of Literature over which \cite{Cramton2006} give an excellent overview.
+
+The same stream of literature argues in favor of capacity markets which should create additional investment incentives. These additional incentives should overcome the missing money problem and seem to be aimed to account for welfare considerations which are not contained into the welfare losses due to rationing which we described above. If capacity is binding, the price of electricity is equal to the willingness to pay of the marginal consumer. The consumers on the electricity wholesale market however, are not the end users but usually retailers and it might well be that they care less than their end users about electricity deliveries which had to be price rationed. A possible solution for this problem might be to make electricity retailers pay penalties for the value of lost load (VOLL). \cite{Burger2007} present a case study in which the direct regulation of supply security is verified.
 
 \subsection{Peak-load pricing under imperfect competition}
 
 The seminal article when it comes to capacity choice under imperfect competition is \cite{Kreps1983} who showed that firms would choose exactly the Cournot quantities in a two stage game. \cite{Gabszewicz1997} analyze investment under demand uncertainty with quantity competition in the second stage and compare that to a Cournot game played in expected demand which they call the Cournot certainty equivalent game. These models are examples of two stage closed loop games. \cite{Grimm2007} uses an analytical closed loop model to analyze the effect of Cournot competition in the first, and Bertrand competition in the second stage for example.
-How optimal incentives to invest in electricity generation equipment are distorted by an oligopolistic situation is discussed from a very practical point of view in \cite{Brunekreeft2005} for example. The discussion in \cite{Murphy2005} has been mentioned beforehand already. \cite{Genc2007}, \cite{Genc2007a} and \cite{Lise2008} discuss numerical models of electricity markets based on open loop games but do not focus on economic explanations of the effects found. As we use an open loop information structure, in our model, there is always the same mode of competition in the first and the second stage of the game which might be intuitive, as - at least in the electricity market - there is no obvious reason why firms should first interact on the basis of Cournot and then follow a Bertrand logic or vice versa.
-Under imperfect competition, firms might have an incentive to reduce investments, thereby driving up the price in peak periods and increasing their profits. Of course, this only works if there are barriers to entry beyond the unit costs of investment. The effect of lower than optimal investments is depicted in Figure \ref{peak_load_insufficient}.
+How optimal incentives to invest in electricity generation equipment are distorted by an oligopolistic situation is discussed from a very practical point of view in \cite{Brunekreeft2005} for example. \cite{Genc2007}, \cite{Genc2007a} and \cite{Lise2008} discuss numerical models of electricity markets based on open loop games but do not focus on economic explanations of the effects found. As we use an open loop information structure, in our model, there is always the same mode of competition in the first and the second stage of the game which might be intuitive, as - at least in the electricity market - there is no obvious reason why firms should first interact on the basis of Cournot and then follow a Bertrand logic or vice versa.
 
-
-
- 
-Figure \ref{eigenes_modell} shows results from a simplified version of our model for the Monopoly, Oligopoly (4 Players) and the perfect competition case. It can be seen easily, that there is an underinvestment problem in the case of an oligopoly, which is somewhere between the two benchmark cases. 
+Under imperfect competition, firms have an incentive to reduce investments, thereby driving up the price in peak periods and increasing their profits. Of course, in the long run, this only works if there are barriers to entry beyond the unit costs of investment. Figure \ref{eigenes_modell} shows results from a simplified version of our model. The three vertical lines indicate what the chosen capacity would be in the cases of a Monopoly ($K^M$), an Oligopoly with (4 Players) ($K^{Olig}$) or under perfect competition ($K^{Com}$). It can be seen easily, that there is an underinvestment problem in the case of an oligopoly, which is somewhere between the two benchmark cases. How capacity choice in the case of perfect competition works, has been outlined above. A Monopolist considers it´s marginal revenue ($MR$) when deciding on his optimal quantity.
 
 %As a monopolist bases it´s decisions on his expected marginal revenue $(MR^H, MR^L)$ Je nachdem wie MR ausssieht erreicht man schneller die - steht am Zettel.
 
-We will now use the example from \cite{Fehr1995} to illustrate the two competing effects.
-While the socially optimal incentive to invest is still the same as above, a firm in an oligopolistic situation gets the following expected revenue per unit of investment:
-
-\begin{equation*}
-	\frac{1}{2} (1-\pi) (p^{op}-v) + \pi \left(w^p(K)+\frac{\partial w^p(K^*)}{\partial q}-v\right) - c
-\end{equation*}
-
-The first part of the equation stands for possible gains of the investment that might occur during low peak periods. For simplicity we assume that there is a duopoly and a probability of $1/2$ for a new unit of capacity to be utilized. This is then multiplied by the probability to not have a peak period $(1-\pi)$ and the oligopoly price minus variable costs $(p^{op}-v)$. In such periods it is possible to steal business, you would normally not have, from another firm. Such an effect can create an additional incentive to invest in capacity. In the case of multiple technologies, a firm could also invest into cheap base load plants which replace plants with higher marginal costs. %As we shall see later on, this effect can be called a strategic effect of investments as well.
-
-The second part of the equation stands for what the investing firm looses in peak periods due to the investment. This equation is essentially the same as the condition we derived for perfect competition. The only difference is that we now write the peak price as a function of the binding capacity $p^p(K)$ and that this price now changes with capacity (and thereby quantity) changes which are illustrated by $\frac{\partial w^p(K^*)}{\partial q}$. This term measures the reduction in the peak price which is due to the decreased scarcity of capacity. This effect has to be taken into account now, as we switched from perfect competition to oligopoly.
-
-So if the loss firms expect due to losses in the peak load market price are bigger than the gains due to more market share in off peak periods, firms will under invest as their incentive to invest is smaller than the optimal level under perfect competition. Of course, if the effect doe to business stealing is higher, firms will overinvest. So in an oligopolistic setting, firms will in general not choose an optimal level of investments.
 
 Figure \ref{peak_load_insufficient} illustrates the effect of a price cap (PC) on investment incentives if the market price is above total unit costs due to market power. The price cap makes it impossible for the firm to increase profits by withholding or not building capacity and thereby, contrary to the missing money argument, can as well increase investments in an oligopolistic setting.
 
-\subsection{Capacity withholding}
+%\subsection{Capacity withholding}
 
-What is meant by capacity withholding? In the electricity market context, this term is used to describe a situation in which available capacities are not used even if the price is higher than marginal costs. In a Cournot Situation, capacity withholding naturally occurs in the short run if starting capacities are above the Cournot quantities. Such a situation can be seen in Figure \ref{cournot}. The normal Cournot equilibrium does not satisfy capacity constraints and so a constrained solution evolves from the static game.
+%What is meant by capacity withholding? In the electricity market context, this term is used to describe a situation in which available capacities are not used even if the price is higher than marginal costs. In a Cournot Situation, capacity withholding naturally occurs in the short run if starting capacities are above the Cournot quantities. Such a situation can be seen in Figure \ref{cournot}. The normal Cournot equilibrium does not satisfy capacity constraints and so a constrained solution evolves from the static game.
 
-\begin{figure}[h]
-\centering
-\caption{Insufficient supply}
-\includegraphics[width=4.2in]{capacity/Cournot.pdf}
-      \label{cournot}  
-\\          
-\scriptsize Source: own calculations
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\caption{Insufficient supply}
+%\includegraphics[width=4.2in]{capacity/Cournot.pdf}
+%      \label{cournot}  
+%\\          
+%\scriptsize Source: own calculations
+%\end{figure}
 
-In a dynamic (open loop??????) setting however, firm one would let his capacity depreciate and firm two would invest until both capacities reach the normal cournot equilibrium. Then, there are no unused capacities any more but capacities itself are not optimal as they resemble an equilibrium with market power. 
-If there is uncertainty about future demand there will always by situations with spare capacities. We illustrate this, by considering two different reaction functions, one for high and one for low demand for both players (\ref{cournot_uncertainty}). In such a case, spare capacities in peak periods become unavoidable. Please note that, in this context, uncertainty could resemble different possible loads coming from a load duration curve, or uncertainty about demand growth.
+%In a dynamic (open loop??????) setting however, firm one would let his capacity depreciate and firm two would invest until both capacities reach the normal cournot equilibrium. Then, there are no unused capacities any more but capacities itself are not optimal as they resemble an equilibrium with market power. 
+%If there is uncertainty about future demand there will always by situations with spare capacities. We illustrate this, by considering two different reaction functions, one for high and one for low demand for both players (\ref{cournot_uncertainty}). In such a case, spare capacities in peak periods become unavoidable. Please note that, in this context, uncertainty could resemble different possible loads coming from a load duration curve, or uncertainty about demand growth.
 
-\begin{figure}[h]
-\centering
-\caption{Insufficient supply}
-\includegraphics[width=4.2in]{capacity/cournot_uncertainty.pdf}
-      \label{cournot_uncertainty}  
-\\          
-\scriptsize Source: own calculations
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\caption{Insufficient supply}
+%\includegraphics[width=4.2in]{capacity/cournot_uncertainty.pdf}
+%      \label{cournot_uncertainty}  
+%\\          
+%\scriptsize Source: own calculations
+%\end{figure}
 
 %If there is market power, the above mentioned optimality result does not necessarily hold as prices above marginal costs may induce overinvestments. The situation of too high prices is depicted in Figure \ref{peak_load_toohigh}.
 
