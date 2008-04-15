@@ -59,31 +59,28 @@ $i\in N$        & players, firms\\
 $s\in S$       	& scenarios\\
 %$m\in M$	& states of the market \\
 %$k\in K$	& technologies \\
-$t\in T$	& time \\
-$K_{i}^t$      & available capacity at time $t$ from technology $k$ \\
-                & for firm $i$ \\
-$q_{i}^{s,t}$ & quantity at time $t$, technology $k$, firm $i$, \\
-                & in market state $m$ and scenario $s$ \\			
-$I_{i}^t$   & investment in technology $k$, at time $t$ from for firm $i$\\
-$p_s$        & probability of scenario $s$\\
+%$t\in T$	& time \\
+$K_{i}$      & available capacity for firm $i$ \\
+$q_{i}^{s}$ & quantity firm $i$, scenario $s$ \\			
+$I_{i}$   & investment for firm $i$\\
+$\rho_s$        & probability of scenario $s$\\
 %$\nu_m$      & says how often (how many hours) market \\
 %             & state $m$ occurs \\
 %$\epsilon$   & discount factor \\
-$\alpha$  & demand function intercept in market state $m$ \\
-$\beta$   & demand function slope in market state $m$ \\
+$\alpha^s$  & demand function intercept in scenario $s$ \\
+$\beta$   & demand function slope \\
 $c$	     & variable costs of technology $k$	\\
-$\Gamma$   & investment costs in technology $k$  \\
-$F$        & scrap values  \\
+$\Gamma$   & investment costs
 \end{tabular}
 
 \begin{gather}
-	\max \pi_i(q_{i}^{s,t},K^t_{i},I_{i})=
-	\sum_s p_s \left[ (\alpha^s- \beta \sum_i q_{i}^{s,1}) q_{i}^{s,1} - c q_{i}^{s,1}  \right] - \Gamma I_{i}  \\       
-			\text{s.t.:} \  q_{i}^{s,t} - K^{t}_{i} \leq 0; \ \forall i,s  \label{eq:oligopmax2}\\ 
-										  K^{2}_{i}  - K^{1}_{i}  - I_{i} = 0 ; \ \forall i  \label{eq:ologopmax5} \\  
+	\max \pi_i(q_{i}^{s},K_{i},I_{i})=
+	\sum_s \rho_s \left[ (\alpha^s- \beta \sum_i q_{i}^{s}) q_{i}^{s} - c q_{i}^{s}  \right] - \Gamma I_{i}  \\       
+			\text{s.t.:} \  q_{i}^{s} - K_{i} \leq 0; \ \forall i,s  \label{eq:oligopmax2}\\ 
+										  K^{1}_{i}  - K^{0}_{i}  - I_{i} = 0 ; \ \forall i  \label{eq:ologopmax5} \\  
 										  \alpha^s - \beta \sum_i q_i^{s,1} - PC \leq 0; \forall s \\ \nonumber 
 										  -\sum_s p_s \left[ PC q_{i}^{s,1} - c q_{i}^{s,1} \right] + \Gamma I_{i} \leq 0; \forall i \\ \nonumber 
- 										  q_{i}^{s,t};K^t_{i};I_{i}	\geq 0; \ \forall i,s,t   \nonumber
+ 										  q_{i}^{s};K^t_{i};I_{i}	\geq 0; \ \forall i,s  \nonumber
 \end{gather}
 
 \clearpage
@@ -91,9 +88,9 @@ $F$        & scrap values  \\
 This leads to the following Lagrangian / Hamiltonian:
 
 \begin{gather}
-	\max L_i(q_{i}^{s,t},K^t_{i},I_{i},\lambda_{i}^{s,t},u_{i}, \psi_s, \iota_i)= 
-	 \sum_s p_s \left[(\alpha^s- \beta \sum_i q_{i}^{s,1}) q_{i}^{s,1} - c q_{i}^{s,1}  \right]	- \Gamma I_{i}  \\ \nonumber  
-	  	- \lambda_{i}^{s,1}(q_{i}^{s,1} - K^{1}_{i}) \\ \nonumber
+	\max L_i(q_{i}^{s},K^t_{i},I_{i},\lambda_{i}^{s},u_{i}, \psi_s, \iota_i)= 
+	 \sum_s \rho_s \left[(\alpha^s- \beta \sum_i q_{i}^{s}) q_{i}^{s} - c q_{i}^{s}  \right]	- \Gamma I_{i}  \\ \nonumber  
+	  	- \lambda_{i}^{s}(q_{i}^{s} - K^{1}_{i}) \\ \nonumber
 			- u_{i}(K^{1}_{i}  - K^{0}_{i}  - I_{i})		\\   \nonumber
 			- \psi_s (\alpha^s - \beta  \sum_i q_i^{s,1} - PC ) \\ \nonumber
 			-\iota_i (-\sum_s p_s \left[ PC q_{i}^{s,1} - c q_{i}^{s,1} \right] + \Gamma I_{i})	\nonumber			
@@ -101,12 +98,12 @@ This leads to the following Lagrangian / Hamiltonian:
 
 and the following KKT Conditions:
 \begin{gather}
-\frac{\partial L(\cdot)}{\partial q_{i}^{s,1}} = - p_s \left[ \alpha^s - \beta q_{i}^{s,1} - \beta \sum_i q_{i}^{s,1} - c \right] + \lambda_{i}^{s,t} - \beta \psi_s - \iota_i p_s (PC-c) \leq 0 \\ \nonumber \ \bot \ q_{i}^{s,t} \geq 0;\ \forall i,s \\
-\frac{\partial L(\cdot)}{\partial \lambda_{i}^{s,1}} =  q_{i}^{s,1} - K^t_{i} \geq 0 \ \bot \ \lambda_{i}^{s,t} \geq 0 ; \\
+\frac{\partial L(\cdot)}{\partial q_{i}^{s}} = - \rho_s \left[ \alpha^s - \beta q_{i}^{s} - \beta \sum_i q_{i}^{s} - c \right] + \lambda_{i}^{s} - \beta \psi_s - \iota_i p_s (PC-c) \geq 0 \\ \nonumber \ \bot \ q_{i}^{s,t} \geq 0;\ \forall i,s \\
+\frac{\partial L(\cdot)}{\partial \lambda_{i}^{s}} = - q_{i}^{s} + K^t_{i} \geq 0 \ \bot \ \lambda_{i}^{s} \geq 0 ; \\
 \frac{\partial L(\cdot)}{\partial I_{i,k}} =  \Gamma - u_{i} + \iota_{i} \Gamma \geq 0 \ \bot \ I_{i} \geq 0 ;\forall i \\
 \frac{\partial L(\cdot)}{\partial u} = K^1_{i} -  K^0_{i} - I_{i}  = 0 \ \bot \ u_{i} \ \mbox{\textit{free}}; \  \forall i  \\
-\frac{\partial L(\cdot)}{\partial K^1_{i}} = -\sum_s  \lambda_{i}^{s,1} + u_{i} \geq 0  \ \bot \ K^2_{i} \geq 0 ; \forall i,k \\
-\frac{\partial L(\cdot)}{\partial \psi_s} = \alpha^s - \beta  \sum_i q_i^{s,1} - PC   \geq 0  \ \bot \ \psi_s \geq 0 ; \forall s \\
+\frac{\partial L(\cdot)}{\partial K^1_{i}} = -\sum_s  \lambda_{i}^{s} + u_{i} \geq 0  \ \bot \ K^1_{i} \geq 0 ; \forall i,k \\
+\frac{\partial L(\cdot)}{\partial \psi_s} = -\alpha^s + \beta  \sum_i q_i^{s} + PC   \geq 0  \ \bot \ \psi_s \geq 0 ; \forall s \\
 \frac{\partial L(\cdot)}{\partial \iota_i} = - \sum_s p_s \left[ (min(PC,MP) - c) q_{i}^{s,1} \right] + \Gamma I_{i})  \geq 0  \ \bot \ \iota_i \geq 0 ; \forall i \\
 \end{gather}
 

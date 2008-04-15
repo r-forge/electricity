@@ -17,7 +17,7 @@ c variable kosten  /10.6 /
 
 gamma capacity costs   /    40  /
 
-pc1  / 73  /
+pc1  / 76  /
 
 alpha(s)                 /l  100
                           h  150 /
@@ -64,28 +64,29 @@ winloss(i)    Profit
 capacities    gives totel capacities
 ;
 
-profit1(s,i)..  0.5*(- alpha(s) + beta*q1(s,i) + beta*sum((j),q1(s,j)) + c  )+ y1(s,i)- beta*psi1(s) - jota(i)*0.5*(pc1 -c)  =g= 0;
+profit1(s,i)..  0.5*(- alpha(s)+ beta*q1(s,i) + beta*sum((j),q1(s,j)) + c  )+ y1(s,i)- beta*psi1(s)- jota(i)*0.5*(pc1 -c)     =g= 0;
 
 restr1(s,i)..  - q1(s,i) +       cap1(i)    =g= 0;
 
 pricecap1(s)..  -alpha(s) + beta*sum(j,q1(s,j)) + pc1 =g= 0;
 
-invest(i)..      gamma  - u(i)+ jota(i)*gamma  =g= 0;
-
+invest(i)..      gamma  - u(i)+ jota(i)*gamma   =g= 0;
+*
 state(i)..      cap1(i)  - cap0(i)  - inv(i)  =e= 0;
 
 kapa(i)..       - sum(w, y1(w,i)) + u(i)  =g= 0;
 
 price1(s)..     p1(s) =e= alpha(s)-  beta*sum(j,q1(s,j)) ;
 
-nonneg(i)..      sum(w, 0.5*( (min(pc1,alpha(w)-  beta*sum(j,q1(w,j))))*q1(w,i)- c*q1(w,i)  ))-inv(i)*gamma =g= 0;
+nonneg(i)..      0.5*( (pc1)*q1('h',i)- c*q1('h',i)  ) + 0.5*( (alpha('l')-  beta*sum(j,q1('l',j)))*q1('l',i)- c*q1('l',i)  ) -inv(i)*gamma - inv(i)*c =g= 0;
+*nonneg(i)..      sum(w, 0.5*( (min(pc1,alpha(w)-  beta*sum(j,q1(w,j))))*q1(w,i)- c*q1(w,i)  ))-inv(i)*gamma =g= 0;
 
 winloss(i)..     winl(i) =e= + 0.5*[ (alpha('l') - beta*sum((j),q1('l',j)) )* q1('l',i) - c*q1('l',i) ]+ 0.5*[ (alpha('h') - beta*sum((j),q1('h',j)) )* q1('h',i) - c*q1('h',i) ]  - gamma*inv(i) ;
 
 capacities..    capaci =e= sum(j, cap1(j))
 
-model monop  /profit1.q1, restr1.y1, invest.inv, state.u, kapa.cap1, pricecap1.psi1, price1, nonneg.jota, winloss, capacities /
-
+model monop  /profit1.q1, restr1.y1, invest.inv, state.u, kapa.cap1, pricecap1.psi1, price1,  winloss, capacities, nonneg.jota    /
+*
 solve monop using mcp;
 
 display  q1.l, y1.l, inv.l, cap1.l, capaci.l , p1.l, winl.l

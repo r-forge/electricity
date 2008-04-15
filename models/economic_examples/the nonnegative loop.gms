@@ -4,7 +4,7 @@ t        time     /0,1/
 s        scenario /l,h/
 i        players  /RWE, EON, Vatten, EnBW /
 *k        technologies /Hydro, Nuclear, BCoal, HCoal, Gas, Oil, Pump /
-p        different price caps / 73 /
+p        different price caps / 50*76 /
 pri(p)
 
 ;
@@ -26,13 +26,15 @@ gamma capacity costs   /      40  /
 alpha(s)                 /l  100
                           h  150 /
 
-cap0(i) /RWE     0
-         EON     0
-         EnBW    0
-         Vatten  0/
+cap0(i) /RWE     10
+         EON     10
+         EnBW    10
+         Vatten  10/
 
 pc1(p)  /
-73    73
+74        74
+75        75
+76        76
 /
 
 Variable
@@ -86,7 +88,8 @@ kapa(i)..       - sum(w, y1(w,i)) + u(i)  =g= 0;
 
 price1(s)..     p1(s) =e= alpha(s)-  beta*sum(j,q1(s,j)) ;
 
-nonneg(i)..      sum(w, 0.5*( (min(pricecap,alpha(w)-  beta*sum(j,q1(w,j))))*q1(w,i)- c*q1(w,i)  ))-inv(i)*gamma =g= 0;
+nonneg(i)..      0.5*( (pricecap)*q1('h',i)- c*q1('h',i)  ) + 0.5*( (alpha('l')-  beta*sum(j,q1('l',j)))*q1('l',i)- c*q1('l',i)  ) -inv(i)*gamma - inv(i)*c =g= 0;
+*nonneg(i)..      sum(w, 0.5*( (min(pricecap,alpha(w)-  beta*sum(j,q1(w,j))))*q1(w,i)- c*q1(w,i)  ))-inv(i)*gamma =g= 0;
 
 winloss(i)..     winl(i) =e= + 0.5*[ (alpha('l') - beta*sum((j),q1('l',j)) )* q1('l',i) - c*q1('l',i) ]+ 0.5*[ (alpha('h') - beta*sum((j),q1('h',j)) )* q1('h',i) - c*q1('h',i) ]  - gamma*inv(i) ;
 
@@ -119,4 +122,4 @@ loop( (p),
          pri(p) = no;
          );
 
-display output, win, capi ;
+display output, win, capi, pc1 ;
