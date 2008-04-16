@@ -1,1 +1,14 @@
 [PROJECT]
+
+[RP:EX_MONOPOLY]
+1=
+
+[OPENWINDOW_1]
+FILE0=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly.gms
+FILE1=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly.lst
+FILE2=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly.lst
+MAXIM=0
+TOP=50
+LEFT=50
+HEIGHT=400
+WIDTH=400

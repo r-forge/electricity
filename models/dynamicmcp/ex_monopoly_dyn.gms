@@ -1,6 +1,3 @@
-Set t time;
-Set t /0,1/;
-
 Parameters
 alpha    demand function intercept
 beta     demand function slope
@@ -12,7 +9,7 @@ F        capacity costs
 Parameters
 alpha    /100/
 beta     /0.75/
-K0        /55/
+K0       /55/
 c        /3/
 F        /2/
 ;
@@ -33,7 +30,7 @@ q1          quantity t=1
 lambda0     capacity constraint t=0
 lambda1     capacity constraint t=1
 K1          capacity
-In0   investments
+In0         investments t=0
 ;
 
 Free Variable
@@ -47,13 +44,12 @@ capacity0 .. -q0 + K0 =g= 0;
 capacity1 .. -q1 + K1 =g= 0;
 
 state .. K1 - K0 - In0 =e= 0;
-
 state2 .. - lambda1 + phi =g= 0;
-
 state3 .. F - phi =g= 0;
 
 
-model monop /profit0.q0, profit1.q1, capacity0.lambda0, capacity1.lambda1, state, state2.K1, state3.In0/;
+model monop /profit0.q0, profit1.q1, capacity0.lambda0, capacity1.lambda1,
+             state, state2.K1, state3.In0/;
 
 Solve monop using mcp;
 
