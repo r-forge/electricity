@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage{amsmath,a4wide,listings,color}
 
 \lstdefinelanguage{GAMS}
@@ -54,5 +54,94 @@ Consider the numeric example where $\alpha=100$, $\beta=0.75$ and $c=3$. We comp
 \subsection*{ex$\_$monopoly.lst}
 
 \lstinputlisting{ex_monopoly.lst}
+
+\section{The simple monopoly goes dynamic}
+\label{sec:simple-monopoly-goes}
+
+We consider again the monopolist who produces with one technology. Now, we extend the time horizon to two stages, and allow for an investment in $t=0$, which translates into more production capacity in $t=1$.
+
+\begin{equation*}
+	\max_{q^0,q^1}\Pi = (\alpha-\beta q^0)q^0 - cq^0 +  (\alpha-\beta q^1)q^1 - cq^1 -FI^0
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q^0 - K^0 &\leq& 0\\
+	q^1 - K^1 &\leq& 0\\
+        K^1 - K^0 - I^0 &=& 0\\
+	q^0,q^1,I^0 &\geq& 0 
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{eqnarray*}
+	\mathcal{L}(q^0,q^1,\lambda^0,\lambda^1,\phi^1)&=& (\alpha-\beta q^0)q^0 - cq^0 +  (\alpha-\beta q^1)q^1 - cq^1 -FI^0 \\
+        && - \lambda^0(q^0-K^0) - \lambda^1(q^1-K^1) - \phi^1(K^1-K^0-I^0)
+\end{eqnarray*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + 2\beta q^0 + c + \lambda^0 &\bot& q^0 \geq 0\\
+        0 \leq -\alpha + 2\beta q^1 + c + \lambda^1 &\bot& q^1 \geq 0\\
+	0 \leq -q^0 + K^0 &\bot& \lambda^0 \geq 0 \\
+        0 \leq -q^1 + K^1 &\bot& \lambda^1 \geq 0 \\
+        0 = K^1 - K^0 - I^0 &\bot& \phi^1 \quad \mbox{free}
+\end{eqnarray*}
+
+
+\subsection*{ex$\_$monopoly\_dyn.gms}
+
+\lstinputlisting{ex_monopoly_dyn.gms}
+
+\subsection*{ex$\_$monopoly\_.lst}
+
+\lstinputlisting{ex_monopoly_dyn.lst}
+
+
+\section{The simple monopoly goes dynamic (with better notation)}
+\label{sec:simple-monopoly-goes}
+
+We consider again the monopolist who produces with one technology. Now, we extend the time horizon to two stages, and allow for an investment in $t=0$, which translates into more production capacity in $t=1$.
+
+\begin{equation*}
+	\max_{q^t}\Pi = \sum_t\left[(\alpha-\beta q^t)q^t - cq^t  -FI^0\right]
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q^0 - K^0 &\leq& 0\\
+	q^1 - K^1 &\leq& 0\\
+        K^1 - K^0 - I^0 &=& 0\\
+	q^0,q^1,I^0 &\geq& 0 
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{eqnarray*}
+	\mathcal{L}(q^0,q^1,\lambda^0,\lambda^1,\phi^1)&=& (\alpha-\beta q^0)q^0 - cq^0 +  (\alpha-\beta q^1)q^1 - cq^1 -FI^0 \\
+        && - \lambda^0(q^0-K^0) - \lambda^1(q^1-K^1) - \phi^1(K^1-K^0-I^0)
+\end{eqnarray*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + 2\beta q^0 + c + \lambda^0 &\bot& q^0 \geq 0\\
+        0 \leq -\alpha + 2\beta q^1 + c + \lambda^1 &\bot& q^1 \geq 0\\
+	0 \leq -q^0 + K^0 &\bot& \lambda^0 \geq 0 \\
+        0 \leq -q^1 + K^1 &\bot& \lambda^1 \geq 0 \\
+        0 = K^1 - K^0 - I^0 &\bot& \phi^1 \quad \mbox{free}
+\end{eqnarray*}
+
+
+\subsection*{ex$\_$monopoly\_dyn.gms}
+
+\lstinputlisting{ex_monopoly_dyn.gms}
+
+\subsection*{ex$\_$monopoly\_.lst}
+
+\lstinputlisting{ex_monopoly_dyn.lst}
 
 \end{document}

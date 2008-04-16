@@ -193,15 +193,15 @@ where the perpendicular symbol "$\bot$" means that at least one of the adjacent 
 The KKTs are
 
 \begin{align}
-0\leq - p_s\delta_t\left(\alpha_s^t-\beta \sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}-\beta\sum_{j\in M}q_{i,s}^{j,t}-c_j\right)+\lambda_{i,s}^{1,j,t} - \lambda_{s}^{2,t}\beta\nonumber\\ -\lambda_i^3p_s\delta_t\left(\alpha_s^t-\beta \sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}-\beta\sum_{j\in M}q_{i,s}^{j,t}-c_j\right) \,\bot\, q_{i,s}^{j,t}&\geq& 0  \quad \forall i,s,j,t\\
+0\leq - p_s\delta_t\left(\alpha_s^t-\beta \sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}-\beta\sum_{j^*\in M}q_{i,s}^{j,t}-c_j\right)+\lambda_{i,s}^{1,j,t} - \lambda_{s}^{2,t}\beta\nonumber\\ -\lambda_i^3p_s\delta_t\left(\alpha_s^t-\beta \sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t}-\beta\sum_{j\in M}q_{i,s}^{j,t}-c_j\right) \,\bot\, q_{i,s}^{j,t}&\geq& 0  \quad \forall i,s,j,t\\
 0\leq - p_s\delta_t\left(F^{j,t}\right)+\lambda_i^3p_s\delta_tF^{j,t}- \phi_{i,s}^{2,j,t}+\phi_{i,s}^{3,j,t}\left(1-p_s\right)\,\bot\, I_{i,s}^{j,t}&\geq& 0  \quad \forall i,s,j,t\\
 0 \leq -\lambda_{i,s}^{1,j,t}  -\phi_{i,s}^{2,j,t}(1-r) \,\bot\, K_{i,s}^{j,t}&\geq& 0  \quad \forall i,s,j,t\\
-0\leq -q_{i,s}^{j,t} + K_{i,s}^{j,t} \,\bot\, \lambda_{i,s}^{1,j,t}\geq 0  \quad \forall i,s,j,t\\
+0\leq -q_{i,s}^{j,t} + K_{i,s}^{j,t} \,\bot\, \lambda_{i,s}^{1,j,t} &\geq& 0  \quad \forall i,s,j,t\\
 0\leq -\alpha_s^t+\beta\sum_{i\in N}\sum_{j\in M}q_{i,s}^{j,t} + \overline{P}_t \,\bot\, \lambda_{s}^{2,t}&\geq& 0  \quad \forall s,t\\
 0\leq  \sum_{s\in S}p_s \sum_{t\in T}\delta_t\left[\Pi_{i,s}^t\left(q_{i,s}^{j,t}, I_{i,s}^{j,t}, K_{i,s}^{j,t}, Q_s^t\right) \right ]\\
 + \sum_{s\in S}p_s\,\delta_T \sum_{j\in M}\left[K_{i,s}^{j,T}F^{j,T}\nu\right] \,\bot\, \lambda_{s}^{3,t}&\geq& 0  \quad \forall s,t\\
 0 \leq -Q_s^t+\sum_{i\in N}\sum_{j\in M} q_{i,s}^{j,t} \,\bot\, \phi_{s}^{1,t}&\geq& 0  \quad \forall s,t\\
-0 \leq -K_{i,s}^{j,t+1} + (1-r)K_{i,s}^{j,t}+I_{i,s}^{j,t} \,\bot\, \phi_{i,s}^{2,j,t}&\geq& 0  \quad \forall i,s,j,t\\
+0 = -K_{i,s}^{j,t+1} + (1-r)K_{i,s}^{j,t}+I_{i,s}^{j,t} \,\bot\, \phi_{i,s}^{2,j,t}&\mbox{free}&   \quad \forall i,s,j,t\\
 0 \leq -I_{i}^{j,t}+\sum_{s\in S}p_sI_{i,s}^{j,t} \,\bot\, \phi_{i}^{3,j,t}&\geq& 0  \quad \forall i,j,t
 \end{align}
 
