@@ -43,12 +43,14 @@ alpha            intercept of demand function
 
 Positive variable
 q(i,j,t)       production quantity
-lambda1(i,j,t) production constraint
-phi2(i,j,t)    state equation
 K(i,j,t)       capacities
 In(i,j,t)      investments
+lambda1(i,j,t) production constraint
 ;
 
+Free Variable
+phi2(i,j,t)    state equation
+;
 
 ** Equation declaration
 
@@ -63,26 +65,24 @@ state3(i,j,t)              state equation (In)
 ** Equation definition
 
 profit(i,j,t) .. -alpha + 2*beta*(sum(l,q(i,l,t))) + c(j) + lambda1(i,j,t) =g= 0;
-production(i,j,t) .. -q(i,j,t) + K0(i,j) =g= 0;
-*state(i,j,t+1) .. -K(i,j,t+1) + In(i,j,t) + K(i,j,t)  =e= 0;
-* + K0(i,j)$tfirst(t-1)
-state(i,j,t) .. -K(i,j,t+1) + K0(i,j)$tfirst(t) =g= 0;
+production(i,j,t) .. -q(i,j,t) + K(i,j,t) =g= 0;
+state(i,j,t) .. K(i,j,t+1) - K(i,j,t) - In(i,j,t) - K0(i,j)$(ord(t)=1) =e= 0;
 state2(i,j,t) .. -lambda1(i,j,t) - phi2(i,j,t) =g= 0;
-*state3(i,j,t) .. phi2(i,j,t) =g= 0;
+state3(i,j,t) .. -F(j) - phi2(i,j,t) =g= 0;
 
 *+ K(i,j,t) + In(i,j,t) +
 
 ** Model definition
 
 *Model dynamicmcp1  /profit.q, production.lambda1/
-Model dynamicmcp2  /profit.q, production.lambda1, state.phi2, state2.K/
+Model dynamicmcp2  /profit.q, production.lambda1, state, state2.K, state3.In /
 
-*     , state3.In
+*
 
 *** D A T A ********************************************************************
 
 *$include "C:\Dokumente und Einstellungen\Edith\Eigene Dateien\models\dynamicmcp\monopoly.inc" ;
-$include "C:\Dokumente und Einstellungen\Edith\Eigene Dateien\models\dynamicmcp\monopoly2.inc" ;
+$include "C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\monopoly2.inc" ;
 *$include "C:\Dokumente und Einstellungen\Edith\Eigene Dateien\models\dynamicmcp\oligopoly.inc"
 
 *** S O L U T I O N ************************************************************
@@ -93,5 +93,4 @@ Solve dynamicmcp2 using mcp;
 
 ** Displays
 
-Display q.l,K0,tfirst;
-
+Display q.l,K0,K.l,In.l;

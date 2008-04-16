@@ -2,7 +2,7 @@
 
 Set i    /RWE/;
 Set j    /Hydro
-, Nuclear
+*, Nuclear
 /;
 Set t    /0,1/;
 Set s    /1/;
@@ -11,17 +11,17 @@ Set s    /1/;
 
 Parameter c(j)           /
                          Hydro    3
-                         Nuclear  9.5
+*                         Nuclear  9.5
                          /;
 
 Parameter F(j)           /
                          Hydro    10
-                         Nuclear  30
+*                         Nuclear  30
                          /;
 
 Table K0(i,j)
-       Hydro   Nuclear
-RWE      60      5499
+       Hydro
+RWE      60
 ;
 
 
