@@ -1,0 +1,295 @@
+GAMS Rev 148  x86/MS Windows                            04/16/08 20:24:18 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Parameters
+   2  alpha    demand function intercept
+   3  beta     demand function slope
+   4  K        capacity constraint
+   5  c        variable costs
+   6  ;
+   7   
+   8  Positive Variables
+   9  q          quantity
+  10  lambda     capacity constraint
+  11  ;
+  12   
+  13  Equations
+  14  profit             profit function
+  15  capacity           capacity constraint t=0
+  16  ;
+  17   
+  18   
+  19  profit .. -alpha + 2*beta*q + c + lambda =g= 0;
+  20  capacity .. -q + K =g= 0;
+  21   
+  22   
+  23   
+  24  model monop /profit.q, capacity.lambda/;
+  25   
+  26   
+  27  Parameters
+  28  alpha    /100/
+  29  beta     /0.75/
+  30  K        /55/
+  31  c        /3/
+  32  ;
+  33   
+  34  Solve monop using mcp;
+  35   
+  36  Display q.l, lambda.l;
+  37   
+  38  K = 70;
+  39  Solve monop using mcp;
+  40   
+  41  Display q.l, lambda.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 Mb  WIN225-148 May 29, 2007
+GAMS Rev 148  x86/MS Windows                            04/16/08 20:24:18 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE monop Using MCP From line 34
+
+
+---- profit  =G=  profit function
+
+profit..  1.5*q + lambda =G= 97 ; (LHS = 0, INFES = 97 ***)
+     
+
+---- capacity  =G=  capacity constraint t=0
+
+capacity..  - q =G= -55 ; (LHS = 0)
+     
+GAMS Rev 148  x86/MS Windows                            04/16/08 20:24:18 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE monop Using MCP From line 34
+
+
+---- q  quantity
+
+q
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit
+       -1       capacity
+
+
+---- lambda  capacity constraint
+
+lambda
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit
+
+GAMS Rev 148  x86/MS Windows                            04/16/08 20:24:18 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE monop Using MCP From line 34
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            2
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            2
+NON ZERO ELEMENTS             3     NON LINEAR N-Z              0
+DERIVATIVE POOL               6     CONSTANT POOL              16
+CODE LENGTH                   1
+
+
+GENERATION TIME      =        0.015 SECONDS      3 Mb  WIN225-148 May 29, 2007
+
+
+EXECUTION TIME       =        0.015 SECONDS      3 Mb  WIN225-148 May 29, 2007
+GAMS Rev 148  x86/MS Windows                            04/16/08 20:24:18 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE monop Using MCP From line 34
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   monop               
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  34
+
+**** SOLVER STATUS     1 NORMAL COMPLETION         
+**** MODEL STATUS      1 OPTIMAL                   
+
+ RESOURCE USAGE, LIMIT          0.078      1000.000
+ ITERATION COUNT, LIMIT         0         10000
+ EVALUATION ERRORS              0             0
+
+*** Your license (code PT) expired  598 days ago.
+*** Continue to run in demonstration mode.
+*** To update your license, please contact your distributor or
+***    GAMS Development Corp.
+***    Phone : (202) 342 0180
+***    Fax   : (202) 342 0181
+***    email : sales@gams.com
+
+
+PATH-C        Jun  1, 2007 WIN.PT.PT 22.5 025.037.041.VIS Path 4.7.00
+
+2 row/cols, 3 non-zeros, 75.00% dense.
+
+Path 4.7.00 (Tue May 29 14:27:30 2007)
+Written by Todd Munson, Steven Dirkse, and Michael Ferris
+
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- EQU profit        97.000    97.000     +INF     55.000      
+---- EQU capacity     -55.000   -55.000     +INF     14.500      
+
+  profit  profit function
+  capacity  capacity constraint t=0
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- VAR q               .       55.000     +INF       .         
+---- VAR lambda          .       14.500     +INF       .         
+
+  q  quantity
+  lambda  capacity constraint
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS Rev 148  x86/MS Windows                            04/16/08 20:24:18 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     36 VARIABLE q.L                   =       55.000  quantity
+            VARIABLE lambda.L              =       14.500  capacity constraint
+GAMS Rev 148  x86/MS Windows                            04/16/08 20:24:18 Page 7
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE monop Using MCP From line 39
+
+
+---- profit  =G=  profit function
+
+profit..  1.5*q + lambda =G= 97 ; (LHS = 97)
+     
+
+---- capacity  =G=  capacity constraint t=0
+
+capacity..  - q =G= -70 ; (LHS = -55)
+     
+GAMS Rev 148  x86/MS Windows                            04/16/08 20:24:18 Page 8
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE monop Using MCP From line 39
+
+
+---- q  quantity
+
+q
+                (.LO, .L, .UP = 0, 55, +INF)
+        1.5     profit
+       -1       capacity
+
+
+---- lambda  capacity constraint
+
+lambda
+                (.LO, .L, .UP = 0, 14.5, +INF)
+        1       profit
+
+GAMS Rev 148  x86/MS Windows                            04/16/08 20:24:18 Page 9
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE monop Using MCP From line 39
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            2
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            2
+NON ZERO ELEMENTS             3     NON LINEAR N-Z              0
+DERIVATIVE POOL               6     CONSTANT POOL              16
+CODE LENGTH                   1
+
+
+GENERATION TIME      =        0.016 SECONDS      2 Mb  WIN225-148 May 29, 2007
+
+
+EXECUTION TIME       =        0.016 SECONDS      2 Mb  WIN225-148 May 29, 2007
+GAMS Rev 148  x86/MS Windows                           04/16/08 20:24:18 Page 10
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE monop Using MCP From line 39
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   monop               
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  39
+
+**** SOLVER STATUS     1 NORMAL COMPLETION         
+**** MODEL STATUS      1 OPTIMAL                   
+
+ RESOURCE USAGE, LIMIT          0.093      1000.000
+ ITERATION COUNT, LIMIT         0         10000
+ EVALUATION ERRORS              0             0
+
+*** Your license (code PT) expired  598 days ago.
+*** Continue to run in demonstration mode.
+*** To update your license, please contact your distributor or
+***    GAMS Development Corp.
+***    Phone : (202) 342 0180
+***    Fax   : (202) 342 0181
+***    email : sales@gams.com
+
+
+PATH-C        Jun  1, 2007 WIN.PT.PT 22.5 025.037.041.VIS Path 4.7.00
+
+2 row/cols, 3 non-zeros, 75.00% dense.
+
+Path 4.7.00 (Tue May 29 14:27:30 2007)
+Written by Todd Munson, Steven Dirkse, and Michael Ferris
+
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- EQU profit        97.000    97.000     +INF     64.667      
+---- EQU capacity     -70.000   -64.667     +INF       .         
+
+  profit  profit function
+  capacity  capacity constraint t=0
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- VAR q               .       64.667     +INF       .         
+---- VAR lambda          .         .        +INF      5.333      
+
+  q  quantity
+  lambda  capacity constraint
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS Rev 148  x86/MS Windows                           04/16/08 20:24:18 Page 11
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     41 VARIABLE q.L                   =       64.667  quantity
+            VARIABLE lambda.L              =        0.000  capacity constraint
+
+
+EXECUTION TIME       =        0.000 SECONDS      2 Mb  WIN225-148 May 29, 2007
+
+
+USER: course license                                 S060628:0842AL-WIN
+      Phd course about mathematical programming                  DC5953
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\
+           dynamicmcp\ex_monopoly.gms
+Output     C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\
+           dynamicmcp\ex_monopoly.lst
