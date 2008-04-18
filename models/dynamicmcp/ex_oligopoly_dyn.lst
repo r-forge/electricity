@@ -1,4 +1,4 @@
-GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 1
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:11:34 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -78,7 +78,7 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 2
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:11:34 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE monop Using MCP From line 68
 
@@ -135,7 +135,7 @@ state3(Player1)..  - phi(Player1) =G= -4 ; (LHS = 0)
      
 state3(Player2)..  - phi(Player2) =G= -4 ; (LHS = 0)
      
-GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 3
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:11:34 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE monop Using MCP From line 68
 
@@ -230,7 +230,7 @@ phi(Player2)
         1       state2(Player2)
        -1       state3(Player2)
 
-GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 4
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:11:34 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE monop Using MCP From line 68
 
@@ -244,11 +244,11 @@ DERIVATIVE POOL               6     CONSTANT POOL              14
 CODE LENGTH                   1
 
 
-GENERATION TIME      =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GENERATION TIME      =        0.015 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
 
 
-EXECUTION TIME       =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 5
+EXECUTION TIME       =        0.015 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:11:34 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE monop Using MCP From line 68
 
@@ -262,7 +262,7 @@ Solution Report     SOLVE monop Using MCP From line 68
 **** SOLVER STATUS     1 NORMAL COMPLETION         
 **** MODEL STATUS      1 OPTIMAL                   
 
- RESOURCE USAGE, LIMIT          0.078      1000.000
+ RESOURCE USAGE, LIMIT          0.062      1000.000
  ITERATION COUNT, LIMIT        21         10000
  EVALUATION ERRORS              0             0
 
@@ -413,7 +413,7 @@ Player2     -INF      4.000     +INF       .
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 6
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:11:34 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
