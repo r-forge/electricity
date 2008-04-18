@@ -1,0 +1,246 @@
+GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Sets
+   2  i        players
+   3  ;
+   4   
+   5  Alias(i,m)
+   6   
+   7  Parameters
+   8  alpha    demand function intercept
+   9  beta     demand function slope
+  10  K(i)     capacity constraint
+  11  c        variable costs
+  12  ;
+  13   
+  14  Positive Variables
+  15  q(i)          quantity
+  16  lambda(i)     capacity constraint
+  17  ;
+  18   
+  19  Equations
+  20  profit(i)             profit function
+  21  capacity(i)           capacity constraint t=0
+  22  ;
+  23   
+  24  profit(i) .. -alpha + beta*sum(m,q(m)) + beta*q(i) + c + lambda(i) =g= 0;
+  25  capacity(i) .. -q(i) + K(i) =g= 0;
+  26   
+  27  model monop /profit.q, capacity.lambda/;
+  28   
+  29  Sets
+  30  i        /Player1, Player2/
+  31  ;
+  32   
+  33  Parameters
+  34  alpha    /100/
+  35  beta     /0.75/
+  36  c        /3/
+  37  ;
+  38   
+  39  Parameter K(i)    / Player1      40
+  40                     Player2       60
+  41                   /;
+  42   
+  43  Solve monop using mcp;
+  44   
+  45  Display q.l, lambda.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE monop Using MCP From line 43
+
+
+---- profit  =G=  profit function
+
+profit(Player1)..  1.5*q(Player1) + 0.75*q(Player2) + lambda(Player1) =G= 97 ;
+     
+      (LHS = 0, INFES = 97 ***)
+     
+profit(Player2)..  0.75*q(Player1) + 1.5*q(Player2) + lambda(Player2) =G= 97 ;
+     
+      (LHS = 0, INFES = 97 ***)
+     
+
+---- capacity  =G=  capacity constraint t=0
+
+capacity(Player1)..  - q(Player1) =G= -40 ; (LHS = 0)
+     
+capacity(Player2)..  - q(Player2) =G= -60 ; (LHS = 0)
+     
+GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE monop Using MCP From line 43
+
+
+---- q  quantity
+
+q(Player1)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit(Player1)
+        0.75    profit(Player2)
+       -1       capacity(Player1)
+
+q(Player2)
+                (.LO, .L, .UP = 0, 0, +INF)
+        0.75    profit(Player1)
+        1.5     profit(Player2)
+       -1       capacity(Player2)
+
+
+---- lambda  capacity constraint
+
+lambda(Player1)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit(Player1)
+
+lambda(Player2)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit(Player2)
+
+GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE monop Using MCP From line 43
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            4
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            4
+NON ZERO ELEMENTS             8     NON LINEAR N-Z              0
+DERIVATIVE POOL               6     CONSTANT POOL              14
+CODE LENGTH                   1
+
+
+GENERATION TIME      =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+
+
+EXECUTION TIME       =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE monop Using MCP From line 43
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   monop               
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  43
+
+**** SOLVER STATUS     1 NORMAL COMPLETION         
+**** MODEL STATUS      1 OPTIMAL                   
+
+ RESOURCE USAGE, LIMIT          0.046      1000.000
+ ITERATION COUNT, LIMIT         0         10000
+ EVALUATION ERRORS              0             0
+
+*** Your license (code PT) expired  600 days ago.
+*** Continue to run in demonstration mode.
+*** To update your license, please contact your distributor or
+***    GAMS Development Corp.
+***    Phone : (202) 342 0180
+***    Fax   : (202) 342 0181
+***    email : sales@gams.com
+
+
+PATH-C        Apr 21, 2006 WIN.PT.PT 22.2 022.034.041.VIS Path 4.6.06
+
+4 row/cols, 8 non-zeros, 50.00% dense.
+
+Path 4.6.06 (Fri Apr 21 16:29:09 2006)
+Written by Todd Munson, Steven Dirkse, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  0.0000e+000 var: (q(Player1))
+Maximum of F. . . . . . . . . .  9.7000e+001 eqn: (profit(Player1))
+Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit(Player1))
+                                            var: (q(Player1))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  2.2500e+000 eqn: (profit(Player1))
+Minimum Row Norm. . . . . . . .  2.2500e+000 eqn: (profit(Player1))
+Maximum Column Norm . . . . . .  2.2500e+000 var: (q(Player1))
+Minimum Column Norm . . . . . .  2.2500e+000 var: (q(Player1))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  0.0000e+000 eqn: (profit(Player1))
+Inf-Norm of Normal Map. . . . .  0.0000e+000 eqn: (profit(Player1))
+Inf-Norm of Minimum Map . . . .  0.0000e+000 eqn: (profit(Player1))
+Inf-Norm of Fischer Function. .  0.0000e+000 eqn: (profit(Player1))
+Inf-Norm of Grad Fischer Fcn. .  0.0000e+000 eqn: (profit(Player1))
+Two-Norm of Grad Fischer Fcn. .  0.0000e+000
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  4.4667e+001 var: (q(Player2))
+Maximum of F. . . . . . . . . .  3.5000e+000 eqn: (profit(Player1))
+Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit(Player1))
+                                            var: (q(Player1))
+
+
+---- EQU profit  profit function
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1    97.000    97.000     +INF     40.000      
+Player2    97.000    97.000     +INF     44.667      
+
+---- EQU capacity  capacity constraint t=0
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1   -40.000   -40.000     +INF      3.500      
+Player2   -60.000   -44.667     +INF       .         
+
+---- VAR q  quantity
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .       40.000     +INF       .         
+Player2      .       44.667     +INF       .         
+
+---- VAR lambda  capacity constraint
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .        3.500     +INF       .         
+Player2      .         .        +INF     15.333      
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     45 VARIABLE q.L  quantity
+
+Player1 40.000,    Player2 44.667
+
+
+----     45 VARIABLE lambda.L  capacity constraint
+
+Player1 3.500
+
+
+
+EXECUTION TIME       =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+
+
+USER: course license                                 S060628:0842AL-WIN
+      Phd course about mathematical programming                  DC5953
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      G:\electricity\models\dynamicmcp\ex_oligopoly.gms
+Output     G:\electricity\models\dynamicmcp\ex_oligopoly.lst
