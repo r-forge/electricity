@@ -1,0 +1,256 @@
+GAMS Rev 145  x86/MS Windows                            04/18/08 20:07:10 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Sets
+   2  j        technologies
+   3  ;
+   4   
+   5  Alias(j,l)
+   6   
+   7  Parameters
+   8  alpha    demand function intercept
+   9  beta     demand function slope
+  10  c(j)     variable costs
+  11  K(j)     capacities
+  12  ;
+  13   
+  14  Set j /Hydro, Nuclear/;
+  15   
+  16  Parameters
+  17  alpha    /100/
+  18  beta     /0.75/
+  19  ;
+  20   
+  21   
+  22  Parameter c(j)           /
+  23                           Hydro    3
+  24                           Nuclear  2
+  25                           /;
+  26   
+  27  Parameter K(j)          /
+  28                           Hydro 55
+  29                           Nuclear 20
+  30                          /;
+  31   
+  32   
+  33  Positive Variables
+  34  q(j)       quantity
+  35  lambda(j)  capacity constraint
+  36  ;
+  37   
+  38  Equations
+  39  profit(j)           profit function
+  40  capacity(j)        capacity constraint t=0
+  41  ;
+  42   
+  43   
+  44  profit(j) .. -alpha + 2*beta*sum(l,q(l)) + c(j) + lambda(j) =g= 0;
+  45  capacity(j) .. -q(j) + K(j) =g= 0;
+  46   
+  47   
+  48   
+  49  model monop /profit.q, capacity.lambda/;
+  50   
+  51   
+  52  Solve monop using mcp;
+  53   
+  54  Display q.l, lambda.l;
+  55   
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/18/08 20:07:10 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE monop Using MCP From line 52
+
+
+---- profit  =G=  profit function
+
+profit(Hydro)..  1.5*q(Hydro) + 1.5*q(Nuclear) + lambda(Hydro) =G= 97 ;
+     
+      (LHS = 0, INFES = 97 ***)
+     
+profit(Nuclear)..  1.5*q(Hydro) + 1.5*q(Nuclear) + lambda(Nuclear) =G= 98 ;
+     
+      (LHS = 0, INFES = 98 ***)
+     
+
+---- capacity  =G=  capacity constraint t=0
+
+capacity(Hydro)..  - q(Hydro) =G= -55 ; (LHS = 0)
+     
+capacity(Nuclear)..  - q(Nuclear) =G= -20 ; (LHS = 0)
+     
+GAMS Rev 145  x86/MS Windows                            04/18/08 20:07:10 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE monop Using MCP From line 52
+
+
+---- q  quantity
+
+q(Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit(Hydro)
+        1.5     profit(Nuclear)
+       -1       capacity(Hydro)
+
+q(Nuclear)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit(Hydro)
+        1.5     profit(Nuclear)
+       -1       capacity(Nuclear)
+
+
+---- lambda  capacity constraint
+
+lambda(Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit(Hydro)
+
+lambda(Nuclear)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit(Nuclear)
+
+GAMS Rev 145  x86/MS Windows                            04/18/08 20:07:10 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE monop Using MCP From line 52
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            4
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            4
+NON ZERO ELEMENTS             8     NON LINEAR N-Z              0
+DERIVATIVE POOL               6     CONSTANT POOL              14
+CODE LENGTH                   1
+
+
+GENERATION TIME      =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+
+
+EXECUTION TIME       =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/18/08 20:07:10 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE monop Using MCP From line 52
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   monop               
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  52
+
+**** SOLVER STATUS     1 NORMAL COMPLETION         
+**** MODEL STATUS      1 OPTIMAL                   
+
+ RESOURCE USAGE, LIMIT          0.046      1000.000
+ ITERATION COUNT, LIMIT         3         10000
+ EVALUATION ERRORS              0             0
+
+*** Your license (code PT) expired  600 days ago.
+*** Continue to run in demonstration mode.
+*** To update your license, please contact your distributor or
+***    GAMS Development Corp.
+***    Phone : (202) 342 0180
+***    Fax   : (202) 342 0181
+***    email : sales@gams.com
+
+
+PATH-C        Apr 21, 2006 WIN.PT.PT 22.2 022.034.041.VIS Path 4.6.06
+
+4 row/cols, 8 non-zeros, 50.00% dense.
+
+Path 4.6.06 (Fri Apr 21 16:29:09 2006)
+Written by Todd Munson, Steven Dirkse, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  0.0000e+000 var: (q(Hydro))
+Maximum of F. . . . . . . . . .  9.8000e+001 eqn: (profit(Nuclear))
+Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit(Hydro))
+                                            var: (q(Hydro))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  3.0000e+000 eqn: (profit(Hydro))
+Minimum Row Norm. . . . . . . .  3.0000e+000 eqn: (profit(Hydro))
+Maximum Column Norm . . . . . .  3.0000e+000 var: (q(Hydro))
+Minimum Column Norm . . . . . .  3.0000e+000 var: (q(Hydro))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  1.2691e-010 eqn: (profit(Hydro))
+Inf-Norm of Normal Map. . . . .  6.8775e-010 eqn: (profit(Hydro))
+Inf-Norm of Minimum Map . . . .  6.8775e-010 eqn: (profit(Hydro))
+Inf-Norm of Fischer Function. .  6.8775e-010 eqn: (profit(Hydro))
+Inf-Norm of Grad Fischer Fcn. .  1.0316e-009 eqn: (profit(Hydro))
+Two-Norm of Grad Fischer Fcn. .  1.4589e-009
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  4.4667e+001 var: (q(Hydro))
+Maximum of F. . . . . . . . . .  1.0000e+000 eqn: (profit(Nuclear))
+Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit(Hydro))
+                                            var: (q(Hydro))
+
+
+---- EQU profit  profit function
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Hydro      97.000    97.000     +INF     44.667      
+Nuclear    98.000    98.000     +INF     20.000      
+
+---- EQU capacity  capacity constraint t=0
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Hydro     -55.000   -44.667     +INF       .         
+Nuclear   -20.000   -20.000     +INF      1.000      
+
+---- VAR q  quantity
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Hydro        .       44.667     +INF       .         
+Nuclear      .       20.000     +INF       .         
+
+---- VAR lambda  capacity constraint
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Hydro        .         .        +INF     10.333      
+Nuclear      .        1.000     +INF       .         
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS Rev 145  x86/MS Windows                            04/18/08 20:07:10 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     54 VARIABLE q.L  quantity
+
+Hydro   44.667,    Nuclear 20.000
+
+
+----     54 VARIABLE lambda.L  capacity constraint
+
+Nuclear 1.000
+
+
+
+EXECUTION TIME       =        0.016 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+
+
+USER: course license                                 S060628:0842AL-WIN
+      Phd course about mathematical programming                  DC5953
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      G:\electricity\models\dynamicmcp\ex_monopoly_tech.gms
+Output     G:\electricity\models\dynamicmcp\ex_monopoly_tech.lst

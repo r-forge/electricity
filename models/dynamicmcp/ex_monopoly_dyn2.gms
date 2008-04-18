@@ -2,6 +2,7 @@ Sets
 t                time
 tfirst(t)        first period
 tlast(t)         last period
+tt               time without 0
 ;
 
 
@@ -17,8 +18,8 @@ Equations
 profit(t)           profit function
 capacity(t)         capacity constraint
 state(t)            state equation
-state2(t)           state equation (K_t+1)
-state3(t)           state equation (I)
+state2(tt)           state equation (K_t+1)
+state3(tt)           state equation (I)
 ;
 
 Positive Variables
@@ -29,7 +30,7 @@ In(t)       investments
 ;
 
 Free Variable
-phi(t)   state
+phi(tt)   state
 ;
 
 profit(t) .. -alpha + 2*beta*q(t) + c + lambda(t) =g= 0;
@@ -37,15 +38,17 @@ profit(t) .. -alpha + 2*beta*q(t) + c + lambda(t) =g= 0;
 capacity(t) .. -q(t) + K(t) =g= 0;
 
 state(t) .. K(t) - K(t-1) - In(t-1) - K0$tfirst(t) =e= 0;
-state2(t) .. - lambda(t) +lambda(t)$tfirst(t) + phi(t) - phi(t)$tfirst(t) =g= 0;
-state3(t) .. F - phi(t) + phi(t)$tfirst(t) =g= 0;
+state2(tt) .. - lambda(tt) + phi(tt) =g= 0;
+state3(tt) .. F - phi(tt)  =g= 0;
 
+$onwarning
 
 model monop /profit.q, capacity.lambda,
              state, state2.K, state3.In /;
 *
 
 Set t    /0,1/;
+Set tt   /1/;
 
 Parameters
 alpha    /100/
