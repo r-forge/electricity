@@ -7,7 +7,7 @@ Alias(i,m)
 Parameters
 alpha    demand function intercept
 beta     demand function slope
-K(i)     capacity constraint
+K(i)     capacity
 c        variable costs
 ;
 
@@ -24,7 +24,7 @@ capacity(i)           capacity constraint t=0
 profit(i) .. -alpha + beta*sum(m,q(m)) + beta*q(i) + c + lambda(i) =g= 0;
 capacity(i) .. -q(i) + K(i) =g= 0;
 
-model monop /profit.q, capacity.lambda/;
+model oligop /profit.q, capacity.lambda/;
 
 Sets
 i        /Player1, Player2/
@@ -40,6 +40,6 @@ Parameter K(i)    /Player1      40
                    Player2      60
                  /;
 
-Solve monop using mcp;
+Solve oligop using mcp;
 
 Display q.l, lambda.l;

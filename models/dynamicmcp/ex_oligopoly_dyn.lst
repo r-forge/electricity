@@ -1,0 +1,468 @@
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Sets
+   2  i        players
+   3  ;
+   4   
+   5  Alias(i,n)
+   6   
+   7  Parameters
+   8  alpha    demand function intercept
+   9  beta     demand function slope
+  10  K0(i)    capacity  t=0
+  11  c        variable costs
+  12  F        capacity costs
+  13  ;
+  14   
+  15   
+  16  Equations
+  17  profit0(i)          profit function t=0
+  18  profit1(i)          profit function t=1
+  19  capacity0(i)        capacity constraint t=0
+  20  capacity1(i)        capacity constraint t=1
+  21  state(i)            state equation
+  22  state2(i)           state equation (K1)
+  23  state3(i)           state equation (I)
+  24  ;
+  25   
+  26  Positive Variables
+  27  q0(i)          quantity t=0
+  28  q1(i)          quantity t=1
+  29  lambda0(i)     capacity constraint t=0
+  30  lambda1(i)     capacity constraint t=1
+  31  K1(i)          capacity
+  32  In0(i)         investments t=0
+  33  ;
+  34   
+  35  Free Variable
+  36  phi(i)   state
+  37  ;
+  38   
+  39  profit0(i) .. -alpha + beta*sum(n,q0(n)) + beta*q0(i)+ c + lambda0(i) =g= 
+      0;
+  40  profit1(i) .. -alpha + beta*sum(n,q1(n)) + beta*q1(i)+ c + lambda1(i) =g= 
+      0;
+  41   
+  42  capacity0(i) .. -q0(i) + K0(i) =g= 0;
+  43  capacity1(i) .. -q1(i) + K1(i) =g= 0;
+  44   
+  45  state(i) .. K1(i) - K0(i) - In0(i) =e= 0;
+  46  state2(i) .. - lambda1(i) + phi(i) =g= 0;
+  47  state3(i) .. F - phi(i) =g= 0;
+  48   
+  49   
+  50  model monop /profit0.q0, profit1.q1, capacity0.lambda0, capacity1.lambda1,
+  51               state, state2.K1, state3.In0/;
+  52   
+  53  Sets
+  54  i        /Player1, Player2/
+  55  ;
+  56   
+  57  Parameters
+  58  alpha    /100/
+  59  beta     /0.75/
+  60  c        /3/
+  61  F        /4/
+  62  ;
+  63   
+  64  Parameter K0(i)  / Player1      30
+  65                     Player2      40
+  66                   /;
+  67   
+  68  Solve monop using mcp;
+  69   
+  70  Display q0.l, q1.l,In0.l, K0, K1.l,lambda0.l,lambda1.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE monop Using MCP From line 68
+
+
+---- profit0  =G=  profit function t=0
+
+profit0(Player1)..  1.5*q0(Player1) + 0.75*q0(Player2) + lambda0(Player1) =G= 97
+      ; (LHS = 0, INFES = 97 ***)
+     
+profit0(Player2)..  0.75*q0(Player1) + 1.5*q0(Player2) + lambda0(Player2) =G= 97
+      ; (LHS = 0, INFES = 97 ***)
+     
+
+---- profit1  =G=  profit function t=1
+
+profit1(Player1)..  1.5*q1(Player1) + 0.75*q1(Player2) + lambda1(Player1) =G= 97
+      ; (LHS = 0, INFES = 97 ***)
+     
+profit1(Player2)..  0.75*q1(Player1) + 1.5*q1(Player2) + lambda1(Player2) =G= 97
+      ; (LHS = 0, INFES = 97 ***)
+     
+
+---- capacity0  =G=  capacity constraint t=0
+
+capacity0(Player1)..  - q0(Player1) =G= -30 ; (LHS = 0)
+     
+capacity0(Player2)..  - q0(Player2) =G= -40 ; (LHS = 0)
+     
+
+---- capacity1  =G=  capacity constraint t=1
+
+capacity1(Player1)..  - q1(Player1) + K1(Player1) =G= 0 ; (LHS = 0)
+     
+capacity1(Player2)..  - q1(Player2) + K1(Player2) =G= 0 ; (LHS = 0)
+     
+
+---- state  =E=  state equation
+
+state(Player1)..  K1(Player1) - In0(Player1) =E= 30 ; (LHS = 0, INFES = 30 ***)
+     
+state(Player2)..  K1(Player2) - In0(Player2) =E= 40 ; (LHS = 0, INFES = 40 ***)
+     
+
+---- state2  =G=  state equation (K1)
+
+state2(Player1)..  - lambda1(Player1) + phi(Player1) =G= 0 ; (LHS = 0)
+     
+state2(Player2)..  - lambda1(Player2) + phi(Player2) =G= 0 ; (LHS = 0)
+     
+
+---- state3  =G=  state equation (I)
+
+state3(Player1)..  - phi(Player1) =G= -4 ; (LHS = 0)
+     
+state3(Player2)..  - phi(Player2) =G= -4 ; (LHS = 0)
+     
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE monop Using MCP From line 68
+
+
+---- q0  quantity t=0
+
+q0(Player1)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit0(Player1)
+        0.75    profit0(Player2)
+       -1       capacity0(Player1)
+
+q0(Player2)
+                (.LO, .L, .UP = 0, 0, +INF)
+        0.75    profit0(Player1)
+        1.5     profit0(Player2)
+       -1       capacity0(Player2)
+
+
+---- q1  quantity t=1
+
+q1(Player1)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit1(Player1)
+        0.75    profit1(Player2)
+       -1       capacity1(Player1)
+
+q1(Player2)
+                (.LO, .L, .UP = 0, 0, +INF)
+        0.75    profit1(Player1)
+        1.5     profit1(Player2)
+       -1       capacity1(Player2)
+
+
+---- lambda0  capacity constraint t=0
+
+lambda0(Player1)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit0(Player1)
+
+lambda0(Player2)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit0(Player2)
+
+
+---- lambda1  capacity constraint t=1
+
+lambda1(Player1)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit1(Player1)
+       -1       state2(Player1)
+
+lambda1(Player2)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit1(Player2)
+       -1       state2(Player2)
+
+
+---- K1  capacity
+
+K1(Player1)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       capacity1(Player1)
+        1       state(Player1)
+
+K1(Player2)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       capacity1(Player2)
+        1       state(Player2)
+
+
+---- In0  investments t=0
+
+In0(Player1)
+                (.LO, .L, .UP = 0, 0, +INF)
+       -1       state(Player1)
+
+In0(Player2)
+                (.LO, .L, .UP = 0, 0, +INF)
+       -1       state(Player2)
+
+
+---- phi  state
+
+phi(Player1)
+                (.LO, .L, .UP = -INF, 0, +INF)
+        1       state2(Player1)
+       -1       state3(Player1)
+
+phi(Player2)
+                (.LO, .L, .UP = -INF, 0, +INF)
+        1       state2(Player2)
+       -1       state3(Player2)
+
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE monop Using MCP From line 68
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           7     SINGLE EQUATIONS           14
+BLOCKS OF VARIABLES           7     SINGLE VARIABLES           14
+NON ZERO ELEMENTS            28     NON LINEAR N-Z              0
+DERIVATIVE POOL               6     CONSTANT POOL              14
+CODE LENGTH                   1
+
+
+GENERATION TIME      =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+
+
+EXECUTION TIME       =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE monop Using MCP From line 68
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   monop               
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  68
+
+**** SOLVER STATUS     1 NORMAL COMPLETION         
+**** MODEL STATUS      1 OPTIMAL                   
+
+ RESOURCE USAGE, LIMIT          0.078      1000.000
+ ITERATION COUNT, LIMIT        21         10000
+ EVALUATION ERRORS              0             0
+
+*** Your license (code PT) expired  601 days ago.
+*** Continue to run in demonstration mode.
+*** To update your license, please contact your distributor or
+***    GAMS Development Corp.
+***    Phone : (202) 342 0180
+***    Fax   : (202) 342 0181
+***    email : sales@gams.com
+
+
+PATH-C        Apr 21, 2006 WIN.PT.PT 22.2 022.034.041.VIS Path 4.6.06
+
+14 row/cols, 28 non-zeros, 14.29% dense.
+
+Path 4.6.06 (Fri Apr 21 16:29:09 2006)
+Written by Todd Munson, Steven Dirkse, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  0.0000e+000 var: (q1(Player1))
+Maximum of F. . . . . . . . . .  9.7000e+001 eqn: (profit1(Player1))
+Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit1(Player1))
+                                            var: (q1(Player1))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  3.2500e+000 eqn: (profit1(Player1))
+Minimum Row Norm. . . . . . . .  1.0000e+000 eqn: (state3(Player1))
+Maximum Column Norm . . . . . .  3.2500e+000 var: (q1(Player1))
+Minimum Column Norm . . . . . .  1.0000e+000 var: (In0(Player1))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  3.2776e-010 eqn: (profit1(Player2))
+Inf-Norm of Normal Map. . . . .  8.1570e-012 eqn: (profit1(Player1))
+Inf-Norm of Minimum Map . . . .  8.1570e-012 eqn: (profit1(Player1))
+Inf-Norm of Fischer Function. .  8.1570e-012 eqn: (profit1(Player1))
+Inf-Norm of Grad Fischer Fcn. .  1.0402e-011 eqn: (profit1(Player1))
+Two-Norm of Grad Fischer Fcn. .  1.6631e-011
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  4.1333e+001 var: (q1(Player2))
+Maximum of F. . . . . . . . . .  8.1570e-012 eqn: (profit1(Player1))
+Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit1(Player1))
+                                            var: (q1(Player1))
+
+
+---- EQU profit0  profit function t=0
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1    97.000    97.000     +INF     30.000      
+Player2    97.000    97.000     +INF     40.000      
+
+---- EQU profit1  profit function t=1
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1    97.000    97.000     +INF     41.333      
+Player2    97.000    97.000     +INF     41.333      
+
+---- EQU capacity0  capacity constraint t=0
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1   -30.000   -30.000     +INF     22.000      
+Player2   -40.000   -40.000     +INF     14.500      
+
+---- EQU capacity1  capacity constraint t=1
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .         .        +INF      4.000      
+Player2      .         .        +INF      4.000      
+
+---- EQU state  state equation
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1    30.000    30.000    30.000     4.000      
+Player2    40.000    40.000    40.000     4.000      
+
+---- EQU state2  state equation (K1)
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .         .        +INF     41.333      
+Player2      .         .        +INF     41.333      
+
+---- EQU state3  state equation (I)
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1    -4.000    -4.000     +INF     11.333      
+Player2    -4.000    -4.000     +INF      1.333      
+
+---- VAR q0  quantity t=0
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .       30.000     +INF       .         
+Player2      .       40.000     +INF       .         
+
+---- VAR q1  quantity t=1
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .       41.333     +INF       .         
+Player2      .       41.333     +INF       .         
+
+---- VAR lambda0  capacity constraint t=0
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .       22.000     +INF       .         
+Player2      .       14.500     +INF       .         
+
+---- VAR lambda1  capacity constraint t=1
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .        4.000     +INF       .         
+Player2      .        4.000     +INF       .         
+
+---- VAR K1  capacity
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .       41.333     +INF       .         
+Player2      .       41.333     +INF       .         
+
+---- VAR In0  investments t=0
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1      .       11.333     +INF       .         
+Player2      .        1.333     +INF       .         
+
+---- VAR phi  state
+
+           LOWER     LEVEL     UPPER    MARGINAL
+
+Player1     -INF      4.000     +INF       .         
+Player2     -INF      4.000     +INF       .         
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:28:26 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     70 VARIABLE q0.L  quantity t=0
+
+Player1 30.000,    Player2 40.000
+
+
+----     70 VARIABLE q1.L  quantity t=1
+
+Player1 41.333,    Player2 41.333
+
+
+----     70 VARIABLE In0.L  investments t=0
+
+Player1 11.333,    Player2  1.333
+
+
+----     70 PARAMETER K0  capacity  t=0
+
+Player1 30.000,    Player2 40.000
+
+
+----     70 VARIABLE K1.L  capacity
+
+Player1 41.333,    Player2 41.333
+
+
+----     70 VARIABLE lambda0.L  capacity constraint t=0
+
+Player1 22.000,    Player2 14.500
+
+
+----     70 VARIABLE lambda1.L  capacity constraint t=1
+
+Player1 4.000,    Player2 4.000
+
+
+
+EXECUTION TIME       =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+
+
+USER: course license                                 S060628:0842AL-WIN
+      Phd course about mathematical programming                  DC5953
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      G:\electricity\models\dynamicmcp\ex_oligopoly_dyn.gms
+Output     G:\electricity\models\dynamicmcp\ex_oligopoly_dyn.lst

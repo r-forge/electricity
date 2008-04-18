@@ -1,4 +1,4 @@
-GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 1
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:18:12 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -12,7 +12,7 @@ C o m p i l a t i o n
    7  Parameters
    8  alpha    demand function intercept
    9  beta     demand function slope
-  10  K(i)     capacity constraint
+  10  K(i)     capacity
   11  c        variable costs
   12  ;
   13   
@@ -29,7 +29,7 @@ C o m p i l a t i o n
   24  profit(i) .. -alpha + beta*sum(m,q(m)) + beta*q(i) + c + lambda(i) =g= 0;
   25  capacity(i) .. -q(i) + K(i) =g= 0;
   26   
-  27  model monop /profit.q, capacity.lambda/;
+  27  model oligop /profit.q, capacity.lambda/;
   28   
   29  Sets
   30  i        /Player1, Player2/
@@ -41,19 +41,19 @@ C o m p i l a t i o n
   36  c        /3/
   37  ;
   38   
-  39  Parameter K(i)    / Player1      40
-  40                     Player2       60
+  39  Parameter K(i)    /Player1      40
+  40                     Player2      60
   41                   /;
   42   
-  43  Solve monop using mcp;
+  43  Solve oligop using mcp;
   44   
   45  Display q.l, lambda.l;
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 2
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:18:12 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE monop Using MCP From line 43
+Equation Listing    SOLVE oligop Using MCP From line 43
 
 
 ---- profit  =G=  profit function
@@ -73,9 +73,9 @@ capacity(Player1)..  - q(Player1) =G= -40 ; (LHS = 0)
      
 capacity(Player2)..  - q(Player2) =G= -60 ; (LHS = 0)
      
-GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 3
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:18:12 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE monop Using MCP From line 43
+Column Listing      SOLVE oligop Using MCP From line 43
 
 
 ---- q  quantity
@@ -103,9 +103,9 @@ lambda(Player2)
                 (.LO, .L, .UP = 0, 0, +INF)
         1       profit(Player2)
 
-GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 4
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:18:12 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE monop Using MCP From line 43
+Model Statistics    SOLVE oligop Using MCP From line 43
 
 
 MODEL STATISTICS
@@ -117,29 +117,29 @@ DERIVATIVE POOL               6     CONSTANT POOL              14
 CODE LENGTH                   1
 
 
-GENERATION TIME      =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GENERATION TIME      =        0.031 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
 
 
-EXECUTION TIME       =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 5
+EXECUTION TIME       =        0.031 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:18:12 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE monop Using MCP From line 43
+Solution Report     SOLVE oligop Using MCP From line 43
 
 
                S O L V E      S U M M A R Y
 
-     MODEL   monop               
+     MODEL   oligop              
      TYPE    MCP                 
      SOLVER  PATH                FROM LINE  43
 
 **** SOLVER STATUS     1 NORMAL COMPLETION         
 **** MODEL STATUS      1 OPTIMAL                   
 
- RESOURCE USAGE, LIMIT          0.046      1000.000
+ RESOURCE USAGE, LIMIT          0.156      1000.000
  ITERATION COUNT, LIMIT         0         10000
  EVALUATION ERRORS              0             0
 
-*** Your license (code PT) expired  600 days ago.
+*** Your license (code PT) expired  601 days ago.
 *** Continue to run in demonstration mode.
 *** To update your license, please contact your distributor or
 ***    GAMS Development Corp.
@@ -216,7 +216,7 @@ Player2      .         .        +INF     15.333
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS Rev 145  x86/MS Windows                            04/18/08 23:21:30 Page 6
+GAMS Rev 145  x86/MS Windows                            04/19/08 00:18:12 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
