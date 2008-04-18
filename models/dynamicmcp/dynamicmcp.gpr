@@ -3,12 +3,36 @@
 [RP:EX_MONOPOLY]
 1=
 
+[RP:SIMPLE_MONOPOLY]
+1=
+
 [OPENWINDOW_1]
-FILE0=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly.gms
-FILE1=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly.lst
-FILE2=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly.lst
 MAXIM=0
-TOP=50
-LEFT=50
-HEIGHT=400
-WIDTH=400
+TOP=1
+LEFT=2
+HEIGHT=586
+WIDTH=976
+
+[RP:SIMPLE_MONOPOLY2]
+1=
+
+[RP:EX_MONOPOLY_DYN]
+1=
+
+[RP:EX_MONOPOLY_DYN2]
+1=
+
+[RP:UNTITLED_1]
+1=
+
+[MRUFILES]
+1=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_1.lst
+2=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_1.gms
+3=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\simple_monopoly2.lst
+4=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\simple_monopoly2.gms
+5=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\simple_monopoly.lst
+6=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly_dyn2.lst
+7=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly_dyn2.gms
+8=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly_dyn.lst
+9=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly_dyn.gms
+10=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_monopoly.lst
