@@ -59,7 +59,7 @@ Consider the numeric example where $\alpha=100$, $\beta=0.75$ and $c=3$. We comp
 \lstinputlisting{ex_monopoly.lst}
 
 \section{The simple monopoly goes dynamic}
-\label{sec:simple-monopoly-goes}
+
 
 We consider again the monopolist who produces with one technology. Now, we extend the time horizon to two stages, and allow for an investment in $t=0$, which translates into more production capacity in $t=1$.
 
@@ -106,7 +106,7 @@ The KKT Conditions are as follows.
 
 
 \section{The simple monopoly goes dynamic (with better notation)}
-\label{sec:simple-monopoly-goes}
+
 
 We consider again the monopolist who produces with one technology. Now, we extend the time horizon to two stages, and allow for an investment in $t=0$, which translates into more production capacity in $t=1$.
 
@@ -376,39 +376,46 @@ The KKT Conditions are as follows.
 \section{The dynamic oligopoly with several technologies}
 
 
-We consider again the oligopoly with $i$ players who produce with one technology. Now, we extend the time horizon to two stages, and allow for an investment in $t=0$, which translates into more production capacity in $t=1$.
+We consider the oligopoly with $i$ players who produce with several technologies.
 
-\begin{equation*}
-	\max_{q_i^0,q_i^1}\Pi_i = (\alpha-\beta \sum_{i\in N}q_i^0)q_i^0 - cq^0 +  (\alpha-\beta \sum_{i\in N}q_i^1)q_i^1 - cq_i^1 -FI_i^0
-\end{equation*}
+\begin{eqnarray*}
+	\max_{q_{i,j}^0,q_{i,j}^1}\Pi_i &=& (\alpha-\beta \sum_{i\in N}\sum_{j\in M}q_{i,j}^0)\sum_{j\in M}q_{i,j}^0 - \sum_{j\in M}c_jq_{i,j}^0 \\
+&& +  (\alpha-\beta \sum_{i\in N}\sum_{j\in M}q_{i,j}^1)\sum_{j\in M}q_i^1 - \sum_{j\in M}c_jq_{i,j}^1 - \sum_{j\in M}F_jI_{i,j}^0
+\end{eqnarray*}
 
 subject to
 
 \begin{eqnarray*}
-	q_i^0 - K_i^0 &\leq& 0 \quad\forall\, i\\
-	q_i^1 - K_i^1 &\leq& 0 \quad\forall\, i\\
-        K_i^1 - K_i^0 - I_i^0 &=& 0 \quad\forall\, i\\
-	q_i^0,q_i^1,I_i^0, K_i^0, K_i^1 &\geq& 0 \quad\forall\, i
+	q_{i,j}^0 - K_{i,j}^0 &\leq& 0 \quad\forall\, i,j\\
+	q_{i,j}^1 - K_{i,j}^1 &\leq& 0 \quad\forall\, i,j\\
+        K_{i,j}^1 - K_{i,j}^0 - I_{i,j}^0 &=& 0 \quad\forall\, i,j\\
+	q_{i,j}^0,q_{i,j}^1,I_{i,j}^0, K_{i,j}^0, K_{i,j}^1 &\geq& 0 \quad\forall\, i,j
 \end{eqnarray*}
  
 We get the following Lagrangian.
 
 \begin{eqnarray*}
-	\mathcal{L}(q_i^0,q_i^1,\lambda_i^0,\lambda_i^1,\phi_i^1)&=&  (\alpha-\beta \sum_{i\in N}q_i^0)q_i^0 - cq^0 +  (\alpha-\beta \sum_{i\in N}q_i^1)q_i^1 - cq_i^1 -FI_i^0\\
-        && - \lambda_i^0(q_i^0-K_i^0) - \lambda_i^1(q_i^1-K_i^1) - \phi_i^1(K_i^1-K_i^0-I_i^0)
+	\mathcal{L}(q_i^0,q_i^1,\lambda_i^0,\lambda_i^1,\phi_i^1)&=&  (\alpha-\beta \sum_{i\in N}\sum_{j\in M}q_{i,j}^0)\sum_{j\in M}q_{i,j}^0 - \sum_{j\in M}c_jq_{i,j}^0 \\
+&& +  (\alpha-\beta \sum_{i\in N}\sum_{j\in M}q_{i,j}^1)\sum_{j\in M}q_i^1 - \sum_{j\in M}c_jq_{i,j}^1 - \sum_{j\in M}F_jI_{i,j}^0\\
+        && - \lambda_{i,j}^0(q_{i,j}^0-K_{i,j}^0) - \lambda_{i,j}^1(q_{i,j}^1-K_{i,j}^1) - \phi_{i,j}^1(K_{i,j}^1-K_{i,j}^0-I_{i,j}^0)
 \end{eqnarray*}
 
 The KKT Conditions are as follows.
 
 \begin{eqnarray*}
-	0 \leq -\alpha + \beta \sum_{i\in N}q_i^0 + \beta q_i^0+ c + \lambda_i^0 &\bot& q_i^0 \geq 0\quad\forall\, i\\
-	0 \leq -\alpha + \beta \sum_{i\in N}q_i^1 + \beta q_i^1+ c + \lambda_i^1 &\bot& q_i^1 \geq 0\quad\forall\, i\\
-	0 \leq -q_i^0 + K_i^0 &\bot& \lambda_i^0 \geq 0 \quad\forall\, i \\
-        0 \leq -q_i^1 + K_i^1 &\bot& \lambda_i^1 \geq 0 \quad\forall\, i\\
-        0 = K_i^1 - K_i^0 - I_i^0 &\bot& \phi_i^1 \quad \mbox{free} \quad\forall\, i \\
-        0 \leq -\lambda_i^1 + \phi_i^1 &\bot& K_i^1 \geq 0 \quad\forall\, i\\
-        0 \leq F - \phi_i^1 &\bot& I_i^0 \geq 0 \quad\forall\, i
+	0 \leq -\alpha + \beta \sum_{i\in N}\sum_{j\in M}q_{i,j}^0 + \beta \sum_{j\in M}q_{i,j}^0+ c + \lambda_{i,j}^0 &\bot& q_{i,j}^0 \geq 0\quad\forall\, i,j\\
+	0 \leq -\alpha + \beta \sum_{i\in N}\sum_{j\in M}q_{i,j}^1 + \beta\sum_{j\in M} q_{i,j}^1+ c + \lambda_{i,j}^1 &\bot& q_{i,j}^1 \geq 0\quad\forall\, i,j\\
+	0 \leq -q_{i,j}^0 + K_{i,j}^0 &\bot& \lambda_{i,j}^0 \geq 0 \quad\forall\, i,j \\
+        0 \leq -q_{i,j}^1 + K_{i,j}^1 &\bot& \lambda_{i,j}^1 \geq 0 \quad\forall\, i,j\\
+        0 = K_{i,j}^1 - K_{i,j}^0 - I_{i,j}^0 &\bot& \phi_{i,j}^1 \quad \mbox{free} \quad\forall\, i,j \\
+        0 \leq -\lambda_{i,j}^1 + \phi_{i,j}^1 &\bot& K_{i,j}^1 \geq 0 \quad\forall\, i,j\\
+        0 \leq F - \phi_{i,j}^1 &\bot& I_{i,j}^0 \geq 0 \quad\forall\, i,j
 \end{eqnarray*}
 
+\subsection*{ex$\_$oligopoly\_dyn\_tech.gms}
+\lstinputlisting{ex_oligopoly_dyn_tech.gms}
+
+\subsection*{ex$\_$oligopoly\_dyn\_tech.lst}
+\lstinputlisting{ex_oligopoly_dyn_tech.lst}
 
 \end{document}
