@@ -25,7 +25,7 @@ Parameter c(j)           /
                          /;
 
 Parameter K(j)          /
-                         Hydro 55
+                         Hydro   55
                          Nuclear 20
                         /;
 
@@ -52,4 +52,3 @@ model monop /profit.q, capacity.lambda/;
 Solve monop using mcp;
 
 Display q.l, lambda.l;
-
