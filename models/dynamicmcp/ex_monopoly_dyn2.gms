@@ -1,6 +1,9 @@
 Sets
-t        time
+t                time
+tfirst(t)        first period
+tlast(t)         last period
 ;
+
 
 Parameters
 alpha    demand function intercept
@@ -11,9 +14,7 @@ F        capacity costs
 ;
 
 Equations
-profit0             profit function t=0
 profit(t)           profit function
-capacity0           capacity constraint t=0
 capacity(t)         capacity constraint
 state(t)            state equation
 state2(t)           state equation (K_t+1)
@@ -21,34 +22,30 @@ state3(t)           state equation (I)
 ;
 
 Positive Variables
-q0          quantity in t=0
 q(t)        quantity
-lambda0     capacity constraint in t=0
 lambda(t)   capacity constraint
 K(t)        capacity
-In0         investments
+In(t)       investments
 ;
 
 Free Variable
 phi(t)   state
 ;
 
-profit0 .. -alpha + 2*beta*q0 + c + lambda0 =g= 0;
 profit(t) .. -alpha + 2*beta*q(t) + c + lambda(t) =g= 0;
 
-capacity0 .. -q0 + K0 =g= 0;
 capacity(t) .. -q(t) + K(t) =g= 0;
 
-state(t) .. K(t) - In0 - K0 =e= 0;
-state2(t) .. - lambda(t) + phi(t) =g= 0;
-*state3(t) .. F - phi(t) =g= 0;
+state(t) .. K(t) - K(t-1) - In(t-1) - K0$tfirst(t) =e= 0;
+state2(t) .. - lambda(t) +lambda(t)$tfirst(t) + phi(t) - phi(t)$tfirst(t) =g= 0;
+state3(t) .. F - phi(t) + phi(t)$tfirst(t) =g= 0;
 
 
-model monop /profit0.q0, profit.q, capacity0.lambda0, capacity.lambda,
-             state, state2.K/;
-*state3.In0
+model monop /profit.q, capacity.lambda,
+             state, state2.K, state3.In /;
+*
 
-Set t    /1/;
+Set t    /0,1/;
 
 Parameters
 alpha    /100/
@@ -57,6 +54,13 @@ K0       /55/
 c        /3/
 F        /2/
 ;
+
+tfirst(t) = yes$(ord(t) eq 1);
+tlast(t) = yes$(ord(t) eq card(t));
+*In.fx(t)$tlast(t) = 0;
+*K.fx(t)$tfirst(t) = K0;
+
+Display tfirst, tlast;
 
 Solve monop using mcp;
 

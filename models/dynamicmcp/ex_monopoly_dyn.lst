@@ -1,4 +1,4 @@
-GAMS Rev 148  x86/MS Windows                            04/18/08 14:15:54 Page 1
+GAMS Rev 145  x86/MS Windows                            04/18/08 18:18:11 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -61,8 +61,8 @@ C o m p i l a t i o n
   56  Display q0.l, q1.l,In0.l, K0, K1.l,lambda0.l,lambda1.l;
 
 
-COMPILATION TIME     =        0.000 SECONDS      2 Mb  WIN225-148 May 29, 2007
-GAMS Rev 148  x86/MS Windows                            04/18/08 14:15:54 Page 2
+COMPILATION TIME     =        0.000 SECONDS      2 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/18/08 18:18:11 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE monop Using MCP From line 54
 
@@ -101,7 +101,7 @@ state2..  - lambda1 + phi =G= 0 ; (LHS = 0)
 
 state3..  - phi =G= -2 ; (LHS = 0)
      
-GAMS Rev 148  x86/MS Windows                            04/18/08 14:15:54 Page 3
+GAMS Rev 145  x86/MS Windows                            04/18/08 18:18:11 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE monop Using MCP From line 54
 
@@ -159,7 +159,7 @@ phi
         1       state2
        -1       state3
 
-GAMS Rev 148  x86/MS Windows                            04/18/08 14:15:54 Page 4
+GAMS Rev 145  x86/MS Windows                            04/18/08 18:18:11 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE monop Using MCP From line 54
 
@@ -169,15 +169,15 @@ MODEL STATISTICS
 BLOCKS OF EQUATIONS           7     SINGLE EQUATIONS            7
 BLOCKS OF VARIABLES           7     SINGLE VARIABLES            7
 NON ZERO ELEMENTS            12     NON LINEAR N-Z              0
-DERIVATIVE POOL               6     CONSTANT POOL              16
+DERIVATIVE POOL               6     CONSTANT POOL              14
 CODE LENGTH                   1
 
 
-GENERATION TIME      =        0.015 SECONDS      3 Mb  WIN225-148 May 29, 2007
+GENERATION TIME      =        0.016 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
 
 
-EXECUTION TIME       =        0.015 SECONDS      3 Mb  WIN225-148 May 29, 2007
-GAMS Rev 148  x86/MS Windows                            04/18/08 14:15:54 Page 5
+EXECUTION TIME       =        0.016 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/18/08 18:18:11 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE monop Using MCP From line 54
 
@@ -191,7 +191,7 @@ Solution Report     SOLVE monop Using MCP From line 54
 **** SOLVER STATUS     1 NORMAL COMPLETION         
 **** MODEL STATUS      1 OPTIMAL                   
 
- RESOURCE USAGE, LIMIT          0.046      1000.000
+ RESOURCE USAGE, LIMIT          0.093      1000.000
  ITERATION COUNT, LIMIT        18         10000
  EVALUATION ERRORS              0             0
 
@@ -204,11 +204,11 @@ Solution Report     SOLVE monop Using MCP From line 54
 ***    email : sales@gams.com
 
 
-PATH-C        Jun  1, 2007 WIN.PT.PT 22.5 025.037.041.VIS Path 4.7.00
+PATH-C        Apr 21, 2006 WIN.PT.PT 22.2 022.034.041.VIS Path 4.6.06
 
 7 row/cols, 12 non-zeros, 24.49% dense.
 
-Path 4.7.00 (Tue May 29 14:27:30 2007)
+Path 4.6.06 (Fri Apr 21 16:29:09 2006)
 Written by Todd Munson, Steven Dirkse, and Michael Ferris
 
 INITIAL POINT STATISTICS
@@ -245,7 +245,7 @@ Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit1)
 ---- EQU capacity0    -55.000   -55.000     +INF     14.500      
 ---- EQU capacity1       .         .        +INF      2.000      
 ---- EQU state         55.000    55.000    55.000     2.000      
----- EQU state2          .    -1.949E-8     +INF     63.333      
+---- EQU state2          .         .        +INF     63.333      
 ---- EQU state3        -2.000    -2.000     +INF      8.333      
 
   profit0  profit function t=0
@@ -259,11 +259,11 @@ Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit1)
                        LOWER     LEVEL     UPPER    MARGINAL
 
 ---- VAR q0              .       55.000     +INF       .         
----- VAR q1              .       63.333     +INF  3.1335E-8      
+---- VAR q1              .       63.333     +INF       .         
 ---- VAR lambda0         .       14.500     +INF       .         
 ---- VAR lambda1         .        2.000     +INF       .         
----- VAR K1              .       63.333     +INF  -1.949E-8      
----- VAR In0             .        8.333     +INF  2.6496E-8      
+---- VAR K1              .       63.333     +INF       .         
+---- VAR In0             .        8.333     +INF       .         
 ---- VAR phi            -INF      2.000     +INF       .         
 
   q0  quantity t=0
@@ -280,7 +280,7 @@ Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit1)
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS Rev 148  x86/MS Windows                            04/18/08 14:15:54 Page 6
+GAMS Rev 145  x86/MS Windows                            04/18/08 18:18:11 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -296,7 +296,7 @@ E x e c u t i o n
                                                            =1
 
 
-EXECUTION TIME       =        0.015 SECONDS      2 Mb  WIN225-148 May 29, 2007
+EXECUTION TIME       =        0.000 SECONDS      2 Mb  WIN222-145 Apr 21, 2006
 
 
 USER: course license                                 S060628:0842AL-WIN
@@ -306,7 +306,5 @@ USER: course license                                 S060628:0842AL-WIN
 
 **** FILE SUMMARY
 
-Input      C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\
-           dynamicmcp\ex_monopoly_dyn.gms
-Output     C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\
-           dynamicmcp\ex_monopoly_dyn.lst
+Input      G:\electricity\models\dynamicmcp\ex_monopoly_dyn.gms
+Output     G:\electricity\models\dynamicmcp\ex_monopoly_dyn.lst
