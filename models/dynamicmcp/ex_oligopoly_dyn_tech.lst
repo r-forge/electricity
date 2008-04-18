@@ -1,0 +1,651 @@
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Sets
+   2  i        players
+   3  j        technologies
+   4  ;
+   5   
+   6  Alias(i,n)
+   7  Alias(j,m)
+   8   
+   9  Parameters
+  10  alpha    demand function intercept
+  11  beta     demand function slope
+  12  K0(i,j)  capacity  t=0
+  13  c(j)     variable costs
+  14  F(j)     capacity costs
+  15  ;
+  16   
+  17   
+  18  Equations
+  19  profit0(i,j)          profit function t=0
+  20  profit1(i,j)          profit function t=1
+  21  capacity0(i,j)        capacity constraint t=0
+  22  capacity1(i,j)        capacity constraint t=1
+  23  state(i,j)            state equation
+  24  state2(i,j)           state equation (K1)
+  25  state3(i,j)           state equation (I)
+  26  ;
+  27   
+  28  Positive Variables
+  29  q0(i,j)          quantity t=0
+  30  q1(i,j)          quantity t=1
+  31  lambda0(i,j)     capacity constraint t=0
+  32  lambda1(i,j)     capacity constraint t=1
+  33  K1(i,j)          capacity
+  34  In0(i,j)         investments t=0
+  35  ;
+  36   
+  37  Free Variable
+  38  phi(i,j)   state
+  39  ;
+  40   
+  41  profit0(i,j) .. -alpha + beta*sum((n,m),q0(n,m)) + beta*sum(n,q0(n,j))+ c(
+      j) + lambda0(i,j) =g= 0;
+  42  profit1(i,j) .. -alpha + beta*sum((n,m),q1(n,m)) + beta*sum(n,q1(n,j))+ c(
+      j) + lambda1(i,j) =g= 0;
+  43   
+  44  capacity0(i,j) .. -q0(i,j) + K0(i,j) =g= 0;
+  45  capacity1(i,j) .. -q1(i,j) + K1(i,j) =g= 0;
+  46   
+  47  state(i,j) .. K1(i,j) - K0(i,j) - In0(i,j) =e= 0;
+  48  state2(i,j) .. - lambda1(i,j) + phi(i,j) =g= 0;
+  49  state3(i,j) .. F(j) - phi(i,j) =g= 0;
+  50   
+  51   
+  52  model oligop /profit0.q0, profit1.q1, capacity0.lambda0, capacity1.lambda1
+      ,
+  53               state, state2.K1, state3.In0/;
+  54   
+  55  Sets
+  56  i        /Player1, Player2/
+  57  j        /Hydro, Nuclear/
+  58  ;
+  59   
+  60  Parameters
+  61  alpha    /100/
+  62  beta     /0.75/
+  63  ;
+  64   
+  65  Parameter c(j)           /
+  66                           Hydro    3
+  67                           Nuclear  2
+  68                           /;
+  69   
+  70  Parameter F(j)          /
+  71                           Hydro   1
+  72                           Nuclear 2
+  73                          /;
+  74   
+  75  Table K0(i,j)
+  76                           Hydro         Nuclear
+  77                   Player1   15              25
+  78                   Player2   20              5
+  79  ;
+  80   
+  81   
+  82   
+  83  Solve oligop using mcp;
+  84   
+  85  Display q0.l, q1.l,In0.l, K0, K1.l,lambda0.l,lambda1.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE oligop Using MCP From line 83
+
+
+---- profit0  =G=  profit function t=0
+
+profit0(Player1,Hydro)..  1.5*q0(Player1,Hydro) + 0.75*q0(Player1,Nuclear)
+     
+      + 1.5*q0(Player2,Hydro) + 0.75*q0(Player2,Nuclear)
+     
+      + lambda0(Player1,Hydro) =G= 97 ; (LHS = 0, INFES = 97 ***)
+     
+profit0(Player1,Nuclear)..  0.75*q0(Player1,Hydro) + 1.5*q0(Player1,Nuclear)
+     
+      + 0.75*q0(Player2,Hydro) + 1.5*q0(Player2,Nuclear)
+     
+      + lambda0(Player1,Nuclear) =G= 98 ; (LHS = 0, INFES = 98 ***)
+     
+profit0(Player2,Hydro)..  1.5*q0(Player1,Hydro) + 0.75*q0(Player1,Nuclear)
+     
+      + 1.5*q0(Player2,Hydro) + 0.75*q0(Player2,Nuclear)
+     
+      + lambda0(Player2,Hydro) =G= 97 ; (LHS = 0, INFES = 97 ***)
+     
+REMAINING ENTRY SKIPPED
+
+
+---- profit1  =G=  profit function t=1
+
+profit1(Player1,Hydro)..  1.5*q1(Player1,Hydro) + 0.75*q1(Player1,Nuclear)
+     
+      + 1.5*q1(Player2,Hydro) + 0.75*q1(Player2,Nuclear)
+     
+      + lambda1(Player1,Hydro) =G= 97 ; (LHS = 0, INFES = 97 ***)
+     
+profit1(Player1,Nuclear)..  0.75*q1(Player1,Hydro) + 1.5*q1(Player1,Nuclear)
+     
+      + 0.75*q1(Player2,Hydro) + 1.5*q1(Player2,Nuclear)
+     
+      + lambda1(Player1,Nuclear) =G= 98 ; (LHS = 0, INFES = 98 ***)
+     
+profit1(Player2,Hydro)..  1.5*q1(Player1,Hydro) + 0.75*q1(Player1,Nuclear)
+     
+      + 1.5*q1(Player2,Hydro) + 0.75*q1(Player2,Nuclear)
+     
+      + lambda1(Player2,Hydro) =G= 97 ; (LHS = 0, INFES = 97 ***)
+     
+REMAINING ENTRY SKIPPED
+
+
+---- capacity0  =G=  capacity constraint t=0
+
+capacity0(Player1,Hydro)..  - q0(Player1,Hydro) =G= -15 ; (LHS = 0)
+     
+capacity0(Player1,Nuclear)..  - q0(Player1,Nuclear) =G= -25 ; (LHS = 0)
+     
+capacity0(Player2,Hydro)..  - q0(Player2,Hydro) =G= -20 ; (LHS = 0)
+     
+REMAINING ENTRY SKIPPED
+
+
+---- capacity1  =G=  capacity constraint t=1
+
+capacity1(Player1,Hydro)..  - q1(Player1,Hydro) + K1(Player1,Hydro) =G= 0 ;
+     
+      (LHS = 0)
+     
+capacity1(Player1,Nuclear)..  - q1(Player1,Nuclear) + K1(Player1,Nuclear) =G= 0
+      ; (LHS = 0)
+     
+capacity1(Player2,Hydro)..  - q1(Player2,Hydro) + K1(Player2,Hydro) =G= 0 ;
+     
+      (LHS = 0)
+     
+REMAINING ENTRY SKIPPED
+
+
+---- state  =E=  state equation
+
+state(Player1,Hydro)..  K1(Player1,Hydro) - In0(Player1,Hydro) =E= 15 ;
+     
+      (LHS = 0, INFES = 15 ***)
+     
+state(Player1,Nuclear)..  K1(Player1,Nuclear) - In0(Player1,Nuclear) =E= 25 ;
+     
+      (LHS = 0, INFES = 25 ***)
+     
+state(Player2,Hydro)..  K1(Player2,Hydro) - In0(Player2,Hydro) =E= 20 ;
+     
+      (LHS = 0, INFES = 20 ***)
+     
+REMAINING ENTRY SKIPPED
+
+
+---- state2  =G=  state equation (K1)
+
+state2(Player1,Hydro)..  - lambda1(Player1,Hydro) + phi(Player1,Hydro) =G= 0 ;
+     
+      (LHS = 0)
+     
+state2(Player1,Nuclear)..  - lambda1(Player1,Nuclear) + phi(Player1,Nuclear)
+      =G= 0 ; (LHS = 0)
+     
+state2(Player2,Hydro)..  - lambda1(Player2,Hydro) + phi(Player2,Hydro) =G= 0 ;
+     
+      (LHS = 0)
+     
+REMAINING ENTRY SKIPPED
+
+
+---- state3  =G=  state equation (I)
+
+state3(Player1,Hydro)..  - phi(Player1,Hydro) =G= -1 ; (LHS = 0)
+     
+state3(Player1,Nuclear)..  - phi(Player1,Nuclear) =G= -2 ; (LHS = 0)
+     
+state3(Player2,Hydro)..  - phi(Player2,Hydro) =G= -1 ; (LHS = 0)
+     
+REMAINING ENTRY SKIPPED
+
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE oligop Using MCP From line 83
+
+
+---- q0  quantity t=0
+
+q0(Player1,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit0(Player1,Hydro)
+        0.75    profit0(Player1,Nuclear)
+        1.5     profit0(Player2,Hydro)
+        0.75    profit0(Player2,Nuclear)
+       -1       capacity0(Player1,Hydro)
+
+q0(Player1,Nuclear)
+                (.LO, .L, .UP = 0, 0, +INF)
+        0.75    profit0(Player1,Hydro)
+        1.5     profit0(Player1,Nuclear)
+        0.75    profit0(Player2,Hydro)
+        1.5     profit0(Player2,Nuclear)
+       -1       capacity0(Player1,Nuclear)
+
+q0(Player2,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit0(Player1,Hydro)
+        0.75    profit0(Player1,Nuclear)
+        1.5     profit0(Player2,Hydro)
+        0.75    profit0(Player2,Nuclear)
+       -1       capacity0(Player2,Hydro)
+
+REMAINING ENTRY SKIPPED
+
+---- q1  quantity t=1
+
+q1(Player1,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit1(Player1,Hydro)
+        0.75    profit1(Player1,Nuclear)
+        1.5     profit1(Player2,Hydro)
+        0.75    profit1(Player2,Nuclear)
+       -1       capacity1(Player1,Hydro)
+
+q1(Player1,Nuclear)
+                (.LO, .L, .UP = 0, 0, +INF)
+        0.75    profit1(Player1,Hydro)
+        1.5     profit1(Player1,Nuclear)
+        0.75    profit1(Player2,Hydro)
+        1.5     profit1(Player2,Nuclear)
+       -1       capacity1(Player1,Nuclear)
+
+q1(Player2,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit1(Player1,Hydro)
+        0.75    profit1(Player1,Nuclear)
+        1.5     profit1(Player2,Hydro)
+        0.75    profit1(Player2,Nuclear)
+       -1       capacity1(Player2,Hydro)
+
+REMAINING ENTRY SKIPPED
+
+---- lambda0  capacity constraint t=0
+
+lambda0(Player1,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit0(Player1,Hydro)
+
+lambda0(Player1,Nuclear)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit0(Player1,Nuclear)
+
+lambda0(Player2,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit0(Player2,Hydro)
+
+REMAINING ENTRY SKIPPED
+
+---- lambda1  capacity constraint t=1
+
+lambda1(Player1,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit1(Player1,Hydro)
+       -1       state2(Player1,Hydro)
+
+lambda1(Player1,Nuclear)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit1(Player1,Nuclear)
+       -1       state2(Player1,Nuclear)
+
+lambda1(Player2,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit1(Player2,Hydro)
+       -1       state2(Player2,Hydro)
+
+REMAINING ENTRY SKIPPED
+
+---- K1  capacity
+
+K1(Player1,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       capacity1(Player1,Hydro)
+        1       state(Player1,Hydro)
+
+K1(Player1,Nuclear)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       capacity1(Player1,Nuclear)
+        1       state(Player1,Nuclear)
+
+K1(Player2,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       capacity1(Player2,Hydro)
+        1       state(Player2,Hydro)
+
+REMAINING ENTRY SKIPPED
+
+---- In0  investments t=0
+
+In0(Player1,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+       -1       state(Player1,Hydro)
+
+In0(Player1,Nuclear)
+                (.LO, .L, .UP = 0, 0, +INF)
+       -1       state(Player1,Nuclear)
+
+In0(Player2,Hydro)
+                (.LO, .L, .UP = 0, 0, +INF)
+       -1       state(Player2,Hydro)
+
+REMAINING ENTRY SKIPPED
+
+---- phi  state
+
+phi(Player1,Hydro)
+                (.LO, .L, .UP = -INF, 0, +INF)
+        1       state2(Player1,Hydro)
+       -1       state3(Player1,Hydro)
+
+phi(Player1,Nuclear)
+                (.LO, .L, .UP = -INF, 0, +INF)
+        1       state2(Player1,Nuclear)
+       -1       state3(Player1,Nuclear)
+
+phi(Player2,Hydro)
+                (.LO, .L, .UP = -INF, 0, +INF)
+        1       state2(Player2,Hydro)
+       -1       state3(Player2,Hydro)
+
+REMAINING ENTRY SKIPPED
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE oligop Using MCP From line 83
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           7     SINGLE EQUATIONS           28
+BLOCKS OF VARIABLES           7     SINGLE VARIABLES           28
+NON ZERO ELEMENTS            72     NON LINEAR N-Z              0
+DERIVATIVE POOL               6     CONSTANT POOL              14
+CODE LENGTH                   1
+
+
+GENERATION TIME      =        0.015 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+
+
+EXECUTION TIME       =        0.015 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE oligop Using MCP From line 83
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   oligop              
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  83
+
+**** SOLVER STATUS     1 NORMAL COMPLETION         
+**** MODEL STATUS      1 OPTIMAL                   
+
+ RESOURCE USAGE, LIMIT          0.109      1000.000
+ ITERATION COUNT, LIMIT        24         10000
+ EVALUATION ERRORS              0             0
+
+*** Your license (code PT) expired  601 days ago.
+*** Continue to run in demonstration mode.
+*** To update your license, please contact your distributor or
+***    GAMS Development Corp.
+***    Phone : (202) 342 0180
+***    Fax   : (202) 342 0181
+***    email : sales@gams.com
+
+
+PATH-C        Apr 21, 2006 WIN.PT.PT 22.2 022.034.041.VIS Path 4.6.06
+
+28 row/cols, 72 non-zeros, 9.18% dense.
+
+Path 4.6.06 (Fri Apr 21 16:29:09 2006)
+Written by Todd Munson, Steven Dirkse, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  0.0000e+000 var: (q1(Player1,Hydro))
+Maximum of F. . . . . . . . . .  9.8000e+001 eqn: (profit1(Player1,Nuclear))
+Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit1(Player1,Hydro))
+                                            var: (q1(Player1,Hydro))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  5.5000e+000 eqn: (profit1(Player1,Hydro))
+Minimum Row Norm. . . . . . . .  1.0000e+000 eqn: (state3(Player1,Hydro))
+Maximum Column Norm . . . . . .  5.5000e+000 var: (q1(Player1,Hydro))
+Minimum Column Norm . . . . . .  1.0000e+000 var: (In0(Player1,Hydro))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  6.4436e-011 eqn: (capacity1(Player2,Nuclear))
+Inf-Norm of Normal Map. . . . .  3.2218e-011 eqn: (capacity1(Player2,Nuclear))
+Inf-Norm of Minimum Map . . . .  3.2218e-011 eqn: (capacity1(Player2,Nuclear))
+Inf-Norm of Fischer Function. .  3.2218e-011 eqn: (capacity1(Player2,Nuclear))
+Inf-Norm of Grad Fischer Fcn. .  6.7390e-011 eqn: (profit1(Player2,Nuclear))
+Two-Norm of Grad Fischer Fcn. .  1.2072e-010
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  3.3215e+001 var: (K1(Player1,Nuclear))
+Maximum of F. . . . . . . . . .  3.2218e-011 eqn: (capacity1(Player2,Nuclear))
+Maximum of Grad F . . . . . . .  1.5000e+000 eqn: (profit1(Player1,Hydro))
+                                            var: (q1(Player1,Hydro))
+
+
+---- EQU profit0  profit function t=0
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro      97.000    97.000     +INF     15.000      
+Player1.Nuclear    98.000    98.000     +INF     25.000      
+Player2.Hydro      97.000    97.000     +INF     20.000      
+Player2.Nuclear    98.000    98.000     +INF      5.000      
+
+---- EQU profit1  profit function t=1
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro      97.000    97.000     +INF     18.928      
+Player1.Nuclear    98.000    98.000     +INF     33.215      
+Player2.Hydro      97.000    97.000     +INF     23.738      
+Player2.Nuclear    98.000    98.000     +INF      9.451      
+
+---- EQU capacity0  capacity constraint t=0
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro     -15.000   -15.000     +INF     22.000      
+Player1.Nuclear   -25.000   -25.000     +INF     26.750      
+Player2.Hydro     -20.000   -20.000     +INF     22.000      
+Player2.Nuclear    -5.000    -5.000     +INF     26.750      
+
+---- EQU capacity1  capacity constraint t=1
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro        .         .        +INF      1.000      
+Player1.Nuclear      .         .        +INF      2.000      
+Player2.Hydro        .         .        +INF      1.000      
+Player2.Nuclear      .         .        +INF      2.000      
+
+---- EQU state  state equation
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro      15.000    15.000    15.000     1.000      
+Player1.Nuclear    25.000    25.000    25.000     2.000      
+Player2.Hydro      20.000    20.000    20.000     1.000      
+Player2.Nuclear     5.000     5.000     5.000     2.000      
+
+---- EQU state2  state equation (K1)
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro        .         .        +INF     18.928      
+Player1.Nuclear      .         .        +INF     33.215      
+Player2.Hydro        .         .        +INF     23.738      
+Player2.Nuclear      .         .        +INF      9.451      
+
+---- EQU state3  state equation (I)
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro      -1.000    -1.000     +INF      3.928      
+Player1.Nuclear    -2.000    -2.000     +INF      8.215      
+Player2.Hydro      -1.000    -1.000     +INF      3.738      
+Player2.Nuclear    -2.000    -2.000     +INF      4.451      
+
+---- VAR q0  quantity t=0
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro        .       15.000     +INF       .         
+Player1.Nuclear      .       25.000     +INF       .         
+Player2.Hydro        .       20.000     +INF       .         
+Player2.Nuclear      .        5.000     +INF       .         
+
+---- VAR q1  quantity t=1
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro        .       18.928     +INF       .         
+Player1.Nuclear      .       33.215     +INF       .         
+Player2.Hydro        .       23.738     +INF       .         
+Player2.Nuclear      .        9.451     +INF       .         
+
+---- VAR lambda0  capacity constraint t=0
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro        .       22.000     +INF       .         
+Player1.Nuclear      .       26.750     +INF       .         
+Player2.Hydro        .       22.000     +INF       .         
+Player2.Nuclear      .       26.750     +INF       .         
+
+---- VAR lambda1  capacity constraint t=1
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro        .        1.000     +INF       .         
+Player1.Nuclear      .        2.000     +INF       .         
+Player2.Hydro        .        1.000     +INF       .         
+Player2.Nuclear      .        2.000     +INF       .         
+
+---- VAR K1  capacity
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro        .       18.928     +INF       .         
+Player1.Nuclear      .       33.215     +INF       .         
+Player2.Hydro        .       23.738     +INF       .         
+Player2.Nuclear      .        9.451     +INF       .         
+
+---- VAR In0  investments t=0
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro        .        3.928     +INF       .         
+Player1.Nuclear      .        8.215     +INF       .         
+Player2.Hydro        .        3.738     +INF       .         
+Player2.Nuclear      .        4.451     +INF       .         
+
+---- VAR phi  state
+
+                   LOWER     LEVEL     UPPER    MARGINAL
+
+Player1.Hydro       -INF      1.000     +INF       .         
+Player1.Nuclear     -INF      2.000     +INF       .         
+Player2.Hydro       -INF      1.000     +INF       .         
+Player2.Nuclear     -INF      2.000     +INF       .         
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     85 VARIABLE q0.L  quantity t=0
+
+              Hydro     Nuclear
+
+Player1      15.000      25.000
+Player2      20.000       5.000
+
+
+----     85 VARIABLE q1.L  quantity t=1
+
+              Hydro     Nuclear
+
+Player1      18.928      33.215
+Player2      23.738       9.451
+
+
+----     85 VARIABLE In0.L  investments t=0
+
+              Hydro     Nuclear
+
+Player1       3.928       8.215
+Player2       3.738       4.451
+
+
+----     85 PARAMETER K0  capacity  t=0
+
+              Hydro     Nuclear
+
+Player1      15.000      25.000
+Player2      20.000       5.000
+
+
+----     85 VARIABLE K1.L  capacity
+
+              Hydro     Nuclear
+
+Player1      18.928      33.215
+Player2      23.738       9.451
+
+
+----     85 VARIABLE lambda0.L  capacity constraint t=0
+
+              Hydro     Nuclear
+
+Player1      22.000      26.750
+Player2      22.000      26.750
+
+
+----     85 VARIABLE lambda1.L  capacity constraint t=1
+
+              Hydro     Nuclear
+
+Player1       1.000       2.000
+Player2       1.000       2.000
+
+
+
+EXECUTION TIME       =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+
+
+USER: course license                                 S060628:0842AL-WIN
+      Phd course about mathematical programming                  DC5953
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech.gms
+Output     G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech.lst
