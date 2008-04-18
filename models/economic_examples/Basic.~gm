@@ -24,7 +24,7 @@ F   scrap values      /    90 /
 
 pc0  /     1000     /
 
-pc1  / 20  /
+pc1  / 1000  /
 
 alpha(s)                 /l  100
                           h  150 /
