@@ -16,7 +16,12 @@ abline(v=q_opt,col="grey")
 abline(h=demand(q_opt),col="grey")
 points(q_opt,demand(q_opt),col="red")
 
+q_oli <- (1/3)*((alpha-c)/beta)
 
+points(2*q_oli,demand(2*q_oli),col="blue")
+
+q_pc <- (alpha-c)/beta
+points(q_pc,demand(q_pc),col="green")
 
 
 

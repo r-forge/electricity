@@ -1,6 +1,8 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{amsmath,a4wide,listings,color}
 
+\usepackage{hyperref}
+
 \lstdefinelanguage{GAMS}
 {
 	basicstyle=\ttfamily\tiny,
@@ -16,6 +18,7 @@
 \lstset{language=GAMS,
 %frame=shadowbox, rulesepcolor=\color{blue}
 }
+
 
 \section{The simple monopoly}
 
@@ -87,7 +90,9 @@ The KKT Conditions are as follows.
         0 \leq -\alpha + 2\beta q^1 + c + \lambda^1 &\bot& q^1 \geq 0\\
 	0 \leq -q^0 + K^0 &\bot& \lambda^0 \geq 0 \\
         0 \leq -q^1 + K^1 &\bot& \lambda^1 \geq 0 \\
-        0 = K^1 - K^0 - I^0 &\bot& \phi^1 \quad \mbox{free}
+        0 = K^1 - K^0 - I^0 &\bot& \phi^1 \quad \mbox{free} \\
+        0 \leq -\lambda^1 + \phi^1 &\bot& K^1 \geq 0 \\
+        0 \leq F - \phi^1 &\bot& I^0 \geq 0 
 \end{eqnarray*}
 
 
@@ -106,33 +111,32 @@ The KKT Conditions are as follows.
 We consider again the monopolist who produces with one technology. Now, we extend the time horizon to two stages, and allow for an investment in $t=0$, which translates into more production capacity in $t=1$.
 
 \begin{equation*}
-	\max_{q^t}\Pi = \sum_t\left[(\alpha-\beta q^t)q^t - cq^t  -FI^0\right]
+	\max_{q^t}\Pi = \sum_t\left[(\alpha-\beta q^t)q^t - cq^t  -FI^t\right]
 \end{equation*}
 
 subject to
 
 \begin{eqnarray*}
-	q^0 - K^0 &\leq& 0\\
-	q^1 - K^1 &\leq& 0\\
-        K^1 - K^0 - I^0 &=& 0\\
-	q^0,q^1,I^0 &\geq& 0 
+	q^t - K^t &\leq& 0\quad \forall \,t\\
+        K^{t+1} - K^t - I^t &=& 0 \quad \forall \, t>0\\
+	q^t,I^t,K^t &\geq& 0 
 \end{eqnarray*}
  
 We get the following Lagrangian.
 
 \begin{eqnarray*}
-	\mathcal{L}(q^0,q^1,\lambda^0,\lambda^1,\phi^1)&=& (\alpha-\beta q^0)q^0 - cq^0 +  (\alpha-\beta q^1)q^1 - cq^1 -FI^0 \\
-        && - \lambda^0(q^0-K^0) - \lambda^1(q^1-K^1) - \phi^1(K^1-K^0-I^0)
+	\mathcal{L}(q^t,\lambda^t,\phi^t)&=& \sum_t\left[(\alpha-\beta q^t)q^t - cq^t  -FI^t\right] \\
+        && \sum_{t\in T}- \lambda^t(q^t-K^t) - \sum_{t\in (T\backslash 0)}\phi^t(K^{t}-K^{t-1}-I^{t-1})
 \end{eqnarray*}
 
 The KKT Conditions are as follows.
-
+ 
 \begin{eqnarray*}
-	0 \leq -\alpha + 2\beta q^0 + c + \lambda^0 &\bot& q^0 \geq 0\\
-        0 \leq -\alpha + 2\beta q^1 + c + \lambda^1 &\bot& q^1 \geq 0\\
-	0 \leq -q^0 + K^0 &\bot& \lambda^0 \geq 0 \\
-        0 \leq -q^1 + K^1 &\bot& \lambda^1 \geq 0 \\
-        0 = K^1 - K^0 - I^0 &\bot& \phi^1 \quad \mbox{free}
+	0 \leq -\alpha + 2\beta q^t + c + \lambda^t &\bot& q^t \geq 0 \quad\forall\,t\\
+	0 \leq -q^t + K^t &\bot& \lambda^t \geq 0 \quad\forall\,t\\
+        0 = K^{t} - K^{t-1} - I^{t-1} &\bot& \phi^t \quad \mbox{free}, \quad\forall\,t>0 \\
+        0 \leq -\lambda^t + \phi^t &\bot& K^t \geq 0  \quad\forall\,t>0 \\
+        0 \leq F - \phi^t &\bot& I^{t-1} \geq 0  \quad\forall\,t>0
 \end{eqnarray*}
 
 
@@ -143,5 +147,268 @@ The KKT Conditions are as follows.
 \subsection*{ex$\_$monopoly\_.lst}
 
 \lstinputlisting{ex_monopoly_dyn.lst}
+
+
+\section{The dynamic monopoly with three stages}
+
+We consider again the monopolist who produces with one technology. Now, we extend the time horizon to three stages, and allow for an investment in $t=0,1$, which translates into more production capacity in $t=1,2$.
+
+\begin{equation*}
+	\max_{q^0,q^1}\Pi = (\alpha-\beta q^0)q^0 - cq^0 +  (\alpha-\beta q^1)q^1 - cq^1 + (\alpha-\beta q^2)q^2 - cq^2 -FI^1
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q^0 - K^0 &\leq& 0\\
+	q^1 - K^1 &\leq& 0\\
+	q^2 - K^2 &\leq& 0\\
+        K^1 - K^0 - I^0 &=& 0\\
+        K^2 - K^1 - I^1 &=& 0\\
+	q^0,q^1,q^1, I^0, I^1, K^0, K^1, K^2 &\geq& 0 
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{eqnarray*}
+	\mathcal{L}(q^0,q^1,q2,\lambda^0,\lambda^1,\lambda^2,\phi^1,\phi^2)&=& (\alpha-\beta q^0)q^0 - cq^0 +  (\alpha-\beta q^1)q^1 - cq^1 +  (\alpha-\beta q^2)q^2 - cq^2-FI^1 \\
+        && - \lambda^0(q^0-K^0) - \lambda^1(q^1-K^1) - \lambda^1(q^2-K^2) \\
+&& - \phi^1(K^1-K^0-I^0) - \phi^2(K^2-K^1-I^1)
+\end{eqnarray*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + 2\beta q^0 + c + \lambda^0 &\bot& q^0 \geq 0\\
+        0 \leq -\alpha + 2\beta q^1 + c + \lambda^1 &\bot& q^1 \geq 0\\
+        0 \leq -\alpha + 2\beta q^2 + c + \lambda^2 &\bot& q^2 \geq 0\\
+	0 \leq -q^0 + K^0 &\bot& \lambda^0 \geq 0 \\
+        0 \leq -q^1 + K^1 &\bot& \lambda^1 \geq 0 \\
+        0 \leq -q^2 + K^2 &\bot& \lambda^2 \geq 0 \\
+        0 = K^1 - K^0 - I^0 &\bot& \phi^1 \quad \mbox{free} \\
+        0 = K^2 - K^1 - I^1 &\bot& \phi^2 \quad \mbox{free} \\
+        0 \leq -\lambda^1 + \phi^1 &\bot& K^1 \geq 0 \\
+        0 \leq -\lambda^2 + \phi^2 &\bot& K^2 \geq 0 \\
+        0 \leq F - \phi^1 &\bot& I^0 \geq 0 \\
+        0 \leq F - \phi^2 &\bot& I^1 \geq 0 
+\end{eqnarray*}
+
+
+\subsection*{ex$\_$monopoly\_dyn\_stages.gms}
+
+\lstinputlisting{ex_monopoly_dyn_3stages.gms}
+
+%\subsection*{ex$\_$monopoly\_.lst}
+
+%\lstinputlisting{ex_monopoly_dyn.lst}
+
+
+\section{The simple monopoly with several technologies}
+
+We continues with a static monopoly with several technologies. The monopolist has the following objective function:
+
+\begin{equation*}
+	\max_{q^j}\Pi = (\alpha-\beta \sum_{j\in M}q_j)\sum_{j\in M}q_j - \sum_{j\in M}c_jq_j 
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q_j - K_j &\leq& 0 \quad \forall\,j\\
+	q_j, K_j &\geq& 0 \quad \forall\,j
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{equation*}
+	\mathcal{L}(q_j,\lambda_j)= (\alpha-\beta \sum_{j\in M}q_j)\sum_{j\in M}q_j - \sum_{j\in M}c_jq_j) - \sum_{j\in M} \lambda_j(q_j-K_j)
+\end{equation*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + 2\beta \sum_{j\in M}q_j + c_j + \lambda_j &\bot& q_j \geq 0\quad \forall\,j\\
+	0 \leq -q_j + K_j &\bot& \lambda_j \geq 0 \quad \forall\,j
+\end{eqnarray*}
+
+
+\subsection*{ex$\_$monopoly\_tech.gms}
+
+\lstinputlisting{ex_monopoly_tech.gms}
+
+\subsection*{ex$\_$monopoly\_tech.lst}
+
+\lstinputlisting{ex_monopoly_tech.lst}
+
+\section{The dynamic monopoly with several technologies}
+
+
+We consider again the monopolist who produces with several technologies. Now, we extend the time horizon to two stages, and allow for an investment in $t=0$, which translates into more production capacity in $t=1$.
+
+\begin{equation*}
+	\max_{q_j^0,q_j^1}\Pi = (\alpha-\beta \sum_{j\in M}q_j^0)\sum_{j\in M}q_j^0 - \sum_{j\in M}c_jq_j^0 +  (\alpha-\beta \sum_{j\in M}q_j^1)\sum_{j\in M}q_j^1 - \sum_{j\in M}c_jq_j^1 - \sum_{j\in M}F_jI_j^0
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q_j^0 - K_j^0 &\leq& 0 \quad \forall\,j\\
+	q_j^1 - K_j^1 &\leq& 0 \quad \forall\,j\\
+        K_j^1 - K_j^0 - I_j^0 &=& 0 \quad \forall\,j\\
+	q_j^0,q_j^1,I_j^0, K_j^0, K_j^1 &\geq& 0 \quad \forall\,j 
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{eqnarray*}
+	\mathcal{L}(q_j^0,q_j^1,\lambda_j^0,\lambda_j^1,\phi_j^1)&=& (\alpha-\beta \sum_{j\in M}q_j^0)\sum_{j\in M}q_j^0 - \sum_{j\in M}c_jq_j^0 \\
+        && +  (\alpha-\beta \sum_{j\in M}q_j^1)\sum_{j\in M}q_j^1 - \sum_{j\in M}c_jq_j^1  - \sum_{j\in M}F_jI_j^0\\
+        && - \sum_{j\in M}\lambda_j^0(q_j^0-K_j^0) - \sum_{j\in M}\lambda_j^1(q_j^1-K^1) - \sum_{j\in M}\phi_j^1(K_j^1-K_j^0-I_j^0)
+\end{eqnarray*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + 2\beta \sum_{j\in M}q_j^0 + c_j + \lambda_j^0 &\bot& q_j^0 \geq 0\quad \forall\, j\\
+	0 \leq -\alpha + 2\beta \sum_{j\in M}q_j^1 + c_j + \lambda_j^1 &\bot& q_j^1 \geq 0\quad \forall\, j\\
+	0 \leq -q_j^0 + K_j^0 &\bot& \lambda_j^0 \geq 0 \quad \forall\, j \\
+	0 \leq -q_j^1 + K_j^1 &\bot& \lambda_j^1 \geq 0 \quad \forall\, j \\
+        0 = K_j^1 - K_j^0 - I_j^0 &\bot& \phi_j^1 \quad \mbox{free}  \quad \forall\, j\\
+        0 \leq -\lambda_j^1 + \phi_j^1 &\bot& K_j^1 \geq 0  \quad \forall\, j\\
+        0 \leq F_j - \phi_j^1 &\bot& I_j^0 \geq 0  \quad \forall\, j
+\end{eqnarray*}
+
+
+\subsection*{ex$\_$monopoly\_dyn\_tech.gms}
+
+\lstinputlisting{ex_monopoly_dyn_tech.gms}
+
+\subsection*{ex$\_$monopoly\_dyn\_tech.lst}
+
+\lstinputlisting{ex_monopoly_dyn_tech.lst}
+
+
+\section{The simple oligopoly}
+
+Let us consider now a static oligopoly with one technology and $i$ different players. Each oligopolist has the following objective function:
+
+\begin{equation*}
+	\max_{q_i}\Pi_i = (\alpha-\beta \sum_{i\in N}q_i)q_i - cq_i 
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q_i - K_i &\leq& 0  \quad\forall\, i\\
+	q_i,K_i &\geq& 0  \quad\forall\, i
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{equation*}
+	\mathcal{L}(q_i,\lambda_i)= (\alpha-\beta\sum_{i\in N} q_i)q_i - cq_i -\lambda_i(q_i-K_i)
+\end{equation*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + \beta\sum_{i\in N} q_i + \beta q_i + c + \lambda_i &\bot& q_i \geq 0 \quad\forall\, i\\
+	0 \leq -q_i + K_i &\bot& \lambda_i \geq 0 \quad\forall\, i
+\end{eqnarray*}
+
+
+\subsection*{ex$\_$oligopoly.gms}
+
+\lstinputlisting{ex_oligopoly.gms}
+
+\subsection*{ex$\_$oligopoly.lst}
+
+\lstinputlisting{ex_oligopoly.lst}
+
+\section{The dynamic oligopoly}
+
+
+We consider again the oligopoly with $i$ players who produce with one technology. Now, we extend the time horizon to two stages, and allow for an investment in $t=0$, which translates into more production capacity in $t=1$.
+
+\begin{equation*}
+	\max_{q_i^0,q_i^1}\Pi_i = (\alpha-\beta \sum_{i\in N}q_i^0)q_i^0 - cq^0 +  (\alpha-\beta \sum_{i\in N}q_i^1)q_i^1 - cq_i^1 -FI_i^0
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q_i^0 - K_i^0 &\leq& 0 \quad\forall\, i\\
+	q_i^1 - K_i^1 &\leq& 0 \quad\forall\, i\\
+        K_i^1 - K_i^0 - I_i^0 &=& 0 \quad\forall\, i\\
+	q_i^0,q_i^1,I_i^0, K_i^0, K_i^1 &\geq& 0 \quad\forall\, i
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{eqnarray*}
+	\mathcal{L}(q_i^0,q_i^1,\lambda_i^0,\lambda_i^1,\phi_i^1)&=&  (\alpha-\beta \sum_{i\in N}q_i^0)q_i^0 - cq^0 +  (\alpha-\beta \sum_{i\in N}q_i^1)q_i^1 - cq_i^1 -FI_i^0\\
+        && - \lambda_i^0(q_i^0-K_i^0) - \lambda_i^1(q_i^1-K_i^1) - \phi_i^1(K_i^1-K_i^0-I_i^0)
+\end{eqnarray*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + \beta \sum_{i\in N}q_i^0 + \beta q_i^0+ c + \lambda_i^0 &\bot& q_i^0 \geq 0\quad\forall\, i\\
+	0 \leq -\alpha + \beta \sum_{i\in N}q_i^1 + \beta q_i^1+ c + \lambda_i^1 &\bot& q_i^1 \geq 0\quad\forall\, i\\
+	0 \leq -q_i^0 + K_i^0 &\bot& \lambda_i^0 \geq 0 \quad\forall\, i \\
+        0 \leq -q_i^1 + K_i^1 &\bot& \lambda_i^1 \geq 0 \quad\forall\, i\\
+        0 = K_i^1 - K_i^0 - I_i^0 &\bot& \phi_i^1 \quad \mbox{free} \quad\forall\, i \\
+        0 \leq -\lambda_i^1 + \phi_i^1 &\bot& K_i^1 \geq 0 \quad\forall\, i\\
+        0 \leq F - \phi_i^1 &\bot& I_i^0 \geq 0 \quad\forall\, i
+\end{eqnarray*}
+
+
+
+\subsection*{ex$\_$oligopoly\_dyn.gms}
+
+\lstinputlisting{ex_oligopoly_dyn.gms}
+
+\subsection*{ex$\_$oligopoly\_dyn.lst}
+
+\lstinputlisting{ex_oligopoly_dyn.lst}
+
+
+\section{The dynamic oligopoly with several technologies}
+
+
+We consider again the oligopoly with $i$ players who produce with one technology. Now, we extend the time horizon to two stages, and allow for an investment in $t=0$, which translates into more production capacity in $t=1$.
+
+\begin{equation*}
+	\max_{q_i^0,q_i^1}\Pi_i = (\alpha-\beta \sum_{i\in N}q_i^0)q_i^0 - cq^0 +  (\alpha-\beta \sum_{i\in N}q_i^1)q_i^1 - cq_i^1 -FI_i^0
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q_i^0 - K_i^0 &\leq& 0 \quad\forall\, i\\
+	q_i^1 - K_i^1 &\leq& 0 \quad\forall\, i\\
+        K_i^1 - K_i^0 - I_i^0 &=& 0 \quad\forall\, i\\
+	q_i^0,q_i^1,I_i^0, K_i^0, K_i^1 &\geq& 0 \quad\forall\, i
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{eqnarray*}
+	\mathcal{L}(q_i^0,q_i^1,\lambda_i^0,\lambda_i^1,\phi_i^1)&=&  (\alpha-\beta \sum_{i\in N}q_i^0)q_i^0 - cq^0 +  (\alpha-\beta \sum_{i\in N}q_i^1)q_i^1 - cq_i^1 -FI_i^0\\
+        && - \lambda_i^0(q_i^0-K_i^0) - \lambda_i^1(q_i^1-K_i^1) - \phi_i^1(K_i^1-K_i^0-I_i^0)
+\end{eqnarray*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + \beta \sum_{i\in N}q_i^0 + \beta q_i^0+ c + \lambda_i^0 &\bot& q_i^0 \geq 0\quad\forall\, i\\
+	0 \leq -\alpha + \beta \sum_{i\in N}q_i^1 + \beta q_i^1+ c + \lambda_i^1 &\bot& q_i^1 \geq 0\quad\forall\, i\\
+	0 \leq -q_i^0 + K_i^0 &\bot& \lambda_i^0 \geq 0 \quad\forall\, i \\
+        0 \leq -q_i^1 + K_i^1 &\bot& \lambda_i^1 \geq 0 \quad\forall\, i\\
+        0 = K_i^1 - K_i^0 - I_i^0 &\bot& \phi_i^1 \quad \mbox{free} \quad\forall\, i \\
+        0 \leq -\lambda_i^1 + \phi_i^1 &\bot& K_i^1 \geq 0 \quad\forall\, i\\
+        0 \leq F - \phi_i^1 &\bot& I_i^0 \geq 0 \quad\forall\, i
+\end{eqnarray*}
+
 
 \end{document}
