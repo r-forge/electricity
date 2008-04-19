@@ -1,4 +1,4 @@
-GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 1
+GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -87,16 +87,15 @@ C o m p i l a t i o n
   79  ;
   80   
   81   
-  82   
-  83  Solve oligop using mcp;
-  84   
-  85  Display q0.l, q1.l,In0.l, K0, K1.l,lambda0.l,lambda1.l;
+  82  Solve oligop using mcp;
+  83   
+  84  Display q0.l, q1.l,In0.l, K0, K1.l,lambda0.l,lambda1.l;
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 2
+GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE oligop Using MCP From line 83
+Equation Listing    SOLVE oligop Using MCP From line 82
 
 
 ---- profit0  =G=  profit function t=0
@@ -215,9 +214,9 @@ state3(Player2,Hydro)..  - phi(Player2,Hydro) =G= -1 ; (LHS = 0)
      
 REMAINING ENTRY SKIPPED
 
-GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 3
+GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE oligop Using MCP From line 83
+Column Listing      SOLVE oligop Using MCP From line 82
 
 
 ---- q0  quantity t=0
@@ -364,9 +363,9 @@ phi(Player2,Hydro)
        -1       state3(Player2,Hydro)
 
 REMAINING ENTRY SKIPPED
-GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 4
+GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE oligop Using MCP From line 83
+Model Statistics    SOLVE oligop Using MCP From line 82
 
 
 MODEL STATISTICS
@@ -378,20 +377,20 @@ DERIVATIVE POOL               6     CONSTANT POOL              14
 CODE LENGTH                   1
 
 
-GENERATION TIME      =        0.015 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GENERATION TIME      =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
 
 
-EXECUTION TIME       =        0.015 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 5
+EXECUTION TIME       =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE oligop Using MCP From line 83
+Solution Report     SOLVE oligop Using MCP From line 82
 
 
                S O L V E      S U M M A R Y
 
      MODEL   oligop              
      TYPE    MCP                 
-     SOLVER  PATH                FROM LINE  83
+     SOLVER  PATH                FROM LINE  82
 
 **** SOLVER STATUS     1 NORMAL COMPLETION         
 **** MODEL STATUS      1 OPTIMAL                   
@@ -575,12 +574,12 @@ Player2.Nuclear     -INF      2.000     +INF       .
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS Rev 145  x86/MS Windows                            04/19/08 01:30:07 Page 6
+GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-----     85 VARIABLE q0.L  quantity t=0
+----     84 VARIABLE q0.L  quantity t=0
 
               Hydro     Nuclear
 
@@ -588,7 +587,7 @@ Player1      15.000      25.000
 Player2      20.000       5.000
 
 
-----     85 VARIABLE q1.L  quantity t=1
+----     84 VARIABLE q1.L  quantity t=1
 
               Hydro     Nuclear
 
@@ -596,7 +595,7 @@ Player1      18.928      33.215
 Player2      23.738       9.451
 
 
-----     85 VARIABLE In0.L  investments t=0
+----     84 VARIABLE In0.L  investments t=0
 
               Hydro     Nuclear
 
@@ -604,7 +603,7 @@ Player1       3.928       8.215
 Player2       3.738       4.451
 
 
-----     85 PARAMETER K0  capacity  t=0
+----     84 PARAMETER K0  capacity  t=0
 
               Hydro     Nuclear
 
@@ -612,7 +611,7 @@ Player1      15.000      25.000
 Player2      20.000       5.000
 
 
-----     85 VARIABLE K1.L  capacity
+----     84 VARIABLE K1.L  capacity
 
               Hydro     Nuclear
 
@@ -620,7 +619,7 @@ Player1      18.928      33.215
 Player2      23.738       9.451
 
 
-----     85 VARIABLE lambda0.L  capacity constraint t=0
+----     84 VARIABLE lambda0.L  capacity constraint t=0
 
               Hydro     Nuclear
 
@@ -628,7 +627,7 @@ Player1      22.000      26.750
 Player2      22.000      26.750
 
 
-----     85 VARIABLE lambda1.L  capacity constraint t=1
+----     84 VARIABLE lambda1.L  capacity constraint t=1
 
               Hydro     Nuclear
 

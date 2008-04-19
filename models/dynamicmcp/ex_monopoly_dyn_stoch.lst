@@ -1,0 +1,391 @@
+GAMS Rev 145  x86/MS Windows                            04/19/08 18:52:03 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Sets
+   2  s        scenarios
+   3  ;
+   4   
+   5  Alias(s,o)
+   6   
+   7  Parameters
+   8  alpha0           demand function intercept t=0
+   9  alpha1(s)        demand function intercept t=1
+  10  p(s)             probability of scenario s
+  11  beta             demand function slope
+  12  K0               capacity constraint
+  13  c                variable costs
+  14  F                capacity costs
+  15  ;
+  16   
+  17   
+  18  Equations
+  19  profit0             profit function t=0
+  20  profit1(s)          profit function t=1
+  21  capacity0           capacity constraint t=0
+  22  capacity1(s)        capacity constraint t=1
+  23  state            state equation
+  24  state2           state equation (K1)
+  25  state3           state equation (I)
+  26  ;
+  27   
+  28  Positive Variables
+  29  q0          quantity t=0
+  30  q1(s)       quantity t=1
+  31  lambda0     capacity constraint t=0
+  32  lambda1(s)  capacity constraint t=1
+  33  K1       capacity
+  34  In0      investments t=0
+  35  ;
+  36   
+  37  Free Variable
+  38  phi   state
+  39  ;
+  40   
+  41  profit0 .. -alpha0 + 2*beta*q0 + c + lambda0 =g= 0;
+  42  profit1(s) .. -p(s)*(alpha1(s) - 2*beta*q1(s) - c) + lambda1(s) =g= 0;
+  43   
+  44  capacity0 .. -q0 + K0 =g= 0;
+  45  capacity1(s) .. -q1(s) + K1 =g= 0;
+  46   
+  47  state .. K1 - K0 - In0 =e= 0;
+  48  state2 .. - sum(o,lambda1(o)) + phi =g= 0;
+  49  state3 .. F - phi =g= 0;
+  50   
+  51   
+  52  model monop /profit0.q0, profit1.q1, capacity0.lambda0, capacity1.lambda1,
+  53               state, state2.K1, state3.In0/;
+  54   
+  55  Set s /1,2/;
+  56   
+  57  Parameters
+  58  alpha0    /100/
+  59  beta     /0.75/
+  60  K0       /55/
+  61  c        /3/
+  62  F        /2/
+  63  ;
+  64   
+  65  Parameter alpha1(s)      /1 105
+  66                            2 95 /;
+  67   
+  68  Parameter p(s)  /1 0.5
+  69                   2 0.5/;
+  70   
+  71  Solve monop using mcp;
+  72   
+  73  Display q0.l,q1.l,In0.l, K0, K1.l,lambda0.l,lambda1.l,p;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/19/08 18:52:03 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE monop Using MCP From line 71
+
+
+---- profit0  =G=  profit function t=0
+
+profit0..  1.5*q0 + lambda0 =G= 97 ; (LHS = 0, INFES = 97 ***)
+     
+
+---- profit1  =G=  profit function t=1
+
+profit1(1)..  0.75*q1(1) + lambda1(1) =G= 51 ; (LHS = 0, INFES = 51 ***)
+     
+profit1(2)..  0.75*q1(2) + lambda1(2) =G= 46 ; (LHS = 0, INFES = 46 ***)
+     
+
+---- capacity0  =G=  capacity constraint t=0
+
+capacity0..  - q0 =G= -55 ; (LHS = 0)
+     
+
+---- capacity1  =G=  capacity constraint t=1
+
+capacity1(1)..  - q1(1) + K1 =G= 0 ; (LHS = 0)
+     
+capacity1(2)..  - q1(2) + K1 =G= 0 ; (LHS = 0)
+     
+
+---- state  =E=  state equation
+
+state..  K1 - In0 =E= 55 ; (LHS = 0, INFES = 55 ***)
+     
+
+---- state2  =G=  state equation (K1)
+
+state2..  - lambda1(1) - lambda1(2) + phi =G= 0 ; (LHS = 0)
+     
+
+---- state3  =G=  state equation (I)
+
+state3..  - phi =G= -2 ; (LHS = 0)
+     
+GAMS Rev 145  x86/MS Windows                            04/19/08 18:52:03 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE monop Using MCP From line 71
+
+
+---- q0  quantity t=0
+
+q0
+                (.LO, .L, .UP = 0, 0, +INF)
+        1.5     profit0
+       -1       capacity0
+
+
+---- q1  quantity t=1
+
+q1(1)
+                (.LO, .L, .UP = 0, 0, +INF)
+        0.75    profit1(1)
+       -1       capacity1(1)
+
+q1(2)
+                (.LO, .L, .UP = 0, 0, +INF)
+        0.75    profit1(2)
+       -1       capacity1(2)
+
+
+---- lambda0  capacity constraint t=0
+
+lambda0
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit0
+
+
+---- lambda1  capacity constraint t=1
+
+lambda1(1)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit1(1)
+       -1       state2
+
+lambda1(2)
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       profit1(2)
+       -1       state2
+
+
+---- K1  capacity
+
+K1
+                (.LO, .L, .UP = 0, 0, +INF)
+        1       capacity1(1)
+        1       capacity1(2)
+        1       state
+
+
+---- In0  investments t=0
+
+In0
+                (.LO, .L, .UP = 0, 0, +INF)
+       -1       state
+
+
+---- phi  state
+
+phi
+                (.LO, .L, .UP = -INF, 0, +INF)
+        1       state2
+       -1       state3
+
+GAMS Rev 145  x86/MS Windows                            04/19/08 18:52:03 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE monop Using MCP From line 71
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           7     SINGLE EQUATIONS            9
+BLOCKS OF VARIABLES           7     SINGLE VARIABLES            9
+NON ZERO ELEMENTS            17     NON LINEAR N-Z              0
+DERIVATIVE POOL               6     CONSTANT POOL              14
+CODE LENGTH                   1
+
+
+GENERATION TIME      =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+
+
+EXECUTION TIME       =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/19/08 18:52:03 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE monop Using MCP From line 71
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   monop               
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  71
+
+**** SOLVER STATUS     1 NORMAL COMPLETION         
+**** MODEL STATUS      1 OPTIMAL                   
+
+ RESOURCE USAGE, LIMIT          0.093      1000.000
+ ITERATION COUNT, LIMIT        19         10000
+ EVALUATION ERRORS              0             0
+
+*** Your license (code PT) expired  601 days ago.
+*** Continue to run in demonstration mode.
+*** To update your license, please contact your distributor or
+***    GAMS Development Corp.
+***    Phone : (202) 342 0180
+***    Fax   : (202) 342 0181
+***    email : sales@gams.com
+
+
+PATH-C        Apr 21, 2006 WIN.PT.PT 22.2 022.034.041.VIS Path 4.6.06
+
+9 row/cols, 17 non-zeros, 20.99% dense.
+
+Path 4.6.06 (Fri Apr 21 16:29:09 2006)
+Written by Todd Munson, Steven Dirkse, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  0.0000e+000 var: (q1(1))
+Maximum of F. . . . . . . . . .  5.5000e+001 eqn: (state)
+Maximum of Grad F . . . . . . .  1.0000e+000 eqn: (capacity1(1))
+                                            var: (q1(1))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  3.0000e+000 eqn: (state2)
+Minimum Row Norm. . . . . . . .  1.0000e+000 eqn: (state3)
+Maximum Column Norm . . . . . .  3.0000e+000 var: (K1)
+Minimum Column Norm . . . . . .  1.0000e+000 var: (In0)
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  4.8085e-006 eqn: (profit1(1))
+Inf-Norm of Normal Map. . . . .  7.8138e-008 eqn: (state3)
+Inf-Norm of Minimum Map . . . .  7.8138e-008 eqn: (state3)
+Inf-Norm of Fischer Function. .  7.8138e-008 eqn: (state3)
+Inf-Norm of Grad Fischer Fcn. .  9.2584e-008 eqn: (capacity1(2))
+Two-Norm of Grad Fischer Fcn. .  1.3315e-007
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  6.5333e+001 var: (q1(1))
+Maximum of F. . . . . . . . . .  4.0000e+000 eqn: (capacity1(2))
+Maximum of Grad F . . . . . . .  1.0000e+000 eqn: (capacity1(1))
+                                            var: (q1(1))
+
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- EQU profit0       97.000    97.000     +INF     55.000      
+
+  profit0  profit function t=0
+
+---- EQU profit1  profit function t=1
+
+     LOWER     LEVEL     UPPER    MARGINAL
+
+1    51.000    51.000     +INF     65.333      
+2    46.000    46.000     +INF     61.333      
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- EQU capacity0    -55.000   -55.000     +INF     14.500      
+
+  capacity0  capacity constraint t=0
+
+---- EQU capacity1  capacity constraint t=1
+
+     LOWER     LEVEL     UPPER    MARGINAL
+
+1      .         .        +INF      2.000      
+2      .        4.000     +INF       .         
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- EQU state         55.000    55.000    55.000     2.000      
+---- EQU state2          .         .        +INF     65.333      
+---- EQU state3        -2.000    -2.000     +INF     10.333      
+
+  state  state equation
+  state2  state equation (K1)
+  state3  state equation (I)
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- VAR q0              .       55.000     +INF       .         
+
+  q0  quantity t=0
+
+---- VAR q1  quantity t=1
+
+     LOWER     LEVEL     UPPER    MARGINAL
+
+1      .       65.333     +INF       .         
+2      .       61.333     +INF       .         
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- VAR lambda0         .       14.500     +INF       .         
+
+  lambda0  capacity constraint t=0
+
+---- VAR lambda1  capacity constraint t=1
+
+     LOWER     LEVEL     UPPER    MARGINAL
+
+1      .        2.000     +INF       .         
+2      .         .        +INF      4.000      
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- VAR K1              .       65.333     +INF       .         
+---- VAR In0             .       10.333     +INF       .         
+---- VAR phi            -INF      2.000     +INF       .         
+
+  K1  capacity
+  In0  investments t=0
+  phi  state
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS Rev 145  x86/MS Windows                            04/19/08 18:52:03 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     73 VARIABLE q0.L                  =       55.000  quantity t=0
+
+----     73 VARIABLE q1.L  quantity t=1
+
+1 65.333,    2 61.333
+
+
+----     73 VARIABLE In0.L                 =       10.333  investments t=0
+            PARAMETER K0                   =       55.000  capacity constraint
+            VARIABLE K1.L                  =       65.333  capacity
+            VARIABLE lambda0.L             =       14.500  capacity constraint t
+                                                           =0
+
+----     73 VARIABLE lambda1.L  capacity constraint t=1
+
+1 2.000
+
+
+----     73 PARAMETER p  probability of scenario s
+
+1 0.500,    2 0.500
+
+
+
+EXECUTION TIME       =        0.094 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+
+
+USER: course license                                 S060628:0842AL-WIN
+      Phd course about mathematical programming                  DC5953
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      G:\electricity\models\dynamicmcp\ex_monopoly_dyn_stoch.gms
+Output     G:\electricity\models\dynamicmcp\ex_monopoly_dyn_stoch.lst
