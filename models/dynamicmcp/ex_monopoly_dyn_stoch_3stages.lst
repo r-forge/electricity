@@ -1,219 +1,266 @@
-GAMS Rev 145  x86/MS Windows                            04/20/08 14:28:59 Page 1
+GAMS Rev 145  x86/MS Windows                            04/20/08 17:31:29 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
    1  Parameters
-   2  alpha    demand function intercept
-   3  beta     demand function slope
-   4  K0       capacity constraint
-   5  c        variable costs
-   6  F        capacity costs
-   7  ps       probability scenario s
-   8  ;
-   9   
-  10  Parameters
-  11  alpha    /100/
-  12  beta     /0.75/
-  13  K0       /55/
-  14  c        /3/
-  15  F        /0.5/
-  16  ps       /0.25/
-  17  ;
-  18   
-  19  Equations
-  20  profit0             profit function t=0
-  21   
-  22  profit1s1           profit function t=1
-  23  profit1s2           profit function t=1
-  24  profit1s3           profit function t=1
-  25  profit1s4           profit function t=1
-  26   
-  27  profit2s1           profit function t=2
-  28  profit2s2           profit function t=2
-  29  profit2s3           profit function t=2
-  30  profit2s4           profit function t=2
-  31   
-  32  capacity0           capacity constraint t=0
-  33   
-  34  capacity1s1         capacity constraint t=1
-  35  capacity1s2         capacity constraint t=1
-  36  capacity1s3         capacity constraint t=1
-  37  capacity1s4         capacity constraint t=1
-  38   
-  39  capacity2s1         capacity constraint t=2
-  40  capacity2s2         capacity constraint t=2
-  41  capacity2s3         capacity constraint t=2
-  42  capacity2s4         capacity constraint t=2
-  43   
-  44  statet1             state equation t=1
-  45   
-  46  statet2s1           state equation t=2
-  47  statet2s2           state equation t=2
-  48  statet2s3           state equation t=2
-  49  statet2s4           state equation t=2
-  50   
-  51  state2t1            state equation (K1)
-  52   
-  53  state2t2s1          state equation (K2)
-  54  state2t2s2          state equation (K2)
-  55  state2t2s3          state equation (K2)
-  56  state2t2s4          state equation (K2)
-  57   
-  58  state3t1            state equation (I0)
+   2  alpha0           demand function intercept
+   3  alpha1s1         demand function intercept
+   4  alpha1s2         demand function intercept
+   5  alpha1s3         demand function intercept
+   6  alpha1s4         demand function intercept
+   7  alpha2s1         demand function intercept
+   8  alpha2s2         demand function intercept
+   9  alpha2s3         demand function intercept
+  10  alpha2s4         demand function intercept
+  11  beta     demand function slope
+  12  K0       capacity constraint
+  13  c        variable costs
+  14  F        capacity costs
+  15  ps       probability scenario s
+  16  ;
+  17   
+  18  Parameters
+  19  alpha0    /100/
+  20  alpha1s1 /105/
+  21  alpha1s2 /105/
+  22  alpha1s3 /95/
+  23  alpha1s4 /95/
+  24  alpha2s1 /110/
+  25  alpha2s2 /102/
+  26  alpha2s3 /99/
+  27  alpha2s4 /93/
+  28  beta     /0.75/
+  29  K0       /50/
+  30  c        /3/
+  31  F        /0.5/
+  32  ps       /0.25/
+  33  ;
+  34   
+  35  Equations
+  36  profit0             profit function t=0
+  37   
+  38  profit1s1           profit function t=1
+  39  profit1s2           profit function t=1
+  40  profit1s3           profit function t=1
+  41  profit1s4           profit function t=1
+  42   
+  43  profit2s1           profit function t=2
+  44  profit2s2           profit function t=2
+  45  profit2s3           profit function t=2
+  46  profit2s4           profit function t=2
+  47   
+  48  capacity0           capacity constraint t=0
+  49   
+  50  capacity1s1         capacity constraint t=1
+  51  capacity1s2         capacity constraint t=1
+  52  capacity1s3         capacity constraint t=1
+  53  capacity1s4         capacity constraint t=1
+  54   
+  55  capacity2s1         capacity constraint t=2
+  56  capacity2s2         capacity constraint t=2
+  57  capacity2s3         capacity constraint t=2
+  58  capacity2s4         capacity constraint t=2
   59   
-  60  state3t2s1          state equation (I1)
-  61  state3t2s2          state equation (I1)
-  62  state3t2s3          state equation (I1)
-  63  state3t2s4          state equation (I1)
-  64   
-  65  nonant1t1           non-anticipativity t=1
-  66  nonant1t2           non-anticipativity t=1
-  67  ;
+  60  statet1             state equation t=1
+  61   
+  62  statet2s1           state equation t=2
+  63  statet2s2           state equation t=2
+  64  statet2s3           state equation t=2
+  65  statet2s4           state equation t=2
+  66   
+  67  state2t1            state equation (K1)
   68   
-  69  Positive Variables
-  70  q0          quantity t=0
-  71   
-  72  q1s1        quantity t=1
-  73  q1s2        quantity t=1
-  74  q1s3        quantity t=1
-  75  q1s4        quantity t=1
-  76   
-  77  q2s1        quantity t=2
-  78  q2s2        quantity t=2
-  79  q2s3        quantity t=2
-  80  q2s4        quantity t=2
-  81   
-  82  lambda0     capacity constraint t=0
-  83   
-  84  lambda1s1   capacity constraint t=1
-  85  lambda1s2   capacity constraint t=1
-  86  lambda1s3   capacity constraint t=1
-  87  lambda1s4   capacity constraint t=1
-  88   
-  89  lambda2s1   capacity constraint t=2
-  90  lambda2s2   capacity constraint t=2
-  91  lambda2s3   capacity constraint t=2
-  92  lambda2s4   capacity constraint t=2
-  93   
-  94  K1          capacity t=1
-  95   
-  96  K2s1        capacity t=2
-  97  K2s2        capacity t=2
-  98  K2s3        capacity t=2
-  99  K2s4        capacity t=2
- 100   
- 101  In0         investments t=0
- 102   
- 103  In1s1       investments t=1
- 104  In1s2       investments t=1
- 105  In1s3       investments t=1
- 106  In1s4       investments t=1
- 107  ;
- 108   
- 109  Free Variable
- 110   
- 111  phi1   state
- 112   
- 113  phi2s1   state
- 114  phi2s2   state
- 115  phi2s3   state
- 116  phi2s4   state
- 117  ;
+  69  state2t2s1          state equation (K2)
+  70  state2t2s2          state equation (K2)
+  71  state2t2s3          state equation (K2)
+  72  state2t2s4          state equation (K2)
+  73   
+  74  state3t1            state equation (I0)
+  75   
+  76  state3t2s1          state equation (I1)
+  77  state3t2s2          state equation (I1)
+  78  state3t2s3          state equation (I1)
+  79  state3t2s4          state equation (I1)
+  80   
+  81  nonant1t1           non-anticipativity t=1
+  82  nonant1t2           non-anticipativity t=1
+  83  ;
+  84   
+  85  Positive Variables
+  86  q0          quantity t=0
+  87   
+  88  q1s1        quantity t=1
+  89  q1s2        quantity t=1
+  90  q1s3        quantity t=1
+  91  q1s4        quantity t=1
+  92   
+  93  q2s1        quantity t=2
+  94  q2s2        quantity t=2
+  95  q2s3        quantity t=2
+  96  q2s4        quantity t=2
+  97   
+  98  lambda0     capacity constraint t=0
+  99   
+ 100  lambda1s1   capacity constraint t=1
+ 101  lambda1s2   capacity constraint t=1
+ 102  lambda1s3   capacity constraint t=1
+ 103  lambda1s4   capacity constraint t=1
+ 104   
+ 105  lambda2s1   capacity constraint t=2
+ 106  lambda2s2   capacity constraint t=2
+ 107  lambda2s3   capacity constraint t=2
+ 108  lambda2s4   capacity constraint t=2
+ 109   
+ 110  K1          capacity t=1
+ 111   
+ 112  K2s1        capacity t=2
+ 113  K2s2        capacity t=2
+ 114  K2s3        capacity t=2
+ 115  K2s4        capacity t=2
+ 116   
+ 117  In0         investments t=0
  118   
- 119  *q0
- 120  profit0 .. -alpha + 2*beta*q0 + c + lambda0 =g= 0;
- 121   
- 122  *q1s...
- 123  profit1s1 .. -ps*(alpha - 2*beta*q1s1 - c) + lambda1s1 =g= 0;
- 124  profit1s2 .. -ps*(alpha - 2*beta*q1s2 - c) + lambda1s2 =g= 0;
- 125  profit1s3 .. -ps*(alpha - 2*beta*q1s3 - c) + lambda1s3 =g= 0;
- 126  profit1s4 .. -ps*(alpha - 2*beta*q1s4 - c) + lambda1s4 =g= 0;
- 127   
- 128  *q2s...
- 129  profit2s1 .. -ps*(alpha - 2*beta*q2s1 - c) + lambda2s1 =g= 0;
- 130  profit2s2 .. -ps*(alpha - 2*beta*q2s2 - c) + lambda2s2 =g= 0;
- 131  profit2s3 .. -ps*(alpha - 2*beta*q2s3 - c) + lambda2s3 =g= 0;
- 132  profit2s4 .. -ps*(alpha - 2*beta*q2s4 - c) + lambda2s4 =g= 0;
+ 119  In1s1       investments t=1
+ 120  In1s2       investments t=1
+ 121  In1s3       investments t=1
+ 122  In1s4       investments t=1
+ 123  ;
+ 124   
+ 125  Free Variable
+ 126   
+ 127  phi1   state
+ 128   
+ 129  phi2s1   state
+ 130  phi2s2   state
+ 131  phi2s3   state
+ 132  phi2s4   state
  133   
- 134  *lambda0
- 135  capacity0 .. -q0 + K0 =g= 0;
- 136   
- 137  *lambda1s...
- 138  capacity1s1 .. -q1s1 + K1 =g= 0;
- 139  capacity1s2 .. -q1s2 + K1 =g= 0;
- 140  capacity1s3 .. -q1s3 + K1 =g= 0;
- 141  capacity1s4 .. -q1s4 + K1 =g= 0;
- 142   
- 143  *lambda2s...
- 144  capacity2s1 .. -q2s1 + K2s1 =g= 0;
- 145  capacity2s2 .. -q2s2 + K2s2 =g= 0;
- 146  capacity2s3 .. -q2s3 + K2s3 =g= 0;
- 147  capacity2s4 .. -q2s4 + K2s4 =g= 0;
- 148   
- 149  *phi1
- 150  statet1 .. K1 - K0 - In0 =e= 0;
- 151   
- 152  *phi2s...
- 153  statet2s1 .. K2s1 - K1 - In1s1 =e= 0;
- 154  statet2s2 .. K2s2 - K1 - In1s2 =e= 0;
- 155  statet2s3 .. K2s3 - K1 - In1s3 =e= 0;
- 156  statet2s4 .. K2s4 - K1 - In1s4 =e= 0;
- 157   
- 158  *K1
- 159  state2t1 .. - (lambda1s1+lambda1s2+lambda1s3+lambda1s4) + phi1 =g= 0;
- 160   
- 161  *K2s...
- 162  state2t2s1 .. - (lambda2s1+lambda2s2+lambda2s3+lambda2s4) + phi2s1 =g= 0;
- 163  state2t2s2 .. - (lambda2s1+lambda2s2+lambda2s3+lambda2s4) + phi2s2 =g= 0;
- 164  state2t2s3 .. - (lambda2s1+lambda2s2+lambda2s3+lambda2s4) + phi2s3 =g= 0;
- 165  state2t2s4 .. - (lambda2s1+lambda2s2+lambda2s3+lambda2s4) + phi2s4 =g= 0;
- 166   
- 167  *In0
- 168  state3t1 .. F - phi1 =g= 0;
- 169   
- 170  *I1s...
- 171  state3t2s1 .. F - phi2s1 =g= 0;
- 172  state3t2s2 .. F - phi2s2 =g= 0;
- 173  state3t2s3 .. F - phi2s3 =g= 0;
- 174  state3t2s4 .. F - phi2s4 =g= 0;
- 175   
- 176  *psi1
- 177  nonant1t1 .. In1s1 - In1s2 =e= 0;
- 178  *psi2
- 179  nonant1t2 .. In1s3 - In1s4 =e= 0;
- 180   
- 181   
- 182  model monop /profit0.q0,
- 183               profit1s1.q1s1, profit1s2.q1s2, profit1s3.q1s3, profit1s4.q1s
+ 134  psi1     nonant
+ 135  psi2     nonant
+ 136  ;
+ 137   
+ 138  *q0
+ 139  profit0 .. -alpha0 + 2*beta*q0 + c + lambda0 =g= 0;
+ 140   
+ 141  *q1s...
+ 142  profit1s1 .. -ps*(alpha1s1 - 2*beta*q1s1 - c) + lambda1s1 =g= 0;
+ 143  profit1s2 .. -ps*(alpha1s2 - 2*beta*q1s2 - c) + lambda1s2 =g= 0;
+ 144  profit1s3 .. -ps*(alpha1s3 - 2*beta*q1s3 - c) + lambda1s3 =g= 0;
+ 145  profit1s4 .. -ps*(alpha1s4 - 2*beta*q1s4 - c) + lambda1s4 =g= 0;
+ 146   
+ 147  *q2s...
+ 148  profit2s1 .. -ps*(alpha2s1 - 2*beta*q2s1 - c) + lambda2s1 =g= 0;
+ 149  profit2s2 .. -ps*(alpha2s2 - 2*beta*q2s2 - c) + lambda2s2 =g= 0;
+ 150  profit2s3 .. -ps*(alpha2s3 - 2*beta*q2s3 - c) + lambda2s3 =g= 0;
+ 151  profit2s4 .. -ps*(alpha2s4 - 2*beta*q2s4 - c) + lambda2s4 =g= 0;
+ 152   
+ 153  *lambda0
+ 154  capacity0 .. -q0 + K0 =g= 0;
+ 155   
+ 156  *lambda1s...
+ 157  capacity1s1 .. -q1s1 + K1 =g= 0;
+ 158  capacity1s2 .. -q1s2 + K1 =g= 0;
+ 159  capacity1s3 .. -q1s3 + K1 =g= 0;
+ 160  capacity1s4 .. -q1s4 + K1 =g= 0;
+ 161   
+ 162  *lambda2s...
+ 163  capacity2s1 .. -q2s1 + K2s1 =g= 0;
+ 164  capacity2s2 .. -q2s2 + K2s2 =g= 0;
+ 165  capacity2s3 .. -q2s3 + K2s3 =g= 0;
+ 166  capacity2s4 .. -q2s4 + K2s4 =g= 0;
+ 167   
+ 168  *phi1
+ 169  statet1 .. K1 - K0 - In0 =e= 0;
+ 170   
+ 171  *phi2s...
+ 172  statet2s1 .. K2s1 - K1 - In1s1 =e= 0;
+ 173  statet2s2 .. K2s2 - K1 - In1s2 =e= 0;
+ 174  statet2s3 .. K2s3 - K1 - In1s3 =e= 0;
+ 175  statet2s4 .. K2s4 - K1 - In1s4 =e= 0;
+ 176   
+ 177  *K1
+ 178  state2t1 .. - (lambda1s1+lambda1s2+lambda1s3+lambda1s4) + phi1 - (phi2s1+p
+      hi2s2+phi2s3+phi2s4) =g= 0;
+ 179   
+ 180  *K2s...
+ 181  state2t2s1 .. - (lambda2s1+lambda2s2+lambda2s3+lambda2s4) + (phi2s1+phi2s2
+      +phi2s3+phi2s4) =g= 0;
+ 182  state2t2s2 .. - (lambda2s1+lambda2s2+lambda2s3+lambda2s4) + (phi2s1+phi2s2
+      +phi2s3+phi2s4) =g= 0;
+ 183  state2t2s3 .. - (lambda2s1+lambda2s2+lambda2s3+lambda2s4) + (phi2s1+phi2s2
+      +phi2s3+phi2s4) =g= 0;
+ 184  state2t2s4 .. - (lambda2s1+lambda2s2+lambda2s3+lambda2s4) + (phi2s1+phi2s2
+      +phi2s3+phi2s4) =g= 0;
+ 185   
+ 186  *In0
+ 187  state3t1 .. F - phi1 =g= 0;
+ 188   
+ 189  *I1s...
+ 190  state3t2s1 .. ps*F - phi2s1 + psi1 =g= 0;
+ 191  state3t2s2 .. ps*F - phi2s2 - psi1 =g= 0;
+ 192  state3t2s3 .. ps*F - phi2s3 + psi2 =g= 0;
+ 193  state3t2s4 .. ps*F - phi2s4 - psi2 =g= 0;
+ 194   
+ 195  *psi1
+ 196  nonant1t1 .. In1s1 - In1s2 =e= 0;
+ 197  *psi2
+ 198  nonant1t2 .. In1s1 - In1s2 =e= 0;
+ 199   
+ 200   
+ 201  model monop /profit0.q0,
+ 202               profit1s1.q1s1, profit1s2.q1s2, profit1s3.q1s3, profit1s4.q1s
       4,
- 184               profit2s1.q2s1, profit2s2.q2s2, profit2s3.q2s3, profit2s4.q2s
+ 203               profit2s1.q2s1, profit2s2.q2s2, profit2s3.q2s3, profit2s4.q2s
       4,
- 185               capacity0.lambda0,
- 186               capacity1s1.lambda1s1, capacity1s2.lambda1s2, capacity1s3.lam
+ 204               capacity0.lambda0,
+ 205               capacity1s1.lambda1s1, capacity1s2.lambda1s2, capacity1s3.lam
       bda1s3, capacity1s4.lambda1s4,
- 187               capacity2s1.lambda2s1, capacity2s2.lambda2s2, capacity2s3.lam
+ 206               capacity2s1.lambda2s1, capacity2s2.lambda2s2, capacity2s3.lam
       bda2s3, capacity2s4.lambda2s4,
- 188               statet1,
- 189               statet2s1, statet2s2, statet2s3, statet2s4,
- 190               state2t1.K1,
- 191               state2t2s1.K2s1, state2t2s2.K2s2, state2t2s3.K2s3, state2t2s4
+ 207               statet1,
+ 208               statet2s1, statet2s2, statet2s3, statet2s4,
+ 209               state2t1.K1,
+ 210               state2t2s1.K2s1, state2t2s2.K2s2, state2t2s3.K2s3, state2t2s4
       .K2s4,
- 192               state3t1.In0,
- 193               state3t2s1.In1s1, state3t2s2.In1s2, state3t2s3.In1s3, state3t
-      2s4.In1s4
- 194               /;
- 195   
- 196  Solve monop using mcp;
- 197   
- 198  *Display q0.l, q1.l, q2.l, In0.l, In1.l, K0, K1.l, K2.l, lambda0.l,lambda1
+ 211               state3t1.In0,
+ 212               state3t2s1.In1s1, state3t2s2.In1s2, state3t2s3.In1s3, state3t
+      2s4.In1s4,
+ 213               nonant1t1.psi1, nonant1t2.psi2
+ 214               /;
+ 215   
+ 216  *
+ 217   
+ 218  Solve monop using mcp;
+ 219   
+ 220   
+ 221  Parameters
+ 222  totprofit1s1 total profit t=1
+ 223  totprofit1s3 total profit t=1
+ 224  totprofit2s1 total profit t=1
+ 225  totprofit2s2 total profit t=1
+ 226  totprofit2s3 total profit t=1
+ 227  totprofit2s4 total profit t=1
+ 228  ;
+ 229   
+ 230  totprofit1s1 = (alpha1s1 - beta*q1s1.l)*q1s1.l - c*q1s1.l - F*In1s1.l;
+ 231  totprofit1s3 = (alpha1s3 - beta*q1s3.l)*q1s3.l - c*q1s3.l ;
+ 232  totprofit2s1 = (alpha2s1 - beta*q2s1.l)*q2s1.l - c*q2s1.l;
+ 233  totprofit2s2 = (alpha2s2 - beta*q2s2.l)*q2s2.l - c*q2s2.l;
+ 234  totprofit2s3 = (alpha2s3 - beta*q2s3.l)*q2s3.l - c*q2s3.l;
+ 235  totprofit2s4 = (alpha2s4 - beta*q2s4.l)*q2s4.l - c*q2s4.l;
+ 236   
+ 237  Display totprofit1s1, totprofit1s3,totprofit2s1,totprofit2s2,totprofit2s3,
+      totprofit2s4;
+ 238   
+ 239  *Display q0.l, q1.l, q2.l, In0.l, In1.l, K0, K1.l, K2.l, lambda0.l,lambda1
       .l, lambda2.l;
 
 
-COMPILATION TIME     =        0.000 SECONDS      2 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/20/08 14:28:59 Page 2
+COMPILATION TIME     =        0.015 SECONDS      2 Mb  WIN222-145 Apr 21, 2006
+GAMS Rev 145  x86/MS Windows                            04/20/08 17:31:29 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE monop Using MCP From line 196
+Equation Listing    SOLVE monop Using MCP From line 218
 
 
 ---- profit0  =G=  profit function t=0
@@ -223,47 +270,47 @@ profit0..  1.5*q0 + lambda0 =G= 97 ; (LHS = 0, INFES = 97 ***)
 
 ---- profit1s1  =G=  profit function t=1
 
-profit1s1..  0.375*q1s1 + lambda1s1 =G= 24.25 ; (LHS = 0, INFES = 24.25 ***)
+profit1s1..  0.375*q1s1 + lambda1s1 =G= 25.5 ; (LHS = 0, INFES = 25.5 ***)
      
 
 ---- profit1s2  =G=  profit function t=1
 
-profit1s2..  0.375*q1s2 + lambda1s2 =G= 24.25 ; (LHS = 0, INFES = 24.25 ***)
+profit1s2..  0.375*q1s2 + lambda1s2 =G= 25.5 ; (LHS = 0, INFES = 25.5 ***)
      
 
 ---- profit1s3  =G=  profit function t=1
 
-profit1s3..  0.375*q1s3 + lambda1s3 =G= 24.25 ; (LHS = 0, INFES = 24.25 ***)
+profit1s3..  0.375*q1s3 + lambda1s3 =G= 23 ; (LHS = 0, INFES = 23 ***)
      
 
 ---- profit1s4  =G=  profit function t=1
 
-profit1s4..  0.375*q1s4 + lambda1s4 =G= 24.25 ; (LHS = 0, INFES = 24.25 ***)
+profit1s4..  0.375*q1s4 + lambda1s4 =G= 23 ; (LHS = 0, INFES = 23 ***)
      
 
 ---- profit2s1  =G=  profit function t=2
 
-profit2s1..  0.375*q2s1 + lambda2s1 =G= 24.25 ; (LHS = 0, INFES = 24.25 ***)
+profit2s1..  0.375*q2s1 + lambda2s1 =G= 26.75 ; (LHS = 0, INFES = 26.75 ***)
      
 
 ---- profit2s2  =G=  profit function t=2
 
-profit2s2..  0.375*q2s2 + lambda2s2 =G= 24.25 ; (LHS = 0, INFES = 24.25 ***)
+profit2s2..  0.375*q2s2 + lambda2s2 =G= 24.75 ; (LHS = 0, INFES = 24.75 ***)
      
 
 ---- profit2s3  =G=  profit function t=2
 
-profit2s3..  0.375*q2s3 + lambda2s3 =G= 24.25 ; (LHS = 0, INFES = 24.25 ***)
+profit2s3..  0.375*q2s3 + lambda2s3 =G= 24 ; (LHS = 0, INFES = 24 ***)
      
 
 ---- profit2s4  =G=  profit function t=2
 
-profit2s4..  0.375*q2s4 + lambda2s4 =G= 24.25 ; (LHS = 0, INFES = 24.25 ***)
+profit2s4..  0.375*q2s4 + lambda2s4 =G= 22.5 ; (LHS = 0, INFES = 22.5 ***)
      
 
 ---- capacity0  =G=  capacity constraint t=0
 
-capacity0..  - q0 =G= -55 ; (LHS = 0)
+capacity0..  - q0 =G= -50 ; (LHS = 0)
      
 
 ---- capacity1s1  =G=  capacity constraint t=1
@@ -308,7 +355,7 @@ capacity2s4..  - q2s4 + K2s4 =G= 0 ; (LHS = 0)
 
 ---- statet1  =E=  state equation t=1
 
-statet1..  K1 - In0 =E= 55 ; (LHS = 0, INFES = 55 ***)
+statet1..  K1 - In0 =E= 50 ; (LHS = 0, INFES = 50 ***)
      
 
 ---- statet2s1  =E=  state equation t=2
@@ -333,37 +380,37 @@ statet2s4..  - K1 + K2s4 - In1s4 =E= 0 ; (LHS = 0)
 
 ---- state2t1  =G=  state equation (K1)
 
-state2t1..  - lambda1s1 - lambda1s2 - lambda1s3 - lambda1s4 + phi1 =G= 0 ;
+state2t1..  - lambda1s1 - lambda1s2 - lambda1s3 - lambda1s4 + phi1 - phi2s1
      
-      (LHS = 0)
+      - phi2s2 - phi2s3 - phi2s4 =G= 0 ; (LHS = 0)
      
 
 ---- state2t2s1  =G=  state equation (K2)
 
-state2t2s1..  - lambda2s1 - lambda2s2 - lambda2s3 - lambda2s4 + phi2s1 =G= 0 ;
+state2t2s1..  - lambda2s1 - lambda2s2 - lambda2s3 - lambda2s4 + phi2s1 + phi2s2
      
-      (LHS = 0)
+      + phi2s3 + phi2s4 =G= 0 ; (LHS = 0)
      
 
 ---- state2t2s2  =G=  state equation (K2)
 
-state2t2s2..  - lambda2s1 - lambda2s2 - lambda2s3 - lambda2s4 + phi2s2 =G= 0 ;
+state2t2s2..  - lambda2s1 - lambda2s2 - lambda2s3 - lambda2s4 + phi2s1 + phi2s2
      
-      (LHS = 0)
+      + phi2s3 + phi2s4 =G= 0 ; (LHS = 0)
      
 
 ---- state2t2s3  =G=  state equation (K2)
 
-state2t2s3..  - lambda2s1 - lambda2s2 - lambda2s3 - lambda2s4 + phi2s3 =G= 0 ;
+state2t2s3..  - lambda2s1 - lambda2s2 - lambda2s3 - lambda2s4 + phi2s1 + phi2s2
      
-      (LHS = 0)
+      + phi2s3 + phi2s4 =G= 0 ; (LHS = 0)
      
 
 ---- state2t2s4  =G=  state equation (K2)
 
-state2t2s4..  - lambda2s1 - lambda2s2 - lambda2s3 - lambda2s4 + phi2s4 =G= 0 ;
+state2t2s4..  - lambda2s1 - lambda2s2 - lambda2s3 - lambda2s4 + phi2s1 + phi2s2
      
-      (LHS = 0)
+      + phi2s3 + phi2s4 =G= 0 ; (LHS = 0)
      
 
 ---- state3t1  =G=  state equation (I0)
@@ -373,26 +420,36 @@ state3t1..  - phi1 =G= -0.5 ; (LHS = 0)
 
 ---- state3t2s1  =G=  state equation (I1)
 
-state3t2s1..  - phi2s1 =G= -0.5 ; (LHS = 0)
+state3t2s1..  - phi2s1 + psi1 =G= -0.125 ; (LHS = 0)
      
 
 ---- state3t2s2  =G=  state equation (I1)
 
-state3t2s2..  - phi2s2 =G= -0.5 ; (LHS = 0)
+state3t2s2..  - phi2s2 - psi1 =G= -0.125 ; (LHS = 0)
      
 
 ---- state3t2s3  =G=  state equation (I1)
 
-state3t2s3..  - phi2s3 =G= -0.5 ; (LHS = 0)
+state3t2s3..  - phi2s3 + psi2 =G= -0.125 ; (LHS = 0)
      
 
 ---- state3t2s4  =G=  state equation (I1)
 
-state3t2s4..  - phi2s4 =G= -0.5 ; (LHS = 0)
+state3t2s4..  - phi2s4 - psi2 =G= -0.125 ; (LHS = 0)
      
-GAMS Rev 145  x86/MS Windows                            04/20/08 14:28:59 Page 3
+
+---- nonant1t1  =E=  non-anticipativity t=1
+
+nonant1t1..  In1s1 - In1s2 =E= 0 ; (LHS = 0)
+     
+
+---- nonant1t2  =E=  non-anticipativity t=1
+
+nonant1t2..  In1s1 - In1s2 =E= 0 ; (LHS = 0)
+     
+GAMS Rev 145  x86/MS Windows                            04/20/08 17:31:29 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE monop Using MCP From line 196
+Column Listing      SOLVE monop Using MCP From line 218
 
 
 ---- q0  quantity t=0
@@ -609,6 +666,8 @@ In0
 In1s1
                 (.LO, .L, .UP = 0, 0, +INF)
        -1       statet2s1
+        1       nonant1t1
+        1       nonant1t2
 
 
 ---- In1s2  investments t=1
@@ -616,6 +675,8 @@ In1s1
 In1s2
                 (.LO, .L, .UP = 0, 0, +INF)
        -1       statet2s2
+       -1       nonant1t1
+       -1       nonant1t2
 
 
 ---- In1s3  investments t=1
@@ -644,7 +705,11 @@ phi1
 
 phi2s1
                 (.LO, .L, .UP = -INF, 0, +INF)
+       -1       state2t1
         1       state2t2s1
+        1       state2t2s2
+        1       state2t2s3
+        1       state2t2s4
        -1       state3t2s1
 
 
@@ -652,7 +717,11 @@ phi2s1
 
 phi2s2
                 (.LO, .L, .UP = -INF, 0, +INF)
+       -1       state2t1
+        1       state2t2s1
         1       state2t2s2
+        1       state2t2s3
+        1       state2t2s4
        -1       state3t2s2
 
 
@@ -660,7 +729,11 @@ phi2s2
 
 phi2s3
                 (.LO, .L, .UP = -INF, 0, +INF)
+       -1       state2t1
+        1       state2t2s1
+        1       state2t2s2
         1       state2t2s3
+        1       state2t2s4
        -1       state3t2s3
 
 
@@ -668,19 +741,39 @@ phi2s3
 
 phi2s4
                 (.LO, .L, .UP = -INF, 0, +INF)
+       -1       state2t1
+        1       state2t2s1
+        1       state2t2s2
+        1       state2t2s3
         1       state2t2s4
        -1       state3t2s4
 
-GAMS Rev 145  x86/MS Windows                            04/20/08 14:28:59 Page 4
+
+---- psi1  nonant
+
+psi1
+                (.LO, .L, .UP = -INF, 0, +INF)
+        1       state3t2s1
+       -1       state3t2s2
+
+
+---- psi2  nonant
+
+psi2
+                (.LO, .L, .UP = -INF, 0, +INF)
+        1       state3t2s3
+       -1       state3t2s4
+
+GAMS Rev 145  x86/MS Windows                            04/20/08 17:31:29 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE monop Using MCP From line 196
+Model Statistics    SOLVE monop Using MCP From line 218
 
 
 MODEL STATISTICS
 
-BLOCKS OF EQUATIONS          33     SINGLE EQUATIONS           33
-BLOCKS OF VARIABLES          33     SINGLE VARIABLES           33
-NON ZERO ELEMENTS            79     NON LINEAR N-Z              0
+BLOCKS OF EQUATIONS          35     SINGLE EQUATIONS           35
+BLOCKS OF VARIABLES          35     SINGLE VARIABLES           35
+NON ZERO ELEMENTS           103     NON LINEAR N-Z              0
 DERIVATIVE POOL               6     CONSTANT POOL              14
 CODE LENGTH                   1
 
@@ -689,22 +782,22 @@ GENERATION TIME      =        0.016 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
 
 
 EXECUTION TIME       =        0.016 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/20/08 14:28:59 Page 5
+GAMS Rev 145  x86/MS Windows                            04/20/08 17:31:29 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE monop Using MCP From line 196
+Solution Report     SOLVE monop Using MCP From line 218
 
 
                S O L V E      S U M M A R Y
 
      MODEL   monop               
      TYPE    MCP                 
-     SOLVER  PATH                FROM LINE  196
+     SOLVER  PATH                FROM LINE  218
 
 **** SOLVER STATUS     1 NORMAL COMPLETION         
 **** MODEL STATUS      1 OPTIMAL                   
 
  RESOURCE USAGE, LIMIT          0.109      1000.000
- ITERATION COUNT, LIMIT        78         10000
+ ITERATION COUNT, LIMIT       166         10000
  EVALUATION ERRORS              0             0
 
 *** Your license (code PT) expired  602 days ago.
@@ -718,73 +811,75 @@ Solution Report     SOLVE monop Using MCP From line 196
 
 PATH-C        Apr 21, 2006 WIN.PT.PT 22.2 022.034.041.VIS Path 4.6.06
 
-33 row/cols, 79 non-zeros, 7.25% dense.
+35 row/cols, 103 non-zeros, 8.41% dense.
 
 Path 4.6.06 (Fri Apr 21 16:29:09 2006)
 Written by Todd Munson, Steven Dirkse, and Michael Ferris
 
 INITIAL POINT STATISTICS
 Maximum of X. . . . . . . . . .  0.0000e+000 var: (q1s1)
-Maximum of F. . . . . . . . . .  5.5000e+001 eqn: (statet1)
+Maximum of F. . . . . . . . . .  5.0000e+001 eqn: (statet1)
 Maximum of Grad F . . . . . . .  1.0000e+000 eqn: (capacity1s1)
                                             var: (q1s1)
 
 INITIAL JACOBIAN NORM STATISTICS
-Maximum Row Norm. . . . . . . .  5.0000e+000 eqn: (state2t1)
+Maximum Row Norm. . . . . . . .  9.0000e+000 eqn: (state2t1)
 Minimum Row Norm. . . . . . . .  1.0000e+000 eqn: (state3t1)
 Maximum Column Norm . . . . . .  9.0000e+000 var: (K1)
 Minimum Column Norm . . . . . .  1.0000e+000 var: (In0)
 
 FINAL STATISTICS
-Inf-Norm of Complementarity . .  8.0079e-007 eqn: (profit2s4)
-Inf-Norm of Normal Map. . . . .  1.0808e-007 eqn: (statet2s1)
-Inf-Norm of Minimum Map . . . .  1.0808e-007 eqn: (statet2s1)
-Inf-Norm of Fischer Function. .  1.0808e-007 eqn: (statet2s1)
-Inf-Norm of Grad Fischer Fcn. .  4.3662e-007 eqn: (state2t1)
-Two-Norm of Grad Fischer Fcn. .  5.9971e-007
+Inf-Norm of Complementarity . .  2.3263e-008 eqn: (profit1s1)
+Inf-Norm of Normal Map. . . . .  6.8418e-010 eqn: (state2t1)
+Inf-Norm of Minimum Map . . . .  6.8418e-010 eqn: (state2t1)
+Inf-Norm of Fischer Function. .  6.8418e-010 eqn: (state2t1)
+Inf-Norm of Grad Fischer Fcn. .  1.1403e-009 eqn: (statet2s2)
+Two-Norm of Grad Fischer Fcn. .  2.6413e-009
 
 FINAL POINT STATISTICS
-Maximum of X. . . . . . . . . .  6.4333e+001 var: (K2s1)
-Maximum of F. . . . . . . . . .  1.0808e-007 eqn: (statet2s1)
+Maximum of X. . . . . . . . . .  7.0000e+001 var: (q2s1)
+Maximum of F. . . . . . . . . .  9.9996e+000 eqn: (capacity2s4)
 Maximum of Grad F . . . . . . .  1.0000e+000 eqn: (capacity1s1)
                                             var: (q1s1)
 
 
                        LOWER     LEVEL     UPPER    MARGINAL
 
----- EQU profit0       97.000    97.000     +INF     55.000      
----- EQU profit1s1     24.250    24.250     +INF     64.333      
----- EQU profit1s2     24.250    24.250     +INF     64.333      
----- EQU profit1s3     24.250    24.250     +INF     64.333      
----- EQU profit1s4     24.250    24.250     +INF     64.333      
----- EQU profit2s1     24.250    24.250     +INF     64.333      
----- EQU profit2s2     24.250    24.250     +INF     64.333      
----- EQU profit2s3     24.250    24.250     +INF     64.333      
----- EQU profit2s4     24.250    24.250     +INF     64.333      
----- EQU capacity0    -55.000   -55.000     +INF     14.500      
----- EQU capacity1~      .         .        +INF      0.125      
----- EQU capacity1~      .         .        +INF      0.125      
----- EQU capacity1~      .         .        +INF      0.125      
----- EQU capacity1~      .         .        +INF      0.125      
----- EQU capacity2~      .         .        +INF      0.125      
----- EQU capacity2~      .         .        +INF      0.125      
----- EQU capacity2~      .         .        +INF      0.125      
----- EQU capacity2~      .         .        +INF      0.125      
----- EQU statet1       55.000    55.000    55.000     0.500      
----- EQU statet2s1       .         .         .        0.500      
----- EQU statet2s2       .         .         .        0.500      
----- EQU statet2s3       .         .         .        0.500      
----- EQU statet2s4       .         .         .        0.500      
----- EQU state2t1        .         .        +INF     64.333      
----- EQU state2t2s1      .         .        +INF     64.333      
----- EQU state2t2s2      .         .        +INF     64.333      
----- EQU state2t2s3      .         .        +INF     64.333      
----- EQU state2t2s4      .         .        +INF     64.333      
----- EQU state3t1      -0.500    -0.500     +INF      9.333      
----- EQU state3t2s1    -0.500    -0.500     +INF       .         
----- EQU state3t2s2    -0.500    -0.500     +INF       .         
----- EQU state3t2s3    -0.500    -0.500     +INF       .         
----- EQU state3t2s4    -0.500    -0.500     +INF       .         
+---- EQU profit0       97.000    97.000     +INF     50.000      
+---- EQU profit1s1     25.500    25.500     +INF     68.000      
+---- EQU profit1s2     25.500    25.500     +INF     68.000      
+---- EQU profit1s3     23.000    23.000     +INF     61.333      
+---- EQU profit1s4     23.000    23.000     +INF     61.333      
+---- EQU profit2s1     26.750    26.750     +INF     70.000      
+---- EQU profit2s2     24.750    24.750     +INF     66.000      
+---- EQU profit2s3     24.000    24.000     +INF     64.000      
+---- EQU profit2s4     22.500    22.500     +INF     60.000      
+---- EQU capacity0    -50.000   -50.000     +INF     22.000      
+---- EQU capacity1~      .         .        +INF       .         
+---- EQU capacity1~      .         .        +INF       .         
+---- EQU capacity1~      .        6.667     +INF       .         
+---- EQU capacity1~      .        6.667     +INF       .         
+---- EQU capacity2~      .         .        +INF      0.500      
+---- EQU capacity2~      .        4.000     +INF       .         
+---- EQU capacity2~      .        6.000     +INF       .         
+---- EQU capacity2~      .       10.000     +INF       .         
+---- EQU statet1       50.000    50.000    50.000     0.500      
+---- EQU statet2s1       .         .         .      -25.821      
+---- EQU statet2s2       .         .         .       26.071      
+---- EQU statet2s3       .         .         .      -25.821      
+---- EQU statet2s4       .         .         .       26.071      
+---- EQU state2t1        .         .        +INF     68.000      
+---- EQU state2t2s1      .         .        +INF     70.000      
+---- EQU state2t2s2      .         .        +INF     70.000      
+---- EQU state2t2s3      .         .        +INF     70.000      
+---- EQU state2t2s4      .         .        +INF     70.000      
+---- EQU state3t1      -0.500    -0.500     +INF     18.000      
+---- EQU state3t2s1    -0.125    -0.125     +INF      2.000      
+---- EQU state3t2s2    -0.125    -0.125     +INF      2.000      
+---- EQU state3t2s3    -0.125    -0.125     +INF      2.000      
+---- EQU state3t2s4    -0.125    -0.125     +INF      2.000      
+---- EQU nonant1t1       .         .         .      -25.946      
+---- EQU nonant1t2       .         .         .      -25.946      
 
   profit0  profit function t=0
   profit1s1  profit function t=1
@@ -819,42 +914,46 @@ Maximum of Grad F . . . . . . .  1.0000e+000 eqn: (capacity1s1)
   state3t2s2  state equation (I1)
   state3t2s3  state equation (I1)
   state3t2s4  state equation (I1)
+  nonant1t1  non-anticipativity t=1
+  nonant1t2  non-anticipativity t=1
 
                        LOWER     LEVEL     UPPER    MARGINAL
 
----- VAR q0              .       55.000     +INF       .         
----- VAR q1s1            .       64.333     +INF       .         
----- VAR q1s2            .       64.333     +INF       .         
----- VAR q1s3            .       64.333     +INF       .         
----- VAR q1s4            .       64.333     +INF       .         
----- VAR q2s1            .       64.333     +INF       .         
----- VAR q2s2            .       64.333     +INF       .         
----- VAR q2s3            .       64.333     +INF       .         
----- VAR q2s4            .       64.333     +INF       .         
----- VAR lambda0         .       14.500     +INF       .         
----- VAR lambda1s1       .        0.125     +INF       .         
----- VAR lambda1s2       .        0.125     +INF       .         
----- VAR lambda1s3       .        0.125     +INF       .         
----- VAR lambda1s4       .        0.125     +INF       .         
----- VAR lambda2s1       .        0.125     +INF       .         
----- VAR lambda2s2       .        0.125     +INF       .         
----- VAR lambda2s3       .        0.125     +INF       .         
----- VAR lambda2s4       .        0.125     +INF       .         
----- VAR K1              .       64.333     +INF       .         
----- VAR K2s1            .       64.333     +INF       .         
----- VAR K2s2            .       64.333     +INF       .         
----- VAR K2s3            .       64.333     +INF       .         
----- VAR K2s4            .       64.333     +INF       .         
----- VAR In0             .        9.333     +INF       .         
----- VAR In1s1           .         .        +INF       .         
----- VAR In1s2           .         .        +INF       .         
----- VAR In1s3           .         .        +INF       .         
----- VAR In1s4           .         .        +INF       .         
+---- VAR q0              .       50.000     +INF       .         
+---- VAR q1s1            .       68.000     +INF       .         
+---- VAR q1s2            .       68.000     +INF       .         
+---- VAR q1s3            .       61.333     +INF       .         
+---- VAR q1s4            .       61.333     +INF       .         
+---- VAR q2s1            .       70.000     +INF       .         
+---- VAR q2s2            .       66.000     +INF       .         
+---- VAR q2s3            .       64.000     +INF       .         
+---- VAR q2s4            .       60.000     +INF       .         
+---- VAR lambda0         .       22.000     +INF       .         
+---- VAR lambda1s1       .         .        +INF       .         
+---- VAR lambda1s2       .         .        +INF       .         
+---- VAR lambda1s3       .         .        +INF      6.667      
+---- VAR lambda1s4       .         .        +INF      6.667      
+---- VAR lambda2s1       .        0.500     +INF       .         
+---- VAR lambda2s2       .         .        +INF      4.000      
+---- VAR lambda2s3       .         .        +INF      6.000      
+---- VAR lambda2s4       .         .        +INF     10.000      
+---- VAR K1              .       68.000     +INF       .         
+---- VAR K2s1            .       70.000     +INF       .         
+---- VAR K2s2            .       70.000     +INF       .         
+---- VAR K2s3            .       70.000     +INF       .         
+---- VAR K2s4            .       70.000     +INF       .         
+---- VAR In0             .       18.000     +INF       .         
+---- VAR In1s1           .        2.000     +INF       .         
+---- VAR In1s2           .        2.000     +INF       .         
+---- VAR In1s3           .        2.000     +INF       .         
+---- VAR In1s4           .        2.000     +INF       .         
 ---- VAR phi1           -INF      0.500     +INF       .         
----- VAR phi2s1         -INF      0.500     +INF       .         
----- VAR phi2s2         -INF      0.500     +INF       .         
----- VAR phi2s3         -INF      0.500     +INF       .         
----- VAR phi2s4         -INF      0.500     +INF       .         
+---- VAR phi2s1         -INF    -25.821     +INF       .         
+---- VAR phi2s2         -INF     26.071     +INF       .         
+---- VAR phi2s3         -INF    -25.821     +INF       .         
+---- VAR phi2s4         -INF     26.071     +INF       .         
+---- VAR psi1           -INF    -25.946     +INF       .         
+---- VAR psi2           -INF    -25.946     +INF       .         
 
   q0  quantity t=0
   q1s1  quantity t=1
@@ -889,6 +988,8 @@ Maximum of Grad F . . . . . . .  1.0000e+000 eqn: (capacity1s1)
   phi2s2  state
   phi2s3  state
   phi2s4  state
+  psi1  nonant
+  psi2  nonant
 
 
 **** REPORT SUMMARY :        0     NONOPT
@@ -896,6 +997,17 @@ Maximum of Grad F . . . . . . .  1.0000e+000 eqn: (capacity1s1)
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
+GAMS Rev 145  x86/MS Windows                            04/20/08 17:31:29 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----    237 PARAMETER totprofit1s1         =     3467.000  total profit t=1
+            PARAMETER totprofit1s3         =     2821.333  total profit t=1
+            PARAMETER totprofit2s1         =     3815.000  total profit t=1
+            PARAMETER totprofit2s2         =     3267.000  total profit t=1
+            PARAMETER totprofit2s3         =     3072.000  total profit t=1
+            PARAMETER totprofit2s4         =     2700.000  total profit t=1
 
 
 EXECUTION TIME       =        0.000 SECONDS      2 Mb  WIN222-145 Apr 21, 2006
