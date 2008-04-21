@@ -418,4 +418,225 @@ The KKT Conditions are as follows.
 \subsection*{ex$\_$oligopoly\_dyn\_tech.lst}
 \lstinputlisting{ex_oligopoly_dyn_tech.lst}
 
+\section{The dynamic monopoly goes stochastic}
+
+
+We consider again the monopolist who produces with one technology. The time horizon consists of two stages. In $t=1$ exist $s$ possible scenarios which occur with probability $p_s$. As there is only one investment decision made in $t=0$, a non-anticipativity constraint is not required. 
+
+\begin{equation*}
+	\max_{q^0,q^{s,1}}\Pi = (\alpha^0-\beta q^0)q^0 - cq^0 -FI^0 +  \sum_{s\in S}p_s\left[(\alpha^{s,1}-\beta q^{s,1})q^{s,1} - cq^{s,1}\right] 
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q^0 - K^0 &\leq& 0\\
+	q^{s,1} - K^{1} &\leq& 0\quad\forall\, s\\
+        K^{1} - K^0 - I^0 &=& 0\\
+	q^0,q^{s,1},I^0,K^0,K^{1} &\geq& 0\quad\forall\, s 
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{eqnarray*}
+	\mathcal{L}(q^0,q^{s,1},\lambda^0,\lambda^{s,1},\phi^{s,1})&=& (\alpha^0-\beta q^0)q^0 - cq^0 - FI^0 + \sum_{s\in S}p_s\left[(\alpha^{s,1}-\beta q^{s,1})q^{s,1} - cq^{s,1}\right]  \\
+        && - \lambda^0(q^0-K^0) - \sum_{s\in S}\lambda^{s,1}(q^{s,1}-K^{1}) - \phi^{1}(K^{1}-K^0-I^0)
+\end{eqnarray*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha^0 + 2\beta q^0 + c + \lambda^0 &\bot& q^0 \geq 0\\
+        0 \leq -p_s\left(\alpha^{s,1} - 2\beta q^{s,1} - c\right) + \lambda^{s,1} &\bot& q^{s,1} \geq 0\quad\forall\,s\\
+	0 \leq -q^0 + K^0 &\bot& \lambda^0 \geq 0 \\
+        0 \leq -q^{s,1} + K^{1} &\bot& \lambda^{s,1} \geq 0 \quad\forall\,s\\
+        0 = K^1 - K^0 - I^0 &\bot& \phi^1 \quad \mbox{free} \\
+        0 \leq -\sum_{s\in S}\lambda^{s,1} + \phi^{1} &\bot& K^1 \geq 0 \\
+        0 \leq F - \phi^{1} &\bot& I^0 \geq 0 
+\end{eqnarray*}
+
+\subsection*{ex$\_$monopoly\_dyn\_stoch.gms}
+\lstinputlisting{ex_monopoly_dyn_stoch.gms}
+
+\subsection*{ex$\_$monopoly\_dyn\_stoch.lst}
+\lstinputlisting{ex_monopoly_dyn_stoch.lst}
+
+\section{The dynamic stochastic monopoly with three stages}
+
+
+We consider again the monopolist who produces with one technology. The time horizon consists of three stages. There exist $s$ possible scenarios which occur with probability $p_s$. As there two investment decisions are made, non-anticipativity constraints are required. For $t=0,\dots,2$ we get a scenario tree with $2^2=4$ scenarios, with a probability of each scenario $p_s=1/4=0.25$.
+
+\begin{eqnarray*}
+	\max_{q^0,q^{s,1},q^{s,2},I^0,I^{s,1}}\Pi &=& (\alpha^0-\beta q^0)q^0 - cq^0 -FI^0  \\
+        && + p_s\left[(\alpha^{1,1}-\beta q^{1,1})q^{1,1} - cq^{1,1} - FI^{1,1} + (\alpha^{1,2}-\beta q^{1,2})q^{1,2} - cq^{1,2}\right] \\
+        && + p_s\left[(\alpha^{2,1}-\beta q^{2,1})q^{2,1} - cq^{2,1} - FI^{2,1} + (\alpha^{2,2}-\beta q^{2,2})q^{2,2} - cq^{2,2}\right] \\
+        && + p_s\left[(\alpha^{3,1}-\beta q^{3,1})q^{3,1} - cq^{3,1} - FI^{3,1} + (\alpha^{3,2}-\beta q^{3,2})q^{3,2} - cq^{3,2}\right] \\
+        && + p_s\left[(\alpha^{4,1}-\beta q^{4,1})q^{4,1} - cq^{4,1} - FI^{4,1} + (\alpha^{4,2}-\beta q^{4,2})q^{4,2} - cq^{4,2}\right] 
+\end{eqnarray*}
+
+subject to
+
+\begin{eqnarray*}
+	q^0 - K^0 &\leq& 0\\
+	q^{1,1} - K^{1} &\leq& 0\\
+        q^{2,1} - K^{1} &\leq& 0\\
+        q^{3,1} - K^{1} &\leq& 0\\
+        q^{4,1} - K^{1} &\leq& 0\\
+	q^{1,2} - K^{1,2} &\leq& 0\\
+	q^{2,2} - K^{2,2} &\leq& 0\\
+	q^{3,2} - K^{3,2} &\leq& 0\\
+	q^{4,2} - K^{4,2} &\leq& 0\\
+        K^{1} - K^0 - I^0 &=& 0\\
+        K^{1,2} - K^1 - I^{1,1} &=& 0\\
+        K^{2,2} - K^1 - I^{2,1} &=& 0\\
+        K^{3,2} - K^1 - I^{3,1} &=& 0\\
+        K^{4,2} - K^1 - I^{4,1} &=& 0\\
+        I^{1,1} &=& I^{1,2} \\
+        I^{1,3} &=& I^{1,4} \\
+	q^0,q^{s,1},q^{s,2},I^0,I^{s,1},K^0,K^{1},K^{s,2} &\geq& 0\quad\forall\, s 
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{eqnarray*}
+	\mathcal{L}(q^0,q^{s,1},q^{s,2},I^0,I^{s,1},I^{s,2},\lambda^0,\lambda^{s,1},\lambda^{s,2},\phi^{s,1},\phi^{s,2})= (\alpha^0-\beta q^0)q^0 - cq^0 - FI^0 \\
+        + p_s\left[(\alpha^{1,1}-\beta q^{1,1})q^{1,1} - cq^{1,1} - FI^{1,1} + (\alpha^{1,2}-\beta q^{1,2})q^{1,2} - cq^{1,2}\right] \\
+        + p_s\left[(\alpha^{2,1}-\beta q^{2,1})q^{2,1} - cq^{2,1} - FI^{2,1} + (\alpha^{2,2}-\beta q^{2,2})q^{2,2} - cq^{2,2}\right] \\
+        + p_s\left[(\alpha^{3,1}-\beta q^{3,1})q^{3,1} - cq^{3,1} - FI^{3,1} + (\alpha^{3,2}-\beta q^{3,2})q^{3,2} - cq^{3,2}\right] \\
+        + p_s\left[(\alpha^{4,1}-\beta q^{4,1})q^{4,1} - cq^{4,1} - FI^{4,1} + (\alpha^{4,2}-\beta q^{4,2})q^{4,2} - cq^{4,2}\right] \\
+         - \lambda^0(q^0-K^0) - \sum_{s\in S}\lambda^{s,1}(q^{s,1}-K^{1}) - \phi^{1}(K^{1}-K^0-I^0) \\
+- \sum_{s\in S}\lambda^{s,2}(q^{s,2}-K^{s,2}) - \sum_{s\in S}\phi^{s,2}(K^{s,2}-K^1-I^{s,1})\\
+- \psi^{1}(I^{1,1} - I^{1,2}) - \psi^{2}(I^{1,3} - I^{1,4})\\
+\end{eqnarray*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha^0 + 2\beta q^0 + c + \lambda^0 &\bot& q^0 \geq 0\\
+        0 \leq -p_s\left(\alpha^{s,1} - 2\beta q^{s,1} - c\right) + \lambda^{s,1} &\bot& q^{s,1} \geq 0\quad\forall\,s\\
+       0 \leq -p_s\left(\alpha^{s,2} - 2\beta q^{s,2} - c\right) + \lambda^{s,2} &\bot& q^{s,2} \geq 0\quad\forall\,s\\
+	0 \leq -q^0 + K^0 &\bot& \lambda^0 \geq 0 \\
+        0 \leq -q^{s,1} + K^{1} &\bot& \lambda^{s,1} \geq 0 \quad\forall\,s\\
+        0 \leq -q^{s,2} + K^{s,2} &\bot& \lambda^{s,2} \geq 0 \quad\forall\,s\\
+        0 = K^1 - K^0 - I^0 &\bot& \phi^1 \quad \mbox{free} \\
+        0 = K^{s,2} - K^1 - I^{s,1} &\bot& \phi^{s,2} \quad \mbox{free}\quad\forall\,s \\
+        0 \leq -\sum_{s\in S}\lambda^{s,1} + \phi^{1}-\sum_{s\in S}\phi^{s,2} &\bot& K^1 \geq 0 \\
+        0 \leq -\sum_{s\in S}\lambda^{s,2} + \sum_{s\in S}\phi^{s,2} &\bot& K^{s,2} \geq 0\quad\forall\,s \\
+        0 \leq F - \phi^{1} &\bot& I^0 \geq 0\\
+        0 \leq p_sF - \phi^{1,2} + \psi^1 &\bot& I^{1,1} \geq 0 \\
+        0 \leq p_sF - \phi^{2,2} - \psi^1 &\bot& I^{2,1} \geq 0 \\
+        0 \leq p_sF - \phi^{3,2} + \psi^2 &\bot& I^{3,1} \geq 0 \\
+        0 \leq p_sF - \phi^{4,2} - \psi^2&\bot& I^{4,1} \geq 0 \\
+        0 = I^{1,1}-I^{2,1}&\bot& \psi^1\quad \mbox{free} \\
+        0 = I^{3,1}-I^{4,1}&\bot& \psi^2\quad \mbox{free} \\
+\end{eqnarray*}
+KKTs with non-anticipativity constraints don't work yet. An alternative would be the compact formulation used in Zhuang and Gabriel (2008).
+
+Compact formulation
+
+\begin{eqnarray*}
+	\max_{q^0,q^{s,1},q^{s,2},I^0,I^{s,1}}\Pi &=& (\alpha^{n0}-\beta q^{n0})q^{n0} - cq^{n0} -FI^{n0}  \\
+        && + 0.5\delta_1\left[(\alpha^{n1}-\beta q^{n1})q^{n1} - cq^{n1} - FI^{n1}\right] \\
+        && + 0.5\delta_1\left[(\alpha^{n2}-\beta q^{n2})q^{n2} - cq^{n2} - FI^{n2}\right] \\
+        && + 0.25\delta_2\left[(\alpha^{n3}-\beta q^{n3})q^{n3} - cq^{n3} + FK^{n3}\nu\right] \\
+        && + 0.25\delta_2\left[(\alpha^{n4}-\beta q^{n4})q^{n4} - cq^{n4} + FK^{n4}\nu\right] \\
+        && + 0.25\delta_2\left[(\alpha^{n5}-\beta q^{n5})q^{n5} - cq^{n5} + FK^{n5}\nu\right] \\
+        && + 0.25\delta_2\left[(\alpha^{n6}-\beta q^{n6})q^{n6} - cq^{n6} + FK^{n6}\nu\right] \\
+\end{eqnarray*}
+\begin{eqnarray*}
+	q^{n0} - K^0 &\leq& 0\\
+	q^{n1} - K^{n1} &\leq& 0\\
+        q^{n2} - K^{n2} &\leq& 0\\
+        q^{n3} - K^{n3} &\leq& 0\\
+        q^{n4} - K^{n4} &\leq& 0\\
+	q^{n5} - K^{n5} &\leq& 0\\
+	q^{n6} - K^{n6} &\leq& 0\\
+        K^{n1} - (1-r)K^0 - I^{n0} &=& 0\\
+        K^{n2} - (1-r)K^0 - I^{n0} &=& 0\\
+        K^{n3} - (1-r)K^{n1} - I^{n1} &=& 0\\
+        K^{n4} - (1-r)K^{n2} - I^{n1} &=& 0\\
+        K^{n5} - (1-r)K^{n2} - I^{n2} &=& 0\\
+        K^{n6} - (1-r)K^{n2} - I^{n2} &=& 0\\
+\end{eqnarray*}
+\begin{eqnarray*}
+	0 \leq -\alpha^{n0} + 2\beta q^{n0} + c + \lambda^{n0} &\bot& q^{n0} \geq 0\\
+        0 \leq -0.5\left(\alpha^{n1} - 2\beta q^{n1} - c\right) + \lambda^{n1} &\bot& q^{n1} \geq 0\\
+        0 \leq -0.5\left(\alpha^{n2} - 2\beta q^{n2} - c\right) + \lambda^{n2} &\bot& q^{n2} \geq 0\\
+        0 = K^{n1}-K^0-I^{n0}  &\bot& \phi^{n1} \quad\mbox{free}\\
+        0 = K^{n2}-K^0-I^{n0}  &\bot& \phi^{n2} \quad\mbox{free}\\
+	0 \leq -q^{n0} + K^{0} &\bot& \lambda^{n0} \geq 0\\
+	0 \leq -q^{n1} + K^{n1} &\bot& \lambda^{n1} \geq 0\\
+	0 \leq -q^{n2} + K^{n2} &\bot& \lambda^{n2} \geq 0\\
+	0 \leq F-\phi^{n1}-\phi^{n2} &\bot& I^{n0} \geq 0\\
+	0 \leq -\lambda^{n1}\phi^{n1} &\bot& K^{n1} \geq 0\\
+        0 \leq -\lambda^{n2}\phi^{n2}  &\bot& K^{n2} \geq 0\\
+\end{eqnarray*}
+
+
+\section{The simple monopoly with a price-cap}
+
+We consider a static monopoly with one technology. A price cap $\bar{p}$ is imposed. The monopolist has the following objective function:
+
+\begin{equation*}
+	\max_q\Pi = (\alpha-\beta q)q - cq 
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q - K &\leq& 0\\
+        \alpha-\beta q - \bar{p} &\leq& 0 \\ 
+	q &\geq& 0 
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{equation*}
+	\mathcal{L}(q,\lambda)= (\alpha-\beta q)q - cq -\lambda(q-K) - \psi\left(\alpha-\beta q-\bar{p}\right)
+\end{equation*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + 2\beta q + c + \lambda - \psi\beta &\bot& q \geq 0\\
+	0 \leq -q + K &\bot& \lambda \geq 0\\
+        0 \leq - \alpha + \beta q + \bar{p}  &\bot& \psi \geq 0
+\end{eqnarray*}
+
+We consider a static monopoly with one technology. A price cap $\bar{p}$ is imposed. The monopolist has the following objective function:
+
+\begin{equation*}
+	\max_q\Pi = \min\left[(\alpha-\beta q),\bar{p}\right]q - cq 
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q - K &\leq& 0\\
+        \alpha-\beta q - \bar{p} &\leq& 0 \\ 
+	q &\geq& 0 
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{equation*}
+	\mathcal{L}(q,\lambda)= (\alpha-\beta q)q - cq -\lambda(q-K) - \psi\left(\alpha-\beta q-\bar{p}\right)
+\end{equation*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha + 2\beta q + c + \lambda - \psi\beta &\bot& q \geq 0\\
+	0 \leq -q + K &\bot& \lambda \geq 0\\
+        0 \leq - \alpha + \beta q + \bar{p}  &\bot& \psi \geq 0
+\end{eqnarray*}
+
+\subsection*{ex$\_$monopoly\_pc.gms}
+\lstinputlisting{ex_monopoly_pc.gms}
+
+\subsection*{ex$\_$monopoly\_pc.lst}
+\lstinputlisting{ex_monopoly_pc.lst}
+
+Not working, objective function is discontinous.
+
 \end{document}
