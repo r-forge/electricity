@@ -55,6 +55,27 @@ print(paste("state_n",i,"(i,j) .. K_n",i,"(i,j) - K_n",vg[i-14],"(i,j) - In_n",v
 vg <-  matrix(t(matrix(c(rep(15:30),rep(15:30)),byrow=F,ncol=2)),ncol=1,byrow=F)
 
 for (i in seq(31,62,1)){
-print(paste("state_n",i,"(i,j) .. K_n",i,"(i,j) - K_n",vg[i-14],"(i,j) - In_n",vg[i-14],"(i,j) =e= 0;",sep=""))
+print(paste("state_n",i,"(i,j) .. K_n",i,"(i,j) - K_n",vg[i-30],"(i,j) - In_n",vg[i-30],"(i,j) =e= 0;",sep=""))
 }
-                                                                                      
+
+for (i in 0:62){
+print(paste("profit_n",i,".q_n",i,",",sep=""))
+}
+for (i in 0:62){
+print(paste("capacity_n",i,".lambda_n",i,",",sep=""))
+}
+for (i in 0:62){
+print(paste("state_n",i,"",sep=""))
+}
+for (i in 0:62){
+print(paste("state2_n",i,".K_n",i,",",sep=""))
+}
+for (i in 0:30){
+print(paste("state3_n",i,".In_n",i,",",sep=""))
+}
+                                                                                    
+for (i in 7:62){
+print(paste("alpha_n",i,"    /100/",sep=""))
+}
+
+alpha_n0    /100/                                                                                      
