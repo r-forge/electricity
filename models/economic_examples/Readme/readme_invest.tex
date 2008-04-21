@@ -59,9 +59,9 @@ $i\in N$        & players, firms\\
 $s\in S$       	& scenarios\\
 %$m\in M$	& states of the market \\
 %$k\in K$	& technologies \\
-%$t\in T$	& time \\
+$t\in 0,1$	& time \\
 $K_{i}$      & available capacity for firm $i$ \\
-$q_{i}^{s}$ & quantity firm $i$, scenario $s$ \\			
+$q_{i}^{s,t}$ & quantity firm $i$, scenario $s$ \\			
 $I_{i}$   & investment for firm $i$\\
 $\rho_s$        & probability of scenario $s$\\
 %$\nu_m$      & says how often (how many hours) market \\
@@ -71,14 +71,16 @@ $\alpha^s$  & demand function intercept in scenario $s$ \\
 $\beta$   & demand function slope \\
 $c$	     & variable costs of technology $k$	\\
 $\Gamma$   & investment costs
+$p^{s,t}$   & investment costs
 \end{tabular}
 
 \begin{gather}
-	\max \pi_i(q_{i}^{s},K_{i},I_{i})=
-	\sum_s \rho_s \left[ (\alpha^s- \beta \sum_i q_{i}^{s}) q_{i}^{s} - c q_{i}^{s}  \right] - \Gamma I_{i}  \\       
-			\text{s.t.:} \  q_{i}^{s} - K_{i} \leq 0; \ \forall i,s  \label{eq:oligopmax2}\\ 
-										  K^{1}_{i}  - K^{0}_{i}  - I_{i} = 0 ; \ \forall i  \label{eq:ologopmax5} \\  
-										  \alpha^s - \beta \sum_i q_i^{s,1} - PC \leq 0; \forall s \\ \nonumber 
+	\max \pi_i(q_{i}^{s,t},K_{i},I_{i}^t)=
+	\sum_s \rho_s \left[ (\alpha^s- \beta \sum_i q_{i}^{s,1}) q_{i}^{s,1} - c q_{i}^{s,1}  \right] - \Gamma I_{i}^{0}  \\       
+			\text{s.t.:} \  q_{i}^{s,1} - K_{i}^1 \leq 0; \ \forall i,s  \label{eq:oligopmax2}\\ 
+										  K^{1}_{i}  - K^{0}_{i}  - I_{i}^0 = 0 ; \ \forall i  \label{eq:ologopmax5} \\
+										  \alpha^s - \beta \sum_i q_i^{s,1} - p^{s,1} = 0; \forall s \\
+										       p^{s,1}  - PC^1 \leq 0; \forall s \\ \nonumber
 										  -\sum_s p_s \left[ PC q_{i}^{s,1} - c q_{i}^{s,1} \right] + \Gamma I_{i} \leq 0; \forall i \\ \nonumber 
  										  q_{i}^{s};K^t_{i};I_{i}	\geq 0; \ \forall i,s  \nonumber
 \end{gather}
