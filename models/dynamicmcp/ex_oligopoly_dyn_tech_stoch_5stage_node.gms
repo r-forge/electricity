@@ -1308,7 +1308,7 @@ delta2      /0.9425959/
 delta3      /0.9151417/
 delta4      /0.8884870/
 delta5      /0.8626088/
-nu          /0.5/
+nu          /0.9/
 ;
 
 
@@ -1328,7 +1328,9 @@ Parameter c(j)           /
 Parameter F(j)          /
                          Tech1   2
                          Tech2   2.1
-                        /;
 
+                        /;
+*oligop.optfile = 1;
+*option mcp=kestrel;
 option iterlim = 40000;
 Solve oligop using mcp;
