@@ -124,6 +124,10 @@ state2_n6(i,j) .. -lambda_n6(i,j) + phi_n6(i,j) -0.25*delta2*F(j)*nu =g= 0;
 state3_n0(i,j) .. F(j) - phi_n1(i,j) - phi_n2(i,j) =g= 0;
 state3_n1(i,j) .. 0.5*delta1*F(j) - phi_n3(i,j) - phi_n4(i,j) =g= 0;
 state3_n2(i,j) .. 0.5*delta1*F(j) - phi_n5(i,j) - phi_n6(i,j) =g= 0;
+state3_n3(i,j) .. 0.25*delta2*F(j) - phi_n7(i,j) - phi_n8(i,j) =g= 0;
+state3_n4(i,j) .. 0.25*delta2*F(j) - phi_n9(i,j) - phi_n10(i,j) =g= 0;
+state3_n5(i,j) .. 0.25*delta2*F(j) - phi_n11(i,j) - phi_n12(i,j) =g= 0;
+state3_n6(i,j) .. 0.25*delta2*F(j) - phi_n13(i,j) - phi_n14(i,j) =g= 0;
 
 model monop /profit_n0.q_n0,
              profit_n1.q_n1,
