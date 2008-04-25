@@ -11,12 +11,12 @@ Alias (s,w);
 
 Scalars
 
-beta     demand function slope           /0.00765113 /
+beta     demand function slope     /0.00765113 /
 
 Parameter
 c variable kosten  /10.6 /
 
-gamma capacity costs   /    40  /
+gamma capacity costs   / 40  /
 
 PC  / 1000  /
 
@@ -60,7 +60,7 @@ nonneg1(s)
 capacities    gives totel capacities
 
 ;
-profit(i,s).. -problem*[ alpha(s) -  beta*q(i,s) - beta*sum(j, q(j,s))  -c ] + lambda(i,s)- beta*psi(s)     =g= 0;
+profit(i,s).. -problem*[ alpha(s) -  beta*q(i,s)   - beta*sum(j, q(j,s))  -c ] + lambda(i,s)- beta*psi(s)     =g= 0;
 *    - jota(i)*problem*((alpha(s) - beta*sum(j,q(j,s)))-c)       + beta*jota(s)
 invest(i)..         gamma - u(i) =g= 0 ;
 *    gamma*jota(i)
