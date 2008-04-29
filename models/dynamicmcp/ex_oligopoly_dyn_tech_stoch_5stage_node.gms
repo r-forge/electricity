@@ -3,7 +3,6 @@ i        players
 j        technologies
 ;
 
-
 Alias(i,l);
 Alias(j,m);
 

@@ -1,124 +1,48 @@
 [PROJECT]
 
+[RP:EX_MONOPOLY]
+1=
+
 [RP:SIMPLE_MONOPOLY]
 1=
 
 [RP:SIMPLE_MONOPOLY2]
 1=
 
-[RP:BASIC]
-1=
-
-[RP:EX_MONOPOLY_DYN_3PLAYERS]
+[RP:EX_MONOPOLY_DYN]
 1=
 
 [RP:EX_MONOPOLY_DYN2]
 1=
 
-[RP:EX_MONOPOLY_DYN3]
-1=
-
-[RP:THE_TECH_LOOP]
-1=
-
-[RP:MULTISTAGE]
-1=
-
-[RP:EX_MONOPOLY_DYN]
-1=
-
-[RP:EX_MONOPOLY]
-1=
-
-[RP:EX_MONOPOLY_DYN_TECH]
-1=
-
-[RP:EX_MONOPOLY_PC]
-1=
-
-[RP:EX_MONOPOLY_TECH]
-1=
-
-[RP:EX_OLIGOPOLY]
-1=
-
 [RP:UNTITLED_1]
 1=
 
-[RP:NEUBAU]
-1=
-
-[RP:EX_MONOPOLY_DYN_STOCH_3STAGES2]
-1=
-
-[RP:EX_MONOPOLY_DYN_STOCH_3STAGES]
-1=
-
-[RP:EX_MONOPOLY_DYN_3STAGES]
-1=
-
-[RP:EX_MONOPOLY_DYN_STOCH]
-1=
-
-[RP:EX_MONOPOLY_DYN_STOCH_NODE]
-1=
-
-[RP:EX_MONOPOLY_DYN_STOCH_3STAGES_NODE]
-1=
-
-[RP:EX_OLIGOPOLY_DYN]
-1=
-
-[RP:EX_OLIGOPOLY_DYN_STOCH_NODE]
-1=
-
-[RP:EX_OLIGOPOLY_DYN_TECH_STOCH_NODE]
-1=
-
-[RP:EX_MONOPOLY_DYN_STOCH_NODE_3STAGE]
-1=
-
-[RP:EX_OLIGOPOLY_DYN_TECH]
-1=
-
-[RP:EX_OLIGOPOLY_DYN_TECH_STOCH_3STAGE_NODE]
-1=
-
 [RP:UNTITLED_2]
+1=
+
+[RP:NEUBAU]
 1=
 
 [RP:EX_OLIGOPOLY_DYN_TECH_STOCH_5STAGE_NODE]
 1=
 
 [MRUFILES]
-1=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.ref
-2=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.gdx
-3=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.log
-4=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_3stage_node.ref
-5=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_3stage_node.gdx
-6=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_3stage_node.log
-7=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node.ref
-8=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node.gdx
-9=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node.log
+1=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\economic_examples\Neubau.gms
+2=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_2.lst
+3=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_2.gms
+4=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Neubau.lst
+5=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_1.lst
+6=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_1.gms
+7=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\simple_monopoly2.lst
+8=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\simple_monopoly2.gms
 
 [OPENWINDOW_1]
+FILE0=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.gms
+FILE1=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.lst
+FILE2=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.gms
 MAXIM=0
-TOP=-6
-LEFT=3
-HEIGHT=904
-WIDTH=1248
-FILE0=G:\electricity\models\dynamicmcp\ex_monopoly_dyn_stoch.gms
-FILE1=G:\electricity\models\dynamicmcp\ex_monopoly_dyn_stoch.lst
-FILE2=G:\electricity\models\dynamicmcp\ex_monopoly_dyn_stoch_node.lst
-FILE3=G:\electricity\models\dynamicmcp\ex_monopoly_dyn_stoch_node_3stage.gms
-FILE4=G:\electricity\models\dynamicmcp\ex_monopoly_dyn_stoch_node_3stage.lst
-FILE5=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn.gms
-FILE6=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_stoch_node.lst
-FILE7=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech.gms
-FILE8=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_3stage_node.gms
-FILE9=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_3stage_node.lst
-FILE10=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.gms
-FILE11=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.lst
-FILE12=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node.lst
-FILE13=G:\electricity\models\dynamicmcp\kestrel.opt
-FILE14=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.gms
+TOP=1
+LEFT=2
+HEIGHT=688
+WIDTH=1015
