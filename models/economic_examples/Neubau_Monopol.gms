@@ -22,8 +22,8 @@ PC  / 1000  /
 
 problem Peak Load Pricing or Uncertainty? / 1   /
 
-alpha(s)                 /l  100
-                          h  150 /
+alpha(s)                 /l  125
+                          h  125 /
 
 K0(i) /  RWE     0
          EoN     0
