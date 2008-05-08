@@ -54,6 +54,10 @@ state2_n6(i,j)           state equation (K2)
 state3_n0(i,j)           state equation (I0)
 state3_n1(i,j)           state equation (I1)
 state3_n2(i,j)           state equation (I1)
+state3_n3(i,j)           state equation (I1)
+state3_n4(i,j)           state equation (I1)
+state3_n5(i,j)           state equation (I1)
+state3_n6(i,j)           state equation (I1)
 ;
 
 Positive Variables
