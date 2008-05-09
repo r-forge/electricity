@@ -28,7 +28,7 @@ K0(i) /  RWE     0
          EnBW    0
          Vatten  0   /
 
-PC  / 1000 /
+PC  / 60 /
 
 
 Variable
@@ -75,7 +75,7 @@ profitl(i).. -problem*[ alpha('l') -  beta*ql(i) - beta*sum(j, ql(j))  -c ] + la
 
 invest(i)..         gamma - u(i) =g= 0 ;
 *    gamma*jota(i)   lambdah(i) +
-capacity(i)..       u(i) - (38.4 + lambdal(i)) =g= 0 ;
+capacity(i)..       u(i) - (49.4 + lambdal(i)) =g= 0 ;
 
 *constrainth(i)..   - qh(i)+ K1(i) =g= 0;
 constraintl(i)..   - ql(i) + K1(i) =g= 0;

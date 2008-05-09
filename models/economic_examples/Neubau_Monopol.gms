@@ -3,7 +3,7 @@ Set
 t        time     /0,1/
 s        scenario /l,h/
 i        players  /RWE, EoN, EnBW, Vatten /
-
+*
 ;
 
 Alias (i,j);
@@ -18,17 +18,18 @@ c variable kosten  /10.6 /
 
 gamma capacity costs   / 40  /
 
-PC  / 1000  /
+PC  / 51  /
 
-problem Peak Load Pricing or Uncertainty? / 1   /
+problem Peak Load Pricing or Uncertainty? / 2   /
 
-alpha(s)                 /l  125
-                          h  125 /
+alpha(s)                 /l   100
+                          h   150 /
 
 K0(i) /  RWE     0
-         EoN     0
+        EoN     0
          EnBW    0
-         Vatten  0 /
+         Vatten  0
+/
 
 Variable
 
@@ -60,7 +61,7 @@ nonneg1(s)
 capacities    gives totel capacities
 
 ;
-profit(i,s).. -problem*[ alpha(s) -  beta*q(i,s)   - beta*sum(j, q(j,s))  -c ] + lambda(i,s)- beta*psi(s)     =g= 0;
+profit(i,s).. -problem*[ alpha(s)   -  beta*q(i,s)      - beta*sum(j, q(j,s))  -c ] + lambda(i,s)- beta*psi(s)     =g= 0;
 *    - jota(i)*problem*((alpha(s) - beta*sum(j,q(j,s)))-c)       + beta*jota(s)
 invest(i)..         gamma - u(i) =g= 0 ;
 *    gamma*jota(i)

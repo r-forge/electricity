@@ -38,14 +38,14 @@ gamma(k) capacity costs   /
 
 F(k)   scrap values      /
 Hydro        33950000
-Nuclear        1785770
-BCoal        1041780
-HCoal        941870
-Gas        446200
-Oil        970000000
+Nuclear       1785770
+BCoal         1041780
+HCoal          941870
+Gas            446200
+Oil         970000000
 Pump        970000000
-
                          /
+
 alphaz(m) demand function intercepts in different market states at time zero /
                          exthigh   767.1
                          vhigh     515.6
