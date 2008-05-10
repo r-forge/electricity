@@ -1314,6 +1314,7 @@ rho         /0.025/
 ;
 
 
+
 Table K0(i,j)
        Hydro   Nuclear      Lignite      Hardcoal    Gas         Oil       Pump
 RWE      741      5499      10554        7249        4297        188        793
