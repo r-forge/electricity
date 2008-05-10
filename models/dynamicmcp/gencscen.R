@@ -5,7 +5,7 @@
 
 # Scenario generation
 
-t <- 5  # time periods
+t <- 3  # time periods
 
 mu <- 18055 # average hourly load in MW
 h <- 1089   # load volatility

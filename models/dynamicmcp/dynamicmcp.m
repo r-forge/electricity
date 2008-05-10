@@ -36,3 +36,12 @@ subplot(1,2,2)
 scatter(pv2f(:,1)/1000,pv2f(:,2),'filled','SizeData',12);
 xlabel('Hourly load values (in GWh)','FontS',14,'Interp','latex');
 ylabel('Spot market prices $<100$ at EEX','FontS',14,'Interp','latex');
+
+%% Plot stochastic intercept
+
+plot(transpose(intercept)/1000,'Color','Blue','LineWidth',2)
+xlabel('Time','FontS',18,'Interp','latex');
+ylabel('Demand function intercept (in GWh)','FontS',18,'Interp','latex');
+set(gca,'XTick',1:1:6);
+set(gca,'XTickLabel',0:5)
+box off
