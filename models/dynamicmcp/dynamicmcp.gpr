@@ -24,25 +24,69 @@
 [RP:NEUBAU]
 1=
 
+[RP:EX_OLIGOPOLY_DYN_TECH_STOCH_3STAGE_NODE]
+1=
+
 [RP:EX_OLIGOPOLY_DYN_TECH_STOCH_5STAGE_NODE]
 1=
 
-[MRUFILES]
-1=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\economic_examples\Neubau.gms
-2=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_2.lst
-3=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_2.gms
-4=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Neubau.lst
-5=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_1.lst
-6=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\Untitled_1.gms
-7=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\simple_monopoly2.lst
-8=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\simple_monopoly2.gms
-
 [OPENWINDOW_1]
-FILE0=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.gms
-FILE1=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.lst
-FILE2=C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node.gms
 MAXIM=0
 TOP=1
 LEFT=2
 HEIGHT=688
 WIDTH=1015
+
+[RP:MONOPOL_NUR_TECH]
+1=
+
+[RP:MCPMONOPOL]
+1=
+
+[RP:MCP]
+1=
+
+[RP:MONOPOL 2 STAGE INVESTITIONSMOD]
+1=
+
+[RP:GENC_TWO_STAGE_SIMPLETREE]
+1=
+
+[RP:GENC_SOCIAL_PLANNER]
+1=
+
+[RP:EX_OLIGOPOLY_DYN_STOCH_NODE]
+1=
+
+[RP:EX_OLIGOPOLY_DYN_TECH_STOCH_NODE]
+1=
+
+[RP:EX_MONOPOLY_DYN_STOCH]
+1=
+
+[RP:EX_MONOPOLY_DYN_STOCH_SCRAP]
+1=
+
+[RP:EX_OLIGOPOLY_DYN_TECH]
+1=
+
+[RP:EX_OLIGOPOLY_DYN_TECH_GERMANY]
+1=
+
+[RP:EX_OLIGOPOLY_DYN_TECH_STOCH_5STAGE_NODE_GERMANY]
+1=
+
+[RP:EX_OLIGOPOLY_DYN_TECH_STOCH_NODE_GERMANY]
+1=
+
+[MRUFILES]
+1=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node_Germany.lst
+2=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node_Germany.gms
+3=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node.lst
+4=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_Germany.lst
+5=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_Germany.gms
+6=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_Germany.lst
+7=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_Germany.gms
+8=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech.gms
+9=G:\electricity\models\dynamicmcp\ex_monopoly_dyn_stoch_scrap.lst
+10=G:\electricity\models\dynamicmcp\ex_monopoly_dyn_stoch.lst

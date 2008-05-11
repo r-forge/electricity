@@ -855,68 +855,68 @@ state_n60(i,j) .. K_n60(i,j) - (1-rho)*K_n29(i,j) - In_n29(i,j) =e= 0;
 state_n61(i,j) .. K_n61(i,j) - (1-rho)*K_n30(i,j) - In_n30(i,j) =e= 0;
 state_n62(i,j) .. K_n62(i,j) - (1-rho)*K_n30(i,j) - In_n30(i,j) =e= 0;
 
-state2_n1(i,j) .. -lambda_n1(i,j) + phi_n1(i,j)*(1-rho) =g= 0;
-state2_n2(i,j) .. -lambda_n2(i,j) + phi_n2(i,j)*(1-rho) =g= 0;
-state2_n3(i,j) .. -lambda_n3(i,j) + phi_n3(i,j)*(1-rho) =g= 0;
-state2_n4(i,j) .. -lambda_n4(i,j) + phi_n4(i,j)*(1-rho) =g= 0;
-state2_n5(i,j) .. -lambda_n5(i,j) + phi_n5(i,j)*(1-rho) =g= 0;
-state2_n6(i,j) .. -lambda_n6(i,j) + phi_n6(i,j)*(1-rho) =g= 0;
-state2_n7(i,j) .. -lambda_n7(i,j) + phi_n7(i,j)*(1-rho) =g= 0;
-state2_n8(i,j) .. -lambda_n8(i,j) + phi_n8(i,j)*(1-rho) =g= 0;
-state2_n9(i,j) .. -lambda_n9(i,j) + phi_n9(i,j)*(1-rho) =g= 0;
-state2_n10(i,j) .. -lambda_n10(i,j) + phi_n10(i,j)*(1-rho) =g= 0;
-state2_n11(i,j) .. -lambda_n11(i,j) + phi_n11(i,j)*(1-rho) =g= 0;
-state2_n12(i,j) .. -lambda_n12(i,j) + phi_n12(i,j)*(1-rho) =g= 0;
-state2_n13(i,j) .. -lambda_n13(i,j) + phi_n13(i,j)*(1-rho) =g= 0;
-state2_n14(i,j) .. -lambda_n14(i,j) + phi_n14(i,j)*(1-rho) =g= 0;
-state2_n15(i,j) .. -lambda_n15(i,j) + phi_n15(i,j)*(1-rho) =g= 0;
-state2_n16(i,j) .. -lambda_n16(i,j) + phi_n16(i,j)*(1-rho) =g= 0;
-state2_n17(i,j) .. -lambda_n17(i,j) + phi_n17(i,j)*(1-rho) =g= 0;
-state2_n18(i,j) .. -lambda_n18(i,j) + phi_n18(i,j)*(1-rho) =g= 0;
-state2_n19(i,j) .. -lambda_n19(i,j) + phi_n19(i,j)*(1-rho) =g= 0;
-state2_n20(i,j) .. -lambda_n20(i,j) + phi_n20(i,j)*(1-rho) =g= 0;
-state2_n21(i,j) .. -lambda_n21(i,j) + phi_n21(i,j)*(1-rho) =g= 0;
-state2_n22(i,j) .. -lambda_n22(i,j) + phi_n22(i,j)*(1-rho) =g= 0;
-state2_n23(i,j) .. -lambda_n23(i,j) + phi_n23(i,j)*(1-rho) =g= 0;
-state2_n24(i,j) .. -lambda_n24(i,j) + phi_n24(i,j)*(1-rho) =g= 0;
-state2_n25(i,j) .. -lambda_n25(i,j) + phi_n25(i,j)*(1-rho) =g= 0;
-state2_n26(i,j) .. -lambda_n26(i,j) + phi_n26(i,j)*(1-rho) =g= 0;
-state2_n27(i,j) .. -lambda_n27(i,j) + phi_n27(i,j)*(1-rho) =g= 0;
-state2_n28(i,j) .. -lambda_n28(i,j) + phi_n28(i,j)*(1-rho) =g= 0;
-state2_n29(i,j) .. -lambda_n29(i,j) + phi_n29(i,j)*(1-rho) =g= 0;
-state2_n30(i,j) .. -lambda_n30(i,j) + phi_n30(i,j)*(1-rho) =g= 0;
-state2_n31(i,j) .. -lambda_n31(i,j) + phi_n31(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n32(i,j) .. -lambda_n32(i,j) + phi_n32(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n33(i,j) .. -lambda_n33(i,j) + phi_n33(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n34(i,j) .. -lambda_n34(i,j) + phi_n34(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n35(i,j) .. -lambda_n35(i,j) + phi_n35(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n36(i,j) .. -lambda_n36(i,j) + phi_n36(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n37(i,j) .. -lambda_n37(i,j) + phi_n37(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n38(i,j) .. -lambda_n38(i,j) + phi_n38(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n39(i,j) .. -lambda_n39(i,j) + phi_n39(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n40(i,j) .. -lambda_n40(i,j) + phi_n40(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n41(i,j) .. -lambda_n41(i,j) + phi_n41(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n42(i,j) .. -lambda_n42(i,j) + phi_n42(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n43(i,j) .. -lambda_n43(i,j) + phi_n43(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n44(i,j) .. -lambda_n44(i,j) + phi_n44(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n45(i,j) .. -lambda_n45(i,j) + phi_n45(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n46(i,j) .. -lambda_n46(i,j) + phi_n46(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n47(i,j) .. -lambda_n47(i,j) + phi_n47(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n48(i,j) .. -lambda_n48(i,j) + phi_n48(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n49(i,j) .. -lambda_n49(i,j) + phi_n49(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n50(i,j) .. -lambda_n50(i,j) + phi_n50(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n51(i,j) .. -lambda_n51(i,j) + phi_n51(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n52(i,j) .. -lambda_n52(i,j) + phi_n52(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n53(i,j) .. -lambda_n53(i,j) + phi_n53(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n54(i,j) .. -lambda_n54(i,j) + phi_n54(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n55(i,j) .. -lambda_n55(i,j) + phi_n55(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n56(i,j) .. -lambda_n56(i,j) + phi_n56(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n57(i,j) .. -lambda_n57(i,j) + phi_n57(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n58(i,j) .. -lambda_n58(i,j) + phi_n58(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n59(i,j) .. -lambda_n59(i,j) + phi_n59(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n60(i,j) .. -lambda_n60(i,j) + phi_n60(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n61(i,j) .. -lambda_n61(i,j) + phi_n61(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n62(i,j) .. -lambda_n62(i,j) + phi_n62(i,j)*(1-rho) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n1(i,j) .. -lambda_n1(i,j) + phi_n1(i,j) =g= 0;
+state2_n2(i,j) .. -lambda_n2(i,j) + phi_n2(i,j) =g= 0;
+state2_n3(i,j) .. -lambda_n3(i,j) + phi_n3(i,j) =g= 0;
+state2_n4(i,j) .. -lambda_n4(i,j) + phi_n4(i,j) =g= 0;
+state2_n5(i,j) .. -lambda_n5(i,j) + phi_n5(i,j) =g= 0;
+state2_n6(i,j) .. -lambda_n6(i,j) + phi_n6(i,j) =g= 0;
+state2_n7(i,j) .. -lambda_n7(i,j) + phi_n7(i,j) =g= 0;
+state2_n8(i,j) .. -lambda_n8(i,j) + phi_n8(i,j) =g= 0;
+state2_n9(i,j) .. -lambda_n9(i,j) + phi_n9(i,j) =g= 0;
+state2_n10(i,j) .. -lambda_n10(i,j) + phi_n10(i,j) =g= 0;
+state2_n11(i,j) .. -lambda_n11(i,j) + phi_n11(i,j) =g= 0;
+state2_n12(i,j) .. -lambda_n12(i,j) + phi_n12(i,j) =g= 0;
+state2_n13(i,j) .. -lambda_n13(i,j) + phi_n13(i,j) =g= 0;
+state2_n14(i,j) .. -lambda_n14(i,j) + phi_n14(i,j) =g= 0;
+state2_n15(i,j) .. -lambda_n15(i,j) + phi_n15(i,j) =g= 0;
+state2_n16(i,j) .. -lambda_n16(i,j) + phi_n16(i,j) =g= 0;
+state2_n17(i,j) .. -lambda_n17(i,j) + phi_n17(i,j) =g= 0;
+state2_n18(i,j) .. -lambda_n18(i,j) + phi_n18(i,j) =g= 0;
+state2_n19(i,j) .. -lambda_n19(i,j) + phi_n19(i,j) =g= 0;
+state2_n20(i,j) .. -lambda_n20(i,j) + phi_n20(i,j) =g= 0;
+state2_n21(i,j) .. -lambda_n21(i,j) + phi_n21(i,j) =g= 0;
+state2_n22(i,j) .. -lambda_n22(i,j) + phi_n22(i,j) =g= 0;
+state2_n23(i,j) .. -lambda_n23(i,j) + phi_n23(i,j) =g= 0;
+state2_n24(i,j) .. -lambda_n24(i,j) + phi_n24(i,j) =g= 0;
+state2_n25(i,j) .. -lambda_n25(i,j) + phi_n25(i,j) =g= 0;
+state2_n26(i,j) .. -lambda_n26(i,j) + phi_n26(i,j) =g= 0;
+state2_n27(i,j) .. -lambda_n27(i,j) + phi_n27(i,j) =g= 0;
+state2_n28(i,j) .. -lambda_n28(i,j) + phi_n28(i,j) =g= 0;
+state2_n29(i,j) .. -lambda_n29(i,j) + phi_n29(i,j) =g= 0;
+state2_n30(i,j) .. -lambda_n30(i,j) + phi_n30(i,j) =g= 0;
+state2_n31(i,j) .. -lambda_n31(i,j) + phi_n31(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n32(i,j) .. -lambda_n32(i,j) + phi_n32(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n33(i,j) .. -lambda_n33(i,j) + phi_n33(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n34(i,j) .. -lambda_n34(i,j) + phi_n34(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n35(i,j) .. -lambda_n35(i,j) + phi_n35(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n36(i,j) .. -lambda_n36(i,j) + phi_n36(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n37(i,j) .. -lambda_n37(i,j) + phi_n37(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n38(i,j) .. -lambda_n38(i,j) + phi_n38(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n39(i,j) .. -lambda_n39(i,j) + phi_n39(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n40(i,j) .. -lambda_n40(i,j) + phi_n40(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n41(i,j) .. -lambda_n41(i,j) + phi_n41(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n42(i,j) .. -lambda_n42(i,j) + phi_n42(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n43(i,j) .. -lambda_n43(i,j) + phi_n43(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n44(i,j) .. -lambda_n44(i,j) + phi_n44(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n45(i,j) .. -lambda_n45(i,j) + phi_n45(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n46(i,j) .. -lambda_n46(i,j) + phi_n46(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n47(i,j) .. -lambda_n47(i,j) + phi_n47(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n48(i,j) .. -lambda_n48(i,j) + phi_n48(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n49(i,j) .. -lambda_n49(i,j) + phi_n49(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n50(i,j) .. -lambda_n50(i,j) + phi_n50(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n51(i,j) .. -lambda_n51(i,j) + phi_n51(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n52(i,j) .. -lambda_n52(i,j) + phi_n52(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n53(i,j) .. -lambda_n53(i,j) + phi_n53(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n54(i,j) .. -lambda_n54(i,j) + phi_n54(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n55(i,j) .. -lambda_n55(i,j) + phi_n55(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n56(i,j) .. -lambda_n56(i,j) + phi_n56(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n57(i,j) .. -lambda_n57(i,j) + phi_n57(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n58(i,j) .. -lambda_n58(i,j) + phi_n58(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n59(i,j) .. -lambda_n59(i,j) + phi_n59(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n60(i,j) .. -lambda_n60(i,j) + phi_n60(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n61(i,j) .. -lambda_n61(i,j) + phi_n61(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n62(i,j) .. -lambda_n62(i,j) + phi_n62(i,j) -0.03125*delta2*F(j)*nu =g= 0;
 
 state3_n0(i,j) .. F(j) - phi_n1(i,j) - phi_n2(i,j) =g= 0;
 state3_n1(i,j) .. 0.5*delta1*F(j) - phi_n3(i,j) - phi_n4(i,j) =g= 0;
@@ -1240,76 +1240,76 @@ j        /Hydro, Nuclear, Lignite, Hardcoal, Gas, Oil, Pump /
 ;
 
 Parameters
-alpha_n0   /74905/
-alpha_n1   /86273/
-alpha_n2   /64437/
-alpha_n3   /90455/
-alpha_n4   /80690/
-alpha_n5   /70924/
-alpha_n6   /61159/
-alpha_n7   /92939/
-alpha_n8   /88174/
-alpha_n9   /83409/
-alpha_n10   /78644/
-alpha_n11   /73879/
-alpha_n12   /69114/
-alpha_n13   /64349/
-alpha_n14   /59584/
-alpha_n15   /94483/
-alpha_n16   /92114/
-alpha_n17   /89746/
-alpha_n18   /87377/
-alpha_n19   /85009/
-alpha_n20   /82640/
-alpha_n21   /80272/
-alpha_n22   /77904/
-alpha_n23   /75535/
-alpha_n24   /73167/
-alpha_n25   /70798/
-alpha_n26   /68430/
-alpha_n27   /66061/
-alpha_n28   /63693/
-alpha_n29   /61324/
-alpha_n30   /58956/
-alpha_n31   /95508/
-alpha_n32   /94326/
-alpha_n33   /93143/
-alpha_n34   /91961/
-alpha_n35   /90778/
-alpha_n36   /89596/
-alpha_n37   /88413/
-alpha_n38   /87231/
-alpha_n39   /86048/
-alpha_n40   /84866/
-alpha_n41   /83683/
-alpha_n42   /82501/
-alpha_n43   /81318/
-alpha_n44   /80136/
-alpha_n45   /78953/
-alpha_n46   /77771/
-alpha_n47   /76588/
-alpha_n48   /75406/
-alpha_n49   /74223/
-alpha_n50   /73041/
-alpha_n51   /71858/
-alpha_n52   /70676/
-alpha_n53   /69493/
-alpha_n54   /68311/
-alpha_n55   /67128/
-alpha_n56   /65946/
-alpha_n57   /64763/
-alpha_n58   /63581/
-alpha_n59   /62398/
-alpha_n60   /61216/
-alpha_n61   /60033/
-alpha_n62   /58851/
-beta        /245.75/
+alpha_n0   /304.4932/
+alpha_n1   /350.7027/
+alpha_n2   /261.9375/
+alpha_n3   /367.7035/
+alpha_n4   /328.0065/
+alpha_n5   /288.3095/
+alpha_n6   /248.6125/
+alpha_n7   /377.8025/
+alpha_n8   /358.4324/
+alpha_n9   /339.0622/
+alpha_n10   /319.6921/
+alpha_n11   /300.3219/
+alpha_n12   /280.9518/
+alpha_n13   /261.5816/
+alpha_n14   /242.2114/
+alpha_n15   /384.0766/
+alpha_n16   /374.4486/
+alpha_n17   /364.8207/
+alpha_n18   /355.1927/
+alpha_n19   /345.5648/
+alpha_n20   /335.9369/
+alpha_n21   /326.3089/
+alpha_n22   /316.681/
+alpha_n23   /307.0531/
+alpha_n24   /297.4251/
+alpha_n25   /287.7972/
+alpha_n26   /278.1692/
+alpha_n27   /268.5413/
+alpha_n28   /258.9134/
+alpha_n29   /249.2854/
+alpha_n30   /239.6575/
+alpha_n31   /388.2453/
+alpha_n32   /383.4384/
+alpha_n33   /378.6314/
+alpha_n34   /373.8245/
+alpha_n35   /369.0176/
+alpha_n36   /364.2107/
+alpha_n37   /359.4038/
+alpha_n38   /354.5969/
+alpha_n39   /349.79/
+alpha_n40   /344.9831/
+alpha_n41   /340.1762/
+alpha_n42   /335.3693/
+alpha_n43   /330.5624/
+alpha_n44   /325.7555/
+alpha_n45   /320.9486/
+alpha_n46   /316.1417/
+alpha_n47   /311.3348/
+alpha_n48   /306.5279/
+alpha_n49   /301.721/
+alpha_n50   /296.9141/
+alpha_n51   /292.1072/
+alpha_n52   /287.3003/
+alpha_n53   /282.4933/
+alpha_n54   /277.6864/
+alpha_n55   /272.8795/
+alpha_n56   /268.0726/
+alpha_n57   /263.2657/
+alpha_n58   /258.4588/
+alpha_n59   /253.6519/
+alpha_n60   /248.845/
+alpha_n61   /244.0381/
+alpha_n62   /239.2312/
+beta        /0.004069176/
 delta1      /0.9708738/
 delta2      /0.9425959/
 delta3      /0.9151417/
 delta4      /0.8884870/
 delta5      /0.8626088/
-nu          /0.9/
+nu          /1/
 rho         /0.025/
 ;
 
@@ -1334,6 +1334,7 @@ Parameter c(j)           /
                          Pump     80
                          /;
 
+
 Parameter F(j)          /
                          Hydro    3500000
                          Nuclear  1841000
@@ -1350,5 +1351,5 @@ Parameter F(j)          /
 
 *oligop.optfile = 1;
 *option mcp=kestrel;
-option iterlim = 100000;
+option iterlim = 300000;
 Solve oligop using mcp;

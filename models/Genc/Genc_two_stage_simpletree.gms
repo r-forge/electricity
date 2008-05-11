@@ -27,7 +27,7 @@ c(k) variable kosten     /
                          Pump     80 /
 
 gamma(k) capacity costs   /
-                         Hydro    35000000
+                         Hydro    3500000
                          Nuclear  1841000
                          BCoal    1074000
                          HCoal    971000

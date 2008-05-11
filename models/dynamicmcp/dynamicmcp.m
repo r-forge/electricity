@@ -3,14 +3,14 @@ clc;
 load capacities;
 
 %% Plot initial capacities
-barh(capacities, 'stacked', 'DisplayName', 'capacities', 'YDataSource', 'capacities'); figure(gcf)
-xlabel('Installed capacities in MWh','FontS',14,'Interp','latex');
+barh(capacities/1000, 'stacked', 'DisplayName', 'capacities', 'YDataSource', 'capacities'); figure(gcf)
+xlabel('Installed capacities in GW','FontS',14,'Interp','latex');
 ylabel('Companies','FontS',14,'Interp','latex');
 
 h = legend('Hydro','Nuclear','Soft coal','Hard coal','Gas','Oil','Pump') 
 set(h,'Interpreter','latex')
 
-set(gca,'XTickLabel',{'0','500','1000','1500','2000','2500','3000','3500','4000'})
+%set(gca,'XTickLabel',{'0','5000','10000','15000','20000','25000','30000','35000','40000'})
 set(gca,'YTickLabel',{'Fringe','RWE','E.ON','Vattenfall','EnBW'})
 
 %% Plot load values

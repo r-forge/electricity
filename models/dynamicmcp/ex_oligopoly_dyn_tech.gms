@@ -58,6 +58,7 @@ j        /Hydro, Nuclear/
 ;
 
 Parameters
+
 alpha    /100/
 beta     /0.75/
 ;

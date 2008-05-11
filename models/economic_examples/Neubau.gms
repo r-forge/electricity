@@ -18,7 +18,7 @@ c variable kosten  /10.6 /
 
 gamma capacity costs   /    40  /
 
-PC  / 1000  /
+PC  / 20  /
 
 problem Peak Load Pricing or Uncertainty? / 1   /
 

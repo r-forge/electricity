@@ -1,4 +1,4 @@
-GAMS Rev 145  x86/MS Windows                            04/20/08 18:49:08 Page 1
+GAMS Rev 145  x86/MS Windows                            05/11/06 16:39:42 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -79,7 +79,7 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/20/08 18:49:08 Page 2
+GAMS Rev 145  x86/MS Windows                            05/11/06 16:39:42 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE monop Using MCP From line 71
 
@@ -122,7 +122,7 @@ state2..  - lambda1(1) - lambda1(2) + phi =G= 0 ; (LHS = 0)
 
 state3..  - phi =G= -2 ; (LHS = 0)
      
-GAMS Rev 145  x86/MS Windows                            04/20/08 18:49:08 Page 3
+GAMS Rev 145  x86/MS Windows                            05/11/06 16:39:42 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE monop Using MCP From line 71
 
@@ -191,7 +191,7 @@ phi
         1       state2
        -1       state3
 
-GAMS Rev 145  x86/MS Windows                            04/20/08 18:49:08 Page 4
+GAMS Rev 145  x86/MS Windows                            05/11/06 16:39:42 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE monop Using MCP From line 71
 
@@ -209,7 +209,7 @@ GENERATION TIME      =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
 
 
 EXECUTION TIME       =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/20/08 18:49:08 Page 5
+GAMS Rev 145  x86/MS Windows                            05/11/06 16:39:42 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE monop Using MCP From line 71
 
@@ -223,18 +223,9 @@ Solution Report     SOLVE monop Using MCP From line 71
 **** SOLVER STATUS     1 NORMAL COMPLETION         
 **** MODEL STATUS      1 OPTIMAL                   
 
- RESOURCE USAGE, LIMIT          0.062      1000.000
+ RESOURCE USAGE, LIMIT          0.109      1000.000
  ITERATION COUNT, LIMIT        19         10000
  EVALUATION ERRORS              0             0
-
-*** Your license (code PT) expired  602 days ago.
-*** Continue to run in demonstration mode.
-*** To update your license, please contact your distributor or
-***    GAMS Development Corp.
-***    Phone : (202) 342 0180
-***    Fax   : (202) 342 0181
-***    email : sales@gams.com
-
 
 PATH-C        Apr 21, 2006 WIN.PT.PT 22.2 022.034.041.VIS Path 4.6.06
 
@@ -348,7 +339,7 @@ Maximum of Grad F . . . . . . .  1.0000e+000 eqn: (capacity1(1))
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS Rev 145  x86/MS Windows                            04/20/08 18:49:08 Page 6
+GAMS Rev 145  x86/MS Windows                            05/11/06 16:39:42 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
