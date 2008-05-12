@@ -671,62 +671,62 @@ profit_n3(i,j) .. -0.25*delta2*(alpha_n3 - beta*sum((l,m),q_n3(l,m)) - beta*sum(
 profit_n4(i,j) .. -0.25*delta2*(alpha_n4 - beta*sum((l,m),q_n4(l,m)) - beta*sum(m,q_n4(i,m)) - c(j)) + lambda_n4(i,j) =g= 0;
 profit_n5(i,j) .. -0.25*delta2*(alpha_n5 - beta*sum((l,m),q_n5(l,m)) - beta*sum(m,q_n5(i,m)) - c(j)) + lambda_n5(i,j) =g= 0;
 profit_n6(i,j) .. -0.25*delta2*(alpha_n6 - beta*sum((l,m),q_n6(l,m)) - beta*sum(m,q_n6(i,m)) - c(j)) + lambda_n6(i,j) =g= 0;
-profit_n7(i,j) .. -0.125*delta2*(alpha_n7 - beta*sum((l,m),q_n7(l,m)) - beta*sum(m,q_n7(i,m)) - c(j)) + lambda_n7(i,j) =g= 0;
-profit_n8(i,j) .. -0.125*delta2*(alpha_n8 - beta*sum((l,m),q_n8(l,m)) - beta*sum(m,q_n8(i,m)) - c(j)) + lambda_n8(i,j) =g= 0;
-profit_n9(i,j) .. -0.125*delta2*(alpha_n9 - beta*sum((l,m),q_n9(l,m)) - beta*sum(m,q_n9(i,m)) - c(j)) + lambda_n9(i,j) =g= 0;
-profit_n10(i,j) .. -0.125*delta2*(alpha_n10 - beta*sum((l,m),q_n10(l,m)) - beta*sum(m,q_n10(i,m)) - c(j)) + lambda_n10(i,j) =g= 0;
-profit_n11(i,j) .. -0.125*delta2*(alpha_n11 - beta*sum((l,m),q_n11(l,m)) - beta*sum(m,q_n11(i,m)) - c(j)) + lambda_n11(i,j) =g= 0;
-profit_n12(i,j) .. -0.125*delta2*(alpha_n12 - beta*sum((l,m),q_n12(l,m)) - beta*sum(m,q_n12(i,m)) - c(j)) + lambda_n12(i,j) =g= 0;
-profit_n13(i,j) .. -0.125*delta2*(alpha_n13 - beta*sum((l,m),q_n13(l,m)) - beta*sum(m,q_n13(i,m)) - c(j)) + lambda_n13(i,j) =g= 0;
-profit_n14(i,j) .. -0.125*delta2*(alpha_n14 - beta*sum((l,m),q_n14(l,m)) - beta*sum(m,q_n14(i,m)) - c(j)) + lambda_n14(i,j) =g= 0;
-profit_n15(i,j) .. -0.0625*delta2*(alpha_n15 - beta*sum((l,m),q_n15(l,m)) - beta*sum(m,q_n15(i,m)) - c(j)) + lambda_n15(i,j) =g= 0;
-profit_n16(i,j) .. -0.0625*delta2*(alpha_n16 - beta*sum((l,m),q_n16(l,m)) - beta*sum(m,q_n16(i,m)) - c(j)) + lambda_n16(i,j) =g= 0;
-profit_n17(i,j) .. -0.0625*delta2*(alpha_n17 - beta*sum((l,m),q_n17(l,m)) - beta*sum(m,q_n17(i,m)) - c(j)) + lambda_n17(i,j) =g= 0;
-profit_n18(i,j) .. -0.0625*delta2*(alpha_n18 - beta*sum((l,m),q_n18(l,m)) - beta*sum(m,q_n18(i,m)) - c(j)) + lambda_n18(i,j) =g= 0;
-profit_n19(i,j) .. -0.0625*delta2*(alpha_n19 - beta*sum((l,m),q_n19(l,m)) - beta*sum(m,q_n19(i,m)) - c(j)) + lambda_n19(i,j) =g= 0;
-profit_n20(i,j) .. -0.0625*delta2*(alpha_n20 - beta*sum((l,m),q_n20(l,m)) - beta*sum(m,q_n20(i,m)) - c(j)) + lambda_n20(i,j) =g= 0;
-profit_n21(i,j) .. -0.0625*delta2*(alpha_n21 - beta*sum((l,m),q_n21(l,m)) - beta*sum(m,q_n21(i,m)) - c(j)) + lambda_n21(i,j) =g= 0;
-profit_n22(i,j) .. -0.0625*delta2*(alpha_n22 - beta*sum((l,m),q_n22(l,m)) - beta*sum(m,q_n22(i,m)) - c(j)) + lambda_n22(i,j) =g= 0;
-profit_n23(i,j) .. -0.0625*delta2*(alpha_n23 - beta*sum((l,m),q_n23(l,m)) - beta*sum(m,q_n23(i,m)) - c(j)) + lambda_n23(i,j) =g= 0;
-profit_n24(i,j) .. -0.0625*delta2*(alpha_n24 - beta*sum((l,m),q_n24(l,m)) - beta*sum(m,q_n24(i,m)) - c(j)) + lambda_n24(i,j) =g= 0;
-profit_n25(i,j) .. -0.0625*delta2*(alpha_n25 - beta*sum((l,m),q_n25(l,m)) - beta*sum(m,q_n25(i,m)) - c(j)) + lambda_n25(i,j) =g= 0;
-profit_n26(i,j) .. -0.0625*delta2*(alpha_n26 - beta*sum((l,m),q_n26(l,m)) - beta*sum(m,q_n26(i,m)) - c(j)) + lambda_n26(i,j) =g= 0;
-profit_n27(i,j) .. -0.0625*delta2*(alpha_n27 - beta*sum((l,m),q_n27(l,m)) - beta*sum(m,q_n27(i,m)) - c(j)) + lambda_n27(i,j) =g= 0;
-profit_n28(i,j) .. -0.0625*delta2*(alpha_n28 - beta*sum((l,m),q_n28(l,m)) - beta*sum(m,q_n28(i,m)) - c(j)) + lambda_n28(i,j) =g= 0;
-profit_n29(i,j) .. -0.0625*delta2*(alpha_n29 - beta*sum((l,m),q_n29(l,m)) - beta*sum(m,q_n29(i,m)) - c(j)) + lambda_n29(i,j) =g= 0;
-profit_n30(i,j) .. -0.0625*delta2*(alpha_n30 - beta*sum((l,m),q_n30(l,m)) - beta*sum(m,q_n30(i,m)) - c(j)) + lambda_n30(i,j) =g= 0;
-profit_n31(i,j) .. -0.03125*delta2*(alpha_n31 - beta*sum((l,m),q_n31(l,m)) - beta*sum(m,q_n31(i,m)) - c(j)) + lambda_n31(i,j) =g= 0;
-profit_n32(i,j) .. -0.03125*delta2*(alpha_n32 - beta*sum((l,m),q_n32(l,m)) - beta*sum(m,q_n32(i,m)) - c(j)) + lambda_n32(i,j) =g= 0;
-profit_n33(i,j) .. -0.03125*delta2*(alpha_n33 - beta*sum((l,m),q_n33(l,m)) - beta*sum(m,q_n33(i,m)) - c(j)) + lambda_n33(i,j) =g= 0;
-profit_n34(i,j) .. -0.03125*delta2*(alpha_n34 - beta*sum((l,m),q_n34(l,m)) - beta*sum(m,q_n34(i,m)) - c(j)) + lambda_n34(i,j) =g= 0;
-profit_n35(i,j) .. -0.03125*delta2*(alpha_n35 - beta*sum((l,m),q_n35(l,m)) - beta*sum(m,q_n35(i,m)) - c(j)) + lambda_n35(i,j) =g= 0;
-profit_n36(i,j) .. -0.03125*delta2*(alpha_n36 - beta*sum((l,m),q_n36(l,m)) - beta*sum(m,q_n36(i,m)) - c(j)) + lambda_n36(i,j) =g= 0;
-profit_n37(i,j) .. -0.03125*delta2*(alpha_n37 - beta*sum((l,m),q_n37(l,m)) - beta*sum(m,q_n37(i,m)) - c(j)) + lambda_n37(i,j) =g= 0;
-profit_n38(i,j) .. -0.03125*delta2*(alpha_n38 - beta*sum((l,m),q_n38(l,m)) - beta*sum(m,q_n38(i,m)) - c(j)) + lambda_n38(i,j) =g= 0;
-profit_n39(i,j) .. -0.03125*delta2*(alpha_n39 - beta*sum((l,m),q_n39(l,m)) - beta*sum(m,q_n39(i,m)) - c(j)) + lambda_n39(i,j) =g= 0;
-profit_n40(i,j) .. -0.03125*delta2*(alpha_n40 - beta*sum((l,m),q_n40(l,m)) - beta*sum(m,q_n40(i,m)) - c(j)) + lambda_n40(i,j) =g= 0;
-profit_n41(i,j) .. -0.03125*delta2*(alpha_n41 - beta*sum((l,m),q_n41(l,m)) - beta*sum(m,q_n41(i,m)) - c(j)) + lambda_n41(i,j) =g= 0;
-profit_n42(i,j) .. -0.03125*delta2*(alpha_n42 - beta*sum((l,m),q_n42(l,m)) - beta*sum(m,q_n42(i,m)) - c(j)) + lambda_n42(i,j) =g= 0;
-profit_n43(i,j) .. -0.03125*delta2*(alpha_n43 - beta*sum((l,m),q_n43(l,m)) - beta*sum(m,q_n43(i,m)) - c(j)) + lambda_n43(i,j) =g= 0;
-profit_n44(i,j) .. -0.03125*delta2*(alpha_n44 - beta*sum((l,m),q_n44(l,m)) - beta*sum(m,q_n44(i,m)) - c(j)) + lambda_n44(i,j) =g= 0;
-profit_n45(i,j) .. -0.03125*delta2*(alpha_n45 - beta*sum((l,m),q_n45(l,m)) - beta*sum(m,q_n45(i,m)) - c(j)) + lambda_n45(i,j) =g= 0;
-profit_n46(i,j) .. -0.03125*delta2*(alpha_n46 - beta*sum((l,m),q_n46(l,m)) - beta*sum(m,q_n46(i,m)) - c(j)) + lambda_n46(i,j) =g= 0;
-profit_n47(i,j) .. -0.03125*delta2*(alpha_n47 - beta*sum((l,m),q_n47(l,m)) - beta*sum(m,q_n47(i,m)) - c(j)) + lambda_n47(i,j) =g= 0;
-profit_n48(i,j) .. -0.03125*delta2*(alpha_n48 - beta*sum((l,m),q_n48(l,m)) - beta*sum(m,q_n48(i,m)) - c(j)) + lambda_n48(i,j) =g= 0;
-profit_n49(i,j) .. -0.03125*delta2*(alpha_n49 - beta*sum((l,m),q_n49(l,m)) - beta*sum(m,q_n49(i,m)) - c(j)) + lambda_n49(i,j) =g= 0;
-profit_n50(i,j) .. -0.03125*delta2*(alpha_n50 - beta*sum((l,m),q_n50(l,m)) - beta*sum(m,q_n50(i,m)) - c(j)) + lambda_n50(i,j) =g= 0;
-profit_n51(i,j) .. -0.03125*delta2*(alpha_n51 - beta*sum((l,m),q_n51(l,m)) - beta*sum(m,q_n51(i,m)) - c(j)) + lambda_n51(i,j) =g= 0;
-profit_n52(i,j) .. -0.03125*delta2*(alpha_n52 - beta*sum((l,m),q_n52(l,m)) - beta*sum(m,q_n52(i,m)) - c(j)) + lambda_n52(i,j) =g= 0;
-profit_n53(i,j) .. -0.03125*delta2*(alpha_n53 - beta*sum((l,m),q_n53(l,m)) - beta*sum(m,q_n53(i,m)) - c(j)) + lambda_n53(i,j) =g= 0;
-profit_n54(i,j) .. -0.03125*delta2*(alpha_n54 - beta*sum((l,m),q_n54(l,m)) - beta*sum(m,q_n54(i,m)) - c(j)) + lambda_n54(i,j) =g= 0;
-profit_n55(i,j) .. -0.03125*delta2*(alpha_n55 - beta*sum((l,m),q_n55(l,m)) - beta*sum(m,q_n55(i,m)) - c(j)) + lambda_n55(i,j) =g= 0;
-profit_n56(i,j) .. -0.03125*delta2*(alpha_n56 - beta*sum((l,m),q_n56(l,m)) - beta*sum(m,q_n56(i,m)) - c(j)) + lambda_n56(i,j) =g= 0;
-profit_n57(i,j) .. -0.03125*delta2*(alpha_n57 - beta*sum((l,m),q_n57(l,m)) - beta*sum(m,q_n57(i,m)) - c(j)) + lambda_n57(i,j) =g= 0;
-profit_n58(i,j) .. -0.03125*delta2*(alpha_n58 - beta*sum((l,m),q_n58(l,m)) - beta*sum(m,q_n58(i,m)) - c(j)) + lambda_n58(i,j) =g= 0;
-profit_n59(i,j) .. -0.03125*delta2*(alpha_n59 - beta*sum((l,m),q_n59(l,m)) - beta*sum(m,q_n59(i,m)) - c(j)) + lambda_n59(i,j) =g= 0;
-profit_n60(i,j) .. -0.03125*delta2*(alpha_n60 - beta*sum((l,m),q_n60(l,m)) - beta*sum(m,q_n60(i,m)) - c(j)) + lambda_n60(i,j) =g= 0;
-profit_n61(i,j) .. -0.03125*delta2*(alpha_n61 - beta*sum((l,m),q_n61(l,m)) - beta*sum(m,q_n61(i,m)) - c(j)) + lambda_n61(i,j) =g= 0;
-profit_n62(i,j) .. -0.03125*delta2*(alpha_n62 - beta*sum((l,m),q_n62(l,m)) - beta*sum(m,q_n62(i,m)) - c(j)) + lambda_n62(i,j) =g= 0;
+profit_n7(i,j) .. -0.125*delta3*(alpha_n7 - beta*sum((l,m),q_n7(l,m)) - beta*sum(m,q_n7(i,m)) - c(j)) + lambda_n7(i,j) =g= 0;
+profit_n8(i,j) .. -0.125*delta3*(alpha_n8 - beta*sum((l,m),q_n8(l,m)) - beta*sum(m,q_n8(i,m)) - c(j)) + lambda_n8(i,j) =g= 0;
+profit_n9(i,j) .. -0.125*delta3*(alpha_n9 - beta*sum((l,m),q_n9(l,m)) - beta*sum(m,q_n9(i,m)) - c(j)) + lambda_n9(i,j) =g= 0;
+profit_n10(i,j) .. -0.125*delta3*(alpha_n10 - beta*sum((l,m),q_n10(l,m)) - beta*sum(m,q_n10(i,m)) - c(j)) + lambda_n10(i,j) =g= 0;
+profit_n11(i,j) .. -0.125*delta3*(alpha_n11 - beta*sum((l,m),q_n11(l,m)) - beta*sum(m,q_n11(i,m)) - c(j)) + lambda_n11(i,j) =g= 0;
+profit_n12(i,j) .. -0.125*delta3*(alpha_n12 - beta*sum((l,m),q_n12(l,m)) - beta*sum(m,q_n12(i,m)) - c(j)) + lambda_n12(i,j) =g= 0;
+profit_n13(i,j) .. -0.125*delta3*(alpha_n13 - beta*sum((l,m),q_n13(l,m)) - beta*sum(m,q_n13(i,m)) - c(j)) + lambda_n13(i,j) =g= 0;
+profit_n14(i,j) .. -0.125*delta3*(alpha_n14 - beta*sum((l,m),q_n14(l,m)) - beta*sum(m,q_n14(i,m)) - c(j)) + lambda_n14(i,j) =g= 0;
+profit_n15(i,j) .. -0.0625*delta4*(alpha_n15 - beta*sum((l,m),q_n15(l,m)) - beta*sum(m,q_n15(i,m)) - c(j)) + lambda_n15(i,j) =g= 0;
+profit_n16(i,j) .. -0.0625*delta4*(alpha_n16 - beta*sum((l,m),q_n16(l,m)) - beta*sum(m,q_n16(i,m)) - c(j)) + lambda_n16(i,j) =g= 0;
+profit_n17(i,j) .. -0.0625*delta4*(alpha_n17 - beta*sum((l,m),q_n17(l,m)) - beta*sum(m,q_n17(i,m)) - c(j)) + lambda_n17(i,j) =g= 0;
+profit_n18(i,j) .. -0.0625*delta4*(alpha_n18 - beta*sum((l,m),q_n18(l,m)) - beta*sum(m,q_n18(i,m)) - c(j)) + lambda_n18(i,j) =g= 0;
+profit_n19(i,j) .. -0.0625*delta4*(alpha_n19 - beta*sum((l,m),q_n19(l,m)) - beta*sum(m,q_n19(i,m)) - c(j)) + lambda_n19(i,j) =g= 0;
+profit_n20(i,j) .. -0.0625*delta4*(alpha_n20 - beta*sum((l,m),q_n20(l,m)) - beta*sum(m,q_n20(i,m)) - c(j)) + lambda_n20(i,j) =g= 0;
+profit_n21(i,j) .. -0.0625*delta4*(alpha_n21 - beta*sum((l,m),q_n21(l,m)) - beta*sum(m,q_n21(i,m)) - c(j)) + lambda_n21(i,j) =g= 0;
+profit_n22(i,j) .. -0.0625*delta4*(alpha_n22 - beta*sum((l,m),q_n22(l,m)) - beta*sum(m,q_n22(i,m)) - c(j)) + lambda_n22(i,j) =g= 0;
+profit_n23(i,j) .. -0.0625*delta4*(alpha_n23 - beta*sum((l,m),q_n23(l,m)) - beta*sum(m,q_n23(i,m)) - c(j)) + lambda_n23(i,j) =g= 0;
+profit_n24(i,j) .. -0.0625*delta4*(alpha_n24 - beta*sum((l,m),q_n24(l,m)) - beta*sum(m,q_n24(i,m)) - c(j)) + lambda_n24(i,j) =g= 0;
+profit_n25(i,j) .. -0.0625*delta4*(alpha_n25 - beta*sum((l,m),q_n25(l,m)) - beta*sum(m,q_n25(i,m)) - c(j)) + lambda_n25(i,j) =g= 0;
+profit_n26(i,j) .. -0.0625*delta4*(alpha_n26 - beta*sum((l,m),q_n26(l,m)) - beta*sum(m,q_n26(i,m)) - c(j)) + lambda_n26(i,j) =g= 0;
+profit_n27(i,j) .. -0.0625*delta4*(alpha_n27 - beta*sum((l,m),q_n27(l,m)) - beta*sum(m,q_n27(i,m)) - c(j)) + lambda_n27(i,j) =g= 0;
+profit_n28(i,j) .. -0.0625*delta4*(alpha_n28 - beta*sum((l,m),q_n28(l,m)) - beta*sum(m,q_n28(i,m)) - c(j)) + lambda_n28(i,j) =g= 0;
+profit_n29(i,j) .. -0.0625*delta4*(alpha_n29 - beta*sum((l,m),q_n29(l,m)) - beta*sum(m,q_n29(i,m)) - c(j)) + lambda_n29(i,j) =g= 0;
+profit_n30(i,j) .. -0.0625*delta4*(alpha_n30 - beta*sum((l,m),q_n30(l,m)) - beta*sum(m,q_n30(i,m)) - c(j)) + lambda_n30(i,j) =g= 0;
+profit_n31(i,j) .. -0.03125*delta5*(alpha_n31 - beta*sum((l,m),q_n31(l,m)) - beta*sum(m,q_n31(i,m)) - c(j)) + lambda_n31(i,j) =g= 0;
+profit_n32(i,j) .. -0.03125*delta5*(alpha_n32 - beta*sum((l,m),q_n32(l,m)) - beta*sum(m,q_n32(i,m)) - c(j)) + lambda_n32(i,j) =g= 0;
+profit_n33(i,j) .. -0.03125*delta5*(alpha_n33 - beta*sum((l,m),q_n33(l,m)) - beta*sum(m,q_n33(i,m)) - c(j)) + lambda_n33(i,j) =g= 0;
+profit_n34(i,j) .. -0.03125*delta5*(alpha_n34 - beta*sum((l,m),q_n34(l,m)) - beta*sum(m,q_n34(i,m)) - c(j)) + lambda_n34(i,j) =g= 0;
+profit_n35(i,j) .. -0.03125*delta5*(alpha_n35 - beta*sum((l,m),q_n35(l,m)) - beta*sum(m,q_n35(i,m)) - c(j)) + lambda_n35(i,j) =g= 0;
+profit_n36(i,j) .. -0.03125*delta5*(alpha_n36 - beta*sum((l,m),q_n36(l,m)) - beta*sum(m,q_n36(i,m)) - c(j)) + lambda_n36(i,j) =g= 0;
+profit_n37(i,j) .. -0.03125*delta5*(alpha_n37 - beta*sum((l,m),q_n37(l,m)) - beta*sum(m,q_n37(i,m)) - c(j)) + lambda_n37(i,j) =g= 0;
+profit_n38(i,j) .. -0.03125*delta5*(alpha_n38 - beta*sum((l,m),q_n38(l,m)) - beta*sum(m,q_n38(i,m)) - c(j)) + lambda_n38(i,j) =g= 0;
+profit_n39(i,j) .. -0.03125*delta5*(alpha_n39 - beta*sum((l,m),q_n39(l,m)) - beta*sum(m,q_n39(i,m)) - c(j)) + lambda_n39(i,j) =g= 0;
+profit_n40(i,j) .. -0.03125*delta5*(alpha_n40 - beta*sum((l,m),q_n40(l,m)) - beta*sum(m,q_n40(i,m)) - c(j)) + lambda_n40(i,j) =g= 0;
+profit_n41(i,j) .. -0.03125*delta5*(alpha_n41 - beta*sum((l,m),q_n41(l,m)) - beta*sum(m,q_n41(i,m)) - c(j)) + lambda_n41(i,j) =g= 0;
+profit_n42(i,j) .. -0.03125*delta5*(alpha_n42 - beta*sum((l,m),q_n42(l,m)) - beta*sum(m,q_n42(i,m)) - c(j)) + lambda_n42(i,j) =g= 0;
+profit_n43(i,j) .. -0.03125*delta5*(alpha_n43 - beta*sum((l,m),q_n43(l,m)) - beta*sum(m,q_n43(i,m)) - c(j)) + lambda_n43(i,j) =g= 0;
+profit_n44(i,j) .. -0.03125*delta5*(alpha_n44 - beta*sum((l,m),q_n44(l,m)) - beta*sum(m,q_n44(i,m)) - c(j)) + lambda_n44(i,j) =g= 0;
+profit_n45(i,j) .. -0.03125*delta5*(alpha_n45 - beta*sum((l,m),q_n45(l,m)) - beta*sum(m,q_n45(i,m)) - c(j)) + lambda_n45(i,j) =g= 0;
+profit_n46(i,j) .. -0.03125*delta5*(alpha_n46 - beta*sum((l,m),q_n46(l,m)) - beta*sum(m,q_n46(i,m)) - c(j)) + lambda_n46(i,j) =g= 0;
+profit_n47(i,j) .. -0.03125*delta5*(alpha_n47 - beta*sum((l,m),q_n47(l,m)) - beta*sum(m,q_n47(i,m)) - c(j)) + lambda_n47(i,j) =g= 0;
+profit_n48(i,j) .. -0.03125*delta5*(alpha_n48 - beta*sum((l,m),q_n48(l,m)) - beta*sum(m,q_n48(i,m)) - c(j)) + lambda_n48(i,j) =g= 0;
+profit_n49(i,j) .. -0.03125*delta5*(alpha_n49 - beta*sum((l,m),q_n49(l,m)) - beta*sum(m,q_n49(i,m)) - c(j)) + lambda_n49(i,j) =g= 0;
+profit_n50(i,j) .. -0.03125*delta5*(alpha_n50 - beta*sum((l,m),q_n50(l,m)) - beta*sum(m,q_n50(i,m)) - c(j)) + lambda_n50(i,j) =g= 0;
+profit_n51(i,j) .. -0.03125*delta5*(alpha_n51 - beta*sum((l,m),q_n51(l,m)) - beta*sum(m,q_n51(i,m)) - c(j)) + lambda_n51(i,j) =g= 0;
+profit_n52(i,j) .. -0.03125*delta5*(alpha_n52 - beta*sum((l,m),q_n52(l,m)) - beta*sum(m,q_n52(i,m)) - c(j)) + lambda_n52(i,j) =g= 0;
+profit_n53(i,j) .. -0.03125*delta5*(alpha_n53 - beta*sum((l,m),q_n53(l,m)) - beta*sum(m,q_n53(i,m)) - c(j)) + lambda_n53(i,j) =g= 0;
+profit_n54(i,j) .. -0.03125*delta5*(alpha_n54 - beta*sum((l,m),q_n54(l,m)) - beta*sum(m,q_n54(i,m)) - c(j)) + lambda_n54(i,j) =g= 0;
+profit_n55(i,j) .. -0.03125*delta5*(alpha_n55 - beta*sum((l,m),q_n55(l,m)) - beta*sum(m,q_n55(i,m)) - c(j)) + lambda_n55(i,j) =g= 0;
+profit_n56(i,j) .. -0.03125*delta5*(alpha_n56 - beta*sum((l,m),q_n56(l,m)) - beta*sum(m,q_n56(i,m)) - c(j)) + lambda_n56(i,j) =g= 0;
+profit_n57(i,j) .. -0.03125*delta5*(alpha_n57 - beta*sum((l,m),q_n57(l,m)) - beta*sum(m,q_n57(i,m)) - c(j)) + lambda_n57(i,j) =g= 0;
+profit_n58(i,j) .. -0.03125*delta5*(alpha_n58 - beta*sum((l,m),q_n58(l,m)) - beta*sum(m,q_n58(i,m)) - c(j)) + lambda_n58(i,j) =g= 0;
+profit_n59(i,j) .. -0.03125*delta5*(alpha_n59 - beta*sum((l,m),q_n59(l,m)) - beta*sum(m,q_n59(i,m)) - c(j)) + lambda_n59(i,j) =g= 0;
+profit_n60(i,j) .. -0.03125*delta5*(alpha_n60 - beta*sum((l,m),q_n60(l,m)) - beta*sum(m,q_n60(i,m)) - c(j)) + lambda_n60(i,j) =g= 0;
+profit_n61(i,j) .. -0.03125*delta5*(alpha_n61 - beta*sum((l,m),q_n61(l,m)) - beta*sum(m,q_n61(i,m)) - c(j)) + lambda_n61(i,j) =g= 0;
+profit_n62(i,j) .. -0.03125*delta5*(alpha_n62 - beta*sum((l,m),q_n62(l,m)) - beta*sum(m,q_n62(i,m)) - c(j)) + lambda_n62(i,j) =g= 0;
 
 capacity_n0(i,j) .. -q_n0(i,j) + K0(i,j) =g= 0;
 capacity_n1(i,j) .. -q_n1(i,j) + K_n1(i,j) =g= 0;
@@ -885,38 +885,38 @@ state2_n27(i,j) .. -lambda_n27(i,j) + phi_n27(i,j) =g= 0;
 state2_n28(i,j) .. -lambda_n28(i,j) + phi_n28(i,j) =g= 0;
 state2_n29(i,j) .. -lambda_n29(i,j) + phi_n29(i,j) =g= 0;
 state2_n30(i,j) .. -lambda_n30(i,j) + phi_n30(i,j) =g= 0;
-state2_n31(i,j) .. -lambda_n31(i,j) + phi_n31(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n32(i,j) .. -lambda_n32(i,j) + phi_n32(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n33(i,j) .. -lambda_n33(i,j) + phi_n33(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n34(i,j) .. -lambda_n34(i,j) + phi_n34(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n35(i,j) .. -lambda_n35(i,j) + phi_n35(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n36(i,j) .. -lambda_n36(i,j) + phi_n36(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n37(i,j) .. -lambda_n37(i,j) + phi_n37(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n38(i,j) .. -lambda_n38(i,j) + phi_n38(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n39(i,j) .. -lambda_n39(i,j) + phi_n39(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n40(i,j) .. -lambda_n40(i,j) + phi_n40(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n41(i,j) .. -lambda_n41(i,j) + phi_n41(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n42(i,j) .. -lambda_n42(i,j) + phi_n42(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n43(i,j) .. -lambda_n43(i,j) + phi_n43(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n44(i,j) .. -lambda_n44(i,j) + phi_n44(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n45(i,j) .. -lambda_n45(i,j) + phi_n45(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n46(i,j) .. -lambda_n46(i,j) + phi_n46(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n47(i,j) .. -lambda_n47(i,j) + phi_n47(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n48(i,j) .. -lambda_n48(i,j) + phi_n48(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n49(i,j) .. -lambda_n49(i,j) + phi_n49(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n50(i,j) .. -lambda_n50(i,j) + phi_n50(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n51(i,j) .. -lambda_n51(i,j) + phi_n51(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n52(i,j) .. -lambda_n52(i,j) + phi_n52(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n53(i,j) .. -lambda_n53(i,j) + phi_n53(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n54(i,j) .. -lambda_n54(i,j) + phi_n54(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n55(i,j) .. -lambda_n55(i,j) + phi_n55(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n56(i,j) .. -lambda_n56(i,j) + phi_n56(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n57(i,j) .. -lambda_n57(i,j) + phi_n57(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n58(i,j) .. -lambda_n58(i,j) + phi_n58(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n59(i,j) .. -lambda_n59(i,j) + phi_n59(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n60(i,j) .. -lambda_n60(i,j) + phi_n60(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n61(i,j) .. -lambda_n61(i,j) + phi_n61(i,j) -0.03125*delta2*F(j)*nu =g= 0;
-state2_n62(i,j) .. -lambda_n62(i,j) + phi_n62(i,j) -0.03125*delta2*F(j)*nu =g= 0;
+state2_n31(i,j) .. -lambda_n31(i,j) + phi_n31(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n32(i,j) .. -lambda_n32(i,j) + phi_n32(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n33(i,j) .. -lambda_n33(i,j) + phi_n33(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n34(i,j) .. -lambda_n34(i,j) + phi_n34(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n35(i,j) .. -lambda_n35(i,j) + phi_n35(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n36(i,j) .. -lambda_n36(i,j) + phi_n36(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n37(i,j) .. -lambda_n37(i,j) + phi_n37(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n38(i,j) .. -lambda_n38(i,j) + phi_n38(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n39(i,j) .. -lambda_n39(i,j) + phi_n39(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n40(i,j) .. -lambda_n40(i,j) + phi_n40(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n41(i,j) .. -lambda_n41(i,j) + phi_n41(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n42(i,j) .. -lambda_n42(i,j) + phi_n42(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n43(i,j) .. -lambda_n43(i,j) + phi_n43(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n44(i,j) .. -lambda_n44(i,j) + phi_n44(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n45(i,j) .. -lambda_n45(i,j) + phi_n45(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n46(i,j) .. -lambda_n46(i,j) + phi_n46(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n47(i,j) .. -lambda_n47(i,j) + phi_n47(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n48(i,j) .. -lambda_n48(i,j) + phi_n48(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n49(i,j) .. -lambda_n49(i,j) + phi_n49(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n50(i,j) .. -lambda_n50(i,j) + phi_n50(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n51(i,j) .. -lambda_n51(i,j) + phi_n51(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n52(i,j) .. -lambda_n52(i,j) + phi_n52(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n53(i,j) .. -lambda_n53(i,j) + phi_n53(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n54(i,j) .. -lambda_n54(i,j) + phi_n54(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n55(i,j) .. -lambda_n55(i,j) + phi_n55(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n56(i,j) .. -lambda_n56(i,j) + phi_n56(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n57(i,j) .. -lambda_n57(i,j) + phi_n57(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n58(i,j) .. -lambda_n58(i,j) + phi_n58(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n59(i,j) .. -lambda_n59(i,j) + phi_n59(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n60(i,j) .. -lambda_n60(i,j) + phi_n60(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n61(i,j) .. -lambda_n61(i,j) + phi_n61(i,j) -0.03125*delta5*F(j)*nu =g= 0;
+state2_n62(i,j) .. -lambda_n62(i,j) + phi_n62(i,j) -0.03125*delta5*F(j)*nu =g= 0;
 
 state3_n0(i,j) .. F(j) - phi_n1(i,j) - phi_n2(i,j) =g= 0;
 state3_n1(i,j) .. 0.5*delta1*F(j) - phi_n3(i,j) - phi_n4(i,j) =g= 0;
@@ -1234,120 +1234,9 @@ state3_n29.In_n29,
 state3_n30.In_n30
 /;
 
-Sets
-i        /Rwe, EON, Vatten, EnBW/
-j        /Hydro, Nuclear, Lignite, Hardcoal, Gas, Oil, Pump /
-;
 
-Parameters
-alpha_n0   /304.4932/
-alpha_n1   /350.7027/
-alpha_n2   /261.9375/
-alpha_n3   /367.7035/
-alpha_n4   /328.0065/
-alpha_n5   /288.3095/
-alpha_n6   /248.6125/
-alpha_n7   /377.8025/
-alpha_n8   /358.4324/
-alpha_n9   /339.0622/
-alpha_n10   /319.6921/
-alpha_n11   /300.3219/
-alpha_n12   /280.9518/
-alpha_n13   /261.5816/
-alpha_n14   /242.2114/
-alpha_n15   /384.0766/
-alpha_n16   /374.4486/
-alpha_n17   /364.8207/
-alpha_n18   /355.1927/
-alpha_n19   /345.5648/
-alpha_n20   /335.9369/
-alpha_n21   /326.3089/
-alpha_n22   /316.681/
-alpha_n23   /307.0531/
-alpha_n24   /297.4251/
-alpha_n25   /287.7972/
-alpha_n26   /278.1692/
-alpha_n27   /268.5413/
-alpha_n28   /258.9134/
-alpha_n29   /249.2854/
-alpha_n30   /239.6575/
-alpha_n31   /388.2453/
-alpha_n32   /383.4384/
-alpha_n33   /378.6314/
-alpha_n34   /373.8245/
-alpha_n35   /369.0176/
-alpha_n36   /364.2107/
-alpha_n37   /359.4038/
-alpha_n38   /354.5969/
-alpha_n39   /349.79/
-alpha_n40   /344.9831/
-alpha_n41   /340.1762/
-alpha_n42   /335.3693/
-alpha_n43   /330.5624/
-alpha_n44   /325.7555/
-alpha_n45   /320.9486/
-alpha_n46   /316.1417/
-alpha_n47   /311.3348/
-alpha_n48   /306.5279/
-alpha_n49   /301.721/
-alpha_n50   /296.9141/
-alpha_n51   /292.1072/
-alpha_n52   /287.3003/
-alpha_n53   /282.4933/
-alpha_n54   /277.6864/
-alpha_n55   /272.8795/
-alpha_n56   /268.0726/
-alpha_n57   /263.2657/
-alpha_n58   /258.4588/
-alpha_n59   /253.6519/
-alpha_n60   /248.845/
-alpha_n61   /244.0381/
-alpha_n62   /239.2312/
-beta        /0.004069176/
-delta1      /0.9708738/
-delta2      /0.9425959/
-delta3      /0.9151417/
-delta4      /0.8884870/
-delta5      /0.8626088/
-nu          /1/
-rho         /0.025/
-;
-
-
-
-Table K0(i,j)
-       Hydro   Nuclear      Lignite      Hardcoal    Gas         Oil       Pump
-RWE      741      5499      10554        7249        4297        188        793
-EON     1320      8473       1425        9461        3808       1779       1110
-Vatten     9      1421       6932        1729         870       1429       2883
-EnBW     447      4272        453        3288        1083        617        368
-;
-
-
-Parameter c(j)           /
-                         Hydro    7.6
-                         Nuclear  9.5
-                         Lignite  10.6
-                         Hardcoal 16.1
-                         Gas      33.5
-                         Oil      44
-                         Pump     80
-                         /;
-
-
-Parameter F(j)          /
-                         Hydro    3500000
-                         Nuclear  1841000
-                         Lignite  1074000
-                         Hardcoal 971000
-                         Gas      460000
-                         Oil      1000000000
-                         Pump     1000000000
-                        /;
-
-
-
-
+*$include "G:\electricity\models\dynamicmcp\test_5stage.inc" ;
+$include "G:\electricity\models\dynamicmcp\germany_5stage_p.inc" ;
 
 *oligop.optfile = 1;
 *option mcp=kestrel;

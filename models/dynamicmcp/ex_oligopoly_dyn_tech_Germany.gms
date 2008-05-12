@@ -76,8 +76,8 @@ j        /Hydro, Nuclear
 
 
 Parameters
-alpha    /304.4932/
-beta     /0.004069176/
+alpha    /304.55/
+beta     /0.00279/
 nu       /0.99999/
 rho      /0.0/
 ;
