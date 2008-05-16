@@ -60,9 +60,6 @@
 [RP:EX_MONOPOLY_DYN_STOCH_NODE]
 1=
 
-[RP:UNTITLED_2]
-1=
-
 [RP:EX_OLIGOPOLY_DYN_TECH_STOCH_5STAGE_NODE]
 1=
 
@@ -81,17 +78,31 @@
 [RP:EX_OLIGOPOLY_DYN_TECH_STOCH_NODE_GERMANY]
 1=
 
+[GDXDIFF]
+FILE1=
+FILE2=
+OUTFL=
+EPS=0.0
+RELEPS=0.0
+SETIGN=0
+FIELD=All fields
+
+[RP:UNTITLED_2]
+1=
+
+[RP:EX_OLIGOPOLY_DYN_TECH_STOCH_5STAGE_NODE_STATES_GERMANY]
+1=
+
 [MRUFILES]
-1=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_Germany.lst
-2=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node_Germany.gms
-3=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node_Germany.lst
-4=G:\electricity\models\dynamicmcp\germany_twostep.inc
-5=G:\electricity\models\dynamicmcp\test.inc
-6=G:\electricity\models\dynamicmcp\test_5stage.inc
-7=G:\electricity\models\dynamicmcp\germany_5stage_p.inc
-8=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_Germany.gms
-9=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_Germany.ref
-10=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_Germany.gdx
+1=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_states_Germany.ref
+2=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_states_Germany.gdx
+3=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_states_Germany.log
+4=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_Germany.lst
+5=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node_Germany.gms
+6=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_node_Germany.lst
+7=G:\electricity\models\dynamicmcp\germany_twostep.inc
+8=G:\electricity\models\dynamicmcp\test.inc
+9=G:\electricity\models\dynamicmcp\test_5stage.inc
 
 [OPENWINDOW_1]
 MAXIM=0
@@ -99,5 +110,10 @@ TOP=1
 LEFT=2
 HEIGHT=688
 WIDTH=1015
-FILE0=G:\shared\finalmodel\ex_oligopoly_dyn_tech_stoch_node_market_2stage.gms
-FILE1=G:\shared\finalmodel\ex_oligopoly_dyn_tech_stoch_node_market_2stage.gms
+FILE0=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_states_Germany.gms
+FILE1=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_states_Germany.lst
+FILE2=G:\electricity\models\dynamicmcp\germany_5stage.inc
+FILE3=G:\electricity\models\dynamicmcp\germany_5stage_states.inc
+FILE4=G:\electricity\models\dynamicmcp\test_5stage_states.inc
+FILE5=G:\shared\finalmodel\gamsscen.txt
+FILE6=G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech_stoch_5stage_node_states_Germany.gms
