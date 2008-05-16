@@ -10,6 +10,7 @@ rho         /0.02/
 ;
 
 
+
 Parameter pm(s)  /
          State1  0.2
          State2  0.8
@@ -60,7 +61,7 @@ Parameter c(j)           /
 
 
 Parameter F(j)          /
-                         Hydro    350
+                         Hydro    3500000
                          Nuclear  1841000
                          Lignite  1074000
                          Hardcoal 971000

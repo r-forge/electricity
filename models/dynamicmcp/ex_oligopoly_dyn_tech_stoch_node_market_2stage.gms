@@ -40,6 +40,7 @@ marketquantity       market quantity
 marketquantity_n1       market quantity
 ;
 
+
 Positive Variables
 q_n0(i,j,s)          quantity t=0
 q_n1(i,j,s)          quantity t=1
@@ -62,7 +63,7 @@ marketq(s)  market quantity
 marketq_n1(s)  market quantity
 ;
 
-profit_n0(i,j,s) .. -pm(s)*(alpha_n0(s) + beta(s)*sum((l,m),q_n0(l,m,s)) + beta(s)*sum(m,q_n0(i,m,s)) + c(j)) + lambda_n0(i,j,s) =g= 0;
+profit_n0(i,j,s) .. -pm(s)*(alpha_n0(s) - beta(s)*sum((l,m),q_n0(l,m,s)) - beta(s)*sum(m,q_n0(i,m,s)) - c(j)) + lambda_n0(i,j,s) =g= 0;
 profit_n1(i,j,s) .. -0.5*pm(s)*((alpha_n1(s) - beta(s)*sum((l,m),q_n1(l,m,s)) - beta(s)*sum(m,q_n1(i,m,s)) - c(j))) + lambda_n1(i,j,s) =g= 0;
 profit_n2(i,j,s) .. -0.5*pm(s)*((alpha_n2(s) - beta(s)*sum((l,m),q_n2(l,m,s)) - beta(s)*sum(m,q_n2(i,m,s)) - c(j))) + lambda_n2(i,j,s) =g= 0;
 
