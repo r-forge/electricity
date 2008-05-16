@@ -1,13 +1,13 @@
-alpha = 100
-beta = 0.75
-c = 3
+alpha = 304
+beta = 1/358
+c = 7.6
 
 demand <- function(q) alpha - beta*q
 mr <- function(q) alpha - 2*beta*q
 mc <- function(q) c
 q_opt <- (alpha-c)/(2*beta)
 
-qseq <- 1:150
+qseq <- 1:100000
 
 plot(qseq,demand(qseq),type="l")
 lines(qseq,mr(qseq))
@@ -27,7 +27,7 @@ points(q_pc,demand(q_pc),col="green")
 
 pc = 30
 
-q = 1:100
+q = 1:100000
 
 plot(demand(q)*q-c*q,type="l")
 

@@ -639,4 +639,41 @@ The KKT Conditions are as follows.
 
 Not working, objective function is discontinous.
 
+\section{The dynamic stochastic monopoly with scrap values}
+
+
+We consider again the monopolist who produces with one technology. The time horizon consists of two stages. In $t=1$ exist $s$ possible scenarios which occur with probability $p_s$. As there is only one investment decision made in $t=0$, a non-anticipativity constraint is not required. 
+
+\begin{equation*}
+	\max_{q^0,q^{s,1}}\Pi = (\alpha^0-\beta q^0)q^0 - cq^0 -FI^0 +  \sum_{s\in S}p_s\left[(\alpha^{s,1}-\beta q^{s,1})q^{s,1} - cq^{s,1} + FK^1\right] 
+\end{equation*}
+
+subject to
+
+\begin{eqnarray*}
+	q^0 - K^0 &\leq& 0\\
+	q^{s,1} - K^{1} &\leq& 0\quad\forall\, s\\
+        K^{1} - K^0 - I^0 &=& 0\\
+	q^0,q^{s,1},I^0,K^0,K^{1} &\geq& 0\quad\forall\, s 
+\end{eqnarray*}
+ 
+We get the following Lagrangian.
+
+\begin{eqnarray*}
+	\mathcal{L}(q^0,q^{s,1},\lambda^0,\lambda^{s,1},\phi^{s,1})&=& (\alpha^0-\beta q^0)q^0 - cq^0 - FI^0 + \sum_{s\in S}p_s\left[(\alpha^{s,1}-\beta q^{s,1})q^{s,1} - cq^{s,1} + FK^1\right]  \\
+        && - \lambda^0(q^0-K^0) - \sum_{s\in S}\lambda^{s,1}(q^{s,1}-K^{1}) - \phi^{1}(K^{1}-K^0-I^0)
+\end{eqnarray*}
+
+The KKT Conditions are as follows.
+
+\begin{eqnarray*}
+	0 \leq -\alpha^0 + 2\beta q^0 + c + \lambda^0 &\bot& q^0 \geq 0\\
+        0 \leq -p_s\left(\alpha^{s,1} - 2\beta q^{s,1} - c\right) + \lambda^{s,1} &\bot& q^{s,1} \geq 0\quad\forall\,s\\
+	0 \leq -q^0 + K^0 &\bot& \lambda^0 \geq 0 \\
+        0 \leq -q^{s,1} + K^{1} &\bot& \lambda^{s,1} \geq 0 \quad\forall\,s\\
+        0 = K^1 - K^0 - I^0 &\bot& \phi^1 \quad \mbox{free} \\
+        0 \leq -F -\sum_{s\in S}\lambda^{s,1} + \phi^{1} &\bot& K^1 \geq 0 \\
+        0 \leq F - \phi^{1} &\bot& I^0 \geq 0 
+\end{eqnarray*}
+
 \end{document}
