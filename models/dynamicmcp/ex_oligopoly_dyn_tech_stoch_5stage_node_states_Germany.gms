@@ -1241,12 +1241,15 @@ state3_n30.In_n30
 
 
 *$include "G:\electricity\models\dynamicmcp\test_5stage_states.inc" ;
-$include "G:\electricity\models\dynamicmcp\germany_5stage_states.inc" ;
+*$include "E:\WORK\electricity\models\dynamicmcp\test_5stage_states.inc" ;
+*$include "G:\electricity\models\dynamicmcp\germany_5stage_states.inc" ;
 *$include "G:\electricity\models\dynamicmcp\germany_5stage_p.inc" ;
+$include "E:\WORK\electricity\models\dynamicmcp\germany_5stage_states.inc" ;
 
 *oligop.optfile = 1;
 *option mcp=kestrel;
 option iterlim = 300000;
+option reslim = 10000;
 Solve oligop using mcp;
 
 Execute_Unload 'results.gdx', In_n0.l;
