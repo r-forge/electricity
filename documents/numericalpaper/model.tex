@@ -6,11 +6,11 @@
 
 In this section, we develop a stochastic dynamic equilibrium model for a deregulated electricity market. Our focus lies on studying the long-run economic effects of strategic investment decisions in different generation technologies. We consider an oligopolistic market structure, where several large players must make the following decisions in each time stage. First, each company must choose how much electricity it supplies to the market, and which technology is used for production taking into account capacity restricitions. Second, the company has to decide if it wants to invest in new generation capacity. The actual amount will depend on the uncertain future level of electricity demand.
 
-In each time step, the market-clearing conditions lead to the solution of a Nash-Cournot equilibrium between the oligopolistic market players. The uncertainty is modeled with a scenario tree for the stochastic inverse demand function with a random intercept. By deriving the Karush-Kuhn-Tucker (KKT) conditions for each subproblem, we can solve the model as mixed complementarity problem (MCP) and calibrate it to data from the German electricity market.
+In each time step, the market-clearing conditions lead to the solution of a Nash-Cournot equilibrium between the oligopolistic market players. The uncertainty is modeled with a scenario tree for the stochastic inverse demand function by a random intercept accounting for different market states. By deriving the Karush-Kuhn-Tucker (KKT) conditions for each subproblem, we can solve the model as mixed complementarity problem (MCP) and calibrate it to data from the German electricity market.
 
 \subsection{Notation}
 
-We consider a multi-stage stochastic program with recourse. We have discrete time periods $t=0,\dots,T$, where the initial investment decision is made at $t=0$, and recourse decisions can be made at the further stages to adapt to the uncertain developement of the demand. We are primarily interested in the first-stage decisions, because the model would be solved on a rolling horizon basis in practice. We build a binomial scenario tree as shown in figure \ref{fig:scentree} , by using the so-called compact notation \cite[see e.g.][]{Brandimarte2006}.  At each node $n_k$ a production and and investment decisions have to be taken by each oligopolist.
+We consider a multi-stage stochastic program with recourse. The discrete time periods are $t=0,\dots,T$, where the initial investment decision is taken at $t=0$, and recourse decisions can be made at the further stages to adapt to the uncertain development of the demand. We are primarily interested in the first-stage decisions, because the model would be solved on a rolling horizon basis in practice. We build a binomial scenario tree as shown in figure \ref{fig:scentree}, by using the so-called compact notation \cite[see e.g.][]{Brandimarte2006}.  At each node $n_k$ production and and investment decisions have to be taken by each oligopolist.
 
 \begin{figure}[htb]
 \centering
@@ -52,9 +52,9 @@ We consider a multi-stage stochastic program with recourse. We have discrete tim
 \endpsmatrix}
 \end{figure}
 
-We have a set of event nodes $\mathcal{N}$, with $\mathcal{S}\subset {N}$ terminal nodes to which a unique scenario is leading from the initial node $n_0$ with probability $p_s$. The unique predecessor node of each node $n\in\mathcal{N}\setminus \left\{n_0\right\}$ is denoted by $a(n)$, the set of the two immediate successor nodes is called $s(n)$. The set $\mathcal{T}= \mathcal{N}\setminus\left(\left\{n_0\right\}\cup\mathcal{S}\right)$ consists of the intermediate decision nodes. All decision variables are indexed by nodes, instead of scenario and time as in the so-called split variable formulation.
+We have a set of event nodes $\mathcal{N}$, with $\mathcal{S}\subset {N}$ terminal nodes to which a unique scenario is leading from the initial node $n_0$ with probability $p_s$. The unique predecessor node of each node $n\in\mathcal{N}\setminus \left\{n_0\right\}$ is denoted by $a(n)$, the set of the two immediate successor nodes is called $s(n)$. The set $\mathcal{T}= \mathcal{N}\setminus\left(\left\{n_0\right\}\cup\mathcal{S}\right)$ consists of the intermediate decision nodes. All decision variables are indexed by nodes, instead of scenario and time as in the so-called split variable formulation. This method produces less variables, and no additional equations are required to fulfill the non-anticipativity constraints, i.e. the decision at each node may depend on past knowledge but not on information about future realizations of the random event. 
 
-Further, we use the following notation, where each variable indexed by $n$ exists for the complete set of event nodes $\mathcal{N}$. For the exceptions the set of relevant nodes is given.
+Further, we use the following notation, where each variable indexed by $n$ exists for the complete set of event nodes $\mathcal{N}$. The set of relevant nodes is given for the exceptions .
 
 \vspace{1cm}
 \begin{tabular}[l]{l l}
@@ -64,13 +64,13 @@ $j \in \mathcal{J}$ & available technologies \\
 $m\in\mathcal{M}$ & market states \\
 $p_s$ & probability of scenario $s$\\
 $p_n$ & probability to reach a certain node\\
-$p_m$ & probability of market state $m$ \\
+$p^m$ & probability of market state $m$ \\
 $ q_{i,n}^{j,m}$ & production quantities \\
 $I_{i,n}^{j}$ & investment quantities, for $n\in\left\{n_0\right\}\cup\mathcal{T}$ \\
 $K_{i,n}^{j}$ & available capacity\\
 $F_n^{j}$ & investment cost\\
 $Q_n^m = \sum_{i\in \mathcal{I}}\sum_{j\in \mathcal{J}} q_{i,n}^{j,m}$ & market demand \\
-$P_n = \alpha_n^m-\beta\sum_{i\in \mathcal{I}}\sum_{j\in \mathcal{J}}q_{i,n}^{j,m}$ & market equilibrium price \\
+$P^m_n = \alpha_n^m-\beta^m\sum_{i\in \mathcal{I}}\sum_{j\in \mathcal{J}}q_{i,n}^{j,m}$ & market equilibrium price \\
 $\alpha_n^m$ & intercept of demand function \\
 $\beta^m$ & slope of demand function \\
 $c_j$ & variable costs \\
@@ -84,19 +84,18 @@ $\rho$ & depreciation rate\\
 
 The profit function for the $i$-th player in each node is given by:
 
-\begin{equation}
-\Pi_{i,n}\left(q_{i,n}^{j,m},I_{i,n}^j,K_{i,n}^j,Q_n^m\right) = \sum_{m\in\mathcal{M}}p_m\left[\left(\alpha_n^m-\beta^m Q_n^m \right)\sum_{j\in \mathcal{J}}q_{i,n}^{j,m}-\sum_{j\in \mathcal{J}}c_jq_{i,n}^{j,m}\right]-\sum_{j\in \mathcal{J}}F_n^{j}I_{i,n}^{j}\,.
-\end{equation}
+\begin{eqnarray}
+\Pi_{i,n}\left(q_{i,n}^{j,m},I_{i,n}^j,K_{i,n}^j,Q_n^m\right) &=& \\ \sum_{m\in\mathcal{M}}p^m\left[\left(\alpha_n^m-\beta^m Q_n^m \right)\sum_{j\in \mathcal{J}}q_{i,n}^{j,m}-\sum_{j\in \mathcal{J}}c_jq_{i,n}^{j,m}\right]-\sum_{j\in \mathcal{J}}F_n^{j}I_{i,n}^{j}\,\nonumber.
+\end{eqnarray}
 
-The decision variables for each player are the production quantities $q_{i,n}^j$ and the investment quantities $I_{i,n}^j$ in each node. The available capacity $K_{i,n}^j$ is the relevant variable for the state equation in the dynamic setting. The market demand $Q_n^m$ indicates the game-theoretic nature of the problem, i.e. a simultaneous decision has to be made, where each players production/investment quantity influences the behaviour of its competitors.
+The decision variables for each player are the production quantities $q_{i,n}^{j,m}$ and the investment quantities $I_{i,n}^j$ in each node. The available capacity $K_{i,n}^j$ is the relevant variable for the state equation in the dynamic setting. The market demand $Q_n^m$ indicates the game-theoretic nature of the problem, i.e. a simultaneous decision has to be made, where each players production/investment quantity influences the behaviour of its competitors.
 
-All players maximize simultaneously their discounted expected profit of each node plus the discounted salvage values of of the existing capacities in the terminal nodes:
+All players maximize simultaneously their discounted expected profit of all nodes plus the discounted salvage values of of the existing capacities in the terminal nodes:
 
 \begin{equation}
   \label{eq:objfct}
   \max_{q_{i,n}^{j,m}, I_{i,n}^{j}} \sum_{n\in \mathcal{N}}p_n\delta_n\Pi_{i,n}\left(q_{i,n}^{j,m}, I_{i,n}^{j}, K_{i,n}^{j}, Q_n^m\right)+ \sum_{n\in \mathcal{S}}p_n\,\delta_n \sum_{j\in \mathcal{J}}K_{i,n}^{j}F_n^{j}\nu
 \end{equation}
-
 subject to
   
 \begin{eqnarray}  
@@ -105,40 +104,41 @@ Q_n^m-\sum_{i\in \mathcal{I}}\sum_{j\in \mathcal{J}} q_{i,n}^{j,m} &=& 0 \quad \
 K_{i,n}^{j} - (1-\rho)K_{i,a(n)}^{j}-I_{i,a(n)}^{j} &=& 0 \quad \forall i,j,n \label{eq:state} \\
 q_{i,n}^{j,m}, K_{i,n}^{j}, I_{i,n}^{j}, Q_n^m  &\geq& 0 \quad \forall i,j,m,n\label{eq:nonneg}
 \end{eqnarray}
-
-\eqref{eq:prodconstr} is the production constraint, \eqref{eq:marketclearing} the market clearing condition, \eqref{eq:state} is the state equation, \eqref{eq:nonneg} are non-negativity constraints.
+where \eqref{eq:prodconstr} is the production constraint, \eqref{eq:marketclearing} the market clearing condition, \eqref{eq:state} is the state equation, \eqref{eq:nonneg} are non-negativity constraints.
 
 \subsection{Solution and equilibrium type}
 \label{sec:solution}
 
-We derive for the objective function \eqref{eq:objfct} subject to the constraints \eqref{eq:prodconstr}-\eqref{eq:nonneg} the discrete-time Hamiltonian
+We derive for the objective function \eqref{eq:objfct} subject to the constraints \eqref{eq:prodconstr}-\eqref{eq:nonneg} the discrete-time Hamiltonian:
 
 \begin{align}
   \label{eq:kkt1}
   && \mathcal{H}(q_{i,n}^{j,m}, I_{i,n}^{j},\lambda_{i,n}^{l},\phi_{i,n}^{k,j}) &=& \\
-  && \sum_{n\in \mathcal{N}}p_n\delta_n\left[ \sum_{m\in\mathcal{M}}p_m\left( \left(\alpha_n^m-\beta^m Q_n^m \right)\sum_{j\in \mathcal{J}}q_{i,n}^{j,m}-\sum_{j\in \mathcal{J}}c_jq_{i,n}^{j,m}\right)-\sum_{j\in \mathcal{J}}F_n^{j}I_{i,n}^{j}\right]\nonumber\\
+  && \sum_{n\in \mathcal{N}}p_n\delta_n\left[ \sum_{m\in\mathcal{M}}p^m\left( \left(\alpha_n^m-\beta^m Q_n^m \right)\sum_{j\in \mathcal{J}}q_{i,n}^{j,m}-\sum_{j\in \mathcal{J}}c_jq_{i,n}^{j,m}\right)-\sum_{j\in \mathcal{J}}F_n^{j}I_{i,n}^{j}\right]\nonumber\\
 &&+ \sum_{n\in \mathcal{S}}p_n\,\delta_n \sum_{j\in \mathcal{J}}K_{i,n}^{j}F_n^{j}\nu\nonumber\\
  && - \lambda_{i,n}^{1,j,m}\left[q_{i,n}^{j,m} - K_{i,n}^{j}\right]\nonumber\\
  &&  - \phi_{n}^{1}\left[Q_n^m-\sum_{i\in \mathcal{I}}\sum_{j\in \mathcal{J}} q_{i,n}^{j,m}\right]\nonumber\\
- &&  - \phi_{i,n}^{2,j}\left[K_{i,n}^{j} - (1-\rho)K_{i,a(n)}^{j}-I_{i,a(n)}^{j}\right]\nonumber
+ &&  - \phi_{i,n}^{2,j}\left[K_{i,n}^{j} - (1-\rho)K_{i,a(n)}^{j}-I_{i,a(n)}^{j}\right]\,.\nonumber
 \end{align}
 
 Then we obtain the both necessary and sufficient KKT conditions for optimality in \eqref{eq:kkt_first}-\eqref{eq:kkt_last}, where the perpendicular symbol "$\bot$" means that at least one of the adjacent inequalities must be satisfied as an equality.
 
 
 \begin{align}
-0\leq - p_n\delta_np^m\left(\alpha_n^m-\beta^m Q_n^m-\beta^m\sum_{j^*\in \mathcal{J}}q_{i,n}^{j,m}-c_j\right)+\lambda_{i,n}^{1,j} &\quad\bot&q_{i,n}^{j,m}\geq 0&  \quad \forall i,j,m,n\label{eq:kkt_first}\\
+0\leq - p_n\delta_np^m\left(\alpha_n^m-\beta^m Q_n^m-\beta^m\sum_{j^*\in \mathcal{J}}q_{i,n}^{j,m}-c_j\right) \nonumber\\
++\lambda_{i,n}^{1,j} &\quad\bot&q_{i,n}^{j,m}\geq 0&  \quad \forall i,j,m,n\label{eq:kkt_first}\\
 0\leq p_n\delta_nF_n^{j} - \sum_{n'\in a(n)}\phi_{i,n'}^{2,j} &\quad\bot&I_{i,n}^{j}\geq 0&  \quad \forall i,j,n\in\mathcal{T}\\
 0 \leq -\sum_{m\in\mathcal{M}}\lambda_{i,n}^{1,j}  +\phi_{i,n}^{2,j} &\quad\bot&K_{i,n}^{j}\geq 0&  \quad \forall i,j,n\in\mathcal{T}\\
 0 \leq -\sum_{m\in\mathcal{M}}\lambda_{i,n}^{1,j}  +\phi_{i,n}^{2,j}-p_n\delta_nF_n^j\nu &\quad\bot&K_{i,n}^{j}\geq 0&  \quad \forall i,j,n\in\mathcal{S}\\
 0\leq -q_{i,n}^{j,m} + K_{i,n}^{j} &\quad\bot&\lambda_{i,n}^{1,j,m}\geq 0&  \quad \forall i,j,m,n\\
 0 \leq -Q_n^m+\sum_{i\in \mathcal{I}}\sum_{j\in \mathcal{J}} q_{i,n}^{j,m} &\quad\bot&\phi_{n}^{1}\geq 0&  \quad \forall n\\
-0 = -K_{i,n}^{j} + (1-\rho)K_{i,a(n)}^{j}+I_{i,a(n)}^{j} &\quad\bot&\phi_{i,n}^{2,j}\,\mbox{free}  & \quad \forall i,j,n\in\mathcal{N}\setminus \left\{n_0\right\}\label{eq:kkt_last}
+0 = -K_{i,n}^{j} + (1-\rho)K_{i,a(n)}^{j}+I_{i,a(n)}^{j} &\quad\bot& \phi_{i,n}^{2,j}\,\mbox{free} & \quad \forall i,j,\nonumber\\
+&&& \quad n\in\mathcal{N}\setminus \left\{n_0\right\}\label{eq:kkt_last}
 \end{align}
 
 By grouping together the KKT conditions for all firms we get a mixed complementarity problem (MCP). These types of optimization problems can conveniently be implemented in GAMS (General Algebraic Modelling System) and solved with with the PATH solver \citep[see][]{Ferris2000}.
 
-The model formulation consists of an $S$-adapted open loop information strucuture developed by \cite{Haurie1990}. What we have seen before is the direct approach to finding the Nash equilibria by solving for the necessary and sufficient conditions, which leads to a mixed complimentarity problem. Another way is an optimization algorithm for variational inequalities \citep[see e.g.][]{Haurie2002, Pineau2003}.
+The model formulation consists of an $S$-adapted open loop information strucuture developed by \cite{Haurie1990}. What we have seen before is the direct approach to finding the Nash equilibria by solving for the necessary and sufficient conditions, which leads to a mixed complimentarity problem. An alternative approach would be an optimization algorithm for variational inequalities \citep[see e.g.][]{Haurie2002, Pineau2003}.
 
 The existence and uniqueness of an equilibrium is assured by using convex and twice-continuous differentiable cost functions and linear demand functions, \citep[see e.g.][]{Murphy1982}. 
 
@@ -152,7 +152,6 @@ The uncertainty of future levels of electricity demand is caputured by a stochas
   \label{eq:marketdemandpq}
   a^mP^m_t+b^mQ^m_t=D^m_t+\tilde{\gamma}^m_t, \quad \mbox{where}\, \tilde{\gamma}^m_t\sim\mathbb{N}(\mu,h)
 \end{equation}
-
 such that
 
 \begin{eqnarray*}
@@ -172,11 +171,11 @@ where the initial demand $D^m>0$ and $g$ is the demand growth rate. The demand f
 
 %Where $\mu=62,411$ MWh and $p=50.79$. 
 With a reduced-form electricity demand of
-\begin{equation}
+\begin{equation*}
   \label{eq:5}
   Q^m_t(P^m) = \alpha^m_t-\beta^m P^m, 
-\end{equation}
-we calculate the slope of the demand curve $\beta^m$  via an assumed price elasticity of demand $\epsilon=-0.2$ as follows:
+\end{equation*}
+we calculate the slope of the demand curve $\beta^m$  via an assumed price elasticity of demand\,$\epsilon$ as follows:
 
 \begin{eqnarray*}
   \frac{\partial Q^m_t(P^m)}{\partial P^m} &=& -\beta^m \\
@@ -187,20 +186,10 @@ we calculate the slope of the demand curve $\beta^m$  via an assumed price elast
 
 Now, we can solve for the stochastic intercept in each period:
 
-\begin{equation*}
+\begin{equation}
   \alpha^m_t=D^m(1+g)^t+\gamma^m_t,
-\end{equation*}
-with $g$ as yearly growth rate of demand for the future.
-% For $\tilde{\gamma}_0=0$ we get
-
-% \begin{eqnarray*}
-%   62,411 &=& \alpha_0-245.75\times 50.79\\
-%   \alpha_0 &=&D=74,905.
-% \end{eqnarray*}
-
-%So, the demand curve in the initial node is $Q_o(p) = 74,905-245.75p$.
-
-
+\end{equation}
+with $g$ as yearly growth rate of demand for the future. The proposed method leads to a binomial scenario tree as in figure \ref{fig:scentree}, but in each node a production decision for each of the market states has to be made. In the next section, we present the data which is required for a calibration of the model to a realistic example of an electricity market.
 
 %%% Local Variables: 
 %%% mode: latex
