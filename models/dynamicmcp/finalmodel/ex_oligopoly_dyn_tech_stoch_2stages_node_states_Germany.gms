@@ -67,10 +67,6 @@ In_n0(i,j)           investments t=0
 Free Variable
 phi_n1(i,j)   state
 phi_n2(i,j)   state
-phi_n3(i,j)   state
-phi_n4(i,j)   state
-phi_n5(i,j)   state
-phi_n6(i,j)   state
 ;
 
 profit_n0(i,j,s) .. -pm(s)*(alpha_n0(s) - beta(s)*sum((l,m),q_n0(l,m,s)) - beta(s)*sum(m,q_n0(i,m,s)) + c(j)) + lambda_n0(i,j,s) =g= 0;
@@ -114,7 +110,7 @@ state3_n0.In_n0
 *$include "E:\WORK\electricity\models\dynamicmcp\finalmodel\test_3stage_states.inc" ;
 *$include "E:\WORK\electricity\models\dynamicmcp\finalmodel\germany_3stage_states.inc" ;
 *$include "C:\Dokumente und Einstellungen\Edith\Eigene Dateien\models\dynamicmcp\finalmodel\2_stage_test.inc" ;
-$include "C:\Dokumente und Einstellungen\Edith\Eigene Dateien\models\dynamicmcp\finalmodel\2_stage_Germany.inc" ;
+$include "C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\dynamicmcp\finalmodel\2_stage_Germany.inc" ;
 
 
 
@@ -129,8 +125,8 @@ Solve oligop using mcp;
 Parameter totcap total capacities;
 *totcap = K_n1.RWE.Nuclear.l;
 
-Execute_Unload 'results.gdx', K_n1.l;
-Execute 'GDXXRW.EXE results.gdx var=In_n0.l rng=Investments!a1 Rdim=1';
+Execute_Unload 'results.gdx', q_n0.l;
+Execute 'GDXXRW.EXE results.gdx var=q_n0.l rng=Investments!a1 Rdim=1';
 
 *file results /results.csv/;
 *results.pc=5;

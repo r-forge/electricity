@@ -20,20 +20,20 @@ Parameter alpha_n0(s)   /
     State6   1055.167
 /;
 Parameter alpha_n1(s)   /
-    State1   83.859
-    State2   208.3839
-    State3   321.3385
-    State4   437.1443
-    State5   556.9036
-    State6   1109.707
+    State1   87.9635
+    State2   218.5451
+    State3   337.1902
+    State4   459.3664
+    State5   585.5349
+    State6   1166.686
 /;
 Parameter alpha_n2(s)   /
-    State1   69.0734
-    State2   170.2177
-    State3   269.2863
-    State4   390.8329
-    State5   509.8777
-    State6   1013.290
+    State1   73.178
+    State2   180.3789
+    State3   285.1381
+    State4   413.055
+    State5   538.509
+    State6   1070.269
 /;
 
 Parameter beta(s)   /
