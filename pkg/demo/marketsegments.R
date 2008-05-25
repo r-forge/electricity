@@ -39,7 +39,9 @@ gammat_t <- function(t) c((2*sort(seq(1,2^(t-1)),decreasing=T)-1)
                         *gamma_t(t),-(2*seq(1,2^(t-1))-1)*gamma_t(t))
 alpha_t <- function(t) if(t==0) D else D*(1+rho)^t+gammat_t(t)
 
-rho <- 0.006
+rho <- 0.06
+e = 0.2
+
 sink(file="gamsscen.txt")
 
 i=0

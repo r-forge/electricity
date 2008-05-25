@@ -1,5 +1,5 @@
-alpha = 304
-beta = 1/358
+alpha = 100
+beta = 3
 c = 7.6
 
 demand <- function(q) alpha - beta*q
@@ -7,7 +7,7 @@ mr <- function(q) alpha - 2*beta*q
 mc <- function(q) c
 q_opt <- (alpha-c)/(2*beta)
 
-qseq <- 1:100000
+qseq <- 1:40
 
 plot(qseq,demand(qseq),type="l")
 lines(qseq,mr(qseq))
@@ -27,17 +27,17 @@ points(q_pc,demand(q_pc),col="green")
 
 pc = 30
 
-q = 1:100000
+##q = 1:100000
 
-plot(demand(q)*q-c*q,type="l")
+#plot(demand(q)*q-c*q,type="l")
 
-pcs = c(47,48,49,50)
-for (i in 1:length(pcs)) {
-	pc = pcs[i]
-lines(q,apply(cbind(demand(q),rep(pc,length(1))),1,min)*q-c*q,lty=2,lwd=2)
-}
+#pcs = c(47,48,49,50)
+#for (i in 1:length(pcs)) {
+#	pc = pcs[i]
+#lines(q,apply(cbind(demand(q),rep(pc,length(1))),#1,min)#*q-c*q,lty=2,lwd=2)
+#}
 
-points(q_opt,demand(q_opt)*q_opt-c*q_opt,col="red",lwd="2")
+#points(q_opt,demand(q_opt)*q_opt-#c*q_opt,col="red",lwd="2")
 
 
 
