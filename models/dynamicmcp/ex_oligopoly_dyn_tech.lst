@@ -1,4 +1,4 @@
-GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 1
+GAMS Rev 148  x86/MS Windows                            05/10/06 19:47:55 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -92,8 +92,8 @@ C o m p i l a t i o n
   84  Display q0.l, q1.l,In0.l, K0, K1.l,lambda0.l,lambda1.l;
 
 
-COMPILATION TIME     =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 2
+COMPILATION TIME     =        0.016 SECONDS      3 Mb  WIN225-148 May 29, 2007
+GAMS Rev 148  x86/MS Windows                            05/10/06 19:47:55 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE oligop Using MCP From line 82
 
@@ -214,7 +214,7 @@ state3(Player2,Hydro)..  - phi(Player2,Hydro) =G= -1 ; (LHS = 0)
      
 REMAINING ENTRY SKIPPED
 
-GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 3
+GAMS Rev 148  x86/MS Windows                            05/10/06 19:47:55 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE oligop Using MCP From line 82
 
@@ -363,7 +363,7 @@ phi(Player2,Hydro)
        -1       state3(Player2,Hydro)
 
 REMAINING ENTRY SKIPPED
-GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 4
+GAMS Rev 148  x86/MS Windows                            05/10/06 19:47:55 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE oligop Using MCP From line 82
 
@@ -373,15 +373,15 @@ MODEL STATISTICS
 BLOCKS OF EQUATIONS           7     SINGLE EQUATIONS           28
 BLOCKS OF VARIABLES           7     SINGLE VARIABLES           28
 NON ZERO ELEMENTS            72     NON LINEAR N-Z              0
-DERIVATIVE POOL               6     CONSTANT POOL              14
+DERIVATIVE POOL               6     CONSTANT POOL              16
 CODE LENGTH                   1
 
 
-GENERATION TIME      =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
+GENERATION TIME      =        0.000 SECONDS      4 Mb  WIN225-148 May 29, 2007
 
 
-EXECUTION TIME       =        0.016 SECONDS      4 Mb  WIN222-145 Apr 21, 2006
-GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 5
+EXECUTION TIME       =        0.000 SECONDS      4 Mb  WIN225-148 May 29, 2007
+GAMS Rev 148  x86/MS Windows                            05/10/06 19:47:55 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE oligop Using MCP From line 82
 
@@ -395,24 +395,15 @@ Solution Report     SOLVE oligop Using MCP From line 82
 **** SOLVER STATUS     1 NORMAL COMPLETION         
 **** MODEL STATUS      1 OPTIMAL                   
 
- RESOURCE USAGE, LIMIT          0.109      1000.000
+ RESOURCE USAGE, LIMIT          0.015      1000.000
  ITERATION COUNT, LIMIT        24         10000
  EVALUATION ERRORS              0             0
 
-*** Your license (code PT) expired  601 days ago.
-*** Continue to run in demonstration mode.
-*** To update your license, please contact your distributor or
-***    GAMS Development Corp.
-***    Phone : (202) 342 0180
-***    Fax   : (202) 342 0181
-***    email : sales@gams.com
-
-
-PATH-C        Apr 21, 2006 WIN.PT.PT 22.2 022.034.041.VIS Path 4.6.06
+PATH-C        Jun  1, 2007 WIN.PT.PT 22.5 025.037.041.VIS Path 4.7.00
 
 28 row/cols, 72 non-zeros, 9.18% dense.
 
-Path 4.6.06 (Fri Apr 21 16:29:09 2006)
+Path 4.7.00 (Tue May 29 14:27:30 2007)
 Written by Todd Munson, Steven Dirkse, and Michael Ferris
 
 INITIAL POINT STATISTICS
@@ -432,8 +423,8 @@ Inf-Norm of Complementarity . .  6.4436e-011 eqn: (capacity1(Player2,Nuclear))
 Inf-Norm of Normal Map. . . . .  3.2218e-011 eqn: (capacity1(Player2,Nuclear))
 Inf-Norm of Minimum Map . . . .  3.2218e-011 eqn: (capacity1(Player2,Nuclear))
 Inf-Norm of Fischer Function. .  3.2218e-011 eqn: (capacity1(Player2,Nuclear))
-Inf-Norm of Grad Fischer Fcn. .  6.7390e-011 eqn: (profit1(Player2,Nuclear))
-Two-Norm of Grad Fischer Fcn. .  1.2072e-010
+Inf-Norm of Grad Fischer Fcn. .  6.7379e-011 eqn: (profit1(Player2,Nuclear))
+Two-Norm of Grad Fischer Fcn. .  1.2070e-010
 
 FINAL POINT STATISTICS
 Maximum of X. . . . . . . . . .  3.3215e+001 var: (K1(Player1,Nuclear))
@@ -574,7 +565,7 @@ Player2.Nuclear     -INF      2.000     +INF       .
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS Rev 145  x86/MS Windows                            04/19/08 14:23:43 Page 6
+GAMS Rev 148  x86/MS Windows                            05/10/06 19:47:55 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -636,7 +627,7 @@ Player2       1.000       2.000
 
 
 
-EXECUTION TIME       =        0.000 SECONDS      3 Mb  WIN222-145 Apr 21, 2006
+EXECUTION TIME       =        0.000 SECONDS      3 Mb  WIN225-148 May 29, 2007
 
 
 USER: course license                                 S060628:0842AL-WIN
@@ -646,5 +637,7 @@ USER: course license                                 S060628:0842AL-WIN
 
 **** FILE SUMMARY
 
-Input      G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech.gms
-Output     G:\electricity\models\dynamicmcp\ex_oligopoly_dyn_tech.lst
+Input      C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\
+           dynamicmcp\ex_oligopoly_dyn_tech.gms
+Output     C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\
+           dynamicmcp\ex_oligopoly_dyn_tech.lst

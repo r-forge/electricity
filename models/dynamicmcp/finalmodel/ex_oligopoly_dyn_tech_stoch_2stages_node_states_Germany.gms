@@ -119,14 +119,18 @@ $include "C:\Dokumente und Einstellungen\rob\Eigene Dateien\electricity\models\d
 option iterlim = 300000;
 option reslim = 10000;
 
+Parameters nu /0.95/;
+Parameters rho         /0.025/;
+
+
 
 Solve oligop using mcp;
 
 Parameter totcap total capacities;
 *totcap = K_n1.RWE.Nuclear.l;
 
-Execute_Unload 'results.gdx', q_n0.l;
-Execute 'GDXXRW.EXE results.gdx var=q_n0.l rng=Investments!a1 Rdim=1';
+Execute_Unload 'results.gdx', In_n0.l;
+Execute 'GDXXRW.EXE results.gdx var=In_n0.l rng=Investments!a1 Rdim=1';
 
 *file results /results.csv/;
 *results.pc=5;

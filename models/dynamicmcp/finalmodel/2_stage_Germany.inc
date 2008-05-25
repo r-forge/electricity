@@ -5,10 +5,11 @@ s        /State1,State2,State3,State4,State5,State6/
 ;
 
 
+
 Parameters
 delta1      /0.9285994/
-nu          /0.95/
-rho         /0.025/
+*nu          /0.9/
+*rho         /0.025/
 ;
 
 Parameter alpha_n0(s)   /
