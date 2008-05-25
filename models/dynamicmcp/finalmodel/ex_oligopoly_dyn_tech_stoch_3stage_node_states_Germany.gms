@@ -637,7 +637,10 @@ state3_n14.In_n14
 
 
 *$include "E:\WORK\electricity\models\dynamicmcp\finalmodel\test_3stage_states.inc" ;
-$include "E:\WORK\electricity\models\dynamicmcp\finalmodel\germany_3stage_states.inc" ;
+*$include "E:\WORK\electricity\models\dynamicmcp\finalmodel\germany_3stage_states.inc" ;
+
+$include "C:\Dokumente und Einstellungen\Edith\Eigene Dateien\models\dynamicmcp\finalmodel\germany_3stage_states.inc" ;
+
 
 *oligop.optfile = 1;
 *option mcp=kestrel;
