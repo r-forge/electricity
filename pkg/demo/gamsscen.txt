@@ -1,0 +1,520 @@
+Parameter alpha_n0(s)   /
+    State1   76.01015
+    State2   188.1717
+    State3   293.5511
+    State4   411.5195
+    State5   530.2094
+    State6   1055.167
+/;
+Parameter alpha_n1(s)   /
+    State1   87.9635
+    State2   218.5451
+    State3   337.1902
+    State4   459.3664
+    State5   585.5349
+    State6   1166.686
+/;
+Parameter alpha_n2(s)   /
+    State1   73.178
+    State2   180.3789
+    State3   285.1381
+    State4   413.055
+    State5   538.509
+    State6   1070.269
+/;
+Parameter alpha_n3(s)   /
+    State1   95.3235
+    State2   237.0324
+    State3   364.7517
+    State4   493.45
+    State5   627.2892
+    State6   1250.265
+/;
+Parameter alpha_n4(s)   /
+    State1   88.7112
+    State2   219.964
+    State3   341.4732
+    State4   472.7389
+    State5   606.2585
+    State6   1207.146
+/;
+Parameter alpha_n5(s)   /
+    State1   82.0989
+    State2   202.8955
+    State3   318.1948
+    State4   452.0278
+    State5   585.2279
+    State6   1164.026
+/;
+Parameter alpha_n6(s)   /
+    State1   75.4866
+    State2   185.8271
+    State3   294.9164
+    State4   431.3167
+    State5   564.1973
+    State6   1120.907
+/;
+Parameter alpha_n7(s)   /
+    State1   101.822
+    State2   253.2655
+    State3   389.3796
+    State4   525.4973
+    State5   667.4044
+    State6   1330.361
+/;
+Parameter alpha_n8(s)   /
+    State1   98.5955
+    State2   244.9369
+    State3   378.0208
+    State4   515.3913
+    State5   657.1425
+    State6   1309.321
+/;
+Parameter alpha_n9(s)   /
+    State1   95.369
+    State2   236.6084
+    State3   366.6621
+    State4   505.2853
+    State5   646.8807
+    State6   1288.281
+/;
+Parameter alpha_n10(s)   /
+    State1   92.1425
+    State2   228.2798
+    State3   355.3034
+    State4   495.1793
+    State5   636.6188
+    State6   1267.241
+/;
+Parameter alpha_n11(s)   /
+    State1   88.9161
+    State2   219.9513
+    State3   343.9447
+    State4   485.0734
+    State5   626.3569
+    State6   1246.201
+/;
+Parameter alpha_n12(s)   /
+    State1   85.6896
+    State2   211.6227
+    State3   332.586
+    State4   474.9674
+    State5   616.095
+    State6   1225.161
+/;
+Parameter alpha_n13(s)   /
+    State1   82.4631
+    State2   203.2942
+    State3   321.2273
+    State4   464.8614
+    State5   605.8331
+    State6   1204.121
+/;
+Parameter alpha_n14(s)   /
+    State1   79.2367
+    State2   194.9656
+    State3   309.8685
+    State4   454.7554
+    State5   595.5712
+    State6   1183.081
+/;
+Parameter alpha_n15(s)   /
+    State1   107.9889
+    State2   268.6103
+    State3   412.9454
+    State4   557.2077
+    State5   707.6321
+    State6   1410.559
+/;
+Parameter alpha_n16(s)   /
+    State1   106.3852
+    State2   264.4706
+    State3   407.2995
+    State4   552.1846
+    State5   702.5315
+    State6   1400.101
+/;
+Parameter alpha_n17(s)   /
+    State1   104.7815
+    State2   260.3309
+    State3   401.6537
+    State4   547.1614
+    State5   697.4308
+    State6   1389.643
+/;
+Parameter alpha_n18(s)   /
+    State1   103.1778
+    State2   256.1912
+    State3   396.0078
+    State4   542.1382
+    State5   692.3301
+    State6   1379.185
+/;
+Parameter alpha_n19(s)   /
+    State1   101.5741
+    State2   252.0515
+    State3   390.362
+    State4   537.115
+    State5   687.2295
+    State6   1368.727
+/;
+Parameter alpha_n20(s)   /
+    State1   99.9704
+    State2   247.9118
+    State3   384.7161
+    State4   532.0919
+    State5   682.1288
+    State6   1358.269
+/;
+Parameter alpha_n21(s)   /
+    State1   98.3666
+    State2   243.772
+    State3   379.0703
+    State4   527.0687
+    State5   677.0281
+    State6   1347.811
+/;
+Parameter alpha_n22(s)   /
+    State1   96.7629
+    State2   239.6323
+    State3   373.4244
+    State4   522.0455
+    State5   671.9274
+    State6   1337.353
+/;
+Parameter alpha_n23(s)   /
+    State1   95.1592
+    State2   235.4926
+    State3   367.7786
+    State4   517.0223
+    State5   666.8268
+    State6   1326.896
+/;
+Parameter alpha_n24(s)   /
+    State1   93.5555
+    State2   231.3529
+    State3   362.1327
+    State4   511.9992
+    State5   661.7261
+    State6   1316.438
+/;
+Parameter alpha_n25(s)   /
+    State1   91.9518
+    State2   227.2132
+    State3   356.4869
+    State4   506.976
+    State5   656.6254
+    State6   1305.980
+/;
+Parameter alpha_n26(s)   /
+    State1   90.3481
+    State2   223.0735
+    State3   350.841
+    State4   501.9528
+    State5   651.5247
+    State6   1295.522
+/;
+Parameter alpha_n27(s)   /
+    State1   88.7443
+    State2   218.9338
+    State3   345.1952
+    State4   496.9296
+    State5   646.4241
+    State6   1285.064
+/;
+Parameter alpha_n28(s)   /
+    State1   87.1406
+    State2   214.7941
+    State3   339.5493
+    State4   491.9064
+    State5   641.3234
+    State6   1274.606
+/;
+Parameter alpha_n29(s)   /
+    State1   85.5369
+    State2   210.6544
+    State3   333.9035
+    State4   486.8833
+    State5   636.2227
+    State6   1264.148
+/;
+Parameter alpha_n30(s)   /
+    State1   83.9332
+    State2   206.5147
+    State3   328.2576
+    State4   481.8601
+    State5   631.1221
+    State6   1253.69
+/;
+Parameter alpha_n31(s)   /
+    State1   114.1293
+    State2   283.8519
+    State3   436.5287
+    State4   589.5785
+    State5   749.0119
+    State6   1492.982
+/;
+Parameter alpha_n32(s)   /
+    State1   113.3286
+    State2   281.7851
+    State3   433.7099
+    State4   587.0706
+    State5   746.4653
+    State6   1487.761
+/;
+Parameter alpha_n33(s)   /
+    State1   112.5279
+    State2   279.7182
+    State3   430.8912
+    State4   584.5626
+    State5   743.9187
+    State6   1482.539
+/;
+Parameter alpha_n34(s)   /
+    State1   111.7273
+    State2   277.6514
+    State3   428.0724
+    State4   582.0547
+    State5   741.3721
+    State6   1477.318
+/;
+Parameter alpha_n35(s)   /
+    State1   110.9266
+    State2   275.5846
+    State3   425.2536
+    State4   579.5468
+    State5   738.8256
+    State6   1472.097
+/;
+Parameter alpha_n36(s)   /
+    State1   110.1259
+    State2   273.5178
+    State3   422.4348
+    State4   577.0389
+    State5   736.279
+    State6   1466.876
+/;
+Parameter alpha_n37(s)   /
+    State1   109.3252
+    State2   271.451
+    State3   419.616
+    State4   574.531
+    State5   733.7324
+    State6   1461.654
+/;
+Parameter alpha_n38(s)   /
+    State1   108.5245
+    State2   269.3842
+    State3   416.7972
+    State4   572.0231
+    State5   731.1858
+    State6   1456.433
+/;
+Parameter alpha_n39(s)   /
+    State1   107.7238
+    State2   267.3174
+    State3   413.9785
+    State4   569.5152
+    State5   728.6392
+    State6   1451.212
+/;
+Parameter alpha_n40(s)   /
+    State1   106.9232
+    State2   265.2505
+    State3   411.1597
+    State4   567.0073
+    State5   726.0926
+    State6   1445.990
+/;
+Parameter alpha_n41(s)   /
+    State1   106.1225
+    State2   263.1837
+    State3   408.3409
+    State4   564.4994
+    State5   723.546
+    State6   1440.769
+/;
+Parameter alpha_n42(s)   /
+    State1   105.3218
+    State2   261.1169
+    State3   405.5221
+    State4   561.9915
+    State5   720.9994
+    State6   1435.548
+/;
+Parameter alpha_n43(s)   /
+    State1   104.5211
+    State2   259.0501
+    State3   402.7033
+    State4   559.4836
+    State5   718.4528
+    State6   1430.326
+/;
+Parameter alpha_n44(s)   /
+    State1   103.7204
+    State2   256.9833
+    State3   399.8845
+    State4   556.9757
+    State5   715.9062
+    State6   1425.105
+/;
+Parameter alpha_n45(s)   /
+    State1   102.9198
+    State2   254.9165
+    State3   397.0658
+    State4   554.4678
+    State5   713.3596
+    State6   1419.884
+/;
+Parameter alpha_n46(s)   /
+    State1   102.1191
+    State2   252.8496
+    State3   394.247
+    State4   551.9599
+    State5   710.813
+    State6   1414.663
+/;
+Parameter alpha_n47(s)   /
+    State1   101.3184
+    State2   250.7828
+    State3   391.4282
+    State4   549.452
+    State5   708.2664
+    State6   1409.441
+/;
+Parameter alpha_n48(s)   /
+    State1   100.5177
+    State2   248.716
+    State3   388.6094
+    State4   546.9441
+    State5   705.7198
+    State6   1404.22
+/;
+Parameter alpha_n49(s)   /
+    State1   99.717
+    State2   246.6492
+    State3   385.7906
+    State4   544.4362
+    State5   703.1732
+    State6   1398.999
+/;
+Parameter alpha_n50(s)   /
+    State1   98.9163
+    State2   244.5824
+    State3   382.9718
+    State4   541.9283
+    State5   700.6266
+    State6   1393.777
+/;
+Parameter alpha_n51(s)   /
+    State1   98.1157
+    State2   242.5156
+    State3   380.1531
+    State4   539.4204
+    State5   698.0801
+    State6   1388.556
+/;
+Parameter alpha_n52(s)   /
+    State1   97.315
+    State2   240.4487
+    State3   377.3343
+    State4   536.9125
+    State5   695.5335
+    State6   1383.335
+/;
+Parameter alpha_n53(s)   /
+    State1   96.5143
+    State2   238.3819
+    State3   374.5155
+    State4   534.4046
+    State5   692.9869
+    State6   1378.113
+/;
+Parameter alpha_n54(s)   /
+    State1   95.7136
+    State2   236.3151
+    State3   371.6967
+    State4   531.8967
+    State5   690.4403
+    State6   1372.892
+/;
+Parameter alpha_n55(s)   /
+    State1   94.9129
+    State2   234.2483
+    State3   368.8779
+    State4   529.3888
+    State5   687.8937
+    State6   1367.671
+/;
+Parameter alpha_n56(s)   /
+    State1   94.1122
+    State2   232.1815
+    State3   366.0591
+    State4   526.8809
+    State5   685.3471
+    State6   1362.450
+/;
+Parameter alpha_n57(s)   /
+    State1   93.3116
+    State2   230.1147
+    State3   363.2404
+    State4   524.373
+    State5   682.8005
+    State6   1357.228
+/;
+Parameter alpha_n58(s)   /
+    State1   92.5109
+    State2   228.0479
+    State3   360.4216
+    State4   521.8651
+    State5   680.2539
+    State6   1352.007
+/;
+Parameter alpha_n59(s)   /
+    State1   91.7102
+    State2   225.981
+    State3   357.6028
+    State4   519.3572
+    State5   677.7073
+    State6   1346.786
+/;
+Parameter alpha_n60(s)   /
+    State1   90.9095
+    State2   223.9142
+    State3   354.784
+    State4   516.8493
+    State5   675.1607
+    State6   1341.564
+/;
+Parameter alpha_n61(s)   /
+    State1   90.1088
+    State2   221.8474
+    State3   351.9652
+    State4   514.3414
+    State5   672.6141
+    State6   1336.343
+/;
+Parameter alpha_n62(s)   /
+    State1   89.3082
+    State2   219.7806
+    State3   349.1464
+    State4   511.8335
+    State5   670.0675
+    State6   1331.122
+/;
+Parameter beta(s)   /
+    State1   0.0014
+    State2   0.0029
+    State3   0.0038
+    State4   0.0047
+    State5   0.0058
+    State6   0.0115
+/;
+Parameter pm(s)   /
+    State1   0.06975682
+    State2   0.3428474
+    State3   0.2998059
+    State4   0.1812992
+    State5   0.07592191
+    State6   0.03036876
+/;
