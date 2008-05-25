@@ -4,6 +4,7 @@ j        technologies
 s        market states
 ;
 
+
 Alias(i,l);
 Alias(j,m);
 Alias(s,w);
