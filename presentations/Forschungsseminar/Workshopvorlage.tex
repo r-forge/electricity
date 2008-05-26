@@ -1,0 +1,655 @@
+\documentclass[mathserif,10pt%,ps2pdf
+]{beamer}
+\hypersetup{pdfpagemode=FullScreen}
+%\usepackage{amsmath, amsfonts, amsbsy, pstricks, pst-node, pst-text, pst-3d}
+\usepackage{pst-plot, pstricks,pstricks-add,pst-node, pst-tree}
+\usepackage{fancybox,amssymb,color}
+\usepackage[]{german}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{epsfig}
+%\usepackage{natbib}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{marvosym}
+
+\beamertemplatenavigationsymbolsempty
+\setbeameroption{show notes}
+\setbeamerfont{caption}{size=\tiny}
+
+\mode<presentation>
+{
+\usetheme{Singapore}
+}
+
+\title{Investieren Stromerzeuger auf liberalisierten Märkten genug?}
+\subtitle{Peak Load Pricing under Imperfect Competition and Price Caps}
+
+\author[Anton Burger and Robert Ferstl]{Anton Burger und Robert Ferstl \\
+\href{mailto:anton.burger@wu-wien.ac.at}{\texttt{\tiny anton.burger@wu-wien.ac.at \  robert.ferstl@wiwi.uni-regensburg.de}}}
+\date[Wiener Forschungsseminar zur Regulierung von Netzwerkindustrien, 14.05.2008]{Wiener Forschungsseminar Regulierungsökonomie\\14.05.2008}
+
+%\institute{\includegraphics[scale=0.6]{N:/Institut/Regulierungsoekonomie/Institutslogos/RI_blau_kl.pdf}
+%}
+
+%\logo{\includegraphics[scale=0.45]{N:/Institut/Regulierungsoekonomie/Institutslogos/wulogo.pdf}
+%}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Gliederung}
+\tableofcontents
+\end{frame}
+
+\section{Motivation und inhaltlicher Rahmen}
+\subsection{Motivation}
+
+\begin{frame}{Motivation}
+
+\begin{itemize}
+	\item Liberalisierung des Großhandelsstrommarktes
+	\item gewinnmaximierunde Spieler 
+	\item keine zentrale Kapazitätsplanung mehr sondern \textbf{dezentrale} Marktentscheidungen
+\end{itemize}	
+
+allgemeine Befürchtungen - Medienberichte	
+	
+\begin{itemize}
+	\item California Blackouts
+	\item  "`eine Stromknappheit droht"'  \footnotesize (EVN Vorstand Burkhard Hofer in der Presse am 5.5.2008) \small
+	\item Nuclear Phase Out in Deutschland
+	\item alternde Kapazitäten
+\end{itemize}
+
+\end{frame}
+\subsection{Struktur des Problems}
+
+\begin{frame}{Struktur des Investitionsproblems eines Stromerzeugers}
+
+\begin{itemize}
+	\item Wie verändert sich die Welt?
+\begin{itemize}
+  \item Optimierung unter Unsicherheit
+	\item Wie hoch wird die Nachfrage sein?
+	\item Nachfrageschwankungen (Wind)
+	\item Kostenunsicherheiten (CO2 und Öl)
+\end{itemize}
+
+  \item Was machen meine Konkurrenten?
+  
+\begin{itemize}
+	\item Spieltheorie 
+	\item Cournot - Nash Gleichgewicht
+	\item große Spieler und Herfindal Hirschmann Index $>$ 2000
+\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+	\item inhärente Zweistufigkeit
+	
+\begin{itemize}
+	\item Es dauert lange, Kapazitäten zu bauen Mengen können jedoch kurzfristig variiert werden
+	\item keine Lager und begrenzte Kapazitäten - L förmige Kosten - Engpässe
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+\subsection{Literatur und eigener Beitrag}
+
+\begin{frame}{Literatur}
+
+\begin{itemize}
+	\item Wohlfahrtsoptimale Preise und Kapazitäten bei schwankender Nachfrage - Peak Load Pricing \cite{Crew1986}
+	\item Kapazitätsentscheidungen vor Bertrand Wettbewerb \cite{Kreps1983}
+	\item Kapazitätsentscheidungen unter Unsicherheit vor Cournot Wettbewerb \cite{Gabszewicz1997}
+\end{itemize}
+
+\begin{itemize}
+	\item auf Elektrizitätsmärkte kalibrierte numerische Modelle \cite{Genc2007}, [Gabriel and Zhuang (2008)]
+	\item basierend auf Mixed Complementarity Problem (MCP) Formulierungen \cite{Ferris2000}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{eigener Beitrag}
+
+\begin{itemize}
+	\item Setup ähnlich \cite{Gabszewicz1997} aber Formulierung als Hamiltonian in diskreter Zeit
+	
+\begin{itemize}
+	\item Interpretation der Schattenpreise
+	\item einfachere Notation
+\end{itemize}
+  \item Vergleich verschiedener Marktformen
+  \item Price Cap Restriktion
+  \item kalibriertes Multistage Modell
+\end{itemize}
+\end{frame}
+
+
+\section{Modell}
+\subsection{Annahmen}
+
+\begin{frame}{Annahmen}
+
+\begin{itemize}
+	\item Es gibt 1, $N$ oder $\infty$ Spieler
+
+	\item Preisrationierung ist möglich 
+	\item Zahlungsbereitschaft der Käufer auf dem Großmarkt = Zahlungsbereitschaft der Endkunden
+	\item lineare variable Kosten $c$ und Kapazitätsbeschränkungen
+	\item $\alpha^s-\beta Q^{s,t}$ wobei $Q^{s,t}= \sum_{i\in I} q_{i}^{s,t}$
+\begin{itemize}
+	\item lineare Nachfrage
+	\item verschiedene $\alpha^s$ bilden die Unsicherheit ab ($s\in S$ Szenarios)
+	\item $\alpha^l > c + \Gamma$ Mengen immer strikt positiv
+\end{itemize}
+	\item zwei Zeitpunkte $t\in 0,1$ - Investment, Marktgleichgewicht
+\end{itemize}
+\psset{unit=1.0cm} 
+  \begin{pspicture}(-1,0)(8,2)
+  %\showgrid
+  \tiny
+  \textcolor{red}{
+  \psline[linecolor=red]{>->}(0,1)(7,1)
+  \multido{\rA=0.5+1.5,\iB=0+1}{4}{
+  \rput(\rA,1.9){$\iB$}
+  \psline[linecolor=red]{->}(\rA,1.8)(\rA,1.2)
+  \psline[linecolor=red](\rA,1.1)(\rA,0.9)
+  }
+  \rput(7.5,1){Zeit}
+  \uput{0.2}[-90](0.5,1){\parbox{1cm}{ Regulator setzt Price Cap}}
+  \uput{0.2}[-90](2,1){\parbox{1cm}{Unternehmen Investieren $t=0$}}
+  \uput{0.2}[-90](3.5,1){\parbox{1cm}{Zufallsvariablen werden realisiert}}
+  \uput{0.2}[-90](5,1){\parbox{1cm}{Marktgleichgewicht \\ $t=1$}}
+ % \uput{0.2}[-90](6.5,1){\parbox{1cm}{Der Vertrag wird exekutiert}}
+  }
+  \end{pspicture}
+
+\end{frame}
+
+\subsection{Maximierungsproblem eines Spielers}
+
+\begin{frame}{Maximierungsproblem eines Spielers}
+
+\begin{gather}
+	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t)=
+	\sum_{s\in S} \rho_s \left[ ((\alpha^s- \beta Q^{s,1}) - c) q_{i}^{s,1}  \right] - \Gamma I_{i}^{0} \label{eq:oligopmax2} \\
+			\text{s.t.:} \  q_{i}^{s,1} - K_{i}^t \leq 0; \ \forall i,s \label{eq:capacitycon} \\ 
+										  K^{1}_{i}  - K^{0}_{i}  - I_{i}^0 = 0 ; \ \forall i  \label{eq:state} \\
+										   q_{i}^{s,1}; K^t_{i}; I_{i}^0	\geq 0; \ \forall i,s,t  \nonumber
+\end{gather}
+
+{\small
+\begin{tabbing}
+wobei: \= $\rho_s$ \= Wahrscheinlichkeit für Szenario /  Market State\\
+\> $I_{i}^{0}$     \> Investitionen - action variable  \\
+\> $K_{i}^t $      \>  Kapazität - Statusvariable \\
+\> $\Gamma$        \> Investitionskosten \\
+\> $c$             \> Grenzkosten \\
+\end{tabbing}}
+\end{frame}
+
+\begin{frame}{Maximierungsproblem eines Spielers II}
+
+Die dazugehörige Hamiltonian in diskreter Zeit:
+
+\begin{gather}
+	 H_i(q_{i}^{s,t},K_{i}^t,I_{i}^t,\lambda_{i}^{s,1},u_{i}^1)= 
+	 \sum_{s\in S} \rho_s \left[((\alpha^s- \beta Q^{s,1}) - c) q_{i}^{s,1} \right]	- \Gamma I_{i}^{0}  \\ \nonumber  
+	  	- \lambda_{i}^{s,1}(q_{i}^{s,1} - K^{1}_{i}) \\ \nonumber
+			- u_{i}^1(K^{1}_{i}  - K^{0}_{i}  - I_{i}^t)	\\  \nonumber
+\end{gather}
+
+{\small
+\begin{tabbing}
+wobei: \= $\lambda_{i}^{s,1}$ \= Schattenpreis einer Einheit Kapazität für Spieler $i$ in Szenario $s$\\
+\> $u_{i}^1$     \>  Schlupfvariable für die Bewegungsgleichung\\
+\end{tabbing}}
+
+\end{frame}
+
+\subsection{Die KKT Bedingungen}
+
+\begin{frame}{KKT Bedingungen I}
+
+
+\begin{gather}
+\frac{\partial H}{ \partial q_{i}^{s,1}}: - \rho_s \left[ \alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1} - c \right] + \lambda_{i}^{s,1} \geq 0 \ \bot \ q_{i}^{s,1} \geq 0;\ \forall i,s \label{eq:foc1a}
+\end{gather}
+
+Da Mengen immer strikt positiv, kann man schreiben
+
+\begin{gather}
+ \rho_s \left[ \alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1}\right]=  \rho_s c  + \lambda_{i}^{s,1} ;\ \forall i,s    \label{eq:foc1b}
+\end{gather}
+
+\begin{itemize}
+	\item erwarteter Grenzertrag = marginale Kosten + Engpassrente
+\end{itemize}
+
+\begin{tabular}{ccc}
+ \hline
+perfekte Konkurrenz & Oligopol &  Monopol \\
+$\alpha^s - \beta Q^{s,1}$ &  $\alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1}$    & $\alpha^s - 2* \beta Q^{s,1}$  \\
+ \hline
+\end{tabular}
+
+\begin{itemize}
+	\item imperfekte Konkurrenz verzerrt die Mengen nach unten
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{KKT Bedingungen II}
+
+\begin{gather}
+\tfrac{\partial H}{ \partial K^1_{i}}:  -\sum_{s\in S}  \lambda_{i}^{s} + u_{i}^1 \geq 0 \ \bot \ K^1_{i} \geq 0 ; \forall i,k \label{eq:foc3} \\
+\tfrac{\partial H}{ \partial I_{i}^{0}}: \Gamma - u_{i}^1 \geq 0 \ \bot \ I_{i}^{0} \geq 0 ;\forall i \label{eq:foc4}
+\end{gather}
+
+\begin{itemize}
+	\item da $K^1_{i} > 0$, zeigt $u_{i}^1$ den zusätzlichen Gewinn durch eine Einheit mehr Kapazität
+	\item es wird so lange investiert, bis der \textbf{zusätzliche Gewinn} gleich den \textbf{Kosten} ist
+	\item Realoptionsinterpretation - nur Investition, wenn erwartete Gewinne gleich Investitionskosten
+\end{itemize}
+
+\begin{itemize}
+	\item Ableitungen nach  $\lambda_{i}^{s,1}$ und $u_{i}^1$ ergeben die Kapazitätsbeschränkung und die Bewegungsgleichung
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{KKT Bedingungen III}
+
+Mengen, und damit Kapazitäten werden erweitert, bis gilt:
+
+\begin{gather}
+\sum_{s\in S}\lambda_{i}^{s} = \Gamma \label{eq:invcondition};  \forall i
+\end{gather}
+
+\begin{itemize}
+	\item gilt für jede Markform
+	\item weitere Definition von Engpassrenten als im klassischen Peak Load Pricing - Unterschied zwischen $c$ und Grenzerträgen
+	\item Grenzerträge fallen unter imperfekter Konkurrenz einfach schneller in $q$
+	\item da Preise über den Grenzerträgen - hohe Preise nicht notwendigerweise ein Investitionsanreiz
+	\item bindende Kapazitäten, also Grenzerträge $>$ $c$ können in mehreren Szenarien auftreten
+\end{itemize}
+
+\end{frame}
+
+\subsection{Numerische Lösungen}
+
+\begin{frame} {$\rho_h = \rho_l = 1$ Peak Load Pricing}
+					
+\begin{columns}
+\begin{column} {0.6\textwidth}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth, angle=270]{11}
+    \label{fig:1}            
+\end{figure}
+\end{column}
+
+\begin{column} {0.4\textwidth}
+
+\begin{itemize}
+	\item Optimum
+	
+\begin{itemize}
+	\item Kapazitäten erweitert bis Preis gleich LRIC $c+ \Gamma$
+	\item $p^c_{l,1} = c$ and $p^c_{h,1} = c + \lambda_{i}^{h,1}$
+\end{itemize}
+  \item Monopol
+\begin{itemize}
+  \item Monopolpreise bei $100$ und $55.3$
+  \item aber $MR = c+ \Gamma$
+\end{itemize}
+  \item Oligopol
+  
+\begin{itemize}
+	 \item $MR = c+ \Gamma$ für alle vier Spieler
+	 \item Off Peak Preis $28.5$ - Withholding
+\end{itemize}
+\end{itemize}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame} {Zwei Perioden bindend}					
+\begin{columns}
+\begin{column} {0.6\textwidth}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth,angle=270]{22}
+    \label{fig:1}            
+\end{figure}
+\end{column}
+
+\begin{column} {0.4\textwidth}
+
+\begin{itemize}
+	\item Kapazitäten in zwei Perioden bindend
+	\item $p^c_{h,1}$ kann wesentlich geringer sein
+	\item sogar geringer als $c+\Gamma$
+\end{itemize}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame} {$\rho_h = \rho_l = 0.5$ Wettbewerb unter Unsicherheit}					
+\begin{columns}
+\begin{column} {0.6\textwidth}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth, angle=270]{33}
+    \label{fig:1}            
+\end{figure}
+\end{column}
+
+\begin{column} {0.4\textwidth}
+
+
+
+\begin{itemize}
+\item wie in [Gabszewicz and Poddar (1997)] sind Investitionen der stochastischen Lösung größer als ein Spiel in Sicherheitsäquivalenten
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\section{Price Caps}
+
+\subsection{Modellierung von Price Caps}
+
+\begin{frame}{Modellierung von Price Caps I}
+
+\begin{gather}
+	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t, \overline{p})= \label{eq:pcmax1}
+	\sum_{s\in S} \rho_s \left[ ( \min{(p_{s,1}^{o},\overline{p})} - c) q_{i}^{s,1}  \right] - \Gamma I_{i}^{0}  \\
+			\text{s.t.:} \  p_{s,1}^{o} - \overline{p} \leq 0; \forall s,t \label{eq:pcconstraint}
+\end{gather}
+
+\begin{itemize}
+	\item Oligopol- Monopolpreis $p_{s,1}^{o}= \alpha^s - \beta Q^{s,1}$ darf nicht über $\overline{p}$ steigen
+	\item Gewinnfunktion: entweder Oligopol- Monopolpreis oder einen fixen Betrag $\overline{p}$ pro verkaufter Einheit (nicht differenzierbar)
+	\item zusätzliche Annahme: $s \in h,l$ und $\alpha^h > \alpha^l$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Modellierung von Price Caps II}
+
+\begin{itemize}
+	\item Stufe 1: Modell ohne Price Cap lösen und $p_{s,1}^{o}$ und den optimalen Preis $p_{s,1}^{c}$ berechnen
+	\item Stufe 2: drei Möglichkeiten \\
+	Fall 1: wenn der Price Cap nicht bindend ist - fertig
+
+
+\end{itemize}
+
+\begin{table}[h]
+	\centering
+\begin{tabular}{ccc}
+\hline
+        &  Fall 2  & Fall 3  \\
+\hline
+        & $c+\Gamma \leq p_{h,1}^{c}$ & $c+\Gamma > p_{h,1}^{c}$ \\
+\hline
+\multicolumn{ 1}{c}{\textbf{a: }$\overline{p} \geq p_{h,1}^{c}$} & optimale Kapazitäten möglich  & \multicolumn{ 1}{c}{nicht optimal} \\
+\multicolumn{ 1}{c}{} & at $\overline{p} = p_{h,1}^{c}$ & \multicolumn{ 1}{c}{} \\
+\hline
+\multicolumn{ 1}{c}{\textbf{b:} $\overline{p} < p_{h,1}^{c}$} & \multicolumn{ 1}{c}{nicht optimal} & zweitbester PC \\
+
+\multicolumn{ 1}{c}{} & \multicolumn{ 1}{c}{} & at $c+\tfrac{\Gamma}{(\rho_h+\rho_l)}$ \\
+\hline
+\end{tabular}  
+\end{table}
+
+\end{frame}
+
+\begin{frame}{Fall 2a}
+
+Im Intervall 2a gibt es keine Diskontinuitäten und wir können folgende Zielfunktion verwenden:
+
+\begin{gather}
+	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t, \overline{p})= \label{eq:pcmax2}
+	\sum_{s\in S} \rho_s \left[ (p_{s,1}^{o} - c) q_{i}^{s,1}  \right] - \Gamma I_{i}^{0}  \\  \nonumber 
+\end{gather}
+
+Bedingung erster Ordnung $\frac{\partial H}{ \partial q_{i}^{s,1}}$ änder sich:
+
+\begin{gather}
+ \rho_s \left[ \alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1}\right] + \beta \psi_s =  \rho_s c  + \lambda_{i}^{s,1}   ;\ \forall i,s  \label{eq:foc1c}
+\end{gather}
+
+\begin{itemize}
+	\item wobei $\psi_s$ die Schlupfvariable für den PC darstellt
+	\item je niedriger der PC, je mehr werden die Mengen und damit die Investitionen nach oben verzerrt
+	\item könnte so gesetzt werden, dass die linke Seite dem Resultat under perfekter Konkurrenz entspricht
+	\item aber Price Caps sind ein grobes Instrument
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Fall 2b und 3}
+
+Sobald $\overline{p}$ niedriger als $p_{s,1}^{c}$ ist, Fixkosten in Spitzenperioden nicht gedeckt - Missing Money Problem
+
+\begin{gather}
+	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t, \overline{p})= \label{eq:pcmax3}
+	 \rho_h \left[ (\overline{p}-c) q_{i}^{l,1}  \right]+ \rho_h \left[ (p_{l,1}^{o} - c) q_{i}^{l,1}  \right] - \Gamma I_{i}^{0}  \\  \nonumber
+\end{gather}
+
+$\overline{p}-c$ nur noch wie Subvention bei Entscheidung wieviel Kapazität für die Schwachlastperiode gebaut werden soll
+
+\end{frame}
+
+\subsection{Numerische Lösungen}
+
+\begin{frame} {Fall 2a und 2b}
+					
+\begin{columns}
+\begin{column} {0.6\textwidth}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth, angle=270]{44}
+    \label{fig:1}            
+\end{figure}
+\end{column}
+
+\begin{column} {0.4\textwidth}
+2a:
+\begin{itemize}
+	\item jede zusätzliche Einheit bringt $\overline{p}- c -\Gamma$
+	\item ohne den Anreiz Kapazitäten strategisch zu verknappen
+	\item $\overline{p} = p_{s,1}^{c}$ optimaler PC
+\end{itemize}
+2b:
+\begin{itemize}
+	\item Unterschied Monopol Oligopol
+	\item bis $c+\tfrac{\Gamma}{(\rho_h+\rho_l)}$
+\end{itemize}
+
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame} {Fall 2a und 2b unter Unsicherheit}					
+\begin{columns}
+\begin{column} {0.6\textwidth}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth, angle=270]{55}
+    \label{fig:1}            
+\end{figure}
+\end{column}
+
+\begin{column} {0.4\textwidth}
+
+\begin{enumerate}
+	\item $\overline{p}$ noch nicht bindend bei Low Demand
+	\item Monopolist nimmt Kapazität zurück, bis er wieder ausreichend Investitionsanreize hat
+\end{enumerate}
+
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame} {Fall 3}					
+\begin{columns}
+\begin{column} {0.6\textwidth}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth, angle=270]{66}
+    \label{fig:1}            
+\end{figure}
+\end{column}
+
+\begin{column} {0.4\textwidth}
+
+\begin{itemize}
+	\item durch Price Cap kein Optimum möglich
+	\item second Best Optimum bei $c+\tfrac{\Gamma}{(2)}$
+\end{itemize}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+
+
+\section{Modell mit real. Daten}
+
+\subsection{Daten}
+
+\begin{frame} {Kapazitäten}
+					
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth, angle=0]{7}
+    \label{fig:1}            
+\end{figure}
+
+\end{frame}
+
+\begin{frame} {Szenarienbäume}
+					
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth, angle=0]{10}
+    \label{fig:1}            
+\end{figure}
+
+\end{frame}
+
+\section{Conclusio}
+
+
+\begin{frame} {Conclusio}					
+
+
+\begin{itemize}
+	\item optimale Verhalten von Unternehmen in einem zweistufigen Investitionsspiel, unter Unsicherheit dargestellt
+	\item mit Monopol- Oligopol- und Optimalfall verglichen
+	\item Grund zur Sorge - durch strategisches Verhalten entsteht ein Anreiz, Kapazitäten zurückzufahren
+\end{itemize}
+
+\begin{itemize}
+	\item Price Caps können die Investitionen sogar steigern
+	\item in gewissen Fällen kann man sogar ein optimales Investitionsniveau erreichen
+	\item bergen aber einige Risken, sobald das "`Missing Money Problem"' auftritt
+	\item hoher Informationsbedarf
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Literature}
+\begin{thebibliography}{PLP}
+
+\bibitem[Boom and Bühler (2007)]{Boom2007}
+Boom and Bühler (2007).
+\newblock Restructuring Electricity Markets when Demand is Uncertain: Effects on Capacity Investments, Prices and Welfare
+\newblock {\em University of Copenhagen. Department of Economics. Centre for Industrial Economics. WP 2007-09}.
+
+\bibitem[Cramton and Stoft (2006)]{Cramton2006}
+Cramton and Stoft (2006).
+\newblock The Convergence of Market Designs for Adequate Generating Capacity with special Attention to the CAISO´s Resource Adequacy Problem.
+\newblock {\em Center for Environmental Policy Research}.
+
+\bibitem[Crew and Kleindorfer (1986)]{Crew1986}
+Crew and Kleindorfer (1986).
+\newblock The Economics of Public Utility Regulation
+\newblock {\em London: Mc Millan Press}.
+
+\bibitem[Ferris and Munson (2000)]{Ferris2000}
+Ferris and Munson (2000).
+\newblock Complementarity Problems in GAMS and the PATH Solver
+\newblock {\em Journal of Economic Dynamics and Control}.
+\end{thebibliography}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Literature II}
+
+\begin{thebibliography}{PLP}
+
+\bibitem[Gabszewicz and Poddar (1997)]{Gabszewicz1997}
+Gabszewicz and Poddar (1997).
+\newblock Demand fluctuations and capacity utilization under duopoly.
+\newblock {\em Economic Theory, 10, 131-146}.
+
+\bibitem[Genc, Reynolds and Sen (2007)]{Genc2007}
+Genc, Reynolds and Sen (2007)
+\newblock Dynamic Oligopolistic Games under Uncertainty: A Stochastic Programming Approach.
+\newblock {\em Journal of Economic Dynamics and Control}.
+
+\bibitem[Joskow and Tirole (2007)]{Joskow2007}
+Joskow and Tirole (2007)
+\newblock Reliability and competitive electricity markets.
+\newblock {\em The Rand Journal of Economics}.
+
+\bibitem[Kreps and Scheinkman (1983)]{Kreps1983}
+Kreps and Scheinkman (1983).
+\newblock Quantity precommitment and bertrand competition yields cournot outcomes.
+\newblock {\em Bell Journal of Economics 14}.
+
+\end{thebibliography}
+\end{frame}
+
+\begin{frame}
+\frametitle{Literature III}
+
+\begin{thebibliography}{PLP}
+
+\bibitem[Genc, Reynolds and Sen (2007)]{Genc2007}
+Genc, Reynolds and Sen (2007)
+\newblock Dynamic Oligopolistic Games under Uncertainty: A Stochastic Programming Approach.
+\newblock {\em Journal of Economic Dynamics and Control}.
+
+\bibitem[Murphy and Smeers (2005)]{Murphy2005}
+Murphy and Smeers (2005)
+\newblock Generation Capacity Expansion in Imperfectly Competitive Restructured Electricity Markets.
+\newblock {\em Operations Research}.
+
+\bibitem[Roques and Savva (2006)]{Roques2006}
+Roques and Savva (2006)
+\newblock Price cap regulation and investment incentives under demand uncertainty.
+\newblock {\em CWPE 0636 and EPRG 0616 Working Paper.}.
+
+\end{thebibliography}
+\end{frame}
+
+\end{document}
