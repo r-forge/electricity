@@ -1,3 +1,84 @@
+\begin{frame}{Tree}
+\begin{center}
+\psscalebox{0.60}{
+\psset{nodesep=0pt,labelsep=1pt,nrot=:U}
+\psmatrix[colsep=3.0cm,rowsep=0.0cm] 
+                               &                                    &                                       & \circlenode{H}{$n_7$}\\ 
+                               &                                    & \circlenode{D}{$n_3$}\\  
+                               &                                    &                                       & \circlenode{I}{$n_8$}\\              
+                               &  \circlenode{B}{$n_1$} & & \\
+                               &                                    &                                       & \circlenode{J}{$n_9$}\\ 
+                               &                                    & \circlenode{E}{$n_4$}\\  
+                               &                                    &                                       & \circlenode{K}{$n_{10}$}\\ 
+    \circlenode{A}{$n_0$} &                          &              & \\
+                               &                                    &                                       & \circlenode{L}{$n_{11}$}\\ 
+                               &                                    & \circlenode{F}{$n_5$}\\  
+                               &                                    &                                       & \circlenode{M}{$n_{12}$}\\              
+                               &  \circlenode{C}{$n_2$} & & \\
+                               &                                    &                                       & \circlenode{N}{$n_{13}$}\\ 
+                               &                                    & \circlenode{G}{$n_6$}\\  
+                               &                                    &                                       & \circlenode{O}{$n_{14}$}\\ 
+& & & \\
+ $t=0$ & $t = 1$ & $t=2$ &  $t=3$\\
+\ncline[linewidth=1.5pt]{A}{B}\naput{$50\%$}
+\ncline[linewidth=1.5pt]{A}{C}\naput{$50\%$}
+\ncline[linewidth=1.5pt]{B}{D}\naput{$25\%$}
+\ncline[linewidth=1.5pt]{B}{E}\naput{$25\%$}
+\ncline[linewidth=1.5pt]{C}{F}\naput{$25\%$}
+\ncline[linewidth=1.5pt]{C}{G}\naput{$25\%$}
+\ncline[linewidth=1.5pt]{D}{H}\naput{$12.5\%$}
+\ncline[linewidth=1.5pt]{D}{I}\naput{$12.5\%$}
+\ncline[linewidth=1.5pt]{E}{J}\naput{$12.5\%$}
+\ncline[linewidth=1.5pt]{E}{K}\naput{$12.5\%$}
+\ncline[linewidth=1.5pt]{F}{L}\naput{$12.5\%$}
+\ncline[linewidth=1.5pt]{F}{M}\naput{$12.5\%$}
+\ncline[linewidth=1.5pt]{G}{N}\naput{$12.5\%$}
+\ncline[linewidth=1.5pt]{G}{O}\naput{$12.5\%$}
+\endpsmatrix}
+\end{center}
+\end{frame}
+
+\begin{frame}{Notation}
+  \begin{tabular}[l]{l l}
+\centering
+$i \in \mathcal{I}$ & players, firms \\
+$j \in \mathcal{J}$ & available technologies \\
+$m\in\mathcal{M}$ & market states \\
+$p_n$ & probability to reach a certain node\\
+$p^m$ & probability of market state $m$ \\
+$ q_{i,n}^{j,m}$ & production quantities \\
+$I_{i,n}^{j}$ & investment quantities, for $n\in\left\{n_0\right\}\cup\mathcal{T}$ \\
+$K_{i,n}^{j}$ & available capacity\\
+$F_n^{j}$ & investment cost\\
+$P^m_n = \alpha_n^m-\beta^m\sum_{i\in \mathcal{I}}\sum_{j\in \mathcal{J}}q_{i,n}^{j,m}$ & market equilibrium price \\
+$\alpha_n^m$ & intercept of demand function \\
+$\beta^m$ & slope of demand function \\
+$c_j$ & variable costs \\
+$\delta_n$ & discount factor \\
+$\nu$ & salvage value parameter\\
+$\rho$ & depreciation rate\\
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Optimization}
+
+\begin{equation}
+  \label{eq:objfct}
+  \max_{q_{i,n}^{j,m}, I_{i,n}^{j}} \sum_{n\in \mathcal{N}}p_n\delta_n\Pi_{i,n}\left(q_{i,n}^{j,m}, I_{i,n}^{j}, K_{i,n}^{j}, Q_n^m\right)+ \sum_{n\in \mathcal{S}}p_n\,\delta_n \sum_{j\in \mathcal{J}}K_{i,n}^{j}F_n^{j}\nu
+\end{equation}
+subject to
+  
+\begin{eqnarray}  
+q_{i,n}^{j,m} - K_{i,n}^{j} &\leq& 0 \quad \forall i,j,m,n \label{eq:prodconstr} \\
+Q_n^m-\sum_{i\in \mathcal{I}}\sum_{j\in \mathcal{J}} q_{i,n}^{j,m} &=& 0 \quad \forall m,n \label{eq:marketclearing}\\
+K_{i,n}^{j} - (1-\rho)K_{i,a(n)}^{j}-I_{i,a(n)}^{j} &=& 0 \quad \forall i,j,n \label{eq:state} \\
+q_{i,n}^{j,m}, K_{i,n}^{j}, I_{i,n}^{j}, Q_n^m  &\geq& 0 \quad \forall i,j,m,n\label{eq:nonneg}
+\end{eqnarray}
+  
+\end{frame}
+
+
+
 \section{The German Electricity Market}
 
 \subsection{Installed capacities}
