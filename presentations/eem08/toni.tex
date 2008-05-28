@@ -12,13 +12,12 @@
 there are qualms about adequacy of investments
 	
 \begin{itemize}
-	\item california blackouts
-	\item nuclear phase out in germany
+	\item California blackouts
+	\item nuclear phase out in Germany
 	\item aging capacities throughout Europe and the US
 \end{itemize}
 
 \end{frame}
-\subsection{Problem Structure}
 
 \begin{frame}{Basic Structure of the Investment Problem}
 
@@ -80,6 +79,7 @@ there are qualms about adequacy of investments
 	\item simpler notation
   \item compare different market forms
   \item price cap restrictions
+  \item understanding the economics behind it (unlike recent numerical papers)
 \end{itemize}
 
 \item empirical / numerical - How will firms on a real market behave?
@@ -87,7 +87,7 @@ there are qualms about adequacy of investments
 \begin{itemize}
 	\item calibration with real data
 	\item numerical solutions 
-	\item multistage scenarios ................ ROB noch adden
+	\item multistage stochastic programming
 \end{itemize}
 
 \end{itemize}
@@ -95,7 +95,8 @@ there are qualms about adequacy of investments
 
 
 \section{Model}
-\subsection{Assumptions}
+
+\subsection{Maximization Problem of one Player and Assumptions}
 
 \begin{frame}{Assumptions}
 
@@ -135,9 +136,7 @@ there are qualms about adequacy of investments
 
 \end{frame}
 
-\subsection{Maximization Problem of one Player I}
-
-\begin{frame}{Maximization Problem of one Player}
+\begin{frame}{Maximization Problem of one Player I}
 
 \begin{gather}
 	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t)=
@@ -171,12 +170,10 @@ corresponding discrete time Hamiltonian:
 {\small
 \begin{tabbing}
 wobei: \= $\lambda_{i}^{s,1}$ \= shadow price of one unit of capacity for player $i$ in scenario $s$\\
-\> $u_{i}^1$     \>  slack variable for the ???????????????????????????ß Bewegungsgleichung\\
+\> $u_{i}^1$     \>  slack variable for the state equation\\
 \end{tabbing}}
 
 \end{frame}
-
-\subsection{KKT Conditions}
 
 \begin{frame}{KKT Conditions I}
 
@@ -222,7 +219,7 @@ $\alpha^s - \beta Q^{s,1}$ &  $\alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1}$    
 \end{itemize}
 
 \begin{itemize}
-	\item derivatives with respect to  $\lambda_{i}^{s,1}$ and $u_{i}^1$ give back the capacity constraints and ??????????????????????
+	\item derivatives with respect to  $\lambda_{i}^{s,1}$ and $u_{i}^1$ give back the capacity constraints and state equation
 \end{itemize}
 
 \end{frame}
@@ -350,71 +347,71 @@ capacities are expanded until the following holds:
 
 \end{frame}
 
-\begin{frame}{Modeling Price Caps II}
+%\begin{frame}{Modeling Price Caps II}
 
-\begin{itemize}
-	\item Stage 1: solve the model without a price cap for $p_{s,1}^{o}$ and the optimal price $p_{s,1}^{c}$
-	\item Stage 2: three cases \\
-	case 1: if the price cap is not binding - done
+%\begin{itemize}
+%	\item Stage 1: solve the model without a price cap for $p_{s,1}^{o}$ and the optimal price $p_{s,1}^{c}$
+%	\item Stage 2: three cases \\
+%	case 1: if the price cap is not binding - done
 
 
-\end{itemize}
+%\end{itemize}
 
-\begin{table}[h]
-	\centering
-\begin{tabular}{ccc}
-\hline
-        &  case 2  & case 3  \\
-\hline
-        & $c+\Gamma \leq p_{h,1}^{c}$ & $c+\Gamma > p_{h,1}^{c}$ \\
-\hline
-\multicolumn{ 1}{c}{\textbf{a: }$\overline{p} \geq p_{h,1}^{c}$} & optimal capacities possible  & \multicolumn{ 1}{c}{not optimal} \\
-\multicolumn{ 1}{c}{} & at $\overline{p} = p_{h,1}^{c}$ & \multicolumn{ 1}{c}{} \\
-\hline
-\multicolumn{ 1}{c}{\textbf{b:} $\overline{p} < p_{h,1}^{c}$} & \multicolumn{ 1}{c}{not optimal} & second best PC \\
+%\begin{table}[h]
+%	\centering
+%\begin{tabular}{ccc}
+%\hline
+%        &  case 2  & case 3  \\
+%\hline
+%        & $c+\Gamma \leq p_{h,1}^{c}$ & $c+\Gamma > p_{h,1}^{c}$ \\
+%\hline
+%\multicolumn{ 1}{c}{\textbf{a: }$\overline{p} \geq p_{h,1}^{c}$} & optimal capacities possible  & \multicolumn{ 1}{c}{not optimal} \\
+%\multicolumn{ 1}{c}{} & at $\overline{p} = p_{h,1}^{c}$ & \multicolumn{ 1}{c}{} \\
+%\hline
+%\multicolumn{ 1}{c}{\textbf{b:} $\overline{p} < p_{h,1}^{c}$} & \multicolumn{ 1}{c}{not optimal} & second best PC \\
 
-\multicolumn{ 1}{c}{} & \multicolumn{ 1}{c}{} & at $c+\tfrac{\Gamma}{(\rho_h+\rho_l)}$ \\
-\hline
-\end{tabular}  
-\end{table}
+%\multicolumn{ 1}{c}{} & \multicolumn{ 1}{c}{} & at $c+\tfrac{\Gamma}{(\rho_h+\rho_l)}$ \\
+%\hline
+%\end{tabular}  
+%\end{table}
 
-\end{frame}
+%\end{frame}
 
-\begin{frame}{Case 2a}
+%\begin{frame}{Case 2a}
 
-in interval 2a, there are no discontinuities and we can use:
+%in interval 2a, there are no discontinuities and we can use:
 
-\begin{gather}
-	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t, \overline{p})= \label{eq:pcmax2}
-	\sum_{s\in S} \rho_s \left[ (p_{s,1}^{o} - c) q_{i}^{s,1}  \right] - \Gamma I_{i}^{0}  \\  \nonumber 
-\end{gather}
+%\begin{gather}
+%	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t, \overline{p})= \label{eq:pcmax2}
+%	\sum_{s\in S} \rho_s \left[ (p_{s,1}^{o} - c) q_{i}^{s,1}  \right] - \Gamma I_{i}^{0}  \\  \nonumber 
+%\end{gather}
 
-first order condition $\frac{\partial H}{ \partial q_{i}^{s,1}}$ changes to:
+%first order condition $\frac{\partial H}{ \partial q_{i}^{s,1}}$ changes to:
 
-\begin{gather}
- \rho_s \left[ \alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1}\right] + \beta \psi_s =  \rho_s c  + \lambda_{i}^{s,1}   ;\ \forall i,s  \label{eq:foc1c}
-\end{gather}
+%\begin{gather}
+% \rho_s \left[ \alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1}\right] + \beta \psi_s =  \rho_s c  + \lambda_{i}^{s,1}   ;\ \forall i,s  \label{eq:foc1c}
+%\end{gather}
 
-\begin{itemize}
-	\item  $\psi_s$ is the slack variable of the PC
-	\item the lower is the PC, the more quantities and thereby investments are distorted upwards
-	\item PC could be set such that the left side is equal to the perfect competition result
-	\item but price caps are a bold instrument
-\end{itemize}
-\end{frame}
+%\begin{itemize}
+%	\item  $\psi_s$ is the slack variable of the PC
+%	\item the lower is the PC, the more quantities and thereby investments are distorted upwards
+%	\item PC could be set such that the left side is equal to the perfect competition result
+%	\item but price caps are a bold instrument
+%\end{itemize}
+%\end{frame}
 
-\begin{frame}{Case 2b and 3}
+%\begin{frame}{Case 2b and 3}
 
-If $\overline{p}$ is lower than $p_{s,1}^{c}$, fixed costs in peak load periods are not covered any more - missing money problem
+%If $\overline{p}$ is lower than $p_{s,1}^{c}$, fixed costs in peak load periods are not covered any more - missing money problem
 
-\begin{gather}
-	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t, \overline{p})= \label{eq:pcmax3}
-	 \rho_h \left[ (\overline{p}-c) q_{i}^{l,1}  \right]+ \rho_h \left[ (p_{l,1}^{o} - c) q_{i}^{l,1}  \right] - \Gamma I_{i}^{0}  \\  \nonumber
-\end{gather}
+%\begin{gather}
+%	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t, \overline{p})= \label{eq:pcmax3}
+%	 \rho_h \left[ (\overline{p}-c) q_{i}^{l,1}  \right]+ \rho_h \left[ (p_{l,1}^{o} - c) q_{i}^{l,1}  \right] - \Gamma I_{i}^{0}  \\  \nonumber
+%\end{gather}
 
-$\overline{p}-c$ can now be seen as a mere subsidy a firm considers when deciding on how much capacity should be built for the off peak period
+%$\overline{p}-c$ can now be seen as a mere subsidy a firm considers when deciding on how much capacity should be built for the off peak period
 
-\end{frame}
+%\end{frame}
 
 \subsection{Numerical Solutions}
 
@@ -490,25 +487,3 @@ $\overline{p}-c$ can now be seen as a mere subsidy a firm considers when decidin
 
 \end{frame}
 
-\section{Conclusion}
-
-
-\begin{frame} {Conclusion}					
-
-
-\begin{itemize}
-	\item we modeled the optimal behavior of firms in a two stage investment game under uncertainty and a peak load pricing cost structure
-	\item we compared the monopoly, oligopoly and perfect competition case
-	\item in some cases it is possible to reach an optimal level of capacity investments
-	\item risks attached to price caps - "`missing money problem"'
-	\item price caps require a lot of information
-\end{itemize}
-
-\begin{alertblock}{main messages}
-\begin{itemize}
-	 \item there are incentives for strategic investment withholding
-	 \item prices can increase investment incentives but are risky if set wrong
-\end{itemize}
-\end{alertblock}
-
-\end{frame}
