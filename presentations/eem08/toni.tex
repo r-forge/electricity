@@ -34,7 +34,7 @@ there are qualms about adequacy of investments
   
 \begin{itemize}
 	\item Game Theory
-	\item Cournot - Nash equilibriua
+	\item Cournot - Nash equilibria
 	\item the players are big: Herfindal Hirschmann Index $>$ 2000
 \end{itemize}
 \end{itemize}
@@ -44,7 +44,7 @@ there are qualms about adequacy of investments
 	
 \begin{itemize}
 	\item It takes a long time to build capacities but production quantities can be varied in the short run
-	\item limited storage of electricity - L-shaped cost function - scarcity rents
+	\item limited storage of electricity - $L$-shaped cost function - scarcity rents
 \end{itemize}
 \end{itemize}
 
@@ -85,9 +85,8 @@ there are qualms about adequacy of investments
 \item empirical / numerical - How will firms on a real market behave?
 
 \begin{itemize}
-	\item calibration with real data
-	\item numerical solutions 
-	\item multistage stochastic programming
+	\item stochastic dynamic equilibrium model
+	\item numerical solutions for data of the German electricity market
 \end{itemize}
 
 \end{itemize}
@@ -106,7 +105,7 @@ there are qualms about adequacy of investments
 	\item price rationing is possible
 	\item willingness to pay of buyers on the wholesale market = willingness to pay of final customers
 	\item linear variable costs $c$ and capacity constraints
-	\item $\alpha^s-\beta Q^{s,t}$ whereby $Q^{s,t}= \sum_{i\in I} q_{i}^{s,t}$
+	\item $\alpha^s-\beta Q^{s,t}$ where $Q^{s,t}= \sum_{i\in I} q_{i}^{s,t}$
 \begin{itemize}
 	\item linear demand
 	\item different $\alpha^s$ depict uncertainty ($s\in S$ scenarios)
@@ -125,7 +124,7 @@ there are qualms about adequacy of investments
   \psline[linecolor=red]{->}(\rA,1.8)(\rA,1.2)
   \psline[linecolor=red](\rA,1.1)(\rA,0.9)
   }
-  \rput(7.5,1){Zeit}
+  \rput(7.5,1){Time}
   \uput{0.2}[-90](0.5,1){\parbox{1cm}{ regulator sets price cap}}
   \uput{0.2}[-90](2,1){\parbox{1cm}{firms invest $t=0$}}
   \uput{0.2}[-90](3.5,1){\parbox{1cm}{uncertainty is realized (Nature)}}
@@ -136,11 +135,11 @@ there are qualms about adequacy of investments
 
 \end{frame}
 
-\begin{frame}{Maximization Problem of one Player I}
+\begin{frame}{Maximization Problem of Player I}
 
 \begin{gather}
 	\max \pi_i(q_{i}^{s,t},K_{i}^t,I_{i}^t)=
-	\sum_{s\in S} \rho_s \left[ ((\alpha^s- \beta Q^{s,1}) - c) q_{i}^{s,1}  \right] - \Gamma I_{i}^{0} \label{eq:oligopmax2} \\
+	\sum_{s\in S} \rho_s \left[ \left(\alpha^s- \beta Q^{s,1} - c\right) q_{i}^{s,1}  \right] - \Gamma I_{i}^{0} \label{eq:oligopmax2} \\
 			\text{s.t.:} \  q_{i}^{s,1} - K_{i}^t \leq 0; \ \forall i,s \label{eq:capacitycon} \\ 
 										  K^{1}_{i}  - K^{0}_{i}  - I_{i}^0 = 0 ; \ \forall i  \label{eq:state} \\
 										   q_{i}^{s,1}; K^t_{i}; I_{i}^0	\geq 0; \ \forall i,s,t  \nonumber
@@ -148,7 +147,7 @@ there are qualms about adequacy of investments
 
 {\small
 \begin{tabbing}
-whereby: \= $\rho_s$ \= probability for scenario /  market state\\
+where: \= $\rho_s$ \= probability for scenario /  market state\\
 \> $I_{i}^{0}$     \>   investments - action variable  \\
 \> $K_{i}^t $      \>   capacity - status variable \\
 \> $\Gamma$        \>   investment costs \\
@@ -156,20 +155,20 @@ whereby: \= $\rho_s$ \= probability for scenario /  market state\\
 \end{tabbing}}
 \end{frame}
 
-\begin{frame}{Maximization Problem of one Player II}
+\begin{frame}{Maximization Problem of Player II}
 
-corresponding discrete time Hamiltonian:
+corresponding \emph{discrete time Hamiltonian}:
 
 \begin{gather}
-	 H_i(q_{i}^{s,t},K_{i}^t,I_{i}^t,\lambda_{i}^{s,1},u_{i}^1)= 
-	 \sum_{s\in S} \rho_s \left[((\alpha^s- \beta Q^{s,1}) - c) q_{i}^{s,1} \right]	- \Gamma I_{i}^{0}  \\ \nonumber  
+	 \mathcal{H}_i(q_{i}^{s,t},K_{i}^t,I_{i}^t,\lambda_{i}^{s,1},u_{i}^1)= 
+	 \sum_{s\in S} \rho_s \left[\left(\alpha^s- \beta Q^{s,1}\right) - c) q_{i}^{s,1} \right]	- \Gamma I_{i}^{0}  \\ \nonumber  
 	  	- \lambda_{i}^{s,1}(q_{i}^{s,1} - K^{1}_{i}) \\ \nonumber
 			- u_{i}^1(K^{1}_{i}  - K^{0}_{i}  - I_{i}^t)	\\  \nonumber
 \end{gather}
 
 {\small
 \begin{tabbing}
-wobei: \= $\lambda_{i}^{s,1}$ \= shadow price of one unit of capacity for player $i$ in scenario $s$\\
+where: \= $\lambda_{i}^{s,1}$ \= shadow price of one unit of capacity for player $i$ in scenario $s$\\
 \> $u_{i}^1$     \>  slack variable for the state equation\\
 \end{tabbing}}
 
@@ -179,7 +178,7 @@ wobei: \= $\lambda_{i}^{s,1}$ \= shadow price of one unit of capacity for player
 
 
 \begin{gather}
-\frac{\partial H}{ \partial q_{i}^{s,1}}: - \rho_s \left[ \alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1} - c \right] + \lambda_{i}^{s,1} \geq 0 \ \bot \ q_{i}^{s,1} \geq 0;\ \forall i,s \label{eq:foc1a}
+\frac{\partial \mathcal{H}}{ \partial q_{i}^{s,1}}: - \rho_s \left[ \alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1} - c \right] + \lambda_{i}^{s,1} \geq 0 \ \bot \ q_{i}^{s,1} \geq 0;\ \forall i,s \label{eq:foc1a}
 \end{gather}
 
 as quantities are strictly positive, we can write
@@ -195,7 +194,7 @@ as quantities are strictly positive, we can write
 \begin{tabular}{ccc}
  \hline
 perfect competition & oligopoly &  monopoly \\
-$\alpha^s - \beta Q^{s,1}$ &  $\alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1}$    & $\alpha^s - 2* \beta Q^{s,1}$  \\
+$\alpha^s - \beta Q^{s,1}$ &  $\alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1}$    & $\alpha^s - 2\times \beta Q^{s,1}$  \\
  \hline
 \end{tabular}
 
@@ -208,8 +207,8 @@ $\alpha^s - \beta Q^{s,1}$ &  $\alpha^s - \beta q_{i}^{s,1} - \beta Q^{s,1}$    
 \begin{frame}{KKT Conditions II}
 
 \begin{gather}
-\tfrac{\partial H}{ \partial K^1_{i}}:  -\sum_{s\in S}  \lambda_{i}^{s} + u_{i}^1 \geq 0 \ \bot \ K^1_{i} \geq 0 ; \forall i,k \label{eq:foc3} \\
-\tfrac{\partial H}{ \partial I_{i}^{0}}: \Gamma - u_{i}^1 \geq 0 \ \bot \ I_{i}^{0} \geq 0 ;\forall i \label{eq:foc4}
+\tfrac{\partial \mathcal{H}}{ \partial K^1_{i}}:  -\sum_{s\in S}  \lambda_{i}^{s} + u_{i}^1 \geq 0 \ \bot \ K^1_{i} \geq 0 ; \forall i,k \label{eq:foc3} \\
+\tfrac{\partial \mathcal{H}}{ \partial I_{i}^{0}}: \Gamma - u_{i}^1 \geq 0 \ \bot \ I_{i}^{0} \geq 0 ;\forall i \label{eq:foc4}
 \end{gather}
 
 \begin{itemize}
@@ -242,9 +241,9 @@ capacities are expanded until the following holds:
 
 \end{frame}
 
-\subsection{numerical solutions}
+\subsection{Numerical Solutions}
 
-\begin{frame} {$\rho_h = \rho_l = 1$ peak load pricing}
+\begin{frame} {$\rho_h = \rho_l = 1$ Peak Load Pricing}
 					
 \begin{columns}
 \begin{column} {0.6\textwidth}
@@ -282,7 +281,7 @@ capacities are expanded until the following holds:
 \end{frame}
 
 
-\begin{frame} {two binding periods}					
+\begin{frame} {Two binding Periods}					
 \begin{columns}
 \begin{column} {0.6\textwidth}
 \begin{figure}[h]
@@ -305,7 +304,7 @@ capacities are expanded until the following holds:
 
 \end{frame}
 
-\begin{frame} {$\rho_h = \rho_l = 0.5$ competition under uncertainty}
+\begin{frame} {$\rho_h = \rho_l = 0.5$ Competition under Uncertainty}
 \begin{columns}
 \begin{column} {0.6\textwidth}
 \begin{figure}[h]

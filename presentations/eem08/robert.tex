@@ -1,4 +1,25 @@
-\begin{frame}{Tree}
+\section{Numerical Model}
+%\subsection{Overview}
+
+\begin{frame}{Numerical Model}
+  \begin{itemize}
+  \item stochastic dynamic equilibrium model
+  \item long-run economic effects of strategic investment decisions
+  \item oligopolistic market structure
+  \end{itemize}
+  \begin{itemize}
+  \item multi-stage stochastic program with recourse
+  \item uncertainty is reflected in future level of demand and strategic investment decisions 
+  \item solution as mixed complementarity problem (MCP) with GAMS and PATH solver
+   \item $S$-adapted open-loop information structure leads to Nash equilibria in each node 
+  \end{itemize}
+\end{frame}
+
+
+
+%\subsection{Scenario Tree}
+
+\begin{frame}{Scenario Tree}
 \begin{center}
 \psscalebox{0.60}{
 \psset{nodesep=0pt,labelsep=1pt,nrot=:U}
@@ -81,9 +102,9 @@ q_{i,n}^{j,m}, K_{i,n}^{j}, I_{i,n}^{j}, Q_n^m  &\geq& 0 \quad \forall i,j,m,n\l
 
 \section{The German Electricity Market}
 
-\subsection{Installed capacities}
+\subsection{Installed Capacities}
 
-\begin{frame}{Installed capacities}
+\begin{frame}{Installed Capacities}
 					
 \begin{figure}[h]
   \centering
@@ -97,9 +118,9 @@ q_{i,n}^{j,m}, K_{i,n}^{j}, I_{i,n}^{j}, Q_n^m  &\geq& 0 \quad \forall i,j,m,n\l
 
 \end{frame}
 
-\subsection{Electricity load and prices}
+\subsection{Electricity Load and Prices}
 
-\begin{frame} {Electricity load}
+\begin{frame} {Electricity Load}
 					
 \begin{figure}[h]
 \centering
@@ -111,7 +132,7 @@ q_{i,n}^{j,m}, K_{i,n}^{j}, I_{i,n}^{j}, Q_n^m  &\geq& 0 \quad \forall i,j,m,n\l
 \end{figure}
 \end{frame}
 
-\begin{frame} {Electricity prices}				
+\begin{frame} {Electricity Prices}				
 \begin{figure}[h]
 \centering
 \includegraphics[width=1.0\textwidth, angle=0]{pricequant}
@@ -123,7 +144,7 @@ q_{i,n}^{j,m}, K_{i,n}^{j}, I_{i,n}^{j}, Q_n^m  &\geq& 0 \quad \forall i,j,m,n\l
 \end{frame}
 
 \begin{frame}
-  \frametitle{Market segments}
+  \frametitle{Market Segments}
 
 \begin{center}
 \small
@@ -145,10 +166,10 @@ $100\leq p<\infty$& 176.06 & 76,482.34 & 266 & 3.04\% \\
 
 \end{frame}
 
-\subsection{Marginal and investment costs}
+\subsection{Marginal and Investment Costs}
 
 \begin{frame}
-  \frametitle{Marginal and investment costs}
+  \frametitle{Marginal and Investment costs}
 \begin{center}
   \begin{tabular}{rrr}
 \hline
@@ -178,10 +199,10 @@ Pump &         80 &       n/a\\
 
 \section{Results}
 
-\subsection{Scenario generation}
+\subsection{Scenario Generation}
 
 \begin{frame}
-  \frametitle{Scenario generation}
+  \frametitle{Scenario Generation}
 \begin{figure}[h]
   \centering
 \includegraphics[width=1\textwidth]{intercept}
@@ -216,7 +237,7 @@ Pump &         80 &       n/a\\
 
 
 \begin{frame}
-  \frametitle{Sensitivity analysis}
+  \frametitle{Sensitivity Analysis}
 
   \begin{itemize}
   \item Investment quantities in the initial node $I_{i,0}$ (in MW) with $\rho=0.025$
