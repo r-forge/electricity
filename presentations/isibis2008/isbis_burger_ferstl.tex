@@ -1,0 +1,139 @@
+\documentclass[mathserif,9pt]{beamer}
+%\documentclass{article}
+
+
+
+%\usepackage{beamerarticle}
+
+\mode<presentation>
+{
+\usetheme{Rob}
+\beamertemplatenavigationsymbolsempty
+}
+
+\usepackage{thumbpdf}
+\usepackage{wasysym}
+%\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{pstricks,pst-node, pst-tree}
+\usepackage{verbatim,bm}
+
+
+\usepackage{xcolor,eurosym}
+
+\DeclareMathOperator{\maximize}{maximize}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\V}{\mathbb{V}}
+\DeclareMathOperator{\COV}{\mathbb{COV}}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
+\let\proglang=\textsf
+
+
+\definecolor{craneblue}{RGB}{255,76,0}
+\setbeamercolor{alerted text}{fg=craneblue}
+
+\pdfinfo
+{
+  /Title       (Dynamic Estimation of the Zero-Coupon Yield Curve)
+  /Creator     (LaTeX)
+  /Author      (Robert Ferstl, Josef Hayden)
+}
+
+
+\title{Generation Capacity Investment in Oligopolistic Electricity Markets under Uncertainty}
+\subtitle{\scriptsize\vspace{0.2cm}ISBIS-2008 International Symposium on Business and Industrial Statistics\\\vspace{0.2cm}\em Prague, Czech Republic}
+%\author{Robert Ferstl}
+
+\author[Anton Burger\and Robert Ferstl]{Anton Burger\inst{1} \and Robert Ferstl\inst{1}}
+
+
+\institute[Universities Vienna and Regensburg]{
+\inst{1}Research Institute for Regulatory Economics\\
+Vienna University of Economics and Business Administration, Austria
+\and
+\inst{2}Department of Finance\\
+University of Regensburg, Germany}
+
+\date{July 1-4, 2008}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section*{}
+ \begin{frame}
+   \frametitle{Outline}
+   \tableofcontents[section=1,hidesubsections]
+ \end{frame}
+
+%  \AtBeginSection[]
+%  {
+%    \frame<handout:0>
+%    {
+%      \frametitle{Outline}
+%      \tableofcontents[currentsection,hideallsubsections]
+%    }
+%  }
+
+%  \AtBeginSubsection[]
+%  {
+%    \frame<handout:0>
+%    {
+%      \frametitle{Outline}
+%      \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
+%    }
+%  }
+
+\newcommand<>{\highlighton}[1]{%
+  \alt#2{\structure{#1}}{{#1}}
+}
+
+\newcommand{\icon}[1]{\pgfimage[height=1em]{#1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Motivation}
+
+\begin{frame}
+  \frametitle{Motivation}
+  \begin{itemize}
+  \item \euro\euro\euro
+  \item dynamic forecast of zero-coupon yield curves
+  \item useful for bond portfolio management, hedging interest rate risk, identify arbitrage opportunities, ...
+  \item further step towards arbitrage-free model with joint estimation procedure
+  \end{itemize}
+\end{frame}
+
+
+\input{isbis_burger_ferstl_content.tex}
+
+\section*{}
+
+\frame{
+  \vspace{2cm}
+  {\huge Questions ?}
+
+  \vspace{3cm}
+  \begin{flushright}
+    Anton Burger
+
+    \structure{\footnotesize{anton.burger@wu-wien.ac.at}}
+
+    Robert Ferstl
+
+    \structure{\footnotesize{robert.ferstl@wiwi.uni-regensburg.de}}
+
+  \end{flushright}
+}
+
+
+
+\end{document}
