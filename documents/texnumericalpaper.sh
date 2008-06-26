@@ -11,3 +11,4 @@ rm numericalpaper.bbl
 rm numericalpaper.dvi
 rm numericalpaper.out
 rm numericalpaper.rel
+growlnotify -m "numericalpaper.pdf is ready!"

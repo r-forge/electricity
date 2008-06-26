@@ -1,0 +1,64 @@
+\documentclass[a4paper,11pt]{scrartcl}
+%scrartcl
+%cite "`author ,year"" use square brackets 
+%\usepackage{natbib}
+
+% neue Rechtschreibung, AMSMath, AMSSymb, A4 Format
+\usepackage{amsmath,amssymb,a4wide}
+%Grafiken, Zeilenabstand
+\usepackage{graphicx} 
+\usepackage{setspace}
+%fuer mathematische Buchstabe zB. R
+\usepackage{dsfont}
+\usepackage{natbib}
+
+  
+%Absatzabstaende
+\setlength{\parindent}{0.0cm} \setlength{\parskip}{1.5ex plus
+0.5ex minus 0.5ex}
+%Zeilenabstand in Tabellen
+\renewcommand{\arraystretch}{1.2}
+
+%kopfzeile
+%\pagestyle{headings} 
+
+
+ %Bookmarks, Hyperlinks
+\usepackage[bookmarks=true, bookmarksopen=true,
+            bookmarksnumbered=true, colorlinks,citecolor = black,filecolor = black,
+            linkcolor = black,urlcolor  = black,plainpages=false,hyperindex=true]{hyperref}
+ 
+% pdf einstellungen
+\hypersetup{
+       pdftitle={},
+       pdfauthor={},
+       pdfsubject={},
+        pdfkeywords={}
+        pdfcreator={},
+       pdfproducer={}
+     }    
+ 
+\title{Peak Load Pricing and Price Caps under Imperfect Competition}
+\date{ }
+
+
+\author{Anton Burger\thanks{\href{http://www.wu-wien.ac.at/regulierung}{Institute for Regulatory Economics, Vienna University of Economics and Business Administration,} \href{mailto:anton.burger@wu-wien.ac.at}{anton.burger@wu-wien.ac.at}}\hspace{1cm}Robert Ferstl\thanks{\href{http://www-finanzierung.uni-regensburg.de/}{Department of Finance, University of Regensburg,} \href{mailto:robert.ferstl@wiwi.uni-regensburg.de}{robert.ferstl@wiwi.uni-regensburg.de}}}
+
+ 
+
+%\pagenumbering{arabic}
+%1.5 zeilenabstand%
+%\onehalfspacing
+           
+\begin{document}
+\maketitle 
+
+The contribution of this paper is that peak load pricing is combined with a two-stage game under uncertainty. It is shown that imperfect competition leads to investment withholding relative to the welfare optimal benchmark. We use a discrete time Hamiltonian that allows us to interpret the shadow prices as expected scarcity rents which themselves depend on the Cournot-Nash equilibria that clear the market. In a certain range, price caps were found to increase investments, as they mitigate the incentive to withhold investments to drive up prices whereby too low price caps led to sharp drops in investments due to the missing money problem. The model is solved numerically as a mixed complementarity problem to illustrate the results.
+
+%\cite{Diebold2006}, \cite{Christensen2007}, \cite{Duffee2007}, \cite{Caio2007}, \cite{Koopman2007} 
+
+%\bibliographystyle{chicago}
+%\nocite{*}
+%\bibliography{../../dyntermstrc}
+
+\end{document}
