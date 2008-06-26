@@ -10,7 +10,7 @@ In each time step, the market-clearing conditions lead to the solution of a Nash
 
 \subsection{Notation}
 
-We consider a multi-stage stochastic program with recourse. The discrete time periods are $t=0,\dots,T$, where the initial investment decision is taken at $t=0$, and recourse decisions can be made at the further stages to adapt to the uncertain development of the demand. We are primarily interested in the first-stage decisions, because the model would be solved on a rolling horizon basis in practice. We build a binomial scenario tree as shown in figure \ref{fig:scentree}, by using the so-called compact notation \cite[see e.g.][]{Brandimarte2006}.  At each node $n_k$ production and and investment decisions have to be taken by each oligopolist.
+We consider a multi-stage stochastic program with recourse. The discrete time periods are $t=0,\dots,T$, where the initial investment decision is taken at $t=0$, and recourse decisions can be made at the further stages to adapt to the uncertain development of the demand. We are primarily interested in the first-stage decisions, because the model would be solved on a rolling horizon basis in practice. We build a binomial scenario tree as shown in figure \ref{fig:scentree}, by using the so-called compact notation \cite[see e.g.][]{Brandimarte2006}.  At each node $n_k$ production and investment decisions have to be taken by each oligopolist.
 
 \begin{figure}[htb]
 \centering
@@ -140,7 +140,7 @@ By grouping together the KKT conditions for all firms we get a mixed complementa
 
 The model formulation consists of an $S$-adapted open loop information strucuture developed by \cite{Haurie1990}. What we have seen before is the direct approach to finding the Nash equilibria by solving for the necessary and sufficient conditions, which leads to a mixed complimentarity problem. An alternative approach would be an optimization algorithm for variational inequalities \citep[see e.g.][]{Haurie2002, Pineau2003}.
 
-The existence and uniqueness of an equilibrium is assured by using convex and twice-continuous differentiable cost functions and linear demand functions, \citep[see e.g.][]{Murphy1982}. 
+The existence and uniqueness of an equilibrium is assured by using convex and continuous differentiable cost functions and linear demand functions, \citep[see e.g.][]{Murphy1982}.
 
 
 \subsection{Scenario generation}
