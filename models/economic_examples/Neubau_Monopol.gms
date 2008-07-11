@@ -18,9 +18,9 @@ c variable kosten  /10.6 /
 
 gamma capacity costs   / 40  /
 
-PC  / 51  /
+PC  / 60   /
 
-problem Peak Load Pricing or Uncertainty? / 2   /
+problem Peak Load Pricing or Uncertainty? / 1   /
 
 alpha(s)                 /l   100
                           h   150 /

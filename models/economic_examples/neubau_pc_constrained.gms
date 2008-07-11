@@ -2,7 +2,7 @@ Set
 
 t        time     /0,1/
 s        scenario /l,h/
-i        players  /RWE, EoN, EnBW, Vatten   /
+i        players  /1, 2  /
 *
 ;
 
@@ -11,24 +11,22 @@ Alias (s,w);
 
 Scalars
 
-beta     demand function slope           /0.00765113 /
+beta     demand function slope           / 20 /
 
 Parameter
-c variable kosten  /10.6 /
+c variable kosten  /10 /
 
-gamma capacity costs   /    40  /
+gamma capacity costs   /  200  /
 
 problem Peak Load Pricing or Uncertainty? / 1   /
 
-alpha(s)                 /l  100
-                          h  150 /
+alpha(s)                 /l  2000
+                          h  1500 /
 
-K0(i) /  RWE     0
-         EoN     0
-         EnBW    0
-         Vatten  0   /
+K0(i) /  1     0
+         2     0   /
 
-PC  / 60 /
+PC  / 1000 /
 
 
 Variable
