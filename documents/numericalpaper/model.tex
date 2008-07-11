@@ -128,8 +128,8 @@ Then we obtain the both necessary and sufficient KKT conditions for optimality i
 0\leq - p_n\delta_np^m\left(\alpha_n^m-\beta^m Q_n^m-\beta^m\sum_{j^*\in \mathcal{J}}q_{i,n}^{j,m}-c_j\right) \nonumber\\
 +\lambda_{i,n}^{1,j} &\quad\bot&q_{i,n}^{j,m}\geq 0&  \quad \forall i,j,m,n\label{eq:kkt_first}\\
 0\leq p_n\delta_nF_n^{j} - \sum_{n'\in a(n)}\phi_{i,n'}^{2,j} &\quad\bot&I_{i,n}^{j}\geq 0&  \quad \forall i,j,n\in\mathcal{T}\\
-0 \leq -\sum_{m\in\mathcal{M}}\lambda_{i,n}^{1,j}  +\phi_{i,n}^{2,j} &\quad\bot&K_{i,n}^{j}\geq 0&  \quad \forall i,j,n\in\mathcal{T}\\
-0 \leq -\sum_{m\in\mathcal{M}}\lambda_{i,n}^{1,j}  +\phi_{i,n}^{2,j}-p_n\delta_nF_n^j\nu &\quad\bot&K_{i,n}^{j}\geq 0&  \quad \forall i,j,n\in\mathcal{S}\\
+0 \leq -\sum_{m\in\mathcal{M}}\lambda_{i,n}^{1,j.m}  +\phi_{i,n}^{2,j} &\quad\bot&K_{i,n}^{j}\geq 0&  \quad \forall i,j,n\in\mathcal{T}\\
+0 \leq -\sum_{m\in\mathcal{M}}\lambda_{i,n}^{1,j,m}  +\phi_{i,n}^{2,j}-p_n\delta_nF_n^j\nu &\quad\bot&K_{i,n}^{j}\geq 0&  \quad \forall i,j,n\in\mathcal{S}\\
 0\leq -q_{i,n}^{j,m} + K_{i,n}^{j} &\quad\bot&\lambda_{i,n}^{1,j,m}\geq 0&  \quad \forall i,j,m,n\\
 0 \leq -Q_n^m+\sum_{i\in \mathcal{I}}\sum_{j\in \mathcal{J}} q_{i,n}^{j,m} &\quad\bot&\phi_{n}^{1}\geq 0&  \quad \forall n\\
 0 = -K_{i,n}^{j} + (1-\rho)K_{i,a(n)}^{j}+I_{i,a(n)}^{j} &\quad\bot& \phi_{i,n}^{2,j}\,\mbox{free} & \quad \forall i,j,\nonumber\\
