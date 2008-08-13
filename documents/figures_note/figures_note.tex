@@ -1,24 +1,47 @@
 \documentclass[12pt]{article}
+\usepackage{pstricks,pst-plot}
+\usepackage{amssymb,amsmath,amstext}
 \usepackage{pstricks,pst-plot,pstricks-add}
 
 \begin{document}
 
 \begin{center} 
 \psscalebox{0.7}{
-\begin{pspicture}(0,0)(13,13) 
+\begin{pspicture}(0,0)(14,14) 
 %\psgrid[subgriddiv=1,griddots=10,gridlabels=10pt](0,0)(12,12) 
-\psaxes{->}(0,0)(13,13) 
-%\psdot*(1,5) 
-\psline[linewidth=.7mm](0,2)(2,0) 
-\psline(0,3)(6,0) 
-\psline(0,6)(3,0) 
+\psaxes{->}(0,0)(14,14)
+%\psdot*(1,5)
+\psline[linewidth=.5mm](0,2)(2,0)
+\psline(0,3)(6,0)
+\psline(0,6)(3,0)
 \psline(0,6)(12,0)
-\psline(0,11)(6,0) 
-\psline[linestyle=dashed,linewidth=.7mm](0,9)(9,0) 
-\psline(0,0)(12,12) 
-\uput[d](14,0.35){Firm 1} 
-\uput[d](0,13.8){Firm 2} 
-\psbrace[nodesepA = 40pt](0,11)(0,12){$\lambda_i^t=c_0=1$}
+\psline(0,12)(6,0)
+\psline[linewidth=.5mm](0,9)(9,0) 
+\psline[linestyle=dotted,linewidth=0.6mm](0,9.07)(6.07,3)
+\psline[linestyle=dotted,linewidth=0.6mm](6.08,3)(12.08,0)
+%\psline[linestyle=dotted,linewidth=0.6mm](0,12.07)(3,6.07)
+%\psline[linestyle=dotted,linewidth=0.6mm](3,6.07)(9.07,0)
+
+\psline{->}(5,7.2)(4,5)
+\psline{->}(9,5)(3.7,3.666)
+
+\psline[linestyle=dashed,linewidth=.1mm](0,0)(11,11)
+
+\uput[d](15,0.35){Firm 1} 
+\uput[d](0,14.6){Firm 2} 
+%\rput(2.3,0.6){$Q^1\geq Q^1(\overline{p})$}
+\rput(6.7,3.6){$Q^2\geq Q^2(\overline{p})$}
+\rput(10.5,10){$45{^\circ}$}
+\rput(0.7,7.6){$q^2_1(q^2_2)$}
+\rput(7.6,0.6){$q^2_2(q^2_1)$}
+\rput(5,7.5){possible Nash Equilibria}
+\rput(9,5.2){possible Nash Equilibria}
+
+\rput(1.8,3.8){$q^1_1(q^1_2)$}
+\rput(3.75,1.6){$q^1_2(q^1_1)$}
+
+\psbrace[nodesepA = 40pt](0,12)(0,13){$\lambda_2^2=c_0=1$}
+
 \end{pspicture} 
 }
 \end{center} 
