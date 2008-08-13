@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage{pstricks,pst-plot}
+\usepackage{pstricks,pst-plot,pstricks-add}
 
 \begin{document}
 
@@ -7,17 +7,18 @@
 \psscalebox{0.7}{
 \begin{pspicture}(0,0)(13,13) 
 %\psgrid[subgriddiv=1,griddots=10,gridlabels=10pt](0,0)(12,12) 
-\psaxes{<->}(0,0)(13,13) 
+\psaxes{->}(0,0)(13,13) 
 %\psdot*(1,5) 
 \psline[linewidth=.7mm](0,2)(2,0) 
 \psline(0,3)(6,0) 
 \psline(0,6)(3,0) 
 \psline(0,6)(12,0)
-\psline(0,12)(6,0) 
+\psline(0,11)(6,0) 
 \psline[linestyle=dashed,linewidth=.7mm](0,9)(9,0) 
 \psline(0,0)(12,12) 
 \uput[d](14,0.35){Firm 1} 
 \uput[d](0,13.8){Firm 2} 
+\psbrace[nodesepA = 40pt](0,11)(0,12){$\lambda_i^t=c_0=1$}
 \end{pspicture} 
 }
 \end{center} 
